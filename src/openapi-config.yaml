@@ -1,0 +1,8 @@
+# https://openapi-generator.tech/docs/usage/#generate
+apiPackage: Api
+artifactVersion: 1.0.0
+gitRepoId: sitoo-client
+gitUserId: spysystem
+invokerPackage: Spy\SitooClient
+modelPackage: Model
+variableNamingConvention: camelCase

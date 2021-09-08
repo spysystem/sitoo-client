@@ -1,0 +1,17 @@
+.idea
+!.idea/inspectionProfiles/*
+!.idea/php-inspections-ea-ultimate.xml
+!.idea/vcs.xml
+!.idea/php.xml
+
+.php_cs
+.travis.yml
+composer.lock
+git_push.sh
+phpunit.xml.dist
+yarn.lock
+
+/docs/
+/node_modules/
+/test/
+/vendor/
