@@ -1,0 +1,130 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: warehouseid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: start
+    in: query
+    schema:
+      type: integer
+      default: 0
+  - name: num
+    in: query
+    schema:
+      type: integer
+      default: 10
+  - name: datelastmodifiedfrom
+    in: query
+    schema:
+      type: integer
+  - name: datelastmodifiedto
+    in: query
+    schema:
+      type: integer
+  - name: sku
+    in: query
+    schema:
+      type: array
+      items:
+        type: string
+      example: /sites/{siteid}/warehouses/{warehouseid}/warehouseitems?sku=123456,23456
+  - name: fields
+    in: query
+    schema:
+      type: array
+      items:
+        type: string
+      default: warehouseitemid,sku,binlocation,decimalthreshold,decimaltotal,moneytotal,datelastmodified,datelaststocktaking
+      example: /sites/{siteid}/warehouses/{warehouseid}/warehouseitems?fields=sku,decimaltotal,datelastmodified
+get:
+  operationId: getWarehouseItems
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouses#get-warehouse-items
+  tags:
+    - Warehouses
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: datelastmodifiedfrom
+      in: query
+      schema:
+        type: integer
+    - name: datelastmodifiedto
+      in: query
+      schema:
+        type: integer
+    - name: sku
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/warehouses/{warehouseid}/warehouseitems?sku=123456,23456
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        default: warehouseitemid,sku,binlocation,decimalthreshold,decimaltotal,moneytotal,datelastmodified,datelaststocktaking
+        example: /sites/{siteid}/warehouses/{warehouseid}/warehouseitems?fields=sku,decimaltotal,datelastmodified
+  responses:
+    200:
+      description: Returns an envelope with items of type warehouseitem for a warehouse.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../schemas/getWarehouseItemsResponse.yaml'
+          example: {"totalcount":14,"items":[{"warehouseitemid":1,"sku":"10038-3","binlocation":"","decimalthreshold":"3.000","decimaltotal":"5.000","moneytotal":"19600.00","datelastmodified":1462874148,"datelaststocktaking":1462874148,"decimalreserved":"0.000","decimalavailable":"5.000"},{"warehouseitemid":2,"sku":"10038-4","binlocation":"","decimalthreshold":"3.000","decimaltotal":"5.000","moneytotal":"19600.00","datelastmodified":1462874148,"datelaststocktaking":1462874148,"decimalreserved":"0.000","decimalavailable":"5.000"}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: batchSetWarehouseItems
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouses#batch-set-warehouse-items
+  tags:
+    - Warehouses
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../../../../schemas/warehouseitem-write.yaml
+        example: [{"sku":"10038-1","binlocation":"I3:S4","decimalthreshold":"10.000"},{"sku":"10038-2","binlocation":"I3:S5","decimalthreshold":"3.000"}]
+  responses:
+    200:
+      description: Returns a batch envelope with warehouseitemid for the warehouseitems set.
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

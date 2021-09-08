@@ -1,0 +1,19 @@
+type: object
+description: Response object for gift card operations.
+properties:
+  giftcard:
+    $ref: 'giftcard-read.yaml'
+  addedtransactionids:
+    type: array
+    items:
+      type: string
+    description: An array of transactionids added by the request. (Used for rollback)
+  receipttext:
+    type: string
+    description: Optional text printed on the receipt.
+  print_voucher:
+    type: boolean
+    description: If set to true, a gift card voucher should be printed.
+  print_pin:
+    type: string
+    description: Optional PIN printed for the gift card (usually 4-6 digits).

@@ -1,0 +1,21 @@
+type: object
+description: A resource is an uploaded file.
+properties:
+  resourceid:
+    type: string
+    description: ID for the file as a relative URL (typically the filename).
+  mimetype:
+    type: string
+    description: Mime-type for the file.
+  width:
+    type: integer
+    description: Width of image in pixels (only applies to images).
+  height:
+    type: integer
+    description: Height of image in pixels (only applies to images).
+  filesize:
+    type: integer
+    description: Filesize on disk in bytes for file.
+  datecreated:
+    type: integer
+    description: Timestamp for the date that the file was created.

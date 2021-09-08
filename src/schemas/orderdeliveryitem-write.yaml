@@ -1,0 +1,12 @@
+type: object
+description: Delivery item for orderdelivery.
+required:
+  - orderitemid
+  - quantity
+properties:
+  orderitemid:
+    type: integer
+    description: Order item ID.
+  quantity:
+    type: integer
+    description: Quantity delivered.

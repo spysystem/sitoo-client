@@ -1,0 +1,20 @@
+type: object
+description: Order log item for order.
+required:
+  - orderlogtypeid
+properties:
+  datelog:
+    type: integer
+    description: Date and time of log entry.
+  orderid:
+    type: integer
+    description: Order ID.
+  orderlogtypeid:
+    type: integer
+    description: Type of order log item. All types are read only except for 900 (ReadyForPickup) and 910 (PickupRejected).
+  strvalue:
+    type: string
+    description: String value.
+  fvalue:
+    type: number
+    description: Numeric value.

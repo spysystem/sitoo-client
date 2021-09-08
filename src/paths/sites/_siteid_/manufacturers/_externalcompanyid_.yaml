@@ -1,0 +1,93 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: externalcompanyid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getManufacturer
+  description: Note that manufacturerid is named externalcompanyid in the manufacturer object.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/manufacturers#get-manufacturer
+  tags:
+    - Manufacturers
+  responses:
+    200:
+      description: Returns an item of type manufacturer.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/manufacturer-read.yaml'
+          example: {"externalcompanyid":1,"name":"Sitoo","description":"Furniture manufacturer","address":"12 Main Street","zip":"10310","city":"Townsville","state":"FL","countryid":"us","phone":"","email":"sales@sitoo.com","url1":"http://www.sitoo.com","url2":"www.sitoo.com"}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateManufacturer
+  description: Note that manufacturerid is named externalcompanyid in the manufacturer object.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/manufacturers#update-manufacturer
+  tags:
+    - Manufacturers
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../schemas/manufacturer-write.yaml
+        example: {"description":"Updated description for manufacturer"}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteManufacturer
+  description: Note that manufacturerid is named externalcompanyid in the manufacturer object.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/manufacturers#delete-manufacturer
+  tags:
+    - Manufacturers
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

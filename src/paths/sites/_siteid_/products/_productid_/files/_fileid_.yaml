@@ -1,0 +1,66 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: productid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: fileid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getProductFile
+  description: The fileid is the index of the file in the product's file list.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-images-files#get-product-file
+  tags:
+    - ProductImagesAndFiles
+  responses:
+    200:
+      description: Returns an item of type resource.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../../schemas/resource-read.yaml'
+          example: {"resourceid":"message.txt","mimetype":"text/plain","filesize":12,"datecreated":1550669772}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteProductFile
+  description: Note that only the link between the product and the file is removed. Not the file itself.The fileid is the index of the file in the product's file list.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-images-files#delete-product-file
+  tags:
+    - ProductImagesAndFiles
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

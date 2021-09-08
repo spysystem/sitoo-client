@@ -1,0 +1,66 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: orderid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getOrder
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/orders#get-order
+  tags:
+    - Orders
+  responses:
+    200:
+      description: Returns an item of type order.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/order-read.yaml'
+          example: {"orderid":11514,"eshopid":1,"externalid":null,"creditorderid":null,"checkouttypeid":0,"deliverytypeid":0,"email":"john.smith@example.com","namefirst":"John","namelast":"Smith","personalid":"","company":"Company Inc","phone":"555-1451","invoice_address":"","invoice_address2":"","invoice_zip":"","invoice_city":"","invoice_state":"","invoice_countryid":"","delivery_address":"","delivery_address2":"","delivery_zip":"","delivery_city":"","delivery_state":"","delivery_countryid":"","comment":"","commentinternal":"","customerref":"","checkoutref":"","moneytotal_net":"360.00","moneytotal_vat":"71.00","moneycheckout_net":"0.00","moneycheckout_vat":"0.00","moneytotal_gross_checkout":"0.00","moneydelivery_net":"0.00","moneydelivery_vat":"0.00","moneytotal_gross_delivery":"0.00","moneyfinal_net":"360.00","moneyfinal_vat":"71.00","moneyfinal_salestax":"0.00","moneytotal_gross_roundoff":"0.00","moneytotal_gross_all":"431.00","checkouttypename":"","checkoutmethodid":0,"checkoutmethodsubid":0,"deliverytypename":"","orderdate":1550669772,"orderstateid":0,"paymentstateid":0,"ordertypeid":10,"userid_staff":null,"registerid":null,"warehouseid":null,"datereserved":null,"currencycode":"USD","additionaldata":{},"orderitems":[{"orderitemid":0,"orderitemtype":10,"productid":14,"productname":"Sofa Cosy","sku":"10038-2","productattributes":"","externalinput":"","externalinputtitle":"","unitlabel":"","quantity":1,"decimalunitquantity":null,"moneynetpriceperunit":"100.00","moneypriceorg":"0.00","vatvalue":25,"deliveryinfo":"","moneyitemtotal_net":"100.00","moneyitemtotal_vat":"25.00","voucherid":0,"vouchercode":"","vouchername":"","moneyoriginalprice":"100.00","moneydiscountedprice":"0.00","moneydiscount":"0.00","salestaxes":[],"additionaldata":{},"decimalquantitytotal":"1.000","moneynetpriceperquantity":"100.00"},{"orderitemid":1,"orderitemtype":10,"productid":16,"productname":"Sofa Cosy","sku":"83428-0","productattributes":"","externalinput":"","externalinputtitle":"","unitlabel":"","quantity":2,"decimalunitquantity":null,"moneynetpriceperunit":"80.00","moneypriceorg":"0.00","vatvalue":25,"deliveryinfo":"","moneyitemtotal_net":"160.00","moneyitemtotal_vat":"40.00","voucherid":0,"vouchercode":"","vouchername":"","moneyoriginalprice":"100.00","moneydiscountedprice":"80.00","moneydiscount":"20.00","salestaxes":[],"additionaldata":{"orderitem-moneyrowdiscount":"50.00"},"decimalquantitytotal":"2.000","moneynetpriceperquantity":"80.00"},{"orderitemid":2,"orderitemtype":10,"productid":15,"productname":"Sofa Stressless","sku":"83537-0","productattributes":"","externalinput":"","externalinputtitle":"","unitlabel":"","quantity":1,"decimalunitquantity":null,"moneynetpriceperunit":"100.00","moneypriceorg":"0.00","vatvalue":6,"deliveryinfo":"","moneyitemtotal_net":"100.00","moneyitemtotal_vat":"6.00","voucherid":0,"vouchercode":"","vouchername":"","moneyoriginalprice":"100.00","moneydiscountedprice":"0.00","moneydiscount":"0.00","salestaxes":[],"additionaldata":{},"decimalquantitytotal":"1.000","moneynetpriceperquantity":"100.00"}],"payments":[],"orderlogitems":[{"datelog":1550669772,"orderlogtypeid":0,"strvalue":null,"fvalue":null}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateOrder
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/orders#update-order
+  tags:
+    - Orders
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../schemas/order-write.yaml
+        example: {"namefirst":"Adam","namelast":"Smith"}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

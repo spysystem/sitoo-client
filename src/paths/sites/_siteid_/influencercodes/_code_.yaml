@@ -1,0 +1,50 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: code
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: fields
+    in: query
+    schema:
+      type: array
+      items:
+        type: string
+      example: /sites/{siteid}/influencercodes/{code}?fields=code,name,voucherpassword
+get:
+  operationId: getInfluencerCode
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/influencer-codes#get-influencer-code
+  tags:
+    - InfluencerCodes
+  parameters:
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/influencercodes/{code}?fields=code,name,voucherpassword
+  responses:
+    200:
+      description: Returns an item of type influencercode.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/influencercode-read.yaml'
+          example: {"code":"SCRAPBOOK101","name":"Emily Hadfield","active":false,"datestart":null,"dateend":null,"voucherpassword":"RLFm3bef","vouchercode":null,"vouchername":"All scrapbooks 10% off","vouchercomment":null,"maxuses":1400,"numused":0,"datelastused":null,"moneyordertotal":"0.00","moneyinfluencertotal":"0.00","moneyinfluencerdiscount":"0.00"}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

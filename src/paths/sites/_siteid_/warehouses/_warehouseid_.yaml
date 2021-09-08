@@ -1,0 +1,90 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: warehouseid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getWarehouse
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouses#get-warehouse
+  tags:
+    - Warehouses
+  responses:
+    200:
+      description: Returns an item of type warehouse.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/warehouse-read.yaml'
+          example: {"warehouseid":4,"warehousetype":10,"usetype":40,"storeid":null,"sellable":true,"currencycode":"USD","name":"Reclaims","address":"","address2":"","zip":"","city":"","state":"","countryid":null,"externalid":""}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateWarehouse
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouses#update-warehouse
+  tags:
+    - Warehouses
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../schemas/warehouse-write.yaml
+        example: {"name":"Demo","usetype":20}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteWarehouse
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouses#delete-warehouse
+  tags:
+    - Warehouses
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

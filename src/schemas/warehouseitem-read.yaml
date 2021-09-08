@@ -1,0 +1,38 @@
+type: object
+description: Contains the current state of a product's stock count and stock value. Also has the bin location within the warehouse and the reordering threshold.
+required:
+  - sku
+properties:
+  warehouseitemid:
+    type: integer
+    description: The unique ID of the warehouseitem.
+  warehouseid:
+    type: integer
+    description: The ID of the warehouse this warehouseitem belongs to.
+  sku:
+    type: string
+    description: The SKU for this stock item.
+  binlocation:
+    type: string
+    description: Bin location for the stock for this warehouse.
+  decimalthreshold:
+    type: string
+    description: Threshold for ordering new stock.
+  decimaltotal:
+    type: string
+    description: Current stock level for this warehouseitem. (Read Only if not warehousetype Virtual)
+  moneytotal:
+    type: string
+    description: Current stock value for this warehouseitem. (Read Only if not warehousetype Virtual)
+  datelastmodified:
+    type: integer
+    description: The last date this warehouseitem has been part of a transaction.
+  datelaststocktaking:
+    type: integer
+    description: The last date this warehouseitem has been part of a stocktaking transaction.
+  decimalreserved:
+    type: string
+    description: Reserved stock level for this warehouseitem.
+  decimalavailable:
+    type: string
+    description: Available stock level for this warehouseitem.

@@ -1,0 +1,74 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: addProductGroup
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-groups
+  tags:
+    - ProductGroups(VAT)
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../schemas/productgroup-write.yaml
+        example: {"value":0,"productgrouptype":30,"productgroupname":"Gift Card"}
+  responses:
+    200:
+      description: Returns vatid
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getProductGroups
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-groups#get-product-groups
+  tags:
+    - ProductGroups(VAT)
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/productgroups?fields=vatid,productgroupname,value
+  responses:
+    200:
+      description: Returns an envelope with items of type productgroup.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/getProductGroupsResponse.yaml'
+          example: {"totalcount":4,"items":[{"vatid":2,"value":25,"productgrouptype":10,"productgroupname":"Common Goods","comment":"Default Sales Tax"},{"vatid":3,"value":6,"productgrouptype":10,"productgroupname":"Books","comment":""},{"vatid":5,"value":0,"productgrouptype":30,"productgroupname":"Gift Cards","comment":""},{"vatid":6,"value":25,"productgrouptype":20,"productgroupname":"Consulting","comment":""}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

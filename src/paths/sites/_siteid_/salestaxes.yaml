@@ -1,0 +1,74 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: addSalesTax
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/sales-taxes
+  tags:
+    - SalesTaxes
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../schemas/salestax-write.yaml
+        example: {"name":"Washington State Tax","decimalvaluedefault":"6.500"}
+  responses:
+    200:
+      description: Returns salestaxid
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getSalesTaxes
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/sales-taxes#get-sales-taxes
+  tags:
+    - SalesTaxes
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/salestaxes?fields=salestaxid,name,code
+  responses:
+    200:
+      description: Returns an envelope with items of type salestax.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/getSalesTaxesResponse.yaml'
+          example: {"totalcount":3,"items":[{"salestaxid":1,"name":"FL State Tax","code":null,"decimalvaluedefault":"6.000","productgrouprules":[]},{"salestaxid":2,"name":"Miami Dade County Tax","code":null,"decimalvaluedefault":"1.000","productgrouprules":[]},{"salestaxid":3,"name":"MA State Tax","code":null,"decimalvaluedefault":"6.250","productgrouprules":[{"vatid":2,"type":20,"moneymin":"175.00","moneymax":null,"decimalvalue":"6.250","externalid":"20010"}]}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

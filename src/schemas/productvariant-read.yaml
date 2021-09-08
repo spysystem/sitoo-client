@@ -1,0 +1,47 @@
+type: object
+description: Product variant data.
+required:
+  - productid
+  - activepos
+  - title
+  - sku
+  - moneyprice
+  - moneypriceorg
+  - moneypricein
+  - barcode
+  - attributes
+properties:
+  productid:
+    type: integer
+    description: The unique internal productid. It is unique over all sites in the system.
+  activepos:
+    type: boolean
+    description: If false, the product is not shown in in the POS.
+  title:
+    type: string
+    description: Title of product (ie. Product Name).
+  sku:
+    type: string
+    description: Stock Keeping Unit (ie. the article number). If entered, it needs to be unique for the site.
+  moneyprice:
+    type: string
+    description: 'Price of the product. If this field is used for setting price on a product, the price will be set for the "Default" price list. It is recommended to use the Price Lists endpoints for setting product prices instead.'
+  moneypriceorg:
+    type: string
+    description: Suggested Retail Price (SRP)
+  moneypricein:
+    type: string
+    description: Purchase price which can be used to help calculate profit on products. (Always excluding VAT)
+  barcode:
+    type: string
+    description: Barcode for the product.
+  barcodealiases:
+    type: array
+    items:
+      type: string
+    description: Barcode aliases for the product. Used if multiple barcodes exist for product.
+  attributes:
+    type: array
+    items:
+      type: string
+    description: Array of attributes (string). It corresponds to the groups array in productvariants. For each group in productvariants this array must have a value at the same index and with a value from the corresponding options array.

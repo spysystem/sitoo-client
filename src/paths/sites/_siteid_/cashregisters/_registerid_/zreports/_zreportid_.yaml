@@ -1,0 +1,40 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: registerid
+    in: path
+    schema:
+      type: string
+    required: true
+  - name: zreportid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getZReport
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/cash-registers#get-z-report
+  tags:
+    - CashRegisters
+  responses:
+    200:
+      description: Returns an item of type poszreport.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../../schemas/poszreport-read.yaml'
+          example: {"zreportid":2,"registerid":"{3CCB9848-155A-49E1-7CA8-5F7F78FC3067}","manufacturerid":"SITOO3CCB9848155A49E17CA85F7F78FC3067","registerkey":"SII0000001500001","registernumber":1,"datecreated":1587110959,"dateopened":1587110444,"eshopid":1,"store_id":"200","store_name":"Sitoo Concept Store","company":"Sitoo","companyid":"556677-8899","address":"240 W Broadway","address2":"","address3":"New York NY 10012","currencycode":"USD","staff":"Staff","staffuserid":"{441A73D1-5DA7-685D-7E40-445D90C97E9B}","comment":"","moneysalestotal":"40463.75","moneysalestotalnet":"32373.15","numsales":3,"numsalesitems":7,"vatgroupssales":[{"vatvalue":6,"moneytotal":"14.98","moneytotalnet":"14.13","moneytotalvat":"0.85"},{"vatvalue":25,"moneytotal":"40448.77","moneytotalnet":"32359.02","moneytotalvat":"8089.75"}],"productgroupssales":[{"name":"Books","vatvalue":6,"numtotal":1,"moneytotal":"14.98","moneytotalnet":"14.13","moneytotalvat":"0.85"},{"name":"Common Goods","vatvalue":25,"numtotal":6,"moneytotal":"40448.77","moneytotalnet":"32359.02","moneytotalvat":"8089.75"}],"moneyrefundtotal":"0.00","moneyrefundtotalnet":"0.00","numrefund":0,"numrefunditems":0,"vatgroupsrefund":[],"productgroupsrefund":[],"moneyroundoff":"0.00","salestaxessales":[],"salestaxesrefund":[],"moneysummarysales":"40463.75","moneysummaryrefund":"0.00","moneysummarysubtotal":"40463.75","moneysummarysalestax":"0.00","moneysummaryroundoff":"0.00","moneysummarytotal":"40463.75","paymentssales":[{"name":"Cash","moneytotal":"28673.75","subpayments":[]},{"name":"Gift Card","moneytotal":"300.00","subpayments":[]},{"name":"Other","moneytotal":"11490.00","subpayments":[]}],"paymentsrefund":[],"discountssales":[{"vouchercode":"","moneytotal":"20.00","moneytotalnet":"16.00","moneytotalvat":"4.00"},{"vouchercode":"discount-manual","moneytotal":"100.00","moneytotalnet":"80.00","moneytotalvat":"20.00"}],"discountsrefund":[],"moneycash_in":"31214.11","moneycash_salesrefunds":"28673.75","moneycash_petty":"0.00","moneycash_bank":"-10000.00","moneycash_expected":"49887.86","moneycash_counted":"49888.00","moneycash_diff":"0.14","moneycash_bankfinal":"0.00","moneycash_out":"49888.00","moneydiscount":"120.00","numsalestypeproduct":7,"numsalestypeservice":0,"numsalestypegiftcard":0,"numreceipts":3,"numopendrawer":3,"numpractice":0,"moneypractice":"0.00","moneygrandtotalsales":"71807.56","moneygrandtotalrefund":"0.00","moneygrandtotalnet":"71807.56"}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

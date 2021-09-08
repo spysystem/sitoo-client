@@ -1,0 +1,138 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: batchAddManufacturers
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/manufacturers
+  tags:
+    - Manufacturers
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../../schemas/manufacturer-write.yaml
+        example: [{"name":"Sitoo","url1":"http://www.sitoo.com"},{"name":"Example Inc.","url1":"http://www.example.com"}]
+  responses:
+    200:
+      description: Returns manufacturerid or a batch envelope if multiple manufacturers were added
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getManufacturers
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/manufacturers#get-manufacturers
+  tags:
+    - Manufacturers
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/manufacturers?fields=externalcompanyid,name
+  responses:
+    200:
+      description: Returns an envelope with items of type manufacturer.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/getManufacturersResponse.yaml'
+          example: {"totalcount":2,"items":[{"externalcompanyid":1,"name":"Cornerstone","description":"Furniture manufacturer","address":"12 Main Street","zip":"10310","city":"Townsville","state":"FL","countryid":"us","phone":"","email":"sales@sitoo.com","url1":"http://www.sitoo.com","url2":"www.sitoo.com"},{"externalcompanyid":3,"name":"Knoxville","description":"Sofa manufacturer","address":"12 Main Street","zip":"10310","city":"Townsville","state":"FL","countryid":"us","phone":"","email":"sales@sitoo.com","url1":"http://www.sitoo.com","url2":"www.sitoo.com"}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: batchUpdateManufacturers
+  description: Note that manufacturerid is named externalcompanyid in the manufacturer object.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/manufacturers#batch-update-manufacturers
+  tags:
+    - Manufacturers
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../../schemas/manufacturer-write.yaml
+        example: [{"externalcompanyid":1,"name":"Sitoo"},{"externalcompanyid":3,"name":"Example Inc."}]
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: [{"statuscode":200,"return":true},{"statuscode":200,"return":true}]
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: batchDeleteManufacturers
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/manufacturers#batch-delete-manufacturers
+  tags:
+    - Manufacturers
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+        example: [{"externalcompanyid":3}]
+  responses:
+    200:
+      description: Returns true or a batch envelope if multiple manufacturers were deleted
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

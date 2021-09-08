@@ -1,0 +1,74 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: orderid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: ignorestock
+    in: query
+    schema:
+      type: boolean
+      default: false
+post:
+  operationId: addOrderDelivery
+  description: 'See orderdelivery for fields. Required fields: warehouseid orderdeliveryitems. Required fields for order delivery items: orderitemid quantity'
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/orders#add-order-delivery
+  tags:
+    - Orders
+  parameters:
+    - name: ignorestock
+      in: query
+      schema:
+        type: boolean
+        default: false
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../../schemas/orderdelivery-write.yaml
+        example: {"warehouseid":2,"orderdeliveryref":"D123456789","orderdeliveryitems":[{"orderitemid":0,"quantity":1},{"orderitemid":1,"quantity":2},{"orderitemid":2,"quantity":1}]}
+  responses:
+    200:
+      description: Returns orderdeliveryid
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getOrderDeliveries
+  description: See orderdelivery for fields.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/orders#get-order-deliveries
+  tags:
+    - Orders
+  responses:
+    200:
+      description: Returns an envelope with items of type orderdelivery for an order.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../schemas/getOrderDeliveriesResponse.yaml'
+          example: {"totalcount":1,"items":[{"orderdeliveryid":10,"orderid":11511,"warehouseid":1,"orderdeliveryref":"","datedelivery":1463041059,"datecancelled":null,"pluginname":"","orderdeliveryitems":[{"orderdeliveryitemid":14,"orderdeliveryid":10,"orderitemid":0,"quantity":2},{"orderdeliveryitemid":15,"orderdeliveryid":10,"orderitemid":1,"quantity":1}]}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

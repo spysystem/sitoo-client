@@ -1,0 +1,20 @@
+type: object
+description: A collection of salestax used for a point of sale.
+required:
+  - name
+  - salestaxes
+properties:
+  salestaxgroupid:
+    type: integer
+    description: The ID of the sales tax group.
+  name:
+    type: string
+    description: The name of the sales tax group.
+  region:
+    type: string
+    description: The region for the sales tax group.
+  salestaxes:
+    type: array
+    items:
+      $ref: 'salestax-write.yaml'
+    description: An array of salestax applicable to this sales tax group.

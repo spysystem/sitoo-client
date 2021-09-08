@@ -1,0 +1,82 @@
+type: object
+description: The store object in Sitoo
+required:
+  - storetype
+  - name
+properties:
+  storeid:
+    type: integer
+    description: Unique ID of store in Sitoo.
+  eshopid:
+    type: integer
+    description: Eshop ID that store belongs to.
+  storetype:
+    type: integer
+    description: The type of the store
+  name:
+    type: string
+    description: The name of the store
+  externalid:
+    type: string
+    description: External ID for the store (or null).
+  externalgroupid:
+    type: string
+    description: External Grouping ID for the store (or null).
+  phone:
+    type: string
+    description: Phone number for the store (or null).
+  email:
+    type: string
+    description: Email for the store (or null).
+  address:
+    type: string
+    description: Address for the store.
+  address2:
+    type: string
+    description: Address 2 for the store.
+  zip:
+    type: string
+    description: Zip for the store.
+  city:
+    type: string
+    description: City for the store.
+  state:
+    type: string
+    description: State for the store.
+  countryid:
+    type: string
+    description: Country ID for the store (2-letter ISO 3166).
+  latitude:
+    type: string
+    description: Latitude in decimal degrees for location of store (or null).
+  longitude:
+    type: string
+    description: Longitude in decimal degrees for location of store (or null).
+  nearby_stores:
+    type: array
+    items:
+      type: string
+    description: Array of storeid (integer) for nearby stores to this store.
+  usetype_movein:
+    type: integer
+    description: Default warehouse usetype for transfers of type Move In (or null).
+  usetype_moveout:
+    type: integer
+    description: Default warehouse usetype for transfers of type Move Out (or null).
+  usetype_manualin:
+    type: integer
+    description: Default warehouse usetype for transfers of type Manual In (or null).
+  usetype_manualout:
+    type: integer
+    description: Default warehouse usetype for transfers of type Manual Out (or null).
+  usetype_shipmentin:
+    type: integer
+    description: Default warehouse usetype for transfers of type Shipment In (or null).
+  usetype_shipmentout:
+    type: integer
+    description: Default warehouse usetype for transfers of type Shipment Out (or null).
+  tags:
+    type: array
+    items:
+      type: string
+    description: Array of tags for store.

@@ -1,0 +1,11 @@
+type: object
+required:
+  - totalcount
+  - items
+properties:
+  totalcount:
+    type: integer
+  items:
+    type: array
+    items:
+      $ref: 'influencercode-read.yaml'

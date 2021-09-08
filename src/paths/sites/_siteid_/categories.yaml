@@ -1,0 +1,74 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: addCategory
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/categories
+  tags:
+    - Categories
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../schemas/category-write.yaml
+        example: {"title":"Street Classics","categoryparentid":5}
+  responses:
+    200:
+      description: Returns categoryid
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getCategories
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/categories#get-categories
+  tags:
+    - Categories
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/categories?fields=categoryid,title,categoryparentid,sortorder
+  responses:
+    200:
+      description: Returns an envelope with items of type category.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/getCategoriesResponse.yaml'
+          example: {"totalcount":40,"items":[{"categoryid":1,"categoryparentid":null,"visible":true,"sortorder":1,"custom1":"","custom2":"","friendly":"living-room","seo_title":"Feel the inspiration for a new living room","seo_keywords":"furniture, sofas, living room","seo_description":"Feel the inspiration for a new living room.\nDiscover Home & Furnishing!","title":"Living Room","datecreated":1353477229,"datemodified":1354108348},{"categoryid":2,"categoryparentid":null,"visible":true,"sortorder":5,"custom1":"","custom2":"","friendly":"brand","seo_title":"","seo_keywords":"","seo_description":"","title":"Brand","datecreated":1353477229,"datemodified":1354108461}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

@@ -1,0 +1,20 @@
+type: object
+description: Used for defining an option for vouchers of type ProductBuyXGetDiscountList.
+properties:
+  num:
+    type: integer
+    description: The number of products this discount option is valid for.
+  products:
+    type: array
+    items:
+      type: integer
+    description: Array of productids which are used to activate this option.
+  moneyprice:
+    type: string
+    description: The discounted price used, if set.
+  moneydiscount:
+    type: string
+    description: The discount given, if set.
+  decimaldiscount:
+    type: string
+    description: The discount in percentage given, if set.

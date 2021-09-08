@@ -1,0 +1,7 @@
+type: object
+description: ''
+properties:
+  label:
+    type: string
+  value:
+    type: number

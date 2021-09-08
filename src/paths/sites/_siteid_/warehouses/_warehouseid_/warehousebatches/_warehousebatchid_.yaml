@@ -1,0 +1,72 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: warehouseid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: warehousebatchid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getWarehouseBatch
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouse-batches#get-warehouse-batch
+  tags:
+    - WarehouseBatches
+  responses:
+    200:
+      description: Returns an item of type warehousebatch.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../../schemas/warehousebatch-read.yaml'
+          example: {"warehousebatchid":2,"warehouseid":1,"warehousetransactionid":null,"transactiontype":50,"datecreated":1550669775,"warehousebatchstate":10,"emailowner":"info@example.com","comment":"New Stocktaking","shipmentid":null,"externalid":null,"reasoncode":null}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateWarehouseBatch
+  description: Note! Changing the warehousebatchstate from 10 (Open) to 20 (Closed) will trigger the commit of a transaction for the batch items
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouse-batches#update-warehouse-batch
+  tags:
+    - WarehouseBatches
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../../../schemas/warehousebatch-write.yaml
+        example: {"warehousebatchstate":20,"emailowner":"info@example.com","comment":"Stocktaking has been completed!"}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

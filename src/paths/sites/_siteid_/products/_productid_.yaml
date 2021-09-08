@@ -1,0 +1,90 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: productid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getProduct
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/products#get-product
+  tags:
+    - Products
+  responses:
+    200:
+      description: Returns an item of type product.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/product-read.yaml'
+          example: {"productid":21,"sku":"54051-1","skumanufacturer":"","descriptionshort":"","description":"","descriptionhtml":"","deliverystatus":"","moneyprice":"59.00","moneypriceorg":"59.00","moneypricein":"8.00","unitlabel":"","allowdecimals":false,"deliveryinfo":"","externalinputtitle":"","offerisenabled":false,"moneyofferprice":"0.00","offertitle":"","offerdatestart":null,"offerdateend":null,"active":true,"activepos":true,"vatid":2,"deliveryclassid":1,"defaultcategoryid":49,"categories":[19,49,59],"manufacturerid":null,"manufacturerurl":"","custom1":"","custom2":"","custom3":"","custom4":"","custom5":"","stockcountenable":true,"stockallowbackorder":true,"variantparentid":21,"barcode":null,"barcodealiases":[],"similar":[13],"related":[12,14,15,16],"accessories":[],"offerisactive":false,"moneyfinalprice":"59.00","vatvalue":25,"productgrouptype":10,"pricelisthasvolume":false,"variant":[{"name":"Color","value":"Red"},{"name":"Pattern","value":"Striped"}],"friendly":"blanket-red-striped","seo_title":"Blanket","seo_keywords":"","seo_description":"","title":"Blanket Red Striped","datecreated":1373026247,"datemodified":1373026433}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateProduct
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/products#update-product
+  tags:
+    - Products
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../schemas/product-write.yaml
+        example: {"title":"Blanket Red Striped"}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteProduct
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/products#delete-product
+  tags:
+    - Products
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

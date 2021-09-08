@@ -1,0 +1,15 @@
+type: object
+description: Contains the VAT details for a poszreport.
+properties:
+  vatvalue:
+    type: number
+    description: The vat value for the vat group.
+  moneytotal:
+    type: string
+    description: The total gross money value for the vat group.
+  moneytotalnet:
+    type: string
+    description: The total net money value for the vat group.
+  moneytotalvat:
+    type: string
+    description: The total vat money value for the vat group.

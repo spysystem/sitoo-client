@@ -1,0 +1,74 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: addWarehouse
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouses
+  tags:
+    - Warehouses
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../schemas/warehouse-write.yaml
+        example: {"usetype":40,"currencycode":"USD","name":"Reclaims"}
+  responses:
+    200:
+      description: Returns warehouseid
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getWarehouses
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouses#get-warehouses
+  tags:
+    - Warehouses
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/warehouses?fields=warehouseid,name,storeid,sellable
+  responses:
+    200:
+      description: Returns an envelope with items of type warehouse.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/getWarehousesResponse.yaml'
+          example: {"totalcount":3,"items":[{"warehouseid":1,"warehousetype":10,"usetype":10,"storeid":1,"sellable":true,"name":"Warehouse 1","externalid":null},{"warehouseid":2,"warehousetype":10,"usetype":10,"storeid":null,"sellable":true,"name":"Warehouse 2","externalid":null}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

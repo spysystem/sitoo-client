@@ -1,0 +1,11 @@
+type: object
+description: Used for defining an option for vouchers of "Package" type.
+properties:
+  num:
+    type: integer
+    description: The number of products for this option that has to exists in the cart for the option to be fulfilled.
+  products:
+    type: array
+    items:
+      type: string
+    description: Array of productids representing this option.

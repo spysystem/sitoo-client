@@ -1,0 +1,75 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: addPriceList
+  description: Note! The total number of price lists allowed is limited to 100.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/price-lists
+  tags:
+    - PriceLists
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../schemas/pricelist-write.yaml
+        example: {"pricelistname":"Resellers"}
+  responses:
+    200:
+      description: Returns pricelistid
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getPriceLists
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/price-lists#get-price-lists
+  tags:
+    - PriceLists
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/pricelists?fields=pricelistid,pricelistname,tags
+  responses:
+    200:
+      description: Returns an envelope with items of type pricelist.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/getPriceListsResponse.yaml'
+          example: {"totalcount":2,"items":[{"pricelistid":1,"pricelistname":"Default Price List","pricelistdescription":"","active":true,"externalid":null,"currencycode":"USD","tags":[]},{"pricelistid":2,"pricelistname":"Secondary Price List","pricelistdescription":"","active":true,"externalid":null,"currencycode":"USD","tags":[]}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

@@ -1,0 +1,17 @@
+type: object
+description: Delivery for order.
+required:
+  - warehouseid
+  - orderdeliveryitems
+properties:
+  warehouseid:
+    type: integer
+    description: The warehouse ID used for this order delivery.
+  orderdeliveryref:
+    type: string
+    description: Delivery reference (waybill no. or similar tracking number).
+  orderdeliveryitems:
+    type: array
+    items:
+      $ref: 'orderdeliveryitem-write.yaml'
+    description: Array of delivery items for this delivery. See orderdeliveryitem for fields.

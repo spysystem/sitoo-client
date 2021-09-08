@@ -1,0 +1,12 @@
+type: object
+description: ''
+required:
+  - statuscode
+  - errortext
+properties:
+  statuscode:
+    type: integer
+    description: An http status code
+  errortext:
+    type: string
+    description: Text describing the error

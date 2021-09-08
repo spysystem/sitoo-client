@@ -1,0 +1,90 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: pricelistid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getPriceList
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/price-lists#get-price-list
+  tags:
+    - PriceLists
+  responses:
+    200:
+      description: Returns an item of type pricelist.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/pricelist-read.yaml'
+          example: {"pricelistid":3,"pricelistname":"Resellers","pricelistdescription":"","active":true,"externalid":null,"currencycode":"USD","tags":[]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updatePriceList
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/price-lists#update-price-list
+  tags:
+    - PriceLists
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../schemas/pricelist-write.yaml
+        example: {"pricelistdescription":"Pricelist for Resellers"}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deletePriceList
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/price-lists#delete-price-list
+  tags:
+    - PriceLists
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

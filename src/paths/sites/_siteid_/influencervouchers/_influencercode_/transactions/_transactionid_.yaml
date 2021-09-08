@@ -1,0 +1,40 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: influencercode
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: transactionid
+    in: path
+    schema:
+      type: integer
+    required: true
+delete:
+  operationId: deleteInfluencerVoucherTransaction
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/influencer-vouchers#delete-influencer-voucher-transaction
+  tags:
+    - InfluencerVouchers
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

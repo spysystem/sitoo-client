@@ -1,0 +1,21 @@
+type: object
+description: The influencer voucher object.
+properties:
+  influencercode:
+    type: string
+    description: The unique influencer code. Can only contain [0-9a-zA-Z&_-.]
+  influencername:
+    type: string
+    description: The name of the influencer for this code.
+  voucherpassword:
+    type: string
+    description: The password used for unlocking voucher.
+  vouchercode:
+    type: string
+    description: Override voucher code used for this influencer code or null to leave voucher code.
+  vouchername:
+    type: string
+    description: Override voucher name used for this influencer code or null to leave voucher name.
+  vouchercomment:
+    type: string
+    description: Override voucher description used for this influencer code or null to leave voucher comment.

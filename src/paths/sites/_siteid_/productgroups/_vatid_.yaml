@@ -1,0 +1,90 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: vatid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getProductGroup
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-groups#get-product-group
+  tags:
+    - ProductGroups(VAT)
+  responses:
+    200:
+      description: Returns an item of type productgroup.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/productgroup-read.yaml'
+          example: {"vatid":2,"value":25,"productgrouptype":10,"productgroupname":"Common Goods","comment":"Default Sales Tax"}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateProductGroup
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-groups#update-product-group
+  tags:
+    - ProductGroups(VAT)
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../schemas/productgroup-write.yaml
+        example: {"value":14}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteProductGroup
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-groups#delete-product-group
+  tags:
+    - ProductGroups(VAT)
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

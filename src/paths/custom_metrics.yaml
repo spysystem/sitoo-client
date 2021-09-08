@@ -1,0 +1,52 @@
+post:
+  operationId: addCustomMetric
+  description: Adds a new metric which will be immutable and can only be deleted.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/dashboard-custom-metrics
+  tags:
+    - CustomMetricsAPI
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/CustomMetric-write.yaml
+        example:
+  responses:
+    200:
+      description: Returns the added Custom Metric object.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CustomMetric-read.yaml'
+          example: {"key":"cm_revenue_total_budget","grouping":"date_store","type":"scalar","format":"money"}
+    201:
+      description: Returns the added Custom Metric object.
+    400:
+      description: Invalid request
+    401:
+      description: Unauthorized
+    500:
+      description: Internal Server Error
+get:
+  operationId: getCustomMetrics
+  description: Get list of Custom Metrics. Use filter keys to filter out specific Custom Metrics.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/dashboard-custom-metrics#get-custom-metrics
+  tags:
+    - CustomMetricsAPI
+  parameters:
+    - name: keys
+      in: query
+      schema:
+        type: string
+  responses:
+    200:
+      description: Arra  of Custom Metrics
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CustomMetric-read.yaml'
+          example: [{"key":"cm_revenue_total_budget","grouping":"date_store","type":"scalar","format":"money"}]
+    401:
+      description: Unauthorized

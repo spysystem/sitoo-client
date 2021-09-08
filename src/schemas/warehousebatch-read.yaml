@@ -1,0 +1,38 @@
+type: object
+description: All changes to a warehouse is made using transactions. To make a change, first create a warehousebatch, add batch items and then set the batch to closed. That will commit the batch and create a warehousetransaction.
+required:
+  - transactiontype
+properties:
+  warehousebatchid:
+    type: integer
+    description: The unique ID of the warehousebatch.
+  warehouseid:
+    type: integer
+    description: The warehouse ID for this warehousebatch.
+  warehousetransactionid:
+    type: integer
+    description: The warehouse transaction ID for this warehousebatch.
+  transactiontype:
+    type: integer
+    description: The type of the transaction.
+  datecreated:
+    type: integer
+    description: The creation date for this warehousebatch.
+  warehousebatchstate:
+    type: integer
+    description: The state of this warehousebatch.
+  emailowner:
+    type: string
+    description: The email for the owner of this warehousebatch.
+  comment:
+    type: string
+    description: The comment for this warehousebatch.
+  shipmentid:
+    type: integer
+    description: The ID for the shipment that is the source of this warehouse batch (if applicable).
+  externalid:
+    type: string
+    description: External ID for the warehousebatch which will be transferred to the warehouse transaction (if applicable).
+  reasoncode:
+    type: string
+    description: A reason code for the warehousebatch which will be transferred to the warehouse transaction (if applicable).

@@ -1,0 +1,51 @@
+parameters:
+  - name: key
+    in: path
+    schema:
+      type: string
+    required: true
+  - name: date
+    in: query
+    schema:
+      type: string
+  - name: num_days
+    in: query
+    schema:
+      type: string
+      default: 1
+  - name: store_id
+    in: query
+    schema:
+      type: string
+delete:
+  operationId: deleteCustomMetricValues
+  description: All values for Custom Metrics that match the filter will be deleted. Note that query parameters for date and store only filter values that are grouped on them. E.g. a metric grouped on store_id will be matched if the query param for store_id matches (regardless if query parameter for date is passed or not)
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/dashboard-custom-metrics#delete-custom-metric-values
+  tags:
+    - CustomMetricsAPI
+  parameters:
+    - name: date
+      in: query
+      schema:
+        type: string
+    - name: num_days
+      in: query
+      schema:
+        type: string
+        default: 1
+    - name: store_id
+      in: query
+      schema:
+        type: string
+  responses:
+    200:
+      description: Custom Metric Values deleted OK
+    400:
+      description: Invalid input
+    401:
+      description: Unauthorized
+    404:
+      description: Custom Metric key does not exist
+    500:
+      description: One or more of the requested items could not be deleted.

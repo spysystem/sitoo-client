@@ -1,0 +1,90 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: salestaxgroupid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getSalesTaxGroup
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/sales-taxes#get-sales-tax-group
+  tags:
+    - SalesTaxes
+  responses:
+    200:
+      description: Returns an item of type salestaxgroup.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/salestaxgroup-read.yaml'
+          example: {"salestaxgroupid":3,"name":"Miami State (General)","region":"FL","salestaxes":[{"salestaxid":1,"name":"FL State Tax","code":null,"decimalvaluedefault":"6.000","productgrouprules":[]}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateSalesTaxGroup
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/sales-taxes#update-sales-tax-group
+  tags:
+    - SalesTaxes
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../schemas/salestaxgroup-write.yaml
+        example: {"name":"Miami State (Default)"}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteSalesTaxGroup
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/sales-taxes#delete-sales-tax-group
+  tags:
+    - SalesTaxes
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

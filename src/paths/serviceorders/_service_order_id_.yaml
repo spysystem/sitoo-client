@@ -1,0 +1,51 @@
+parameters:
+  - name: service_order_id
+    in: path
+    schema:
+      type: string
+    required: true
+get:
+  operationId: getServiceOrder
+  description: Endpoint for getting service order in Sitoo Platform
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/service-orders#get-service-order
+  tags:
+    - ServiceOrders
+  responses:
+    200:
+      description: Returns the Service Order object
+    400:
+      description: Invalid request. Data sent from client is invalid
+    401:
+      description: Missing or bad authentication
+    500:
+      description: Internal Server Error
+    502:
+      description: Service Not Available
+put:
+  operationId: updateServiceOrder
+  description: Endpoint for updating service order in Sitoo Platform. A HTTP response code of 412 means that the service order has been modified with a newer version and you need to read the latest data before updating again.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/service-orders#update-service-order
+  tags:
+    - ServiceOrders
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/ServiceOrder-write.yaml
+        example: {"state":"in_progress","revision":1,"author":{"email":"anna@example.com","name":null,"employee_id":null}}
+  responses:
+    200:
+      description: Returns the Service Order object
+    400:
+      description: Invalid request. Data sent from client is invalid
+    401:
+      description: Missing or bad authentication
+    412:
+      description: Precondition Failed
+    500:
+      description: Internal Server Error
+    502:
+      description: Service Not Available

@@ -1,0 +1,88 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: warehouseid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: addWarehouseBatch
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouse-batches
+  tags:
+    - WarehouseBatches
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../../schemas/warehousebatch-write.yaml
+        example: {"transactiontype":50,"emailowner":"info@example.com","comment":"New Stocktaking"}
+  responses:
+    200:
+      description: Returns warehousebatchid
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getWarehouseBatches
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouse-batches#get-warehouse-batches
+  tags:
+    - WarehouseBatches
+  parameters:
+    - name: transactiontype
+      in: query
+      schema:
+        type: integer
+    - name: warehousebatchstate
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/warehouses/{warehouseid}/warehousebatches?fields=warehousebatchid,comment,emailowner
+  responses:
+    200:
+      description: Returns an envelope with items of type warehousebatch for a warehouse.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../schemas/getWarehouseBatchesResponse.yaml'
+          example: {"totalcount":1,"items":[{"warehousebatchid":1,"warehouseid":1,"warehousetransactionid":null,"transactiontype":10,"datecreated":1463124692,"warehousebatchstate":10,"emailowner":"","comment":"","shipmentid":null,"externalid":null,"reasoncode":null}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

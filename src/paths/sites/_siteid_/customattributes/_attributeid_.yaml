@@ -1,0 +1,78 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: attributeid
+    in: path
+    schema:
+      type: string
+    required: true
+get:
+  operationId: getCustomAttribute
+  description: Returns a custom attribute for products.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/custom-attributes#get-custom-attribute
+  tags:
+    - ProductCustomAttributes
+  responses:
+    200:
+      description: Returns the Custom Attribute Object.
+    400:
+      description: Invalid request. Data sent from client is invalid.
+    401:
+      description: Missing or bad authentication.
+    404:
+      description: The specified resource was not found.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateCustomAttribute
+  description: Update a custom attribute for products. Note that the following fields are not allowed in an update (id, type, searchable)
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/custom-attributes#update-custom-attribute
+  tags:
+    - ProductCustomAttributes
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../schemas/CustomAttribute-write.yaml
+        example: {"enums":["Cotton","Polyester","Velvet"]}
+  responses:
+    200:
+      description: Returns the updated Custom Attribute Object.
+    400:
+      description: Invalid request. Data sent from client is invalid.
+    401:
+      description: Missing or bad authentication.
+    404:
+      description: The specified resource was not found.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteCustomAttribute
+  description: Delete a custom attribute for products. Note! Attributes can only be deleted if no product values exist
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/custom-attributes#delete-custom-attribute
+  tags:
+    - ProductCustomAttributes
+  responses:
+    200:
+      description: Returns boolean true, the body can be ignored.
+    400:
+      description: Invalid request. Data sent from client is invalid.
+    401:
+      description: Missing or bad authentication.
+    404:
+      description: The specified resource was not found.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

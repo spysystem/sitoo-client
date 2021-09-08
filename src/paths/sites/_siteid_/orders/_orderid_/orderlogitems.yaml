@@ -1,0 +1,67 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: orderid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: addOrderLogItem
+  description: This endpoint is used to add log items to the order. NOTE! Check orderlogitem for types allowed to post to an order.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/orders#add-order-log-item
+  tags:
+    - Orders
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../../schemas/orderlogitem-write.yaml
+        example: {"orderlogtypeid":900}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getOrderLogItems
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/orders#get-order-log-items
+  tags:
+    - Orders
+  responses:
+    200:
+      description: Returns an envelope with items of type orderlogitem for an order.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../schemas/getOrderLogItemsResponse.yaml'
+          example: {"totalcount":4,"items":[{"datelog":1463041059,"orderid":11511,"orderlogtypeid":0,"strvalue":null,"fvalue":null},{"datelog":1463041059,"orderid":11511,"orderlogtypeid":999,"strvalue":"Register 1 (SII0000001500001)\nReceipt #10009\nStaff","fvalue":null},{"datelog":1463041059,"orderid":11511,"orderlogtypeid":70,"strvalue":null,"fvalue":10},{"datelog":1463041059,"orderid":11511,"orderlogtypeid":21,"strvalue":"Staff","fvalue":null}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

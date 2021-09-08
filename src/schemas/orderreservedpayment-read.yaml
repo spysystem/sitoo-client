@@ -1,0 +1,30 @@
+type: object
+description: Reserved payment for order.
+required:
+  - id
+  - name
+  - moneyreserved
+properties:
+  id:
+    type: string
+    description: The reference (ID) of the reserved payment
+  name:
+    type: string
+    description: The name of the reserved payment
+  moneyreserved:
+    type: string
+    description: The amount of the reserved payment
+  externalid:
+    type: string
+    description: External ID for the the reserved payment (if applicable)
+  reftype:
+    type: string
+    description: The reference type of the reserved payment (if applicable)
+  refid:
+    type: string
+    description: The reference transaction id of the reserved payment (if applicable)
+  cardissuer:
+    type: string
+    description: The card issuer (if applicable)
+  additionaldata:
+    $ref: 'orderreservedpayment-additionaldata-read.yaml'

@@ -1,0 +1,21 @@
+type: object
+description: Contains the product group details for a poszreport.
+properties:
+  name:
+    type: string
+    description: The name of the product group.
+  vatvalue:
+    type: number
+    description: The vat value for the product group.
+  numtotal:
+    type: integer
+    description: The total number of items for the product group.
+  moneytotal:
+    type: string
+    description: The total gross money value for the product group.
+  moneytotalnet:
+    type: string
+    description: The total net money value for the product group.
+  moneytotalvat:
+    type: string
+    description: The total vat money value for the product group.

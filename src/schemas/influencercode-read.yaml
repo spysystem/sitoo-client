@@ -1,0 +1,52 @@
+type: object
+description: The object for influencer codes in Sitoo
+required:
+  - code
+  - name
+  - voucherpassword
+properties:
+  code:
+    type: string
+    description: The unique influencer code. Can only contain [0-9a-zA-Z&_-.]
+  name:
+    type: string
+    description: The name of the influencer for this code.
+  active:
+    type: boolean
+    description: If true, then this influencer code is active.
+  datestart:
+    type: integer
+    description: The date used for the activation of this influencer code. No activation date if value is null.
+  dateend:
+    type: integer
+    description: The date used for the expiration of this influencer code. No expiration date if value is null.
+  voucherpassword:
+    type: string
+    description: The password used for unlocking the voucher.
+  vouchercode:
+    type: string
+    description: Value used to override vouchercode in the voucher applied for the purchase, or null to leave original value.
+  vouchername:
+    type: string
+    description: Value used to override vouchername in the voucher applied for the purchase, or null to leave original value.
+  vouchercomment:
+    type: string
+    description: Value used to override vouchercomment in voucher the voucher applied for the purchase, or null to leave original value.
+  maxuses:
+    type: integer
+    description: The maximum times the influencer code can be used or null for unlimited use.
+  numused:
+    type: integer
+    description: The number of times the influencer code has been used.
+  datelastused:
+    type: integer
+    description: The date for latest redeem of the influencer code.
+  moneyordertotal:
+    type: string
+    description: The total amount of sales for purchases where the influencer code was applied.
+  moneyinfluencertotal:
+    type: string
+    description: The total amount of sales for items affected by the influencer code.
+  moneyinfluencerdiscount:
+    type: string
+    description: The total amount of discounts given for the influencer code.

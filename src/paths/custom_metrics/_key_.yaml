@@ -1,0 +1,22 @@
+parameters:
+  - name: key
+    in: path
+    schema:
+      type: string
+    required: true
+delete:
+  operationId: deleteCustomMetric
+  description: Delete a Custom Metric and all data associated with it.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/dashboard-custom-metrics#delete-custom-metric
+  tags:
+    - CustomMetricsAPI
+  responses:
+    200:
+      description: Custom Metric deleted OK
+    401:
+      description: Unauthorized
+    404:
+      description: Custom Metric key does not exist
+    500:
+      description: An error occurred deleting Custom Metric or its values

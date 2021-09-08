@@ -1,0 +1,15 @@
+type: object
+description: An array with service items for this product
+properties:
+  sku:
+    type: string
+  name:
+    type: string
+  quantity:
+    type: integer
+  unit_price:
+    type: string
+  cost_share:
+    type: number
+  note:
+    type: string

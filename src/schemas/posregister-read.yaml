@@ -1,0 +1,51 @@
+type: object
+description: Cash register. Point of Sale (POS).
+properties:
+  registerid:
+    type: string
+    description: Unique ID for this Cash Register.
+  manufacturerid:
+    type: string
+    description: 'Manufacturer ID for this Cash Register used by the Tax Authorities (In Swedish: Tillverkningsnummer).'
+  registerkey:
+    type: string
+    description: 'Key for this Cash Register used by the Tax Authorities (In Swedish: Kassabeteckning).'
+  company:
+    type: string
+    description: Company Name.
+  companyid:
+    type: string
+    description: Company ID.
+  address:
+    type: string
+    description: Address line 1.
+  address2:
+    type: string
+    description: Address line 2.
+  zip:
+    type: string
+    description: Zip.
+  city:
+    type: string
+    description: City.
+  state:
+    type: string
+    description: State.
+  countryid:
+    type: string
+    description: Country ID (ISO 3166-1, alpha-2).
+  currencycode:
+    type: string
+    description: Currency code (ISO 4217, alpha-3).
+  receiptlanguagetag:
+    type: string
+    description: Language used for receipts printed by the Cash Register (RFC 5646, BCP 47).
+  storesettingid:
+    type: integer
+    description: The ID for the store setting used by the Cash Register.
+  warehouseid:
+    type: integer
+    description: The ID for the warehouse used by the Cash Register.
+  salestaxgroupid:
+    type: integer
+    description: The ID for the salestaxgroup used by the Cash Register.

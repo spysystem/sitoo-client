@@ -1,0 +1,35 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: registerid
+    in: path
+    schema:
+      type: string
+    required: true
+get:
+  operationId: getCashRegister
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/cash-registers#get-cash-register
+  tags:
+    - CashRegisters
+  responses:
+    200:
+      description: Returns an item of type posregister.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/posregister-read.yaml'
+          example: {"registerid":"{3CCB9848-155A-49E1-7CA8-5F7F78FC3067}","manufacturerid":"SITOO3CCB9848155A49E17CA85F7F78FC3067","registerkey":"SII0000001500001","company":"Sitoo","companyid":"556677-8899","address":"240 W Broadway","address2":"","zip":"10012","city":"New York","state":"NY","countryid":"us","currencycode":"USD","receiptlanguagetag":"en","storesettingid":1,"warehouseid":1,"salestaxgroupid":null}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

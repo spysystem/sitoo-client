@@ -1,0 +1,35 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: influencercode
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getInfluencerVoucher
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/influencer-vouchers
+  tags:
+    - InfluencerVouchers
+  responses:
+    200:
+      description: Returns and item of type influencervoucher
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/influencervoucher-read.yaml'
+          example: {"influencercode":"PREPARE4SUMMER","influencername":"Taylor Smith","voucherpassword":"Lzs5MvMr","vouchercode":null,"vouchername":null,"vouchercomment":null,"redeemable":true}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

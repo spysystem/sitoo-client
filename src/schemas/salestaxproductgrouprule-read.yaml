@@ -1,0 +1,23 @@
+type: object
+description: A sales tax rule for a specific product group.
+required:
+  - decimalvalue
+properties:
+  vatid:
+    type: integer
+    description: The VAT ID of the productgroup that this rule applies to.
+  type:
+    type: integer
+    description: The type for this rule.
+  moneymin:
+    type: string
+    description: The minimum value for this rule (if applicable).
+  moneymax:
+    type: string
+    description: The maximum value for this rule (if applicable).
+  decimalvalue:
+    type: string
+    description: The tax percentage for this rule.
+  externalid:
+    type: string
+    description: An external ID used for this rule. (e.g Product Tax Code)

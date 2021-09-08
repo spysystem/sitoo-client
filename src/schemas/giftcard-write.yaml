@@ -1,0 +1,20 @@
+type: object
+description: The gift card object.
+required:
+  - type
+  - currencycode
+properties:
+  type:
+    type: string
+    description: The type of giftcard.
+  currencycode:
+    type: string
+    description: Currency for the giftcard. (ISO 4217, alpha-3)
+  cardnumber:
+    type: string
+    description: The unique id of the gift card (card number).
+  transactions:
+    type: array
+    items:
+      $ref: 'giftcardtransaction-write.yaml'
+    description: The transactions for this gift card. An array of giftcardtransaction.

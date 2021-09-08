@@ -1,0 +1,173 @@
+type: object
+description: The Sitoo order object.
+required:
+  - ordertypeid
+properties:
+  orderid:
+    type: integer
+    description: The ID of the order. The orderid is unique for a system.
+  eshopid:
+    type: integer
+    description: The eshopid that this order belongs to.
+  externalid:
+    type: string
+    description: External ID for the order. The externalid is unique for a system and can only contain [A-Za-z0-9_-] with a length of 1-40 characters.
+  creditorderid:
+    type: integer
+    description: The ID of the order that was the source of this refund.
+  email:
+    type: string
+    description: Email.
+  namefirst:
+    type: string
+    description: First Name.
+  namelast:
+    type: string
+    description: Last Name.
+  personalid:
+    type: string
+    description: Personal Number or Organizational ID.
+  company:
+    type: string
+    description: Company Name.
+  phone:
+    type: string
+    description: Phone Number.
+  invoice_address:
+    type: string
+    description: Invoice Address.
+  invoice_address2:
+    type: string
+    description: Invoice Address 2.
+  invoice_zip:
+    type: string
+    description: Invoice Zip.
+  invoice_city:
+    type: string
+    description: Invoice City.
+  invoice_state:
+    type: string
+    description: Invoice State.
+  invoice_countryid:
+    type: string
+    description: Invoice Country ID (2-letter ISO 3166).
+  delivery_address:
+    type: string
+    description: Delivery Address.
+  delivery_address2:
+    type: string
+    description: Delivery Address 2.
+  delivery_zip:
+    type: string
+    description: Delivery Zip.
+  delivery_city:
+    type: string
+    description: Delivery City.
+  delivery_state:
+    type: string
+    description: Delivery State.
+  delivery_countryid:
+    type: string
+    description: Delivery Country ID (2-letter ISO 3166).
+  comment:
+    type: string
+    description: Order comment.
+  commentinternal:
+    type: string
+    description: Internal staff comment.
+  customerref:
+    type: string
+    description: Customer Reference.
+  checkoutref:
+    type: string
+    description: Checkout Reference (typically set by payment providers).
+  moneytotal_net:
+    type: string
+    description: Total net value for items (no checkout or payment cost is included).
+  moneytotal_vat:
+    type: string
+    description: Total vat value for items.
+  moneycheckout_net:
+    type: string
+    description: Checkout cost net value.
+  moneycheckout_vat:
+    type: string
+    description: Checkout cost vat value.
+  moneytotal_gross_checkout:
+    type: string
+    description: Total checkout value (ie. checkout_net + checkout_vat).
+  moneydelivery_net:
+    type: string
+    description: Delivery cost net value.
+  moneydelivery_vat:
+    type: string
+    description: Delivery cost vat value.
+  moneytotal_gross_delivery:
+    type: string
+    description: Total delivery value (ie. delivery_net + delivery_vat).
+  moneyfinal_net:
+    type: string
+    description: Final net value (ie. total_net + checkout_net + delivery_net).
+  moneyfinal_vat:
+    type: string
+    description: Final vat value (ie. total_vat + checkout_vat + delivery_vat).
+  moneyfinal_salestax:
+    type: string
+    description: Collected sales tax.
+  moneytotal_gross_roundoff:
+    type: string
+    description: Roundoff value if applicable.
+  moneytotal_gross_all:
+    type: string
+    description: Grand total. The sum to pay.
+  orderdate:
+    type: integer
+    description: The date of the order. In a POST request, the default is the current timestamp. Orders generated from the POS will have the date of when the transaction was made. Note! if the POS is offline when the transaction is made, then the order will be created on the backend at a later time, but the date will still be set to when the transaction was made.
+  orderstateid:
+    type: integer
+    default: 0
+    description: Order state.
+  paymentstateid:
+    type: integer
+    default: 0
+    description: Payment state.
+  ordertypeid:
+    type: integer
+    description: Order type.
+  userid_staff:
+    type: string
+    description: User ID for the staff that is responsible for the order and should get credit for it.
+  registerid:
+    type: string
+    description: Register ID of the POS client or null if Webshop order.
+  warehouseid:
+    type: integer
+    description: The ID of the warehouse that this order is registered for.
+  datereserved:
+    type: integer
+    description: The date that a warehouse stock reservation is valid until. (Null value is allowed for no reservation)
+  currencycode:
+    type: string
+    description: Currency for the order. (ISO 4217, alpha-3 uppercased) If not provided, defaults to system currency.
+  additionaldata:
+    $ref: 'order-additionaldata-read.yaml'
+  orderitems:
+    type: array
+    items:
+      $ref: 'orderitem-read.yaml'
+    description: The order items for this order. An array of orderitem.
+  payments:
+    type: array
+    items:
+      $ref: 'orderpayment-read.yaml'
+    description: The payments for this order. An array of orderpayment.
+  reservedpayments:
+    type: array
+    items:
+      $ref: 'orderreservedpayment-read.yaml'
+    description: The reserved payments for this order. An array of orderreservedpayment.
+  orderlogitems:
+    type: array
+    items:
+      $ref: 'orderlogitem-read.yaml'
+    description: The log items for this order. An array of orderlogitem.

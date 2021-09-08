@@ -1,0 +1,42 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: influencercode
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: addInfluencerVoucherTransaction
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/influencer-vouchers#add-influencer-voucher-transaction
+  tags:
+    - InfluencerVouchers
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../../schemas/influencervouchertransaction-write.yaml
+        example: {"moneyordertotal":"100.00","moneyinfluencertotal":"80.00","moneyinfluencerdiscount":"20.00","currencycode":"USD"}
+  responses:
+    200:
+      description: Returns an item of type influencervouchertransactionresponse
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../schemas/influencervouchertransactionresponse-read.yaml'
+          example: {"transactionid":"4"}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

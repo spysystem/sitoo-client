@@ -1,0 +1,66 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: addCustomAttribute
+  description: Endpoint for adding custom attributes to use for products.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/custom-attributes
+  tags:
+    - ProductCustomAttributes
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../schemas/CustomAttribute-write.yaml
+        example: {"id":"material","title":"Material","type":"string","enums":["Cotton","Polyester"],"searchable":false}
+  responses:
+    200:
+      description: Returns the Custom Attribute Object.
+    400:
+      description: Invalid request. Data sent from client is invalid.
+    401:
+      description: Missing or bad authentication.
+    404:
+      description: The specified resource was not found.
+    409:
+      description: The item already exists.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getCustomAttributes
+  description: Returns envelope with custom attributes for products. The list returned will be sorted by ID in ascending order.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/custom-attributes#get-custom-attributes
+  tags:
+    - ProductCustomAttributes
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+  responses:
+    200:
+      description: Returns a Custom Attribute Envelope Object.
+    400:
+      description: Invalid request. Data sent from client is invalid.
+    401:
+      description: Missing or bad authentication.
+    404:
+      description: The specified resource was not found.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

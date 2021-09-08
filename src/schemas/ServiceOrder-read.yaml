@@ -1,0 +1,43 @@
+type: object
+description: The Service Order
+required:
+  - store
+  - owner
+  - customer
+  - currency
+  - product
+  - author
+properties:
+  version:
+    type: string
+    description: 'The version of the data structure in the format "MAJOR.MINOR"'
+  id:
+    type: string
+    description: A globally unique id that is used for identifying the service order
+  revision:
+    type: integer
+    description: Revision number of the service order. Must be the last revision for the service order on PUT, used to ensure data consistency. On POST, it must not be present.
+  created:
+    type: integer
+    description: Timestamp when the service order was created
+  modified:
+    type: integer
+    description: Timestamp when the service order was modified
+  state:
+    type: string
+  store:
+    $ref: 'ServiceOrder-store-read.yaml'
+  owner:
+    $ref: 'ServiceOrder-owner-read.yaml'
+  customer:
+    $ref: 'ServiceOrder-customer-read.yaml'
+  currency:
+    type: string
+    description: Currency for the service order (ISO 4217, alpha-3 uppercased)
+  note:
+    type: string
+    description: The note set on the service order
+  product:
+    $ref: 'ServiceOrder-product-read.yaml'
+  author:
+    $ref: 'ServiceOrder-author-read.yaml'

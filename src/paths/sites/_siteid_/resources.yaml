@@ -1,0 +1,65 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: start
+    in: query
+    schema:
+      type: integer
+      default: 0
+  - name: num
+    in: query
+    schema:
+      type: integer
+      default: 10
+  - name: fields
+    in: query
+    schema:
+      type: array
+      items:
+        type: string
+      example: /sites/{siteid}/resources?fields=resourceid,datecreated
+get:
+  operationId: getResources
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/resources
+  tags:
+    - Resources
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/resources?fields=resourceid,datecreated
+  responses:
+    200:
+      description: Returns an envelope with items of type resource.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/getResourcesResponse.yaml'
+          example: {"totalcount":41,"items":[{"resourceid":"banner_main.jpg","mimetype":"image/jpeg","width":947,"height":430,"filesize":21117,"datecreated":1352898291},{"resourceid":"banner_main_demo.jpg","mimetype":"image/jpeg","width":1134,"height":515,"filesize":33920,"datecreated":1352898291}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

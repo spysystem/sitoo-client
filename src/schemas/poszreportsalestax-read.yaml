@@ -1,0 +1,24 @@
+type: object
+description: Contains the sales tax details for a poszreport.
+properties:
+  name:
+    type: string
+    description: The name of the sales tax.
+  code:
+    type: string
+    description: An identifier that can be used to specify the sales tax.
+  externalid:
+    type: string
+    description: A custom value to make it easier to export to external systems.
+  groupregion:
+    type: string
+    description: The region of the salestaxgroup this salestax item belongs to.
+  moneytotal:
+    type: string
+    description: The total sales the collected tax is calculated on. (ie. the sales with no tax)
+  moneytax:
+    type: string
+    description: The total net money value for this sales tax.
+  decimaltaxvalue:
+    type: string
+    description: The tax value in percent.

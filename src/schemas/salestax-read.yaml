@@ -1,0 +1,23 @@
+type: object
+description: A definition of a sales tax.
+required:
+  - name
+  - decimalvaluedefault
+properties:
+  salestaxid:
+    type: integer
+    description: The ID of the sales tax.
+  name:
+    type: string
+    description: The name of the sales tax.
+  code:
+    type: string
+    description: The code used for the sales tax.
+  decimalvaluedefault:
+    type: string
+    description: The default tax percentage for this sales tax.
+  productgrouprules:
+    type: array
+    items:
+      $ref: 'salestaxproductgrouprule-read.yaml'
+    description: An array of salestaxproductgrouprule applicable to this sales tax.

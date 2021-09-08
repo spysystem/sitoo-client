@@ -1,0 +1,85 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: productid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: addProductImage
+  description: The only field that can be set is the resourceid. Optionally you can add an image using the field filedata which needs to be a base64-encoded string.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-images-files#add-product-image
+  tags:
+    - ProductImagesAndFiles
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../../schemas/resource-write.yaml
+        example: {"resourceid":"message.gif","filedata":"R0lGODlhHwAJAPABAAAAAP///yH5BAAAAAAALAAAAAAfAAkAAAItjI+pi3AOYgyuJTnp07ZvU1WaCF5mSWFpRnIfJ0Lni8Jbi8/hrWJQr2IIh4gCADs="}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getProductImages
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-images-files#get-product-images
+  tags:
+    - ProductImagesAndFiles
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/products/{productid}/images?fields=resourceid,datecreated
+  responses:
+    200:
+      description: Returns an envelope with items of type resource for a product.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../schemas/getProductImagesResponse.yaml'
+          example: {"totalcount":3,"items":[{"resourceid":"product1_1.jpg","mimetype":"image/jpeg","width":441,"height":290,"filesize":17635,"datecreated":1352898291},{"resourceid":"product1_2.jpg","mimetype":"image/jpeg","width":441,"height":290,"filesize":33197,"datecreated":1352898291}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

@@ -1,0 +1,86 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: productid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: addProductFile
+  description: The only field that can be set is the resourceid. Optionally you can add a file using the field filedata which needs to be a base64-encoded string.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-images-files
+  tags:
+    - ProductImagesAndFiles
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../../schemas/resource-write.yaml
+        example: {"resourceid":"message.txt","filedata":"SGVsbG8gV29ybGQh"}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getProductFiles
+  description: A file is typically an associated .pdf-file or similar.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-images-files#get-product-files
+  tags:
+    - ProductImagesAndFiles
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/products/{productid}/files?fields=resourceid,datecreated
+  responses:
+    200:
+      description: Returns an envelope with items of type resource for a product.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../schemas/getProductFilesResponse.yaml'
+          example: {"totalcount":1,"items":[{"resourceid":"ProductSheet.pdf","mimetype":"application/pdf","filesize":160948,"datecreated":1352898291}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

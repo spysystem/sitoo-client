@@ -1,0 +1,38 @@
+type: object
+description: Manufacturer or brand.
+required:
+  - name
+properties:
+  name:
+    type: string
+    description: Name of manufacturer.
+  description:
+    type: string
+    description: Description.
+  address:
+    type: string
+    description: Address.
+  zip:
+    type: string
+    description: Zip.
+  city:
+    type: string
+    description: City.
+  state:
+    type: string
+    description: State / Region.
+  countryid:
+    type: string
+    description: Country ID (2-letter ISO 3166).
+  phone:
+    type: string
+    description: Phone.
+  email:
+    type: string
+    description: Email.
+  url1:
+    type: string
+    description: Home Page url.
+  url2:
+    type: string
+    description: External link url.

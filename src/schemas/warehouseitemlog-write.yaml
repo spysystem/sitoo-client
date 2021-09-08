@@ -1,0 +1,15 @@
+type: object
+description: Log item that belongs to a warehousetransaction (ie. has a product's stock count and value for a transaction).
+required:
+  - decimalquantity
+  - sku
+properties:
+  decimalquantity:
+    type: string
+    description: The change of stock in this transaction.
+  moneypricein:
+    type: string
+    description: The purchase price per item for this transaction (Not applicable for all transaction types).
+  sku:
+    type: string
+    description: The SKU for this stock item.

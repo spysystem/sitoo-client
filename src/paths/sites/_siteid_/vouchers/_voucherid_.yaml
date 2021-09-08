@@ -1,0 +1,90 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: voucherid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getVoucher
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/vouchers#get-voucher
+  tags:
+    - Vouchers
+  responses:
+    200:
+      description: Returns an item of type voucher.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/voucher-read.yaml'
+          example: {"voucherid":4,"active":true,"activepos":true,"vouchercode":"","voucherpassword":"","vouchername":"Resellers","vouchercomment":"","voucherterms":"","datecreated":1550669774,"datestart":null,"dateend":null,"tags":[],"vouchertype":200,"value_x":30,"value_y":null,"value_z":null,"money_m":null,"money_n":null,"vouchername1":null,"vouchercode1":null,"vouchername2":null,"vouchercode2":null,"maxuses":null,"priority":3,"pricelisttags":null,"vouchergrouptype":20,"voucherstate":10,"products":[],"productoptions":[],"discountoptions":[]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateVoucher
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/vouchers#update-voucher
+  tags:
+    - Vouchers
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../schemas/voucher-write.yaml
+        example: {"vouchername":"Voucher for Resellers"}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteVoucher
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/vouchers#delete-voucher
+  tags:
+    - Vouchers
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

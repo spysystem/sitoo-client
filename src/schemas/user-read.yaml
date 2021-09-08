@@ -1,0 +1,87 @@
+type: object
+description: Users are common to all sites in a system. Roles and access rights are set per site.
+required:
+  - email
+properties:
+  userid:
+    type: string
+    description: Unique ID of user.
+  email:
+    type: string
+    description: Email for user. Must be unique.
+  namefirst:
+    type: string
+    description: First name.
+  namelast:
+    type: string
+    description: Last name.
+  personalid:
+    type: string
+    description: Personal ID.
+  externalid:
+    type: string
+    description: External ID or null if not used.
+  company:
+    type: string
+    description: Company name.
+  department:
+    type: string
+    description: Department.
+  companyid:
+    type: string
+    description: Organization ID.
+  address:
+    type: string
+    description: Address.
+  address2:
+    type: string
+    description: Extra address field.
+  zip:
+    type: string
+    description: Zip or postal code.
+  city:
+    type: string
+    description: City.
+  state:
+    type: string
+    description: State or region.
+  countryid:
+    type: string
+    description: Country ID (ISO 3166-1, alpha-2).
+  phone:
+    type: string
+    description: Phone number.
+  mobile:
+    type: string
+    description: Mobile phone number.
+  notes:
+    type: string
+    description: Internal notes about the user.
+  pin:
+    type: string
+    description: Write only. Personal Identification Number (4 or 6 digits). Must be unique.
+  customernumber:
+    type: string
+    description: Customer number.
+  datecreated:
+    type: integer
+    description: Creation date.
+  datemodified:
+    type: integer
+    description: Last modified date.
+  voucherpasswords:
+    type: array
+    items:
+      type: string
+    description: Array of voucher passwords (string) used to activate campaigns for customer in Sitoo POS.
+  role:
+    type: integer
+    description: The access role for this user, or null if not applicable. (Note! Admin value is Read only)
+  warehouses:
+    type: array
+    items:
+      type: string
+    description: An array of warehouse IDs that the Store Manager or Store Staff should have access to. Other roles will not be affected by this property.
+  posrefundcard:
+    type: boolean
+    description: If true, the user has the right to perform refund for card payments in Sitoo POS.

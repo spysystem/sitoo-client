@@ -1,0 +1,66 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: productid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: imageid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getProductImage
+  description: The imageid is the index of the image among this product's images.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-images-files#get-product-image
+  tags:
+    - ProductImagesAndFiles
+  responses:
+    200:
+      description: Returns an item of type resource.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../../schemas/resource-read.yaml'
+          example: {"resourceid":"product1_2.jpg","mimetype":"image/jpeg","width":441,"height":290,"filesize":33197,"datecreated":1352898291}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteProductImage
+  description: Note that only the link between the product and the image is removed. Not the image itself.The imageid is the index of the image in the product's image list.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-images-files#delete-product-image
+  tags:
+    - ProductImagesAndFiles
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

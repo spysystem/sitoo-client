@@ -1,0 +1,16 @@
+type: object
+description: Product variants collection.
+required:
+  - groups
+  - variants
+properties:
+  groups:
+    type: array
+    items:
+      $ref: 'productvariantgroup-read.yaml'
+    description: Array of productvariantgroup.
+  variants:
+    type: array
+    items:
+      $ref: 'productvariant-read.yaml'
+    description: Array of productvariant.

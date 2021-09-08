@@ -1,0 +1,12 @@
+type: object
+description: The store that the service order belongs to
+required:
+  - id
+  - name
+properties:
+  id:
+    type: string
+    description: The ID for the store, e.g. Store Number (external ID of the Store in Sitoo)
+  name:
+    type: string
+    description: The name of the store

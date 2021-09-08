@@ -1,0 +1,91 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: categoryid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getCategory
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/categories#get-category
+  tags:
+    - Categories
+  responses:
+    200:
+      description: Returns an item of type category.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/category-read.yaml'
+          example: {"categoryid":68,"categoryparentid":5,"visible":true,"sortorder":3,"custom1":"","custom2":"","friendly":"street-classics","seo_title":"","seo_keywords":"","seo_description":"","title":"Street Classics","datecreated":1550669773,"datemodified":1550669773}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateCategory
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/categories#update-category
+  tags:
+    - Categories
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../schemas/category-write.yaml
+        example: {"title":"Jeans"}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteCategory
+  description: Note that any descendants of the category being deleted will also be deleted!
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/categories#delete-category
+  tags:
+    - Categories
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

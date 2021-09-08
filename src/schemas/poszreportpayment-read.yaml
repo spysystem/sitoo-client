@@ -1,0 +1,23 @@
+type: object
+description: Contains the payment details for a poszreport.
+properties:
+  name:
+    type: string
+    description: The name of the payment.
+  moneytotal:
+    type: string
+    description: The total money value of the payment.
+  moneycaptured:
+    type: string
+    description: The amount captured for the payment. The difference between total and captured is the reserved amount.
+  moneyinadvance:
+    type: string
+    description: The amount captured for the payment for items that were not delivered at the time of purchase (payment in advance).
+  moneyreserved:
+    type: string
+    description: The reserved amount.
+  subpayments:
+    type: array
+    items:
+      $ref: 'poszreportsubpayment-read.yaml'
+    description: A specification of different payments within the payment type (if applicable). See poszreportsubpayment for fields.

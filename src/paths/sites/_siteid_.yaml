@@ -1,0 +1,30 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getSite
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/sites#get-site
+  tags:
+    - Sites
+  responses:
+    200:
+      description: Returns an item of type site.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/site-read.yaml'
+          example: {"siteid":"{25D9C5B8-51FC-5751-7FBE-37368C7E4EF0}","protocol":"https","server":"store.mysitoo.com","abspath":"/","siteurl":"https://store.mysitoo.com/","eshopid":1}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

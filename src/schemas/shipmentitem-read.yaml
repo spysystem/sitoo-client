@@ -1,0 +1,33 @@
+type: object
+description: A shipment item is a row contained in a shipment. Can be grouped in shipmentpackage.
+properties:
+  shipmentitemid:
+    type: integer
+    description: Row ID for shipment item.
+  shipmentpackageid:
+    type: integer
+    description: Reference to shipment package that this item belongs to.
+  sku:
+    type: string
+    description: The SKU for this shipment item.
+  productname:
+    type: string
+    description: The name of the product in this shipment item.
+  unitlabel:
+    type: string
+    description: 'Unit (typically left blank) (e g "kg").'
+  decimalunitquantity:
+    type: string
+    description: Unit quantity if applicable, else null.
+  quantity:
+    type: integer
+    description: The number of units in this shipment item.
+  quantityreceived:
+    type: integer
+    description: The number of units received for this shipment.
+  moneypricein:
+    type: string
+    description: The purchase price per unit for this shipment item or null. If entered it can be used for the warehouse stock transaction resulting from the shipment.
+  externalid:
+    type: string
+    description: External ID for shipment item (if applicable).

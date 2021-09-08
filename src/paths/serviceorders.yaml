@@ -1,0 +1,69 @@
+post:
+  operationId: addServiceOrder
+  description: Endpoint for adding service order in Sitoo Platform
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/service-orders
+  tags:
+    - ServiceOrders
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/ServiceOrder-write.yaml
+        example: {"state":"new","store":{"id":"STORE111","name":"Barlay Shoe Inc"},"owner":{"email":"staff@example.com","name":"Pete"},"customer":{"first_name":"Erica","last_name":"Swansson","email":"erica@example.com","mobile":"+46701112233"},"currency":"SEK","product":[{"sku":"SHOE999","name":"Barlay Shoe","services":[{"sku":"SERVICE_HEEL","name":"Replace heel","quantity":1,"unit_price":"50.00","cost_share":0,"note":"Left foot"}]}],"author":{"email":"anna@example.com","name":null,"employee_id":null}}
+  responses:
+    201:
+      description: Returns the added Service Order object
+    400:
+      description: Invalid request. Data sent from client is invalid
+    401:
+      description: Missing or bad authentication
+    500:
+      description: Internal Server Error
+    502:
+      description: Service Not Available
+get:
+  operationId: getServiceOrders
+  description: Endpoint for getting service orders in Sitoo Platform
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/service-orders#get-service-orders
+  tags:
+    - ServiceOrders
+  parameters:
+    - name: store
+      in: query
+      schema:
+        type: string
+    - name: state
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /serviceorders?state=new,in_progress
+    - name: start_after_id
+      in: query
+      schema:
+        type: string
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: sort
+      in: query
+      schema:
+        type: string
+        default: '"-created"'
+  responses:
+    200:
+      description: Returns array of Service Order objects
+    400:
+      description: Invalid request. Data sent from client is invalid
+    401:
+      description: Missing or bad authentication
+    500:
+      description: Internal Server Error
+    502:
+      description: Service Not Available

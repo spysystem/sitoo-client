@@ -1,0 +1,24 @@
+type: object
+description: An attribute defines a custom product field.
+required:
+  - id
+  - title
+  - type
+properties:
+  id:
+    type: string
+    description: The ID of the attribute used in the API. Unique per site.
+  title:
+    type: string
+    description: The title used for the attribute values.
+  type:
+    type: string
+    description: The type of value used for the attribute
+  enums:
+    type: array
+    items:
+      type: string
+    description: An array of valid values for attribute of type string. Set to null if any value should be allowed.
+  searchable:
+    type: boolean
+    description: If true, then the attribute values should be searchable. Only allowed for attributes of type string

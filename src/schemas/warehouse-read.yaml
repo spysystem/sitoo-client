@@ -1,0 +1,49 @@
+type: object
+description: A location for stockenabled goods.
+required:
+  - usetype
+  - currencycode
+  - name
+properties:
+  warehouseid:
+    type: integer
+    description: The unique ID of the warehouse.
+  warehousetype:
+    type: integer
+    description: Type of warehouse.
+  usetype:
+    type: integer
+    description: Use type for warehouse.
+  storeid:
+    type: integer
+    description: The ID of the store that the warehouse belongs to or null if not connected to a store.
+  sellable:
+    type: boolean
+    description: Determines if the warehouse contains sellable stock.
+  currencycode:
+    type: string
+    description: The currency code used for the warehouse (3-letter ISO 4217).
+  name:
+    type: string
+    description: The name of the warehouse.
+  address:
+    type: string
+    description: Address for the warehouse.
+  address2:
+    type: string
+    description: Address 2 for the warehouse.
+  zip:
+    type: string
+    description: Zip for the warehouse.
+  city:
+    type: string
+    description: City for the warehouse.
+  state:
+    type: string
+    description: State for the warehouse.
+  countryid:
+    type: string
+    description: Country ID for the warehouse (2-letter ISO 3166).
+  externalid:
+    type: string
+    description: External ID for the warehouse.

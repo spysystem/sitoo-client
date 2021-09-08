@@ -1,0 +1,150 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: batchAddProducts
+  description: This functions allows multiple items to be sent at once, like in the example below. For each item sent in an array a response is returned.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/products
+  tags:
+    - Products
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../../schemas/product-write.yaml
+        example: [{"sku":"Q100","title":"Box","moneyprice":"99.00"},{"sku":"Q101","title":"Box Deluxe","moneyprice":"129.00"}]
+  responses:
+    200:
+      description: Returns productid or a batch envelope if multiple products were added
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getProducts
+  description: Get collection of product. Note! Only request fields that you need since some fields are calculated and can result in unnecessary lengthy operations.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/products#get-products
+  tags:
+    - Products
+  parameters:
+    - name: sku
+      in: query
+      schema:
+        type: string
+    - name: includeinactive
+      in: query
+      schema:
+        type: boolean
+        default: false
+    - name: datelastmodified
+      in: query
+      schema:
+        type: integer
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        default: productid,sku,datemodified,active,activepos,vatid,manufacturerid,stockcountenable,stockallowbackorder,barcode,moneyprice,moneyfinalprice
+        example: /sites/{siteid}/products?fields=productid,sku
+  responses:
+    200:
+      description: Returns an envelope with items of type product.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/getProductsResponse.yaml'
+          example: {"totalcount":18,"items":[{"productid":12,"sku":"10038-1","moneyprice":"10392.00","title":"Sofa Grand III"},{"productid":13,"sku":"10038-5","moneyprice":"10392.00","title":"Kitchen Table"},{"productid":14,"sku":"10038-2","moneyprice":"10392.00","title":"Sofa Cosy"},{"productid":15,"sku":"83537-0","moneyprice":"7592.00","title":"Sofa Stressless"},{"productid":16,"sku":"83428-0","moneyprice":"6392.00","title":"Sofa Modern"}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: batchUpdateProducts
+  description: Send an array of object. Note that the productid must be added as a field for each item.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/products#batch-update-products
+  tags:
+    - Products
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../../schemas/product-write.yaml
+        example: [{"productid":12,"moneyprice":"990.00"},{"productid":13,"moneyprice":"1290.00"}]
+  responses:
+    200:
+      description: Returns true or a batch envelope if multiple products were updated
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: batchDeleteProducts
+  description: 'See product for fields.Required fields:productid'
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/products#batch-delete-products
+  tags:
+    - Products
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+        example: [{"productid":18},{"productid":19}]
+  responses:
+    200:
+      description: Returns true or a batch envelope if multiple products were deleted
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

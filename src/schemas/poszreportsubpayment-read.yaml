@@ -1,0 +1,18 @@
+type: object
+description: Contains the details for a sub payment of poszreportpayment.
+properties:
+  name:
+    type: string
+    description: The name of the sub payment.
+  moneysubtotal:
+    type: string
+    description: The money value of the sub payment.
+  moneycaptured:
+    type: string
+    description: The amount captured for the payment. The difference between total and captured is the reserved amount.
+  moneyinadvance:
+    type: string
+    description: The amount captured for the payment for items that were not delivered at the time of purchase (payment in advance).
+  moneyreserved:
+    type: string
+    description: The reserved amount.

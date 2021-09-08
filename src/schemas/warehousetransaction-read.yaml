@@ -1,0 +1,39 @@
+type: object
+description: All changes to a warehouse is made using transactions.
+required:
+  - warehouseid
+  - transactiontype
+  - items
+properties:
+  warehousetransactionid:
+    type: integer
+    description: The unique ID of the warehousetransaction.
+  warehouseid:
+    type: integer
+    description: The ID of the warehouse that this warehousetransaction belongs to.
+  datecreated:
+    type: integer
+    description: The date when the transaction was created.
+  transactiontype:
+    type: integer
+    description: The type of the transaction. (Sales, Refund and StockTaking are read only)
+  description:
+    type: string
+    description: A description of the transaction.
+  orderdeliveryid:
+    type: integer
+    description: The ID for the orderdelivery that created this transaction (if applicable, otherwise null).
+  shipmentid:
+    type: integer
+    description: The ID for the shipment that created this transaction (if applicable, otherwise null).
+  externalid:
+    type: string
+    description: External ID for the warehouse transaction (if applicable, otherwise null).
+  reasoncode:
+    type: string
+    description: A reason code for the warehouse transaction (if applicable, otherwise null).
+  items:
+    type: array
+    items:
+      $ref: 'warehouseitemlog-read.yaml'
+    description: Array of warehouseitemlog.

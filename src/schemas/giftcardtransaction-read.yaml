@@ -1,0 +1,23 @@
+type: object
+description: Gift card transaction object.
+required:
+  - moneyamount
+properties:
+  transactionid:
+    type: string
+    description: The unique id of this transaction.
+  date:
+    type: integer
+    description: The date that this transaction occurred.
+  moneyamount:
+    type: string
+    description: Money added or subtracted by this transaction.
+  merchant_reference:
+    type: string
+    description: Optional merchant/store reference for this transaction.
+  staff_reference:
+    type: string
+    description: Optional staff reference for this transaction.
+  transaction_reference:
+    type: string
+    description: Optional reference for this transaction. (Sitoo POS will send receipt ID in this field)

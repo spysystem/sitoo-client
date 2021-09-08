@@ -1,0 +1,25 @@
+type: object
+description: Use price lists to set different prices for products.
+required:
+  - pricelistname
+properties:
+  pricelistname:
+    type: string
+    description: Price list name.
+  pricelistdescription:
+    type: string
+    description: Price list description.
+  active:
+    type: boolean
+    description: If true, the price list is active.
+  externalid:
+    type: string
+    description: External ID of price list (if applicable, otherwise null).
+  currencycode:
+    type: string
+    description: Currency of the price list (ISO 4217, alpha-3 uppercased).
+  tags:
+    type: array
+    items:
+      type: string
+    description: The tags for this price list. Tags can be used to only apply the pricelist for certain stores or campaigns.

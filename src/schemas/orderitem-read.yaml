@@ -1,0 +1,100 @@
+type: object
+description: Order item for order.
+required:
+  - productname
+  - quantity
+properties:
+  orderitemid:
+    type: integer
+    description: Order item ID.
+  orderitemtype:
+    type: integer
+    default: 10
+    description: Order item type.  Note that item of type Discount needs to be preceded by one of type Product (to which it belongs) and the field moneyrowdiscount should be used to set the value of the discount.
+  productid:
+    type: integer
+    description: Product ID. Backlink to a product. NOTE! The product ID may no longer exist in the system.
+  productname:
+    type: string
+    description: Product Name. The title for the product at the time of the order.
+  sku:
+    type: string
+    description: Stock-keeping unit (ie. the article number) for the product at the time of the order.
+  productattributes:
+    type: string
+    description: 'Product variant data (eg. "Color: Red, Size: M") for the product at the time of the order.'
+  externalinput:
+    type: string
+    description: Text entered by buyer (eg. text on a custom made t-shirt).
+  externalinputtitle:
+    type: string
+    description: 'Title for text entered by buyer (eg. "Your t-shirt text").'
+  unitlabel:
+    type: string
+    description: 'Unit (typically empty) (eg. "kg").'
+  quantity:
+    type: integer
+    description: Quantity, the number of items.
+  decimalunitquantity:
+    type: string
+    description: Unit quantity if applicable, else null
+  moneynetpriceperunit:
+    type: string
+    description: Net price per unit.
+  moneypriceorg:
+    type: string
+    description: Regular net price of product per unit. (Suggested Retail Price)
+  vatvalue:
+    type: number
+    default: 0
+    description: VAT percentage.
+  deliveryinfo:
+    type: string
+    description: Delivery info is information sent to the customer after the purchase.
+  moneyitemtotal_net:
+    type: string
+    description: Net total (eg. $netpriceperunit * quantity).
+  moneyitemtotal_vat:
+    type: string
+    description: Vat total.
+  vouchercode:
+    type: string
+    description: Voucher code.
+  vouchername:
+    type: string
+    description: Voucher name. The name shown when the code is applied.
+  vouchercomment:
+    type: string
+    description: Voucher comment.
+  vouchervalue:
+    type: number
+    default: 0
+    description: Value of voucher. Percentage or fixed sum depending on ispercentage.
+  moneyoriginalprice:
+    type: string
+    description: Original price net per unit.
+  moneydiscountedprice:
+    type: string
+    description: Discounted price per unit. Only set if moneyoriginalprice is set.
+  moneydiscount:
+    type: string
+    description: Discount value per unit. Only set if moneyoriginalprice is set.
+  salestaxes:
+    type: array
+    items:
+      $ref: 'orderitemsalestax-read.yaml'
+    description: Array of orderitemsalestax applied to this orderitem.
+  additionaldata:
+    $ref: 'orderitem-additionaldata-read.yaml'
+  decimalquantitytotal:
+    type: string
+    description: Extended field. The total quantity. i.e. quantity x decimalunitquantity (or 1 if null)
+  moneynetpriceperquantity:
+    type: string
+    description: Extended field. Net price per quantity. i.e. moneynetpriceperunit x decimalunitquantity (or 1 if null)
+  moneyrowprice:
+    type: string
+    description: Total Row Price. (Only used for POST/PUT)
+  moneyrowdiscount:
+    type: string
+    description: Total Row Discount. (Only used for POST/PUT)

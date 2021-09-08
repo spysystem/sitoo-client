@@ -1,0 +1,19 @@
+type: object
+description: ''
+required:
+  - key
+properties:
+  key:
+    type: string
+    description: The name of the Custom Metric
+  date:
+    type: string
+    description: Required if metric grouping is date or date_store
+  store_id:
+    type: string
+    description: Required if metric grouping is store or date_store
+  value_scalar:
+    type: number
+    description: Value. Set if metric type is scalar
+  value_series:
+    $ref: 'CustomMetricValue-value_series-write.yaml'

@@ -1,0 +1,88 @@
+type: object
+description: Vouchers are used for creating campaigns.
+required:
+  - vouchername
+  - vouchertype
+properties:
+  activepos:
+    type: boolean
+    description: If true then this voucher is active in the POS.
+  vouchercode:
+    type: string
+    description: Code used for this voucher. (Used for grouping vouchers in reports and stats)
+  voucherpassword:
+    type: string
+    description: Optional password used for this voucher.
+  vouchername:
+    type: string
+    description: Name of this voucher.
+  vouchercomment:
+    type: string
+    description: Internal description for this voucher.
+  datestart:
+    type: integer
+    description: The start date for the validity of this voucher. No start date if value is null.
+  dateend:
+    type: integer
+    description: The end date for the validity of this voucher. No end date if value is null.
+  tags:
+    type: array
+    items:
+      type: string
+    description: The tags for this voucher. If added, then the voucher will only be applied for stores with the same tags.
+  vouchertype:
+    type: integer
+    description: Voucher Type
+  value_x:
+    type: integer
+    description: The X value (integer) used for calculations on the voucher.
+  value_y:
+    type: integer
+    description: The Y value (integer) used for calculations on the voucher.
+  value_z:
+    type: integer
+    description: The Z value (integer) used for calculations on the voucher.
+  money_m:
+    type: string
+    description: The M value (money) used for calculations on the voucher.
+  money_n:
+    type: string
+    description: The N value (money) used for calculations on the voucher.
+  vouchername1:
+    type: string
+    description: The vouchername used when voucher of type ProductBuy3For2Or2For1AndAHalf has triggered a 3 for 2 discount.
+  vouchercode1:
+    type: string
+    description: The vouchercode used when voucher of type ProductBuy3For2Or2For1AndAHalf has triggered a 3 for 2 discount.
+  vouchername2:
+    type: string
+    description: The vouchername used when voucher of type ProductBuy3For2Or2For1AndAHalf has triggered a 2 for 1.5 discount.
+  vouchercode2:
+    type: string
+    description: The vouchercode used when voucher of type ProductBuy3For2Or2For1AndAHalf has triggered a 2 for 1.5 discount.
+  maxuses:
+    type: integer
+    description: The maximum number of times the voucher can be applied for a purchase.
+  priority:
+    type: integer
+    description: The priority of the voucher where 1 is highest and 5 is lowest.
+  pricelisttags:
+    type: array
+    items:
+      type: string
+    description: These tags are used to activate price lists with the same tags.
+  products:
+    type: array
+    items:
+      type: integer
+    description: An array of product ID.
+  productoptions:
+    type: array
+    items:
+      $ref: 'voucherproductoption-write.yaml'
+    description: An array of voucherproductoption used for vouchers of Package group type. Each option of the array must be fulfilled for the voucher to be applied.
+  discountoptions:
+    type: array
+    items:
+      $ref: 'voucherdiscountoption-write.yaml'
+    description: An array of voucherdiscountoption used for vouchers of type ProductBuyXGetDiscountList. Each discount option can be used if the products required have been added to the cart.

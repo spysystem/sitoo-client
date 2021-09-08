@@ -1,0 +1,127 @@
+type: object
+description: The main product object. Note that stock values are retrieved using the warehouse endpoints.
+required:
+  - sku
+properties:
+  productid:
+    type: integer
+    description: The unique internal productid. It is unique over all sites in the system.
+  sku:
+    type: string
+    description: Stock Keeping Unit (ie. the article number). Should only contain [A-Za-z0-9_+-/].
+  skumanufacturer:
+    type: string
+    description: The Stock Keeping Unit (SKU) for the manufacturer.
+  descriptionshort:
+    type: string
+    description: A short description, typically used in product lists etc.
+  description:
+    type: string
+    description: The main description of the product.
+  moneyprice:
+    type: string
+    description: 'Price of the product. If this field is used for setting price on a product, the price will be set for the "Default" price list. It is recommended to use the Price Lists endpoints for setting product prices instead.'
+  moneypriceorg:
+    type: string
+    description: Suggested Retail Price (SRP)
+  moneypricein:
+    type: string
+    description: Purchase price which can be used to help calculate profit on products. (Always excluding VAT)
+  unitlabel:
+    type: string
+    description: 'Unit label (eg. "pcs", "kg"). Default is an empty string.'
+  allowdecimals:
+    type: boolean
+    description: Set this if the product can be purchased with fractional quantity.
+  deliveryinfo:
+    type: string
+    description: Delivery information that can be provided to the customer after the purchase.
+  activepos:
+    type: boolean
+    default: true
+    description: If false, the product is not shown in in the POS.
+  vatid:
+    type: integer
+    default: 2
+    description: The reference to which Product Group the product belongs to. The Product Group also determines VAT. See productgroup for more information.
+  defaultcategoryid:
+    type: integer
+    description: Default category for the product. If set to a category then the value will also be added to categories. If set to null, then the previous value will be removed from categories.
+  categories:
+    type: array
+    items:
+      type: string
+    description: 'Array of category ID:s that the product belongs to.'
+  manufacturerid:
+    type: integer
+    description: The reference to the manufacturer.
+  manufacturerurl:
+    type: string
+    description: Manufacturer's url for the product.
+  custom1:
+    type: string
+    description: Custom field 1.
+  custom2:
+    type: string
+    description: Custom field 2.
+  custom3:
+    type: string
+    description: Custom field 3.
+  custom4:
+    type: string
+    description: Custom field 4.
+  custom5:
+    type: string
+    description: Custom field 5.
+  stockcountenable:
+    type: boolean
+    default: true
+    description: Turns on/off stock handling for the product.
+  variantparentid:
+    type: integer
+    description: If null then it is a single product, otherwise it is a variant. Variantparentid refers to the owning parent's productid. The product which has a self reference (ie. the variantparentid is same as the produtid) is the main variant (ie. the owner).
+  barcode:
+    type: string
+    description: Barcode for the product.
+  barcodealiases:
+    type: array
+    items:
+      type: string
+    description: Barcode aliases for the product. Used if multiple barcodes exist for product.
+  similar:
+    type: array
+    items:
+      type: string
+    description: 'Array of product ID:s for products that are similar to this one. (Only applicable to regular products and main product variants)'
+  related:
+    type: array
+    items:
+      type: string
+    description: 'Array of product ID:s for products that are related to this one. (Only applicable to regular products and main product variants)'
+  accessories:
+    type: array
+    items:
+      type: string
+    description: 'Array of product ID:s for products that are accessories to this one. (Only applicable to regular products and main product variants)'
+  vatvalue:
+    type: number
+    description: The VAT in percentage.
+  productgrouptype:
+    type: integer
+    description: The product group type.
+  variant:
+    type: array
+    items:
+      type: object
+    description: Array of variant items.
+  customattributes:
+    $ref: 'product-customattributes-read.yaml'
+  title:
+    type: string
+    description: Title of product (ie. Product Name).
+  datecreated:
+    type: integer
+    description: Timestamp when the product was created.
+  datemodified:
+    type: integer
+    description: Timestamp when the product was last modified.

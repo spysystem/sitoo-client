@@ -1,0 +1,15 @@
+type: object
+description: Series. Set if metric type is series
+required:
+  - total_count
+  - total_value
+  - series
+properties:
+  total_count:
+    type: integer
+    description: The total number of items for the series (The returned series may not include all items)
+  total_value:
+    type: number
+    description: The total value for the series (The actual series may not include all values)
+  series:
+    $ref: 'CustomMetricValue-value_series-series-read.yaml'

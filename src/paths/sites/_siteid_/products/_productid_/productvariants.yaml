@@ -1,0 +1,67 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: productid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getProductVariants
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-variants
+  tags:
+    - ProductVariants
+  responses:
+    200:
+      description: Returns an item of type productvariants. This item contains all variants for the product.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../schemas/productvariants-read.yaml'
+          example: {"groups":[{"name":"Color","options":["Red","Blue"]},{"name":"Pattern","options":["Striped","Plaid"]}],"variants":[{"productid":21,"active":true,"activepos":true,"title":"Blanket Red Striped","sku":"54051-1","deliverystatus":"","moneyprice":"59.00","moneypriceorg":"59.00","moneypricein":"8.00","moneyofferprice":"0.00","barcode":null,"barcodealiases":[],"friendly":"blanket-red-striped","attributes":["Red","Striped"],"pricelisthasvolume":false},{"productid":22,"active":true,"activepos":true,"title":"Blanket Red Plaid","sku":"54051-2","deliverystatus":"","moneyprice":"69.00","moneypriceorg":"69.00","moneypricein":"12.00","moneyofferprice":"0.00","barcode":null,"barcodealiases":[],"friendly":"blanket-red-plaid","attributes":["Red","Plaid"],"pricelisthasvolume":false},{"productid":23,"active":true,"activepos":true,"title":"Blanket Blue Plaid","sku":"54051-3","deliverystatus":"","moneyprice":"69.00","moneypriceorg":"69.00","moneypricein":"12.00","moneyofferprice":"0.00","barcode":null,"barcodealiases":[],"friendly":"blanket-blue-plaid","attributes":["Blue","Plaid"],"pricelisthasvolume":false}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: setProductVariants
+  description: Note that current variants will either be replaced or deleted with the new variants.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/product-variants#set-product-variants
+  tags:
+    - ProductVariants
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../../schemas/productvariants-write.yaml
+        example: {"groups":[{"name":"Color","options":["Red","Purple"]}],"variants":[{"productid":21,"active":true,"activepos":true,"title":"Blanket Red","sku":"54051-1","deliverystatus":"","moneyprice":"59.00","moneypriceorg":"59.00","moneypricein":"8.00","moneyofferprice":"0.00","barcode":"","friendly":"blanket-red","attributes":["Red"]},{"productid":0,"active":true,"activepos":true,"title":"Blanket Purple","sku":"54051-10","deliverystatus":"","moneyprice":"189.00","moneypriceorg":"0.00","moneypricein":"8.00","moneyofferprice":"0.00","barcode":"","friendly":"blanket-purple","attributes":["Purple"]}]}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

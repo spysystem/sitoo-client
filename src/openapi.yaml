@@ -1,0 +1,301 @@
+openapi: "3.0.0"
+
+info:
+  title: API Documentation for Sitoo
+  version: 1.0.0
+  description: Client for integrating to Sitoo
+
+servers:
+  - url: https://api.mysitoo.com/v2/accounts/{accountid}
+    variables:
+      accountid:
+        default: '1500'
+        description: Account no of system
+
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: bearer
+
+tags:
+  - name: CashRegisters
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/cash-registers
+  - name: Categories
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/categories
+  - name: CustomMetricsAPI
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/dashboard-custom-metrics
+  - name: GiftCards
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/gift-cards
+  - name: InfluencerCodes
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/influencer-codes
+  - name: InfluencerVouchers
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/influencer-vouchers
+  - name: Manufacturers
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/manufacturers
+  - name: Orders
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/orders
+  - name: PriceLists
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/price-lists
+  - name: ProductCustomAttributes
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/custom-attributes
+  - name: ProductGroups(VAT)
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/product-groups
+  - name: ProductImagesAndFiles
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/product-images-files
+  - name: ProductVariants
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/product-variants
+  - name: Products
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/products
+  - name: Resources
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/resources
+  - name: ReasonCodes
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/reason-codes
+  - name: SalesTaxes
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/sales-taxes
+  - name: ServiceOrders
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/service-orders
+  - name: Shipments
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/shipments
+  - name: Sites
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/sites
+  - name: Stores
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/stores
+  - name: Vouchers
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/vouchers
+  - name: Users
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/users
+  - name: WarehouseBatches
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/warehouse-batches
+  - name: WarehouseTransactions
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/warehouse-transactions
+  - name: Warehouses
+    externalDocs:
+      url: https://developer.sitoo.com/api-reference/warehouses
+
+paths:
+  /accounts/{accountid}/sites/{siteid}/giftcards:
+    $ref: 'paths/accounts/_accountid_/sites/_siteid_/giftcards.yaml'
+
+  /accounts/{accountid}/sites/{siteid}/giftcards/{cardnumber}:
+    $ref: 'paths/accounts/_accountid_/sites/_siteid_/giftcards/_cardnumber_.yaml'
+
+  /accounts/{accountid}/sites/{siteid}/giftcards/{cardnumber}/transactions:
+    $ref: 'paths/accounts/_accountid_/sites/_siteid_/giftcards/_cardnumber_/transactions.yaml'
+
+  /custom_metric_values:
+    $ref: 'paths/custom_metric_values.yaml'
+
+  /custom_metric_values/{key}:
+    $ref: 'paths/custom_metric_values/_key_.yaml'
+
+  /custom_metrics:
+    $ref: 'paths/custom_metrics.yaml'
+
+  /custom_metrics/{key}:
+    $ref: 'paths/custom_metrics/_key_.yaml'
+
+  /orders:
+    $ref: 'paths/orders.yaml'
+
+  /reasoncodes:
+    $ref: 'paths/reasoncodes.yaml'
+
+  /reasoncodes/{reasoncodeid}:
+    $ref: 'paths/reasoncodes/_reasoncodeid_.yaml'
+
+  /serviceorders:
+    $ref: 'paths/serviceorders.yaml'
+
+  /serviceorders/{service_order_id}:
+    $ref: 'paths/serviceorders/_service_order_id_.yaml'
+
+  /shipments:
+    $ref: 'paths/shipments.yaml'
+
+  /shipments/{shipmentid}:
+    $ref: 'paths/shipments/_shipmentid_.yaml'
+
+  /sites:
+    $ref: 'paths/sites.yaml'
+
+  /sites/{siteid}:
+    $ref: 'paths/sites/_siteid_.yaml'
+
+  /sites/{siteid}/cashregisters:
+    $ref: 'paths/sites/_siteid_/cashregisters.yaml'
+
+  /sites/{siteid}/cashregisters/{registerid}:
+    $ref: 'paths/sites/_siteid_/cashregisters/_registerid_.yaml'
+
+  /sites/{siteid}/cashregisters/{registerid}/zreports:
+    $ref: 'paths/sites/_siteid_/cashregisters/_registerid_/zreports.yaml'
+
+  /sites/{siteid}/cashregisters/{registerid}/zreports/{zreportid}:
+    $ref: 'paths/sites/_siteid_/cashregisters/_registerid_/zreports/_zreportid_.yaml'
+
+  /sites/{siteid}/categories:
+    $ref: 'paths/sites/_siteid_/categories.yaml'
+
+  /sites/{siteid}/categories/{categoryid}:
+    $ref: 'paths/sites/_siteid_/categories/_categoryid_.yaml'
+
+  /sites/{siteid}/customattributes:
+    $ref: 'paths/sites/_siteid_/customattributes.yaml'
+
+  /sites/{siteid}/customattributes/{attributeid}:
+    $ref: 'paths/sites/_siteid_/customattributes/_attributeid_.yaml'
+
+  /sites/{siteid}/influencercodes:
+    $ref: 'paths/sites/_siteid_/influencercodes.yaml'
+
+  /sites/{siteid}/influencercodes/{code}:
+    $ref: 'paths/sites/_siteid_/influencercodes/_code_.yaml'
+
+  /sites/{siteid}/influencervouchers/{influencercode}:
+    $ref: 'paths/sites/_siteid_/influencervouchers/_influencercode_.yaml'
+
+  /sites/{siteid}/influencervouchers/{influencercode}/transactions:
+    $ref: 'paths/sites/_siteid_/influencervouchers/_influencercode_/transactions.yaml'
+
+  /sites/{siteid}/influencervouchers/{influencercode}/transactions/{transactionid}:
+    $ref: 'paths/sites/_siteid_/influencervouchers/_influencercode_/transactions/_transactionid_.yaml'
+
+  /sites/{siteid}/manufacturers:
+    $ref: 'paths/sites/_siteid_/manufacturers.yaml'
+
+  /sites/{siteid}/manufacturers/{externalcompanyid}:
+    $ref: 'paths/sites/_siteid_/manufacturers/_externalcompanyid_.yaml'
+
+  /sites/{siteid}/orders:
+    $ref: 'paths/sites/_siteid_/orders.yaml'
+
+  /sites/{siteid}/orders/{orderid}:
+    $ref: 'paths/sites/_siteid_/orders/_orderid_.yaml'
+
+  /sites/{siteid}/orders/{orderid}/orderdeliveries:
+    $ref: 'paths/sites/_siteid_/orders/_orderid_/orderdeliveries.yaml'
+
+  /sites/{siteid}/orders/{orderid}/orderlogitems:
+    $ref: 'paths/sites/_siteid_/orders/_orderid_/orderlogitems.yaml'
+
+  /sites/{siteid}/pricelists:
+    $ref: 'paths/sites/_siteid_/pricelists.yaml'
+
+  /sites/{siteid}/pricelists/{pricelistid}:
+    $ref: 'paths/sites/_siteid_/pricelists/_pricelistid_.yaml'
+
+  /sites/{siteid}/pricelists/{pricelistid}/pricelistitems:
+    $ref: 'paths/sites/_siteid_/pricelists/_pricelistid_/pricelistitems.yaml'
+
+  /sites/{siteid}/productgroups:
+    $ref: 'paths/sites/_siteid_/productgroups.yaml'
+
+  /sites/{siteid}/productgroups/{vatid}:
+    $ref: 'paths/sites/_siteid_/productgroups/_vatid_.yaml'
+
+  /sites/{siteid}/products:
+    $ref: 'paths/sites/_siteid_/products.yaml'
+
+  /sites/{siteid}/products/{productid}:
+    $ref: 'paths/sites/_siteid_/products/_productid_.yaml'
+
+  /sites/{siteid}/products/{productid}/files:
+    $ref: 'paths/sites/_siteid_/products/_productid_/files.yaml'
+
+  /sites/{siteid}/products/{productid}/files/{fileid}:
+    $ref: 'paths/sites/_siteid_/products/_productid_/files/_fileid_.yaml'
+
+  /sites/{siteid}/products/{productid}/images:
+    $ref: 'paths/sites/_siteid_/products/_productid_/images.yaml'
+
+  /sites/{siteid}/products/{productid}/images/{imageid}:
+    $ref: 'paths/sites/_siteid_/products/_productid_/images/_imageid_.yaml'
+
+  /sites/{siteid}/products/{productid}/productvariants:
+    $ref: 'paths/sites/_siteid_/products/_productid_/productvariants.yaml'
+
+  /sites/{siteid}/resources:
+    $ref: 'paths/sites/_siteid_/resources.yaml'
+
+  /sites/{siteid}/salestaxes:
+    $ref: 'paths/sites/_siteid_/salestaxes.yaml'
+
+  /sites/{siteid}/salestaxes/{salestaxid}:
+    $ref: 'paths/sites/_siteid_/salestaxes/_salestaxid_.yaml'
+
+  /sites/{siteid}/salestaxgroups:
+    $ref: 'paths/sites/_siteid_/salestaxgroups.yaml'
+
+  /sites/{siteid}/salestaxgroups/{salestaxgroupid}:
+    $ref: 'paths/sites/_siteid_/salestaxgroups/_salestaxgroupid_.yaml'
+
+  /sites/{siteid}/stores:
+    $ref: 'paths/sites/_siteid_/stores.yaml'
+
+  /sites/{siteid}/stores/{storeid}:
+    $ref: 'paths/sites/_siteid_/stores/_storeid_.yaml'
+
+  /sites/{siteid}/users:
+    $ref: 'paths/sites/_siteid_/users.yaml'
+
+  /sites/{siteid}/users/{userid}:
+    $ref: 'paths/sites/_siteid_/users/_userid_.yaml'
+
+  /sites/{siteid}/vouchers:
+    $ref: 'paths/sites/_siteid_/vouchers.yaml'
+
+  /sites/{siteid}/vouchers/{voucherid}:
+    $ref: 'paths/sites/_siteid_/vouchers/_voucherid_.yaml'
+
+  /sites/{siteid}/warehouses:
+    $ref: 'paths/sites/_siteid_/warehouses.yaml'
+
+  /sites/{siteid}/warehouses/{warehouseid}:
+    $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_.yaml'
+
+  /sites/{siteid}/warehouses/{warehouseid}/warehousebatches:
+    $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_/warehousebatches.yaml'
+
+  /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}:
+    $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_/warehousebatches/_warehousebatchid_.yaml'
+
+  /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems:
+    $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_/warehousebatches/_warehousebatchid_/warehousebatchitems.yaml'
+
+  /sites/{siteid}/warehouses/{warehouseid}/warehouseitems:
+    $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_/warehouseitems.yaml'
+
+  /sites/{siteid}/warehouses/{warehouseid}/warehousetransactions:
+    $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_/warehousetransactions.yaml'
+
+  /sites/{siteid}/warehouses/{warehouseid}/warehousetransactions/{warehousetransactionid}:
+    $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_/warehousetransactions/_warehousetransactionid_.yaml'
+
+  /sites/{siteid}/warehousetransactions:
+    $ref: 'paths/sites/_siteid_/warehousetransactions.yaml'

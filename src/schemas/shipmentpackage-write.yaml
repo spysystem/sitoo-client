@@ -1,0 +1,15 @@
+type: object
+description: A shipment package is an optional grouping of shipmentitem in a shipment.
+properties:
+  shipmentpackageid:
+    type: integer
+    description: ID of shipment package in Sitoo.
+  barcode:
+    type: string
+    description: Barcode used to identify this package. Needs to have a unique value.
+  externalid:
+    type: string
+    description: External ID for package.
+  comment:
+    type: string
+    description: Comment for package.

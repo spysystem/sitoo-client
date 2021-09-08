@@ -1,0 +1,105 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: userid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: fields
+    in: query
+    schema:
+      type: array
+      items:
+        type: string
+      example: /sites/{siteid}/users/{userid}?fields=userid,email,namefirst,namelast
+get:
+  operationId: getUser
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/users#get-user
+  tags:
+    - Users
+  parameters:
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/users/{userid}?fields=userid,email,namefirst,namelast
+  responses:
+    200:
+      description: Returns an item of type user.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/user-read.yaml'
+          example: {"userid":"{102DC4AA-2C19-3177-6AB2-435CB3A46499}","email":"steve.smith@example.com","namefirst":"Steve","namelast":"Smith","personalid":"","externalid":null,"company":"Acme Inc.","department":"","companyid":"","address":"","address2":"","zip":"","city":"Townsville","state":"","countryid":"us","phone":"","mobile":"","notes":"","customernumber":"","datecreated":1462874210,"datemodified":1462874210,"pricelistid":1,"voucherpasswords":[],"role":null,"warehouses":[],"posrefundcard":false}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateUser
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/users#update-user
+  tags:
+    - Users
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../schemas/user-write.yaml
+        example: {"company":"Example Inc."}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteUser
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/users#delete-user
+  tags:
+    - Users
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

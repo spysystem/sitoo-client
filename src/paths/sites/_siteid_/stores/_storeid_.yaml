@@ -1,0 +1,90 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: storeid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getStore
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/stores#get-store
+  tags:
+    - Stores
+  responses:
+    200:
+      description: Returns an item of type store.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/store-read.yaml'
+          example: {"storeid":3,"storetype":20,"name":"Outlet Store","externalid":"OUTLET-1","externalgroupid":"NA","phone":null,"email":null,"address":"","address2":"","zip":"","city":"","state":"NY","countryid":"us","latitude":null,"longitude":null,"nearby_stores":[],"usetype_movein":10,"usetype_moveout":20,"usetype_manualin":null,"usetype_manualout":null,"usetype_shipmentin":null,"usetype_shipmentout":null,"tags":[]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateStore
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/stores#update-store
+  tags:
+    - Stores
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../schemas/store-write.yaml
+        example: {"address":"Main Street","city":"New York"}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteStore
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/stores#delete-store
+  tags:
+    - Stores
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

@@ -1,0 +1,19 @@
+type: object
+description: The Service Product
+required:
+  - sku
+  - name
+  - services
+properties:
+  sku:
+    type: string
+    description: The stock keeping unit (SKU) for this product
+  name:
+    type: string
+    description: The name of this product
+  serial:
+    type: string
+    description: A serial number for the product
+  services:
+    type: array
+    description: An array with service items for this product

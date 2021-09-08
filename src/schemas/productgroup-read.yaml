@@ -1,0 +1,20 @@
+type: object
+description: A product group contains the VAT and type for a product.
+required:
+  - productgroupname
+properties:
+  vatid:
+    type: integer
+    description: The ID of the product group (vatid).
+  value:
+    type: number
+    description: VAT percentage (eg. 25 = 25%).
+  productgrouptype:
+    type: integer
+    description: The type of the product group.
+  productgroupname:
+    type: string
+    description: The name of the product group.
+  comment:
+    type: string
+    description: Internal comment.

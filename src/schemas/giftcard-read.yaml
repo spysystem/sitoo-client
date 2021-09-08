@@ -1,0 +1,38 @@
+type: object
+description: The gift card object.
+required:
+  - type
+  - currencycode
+properties:
+  type:
+    type: string
+    description: The type of giftcard.
+  currencycode:
+    type: string
+    description: Currency for the giftcard. (ISO 4217, alpha-3)
+  cardnumber:
+    type: string
+    description: The unique id of the gift card (card number).
+  cardnumber_display:
+    type: string
+    description: The masked card number, used for public display.
+  redeemable:
+    type: boolean
+    description: If true, the gift card is active for redeem with the moneyamount available.
+  date_expires:
+    type: integer
+    description: The date for the expiration of the gift card. (If passed, the gift card is invalid)
+  date_created:
+    type: integer
+    description: The date that the gift card was created.
+  moneyamount:
+    type: string
+    description: Current monetary value of the gift card.
+  requirespin:
+    type: boolean
+    description: Indicates if PIN is required when redeeming the gift card.
+  transactions:
+    type: array
+    items:
+      $ref: 'giftcardtransaction-read.yaml'
+    description: The transactions for this gift card. An array of giftcardtransaction.

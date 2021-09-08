@@ -1,0 +1,20 @@
+type: object
+description: Warehouse batch item for a warehousebatch.
+required:
+  - sku
+properties:
+  decimalquantity:
+    type: string
+    description: The stock quantity for this warehousebatchitem.
+  moneypricein:
+    type: string
+    description: The purchase price per item for this warehousebatchitem.
+  emailowner:
+    type: string
+    description: The email for the owner of this warehousebatchitem.
+  comment:
+    type: string
+    description: A comment for the warehousebatchitem.
+  sku:
+    type: string
+    description: The SKU for this stock item.

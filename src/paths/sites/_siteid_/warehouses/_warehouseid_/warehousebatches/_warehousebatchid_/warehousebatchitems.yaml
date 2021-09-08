@@ -1,0 +1,131 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: warehouseid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: warehousebatchid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: start
+    in: query
+    schema:
+      type: integer
+      default: 0
+  - name: num
+    in: query
+    schema:
+      type: integer
+      default: 10
+  - name: fields
+    in: query
+    schema:
+      type: array
+      items:
+        type: string
+      example: /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems?fields=warehouseitemid,sku,decimalquantity
+get:
+  operationId: getWarehouseBatchItems
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouse-batches#get-warehouse-batch-items
+  tags:
+    - WarehouseBatches
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems?fields=warehouseitemid,sku,decimalquantity
+  responses:
+    200:
+      description: Returns an envelope with items of type warehousebatchitem for a warehousebatch.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../../../schemas/getWarehouseBatchItemsResponse.yaml'
+          example: {"totalcount":2,"items":[{"warehousebatchitemid":1,"warehousebatchid":1,"warehouseitemid":3,"datemodified":1463131430,"decimalquantity":"25.000","moneypricein":"3920.00","emailowner":"info@example.com","comment":null,"sku":"10038-1"},{"warehousebatchitemid":2,"warehousebatchid":1,"warehouseitemid":5,"datemodified":1463131443,"decimalquantity":"5.000","moneypricein":"3920.00","emailowner":"info@example.com","comment":null,"sku":"10038-2"}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: batchSetWarehouseBatchItems
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouse-batches#batch-set-warehouse-batch-items
+  tags:
+    - WarehouseBatches
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../../../../../../schemas/warehousebatchitem-write.yaml
+        example: [{"sku":"10038-1","decimalquantity":"9.000","emailowner":"info@example.com","comment":"1 missing"},{"sku":"10038-2","decimalquantity":"2.000","emailowner":"info@example.com","comment":""},{"sku":"10038-3","decimalquantity":"1.000"}]
+  responses:
+    200:
+      description: Returns true or a batch envelope if multiple warehousebatchitems were set
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: batchDeleteWarehouseBatchItems
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouse-batches#batch-delete-warehouse-batch-items
+  tags:
+    - WarehouseBatches
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+        example: [{"sku":"10038-2"},{"sku":"10038-3"}]
+  responses:
+    200:
+      description: Returns true or a batch envelope if multiple warehousebatchitems were deleted
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

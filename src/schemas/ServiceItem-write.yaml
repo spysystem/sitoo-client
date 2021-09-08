@@ -1,0 +1,26 @@
+type: object
+description: The Service Item being applied to the product
+required:
+  - sku
+  - name
+  - quantity
+  - note
+properties:
+  sku:
+    type: string
+    description: The stock keeping unit (SKU) for this item
+  name:
+    type: string
+    description: The name for this item
+  quantity:
+    type: integer
+    description: The quantity of this item
+  unit_price:
+    type: string
+    description: Unit price including VAT
+  cost_share:
+    type: number
+    description: Reflects how much the customer pays in percentage (0-100) of the total_price
+  note:
+    type: string
+    description: A note to describe this service item

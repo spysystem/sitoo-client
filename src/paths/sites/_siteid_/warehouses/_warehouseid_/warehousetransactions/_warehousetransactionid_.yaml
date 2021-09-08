@@ -1,0 +1,40 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: warehouseid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: warehousetransactionid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getWarehouseTransaction
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouse-transactions#get-warehouse-transaction
+  tags:
+    - WarehouseTransactions
+  responses:
+    200:
+      description: Returns an item of type warehousetransaction.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../../schemas/warehousetransaction-read.yaml'
+          example: {"warehousetransactionid":16,"warehouseid":1,"datecreated":1550669776,"transactiontype":50,"description":"Stocktaking has been completed!","orderdeliveryid":null,"shipmentid":null,"externalid":null,"reasoncode":null,"items":[{"decimalquantity":"-1.000","decimaltotal":"9.000","moneypricein":"0.00","moneytotal":"35280.00","moneyvalue":"-3920.00","sku":"10038-1"}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

@@ -1,0 +1,35 @@
+type: object
+description: Categories are the menu items for the webshop and can also be used as containers for products.
+required:
+  - title
+properties:
+  categoryparentid:
+    type: integer
+    description: The parent category ID or null for top level.
+  visible:
+    type: boolean
+    description: Indicates whether the category is shown in menus or not.
+  sortorder:
+    type: integer
+    description: Index for this category among siblings. Zero based.
+  custom1:
+    type: string
+    description: Custom field 1.
+  custom2:
+    type: string
+    description: Custom field 2.
+  friendly:
+    type: string
+    description: Friendly name. Absolute url = site url + friendly.
+  seo_title:
+    type: string
+    description: Used for the html title element. If empty the title field will be used instead.
+  seo_keywords:
+    type: string
+    description: Meta keywords.
+  seo_description:
+    type: string
+    description: Meta description.
+  title:
+    type: string
+    description: Title of category.

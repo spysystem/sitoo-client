@@ -1,0 +1,14 @@
+type: object
+description: Product variant group with options.
+required:
+  - name
+  - options
+properties:
+  name:
+    type: string
+    description: Name of product variant group.
+  options:
+    type: array
+    items:
+      type: string
+    description: 'Options. Eg. ["Red", "Blue", "Pink"].'

@@ -1,0 +1,6 @@
+type: object
+description: The influencer voucher transaction response object.
+properties:
+  transactionid:
+    type: string
+    description: The unique id of this transaction.

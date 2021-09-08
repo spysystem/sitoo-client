@@ -1,0 +1,74 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: addStore
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/stores
+  tags:
+    - Stores
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../schemas/store-write.yaml
+        example: {"storetype":20,"name":"Outlet Store","externalid":"OUTLET-1","externalgroupid":"NA","state":"NY","countryid":"us","usetype_movein":10,"usetype_moveout":20}
+  responses:
+    200:
+      description: Returns storeid
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getStores
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/stores#get-stores
+  tags:
+    - Stores
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/stores?fields=storeid,name
+  responses:
+    200:
+      description: Returns an envelope with items of type store.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/getStoresResponse.yaml'
+          example: {"totalcount":2,"items":[{"storeid":1,"storetype":10,"name":"Concept Store","address":"240 W Broadway","city":"New York","usetype_movein":10,"usetype_moveout":20},{"storeid":2,"storetype":30,"name":"Pop-Up Store","address":"","city":"","usetype_movein":null,"usetype_moveout":null}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

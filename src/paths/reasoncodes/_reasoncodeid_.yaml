@@ -1,0 +1,85 @@
+parameters:
+  - name: reasoncodeid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getReasonCode
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/reason-codes#get-reason-code
+  tags:
+    - ReasonCodes
+  responses:
+    200:
+      description: Returns an item of type reasoncode.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/reasoncode-read.yaml'
+          example: {"reasoncodeid":3,"type":10,"reasoncode":"103","name":"Reclaims"}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateReasonCode
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/reason-codes#update-reason-code
+  tags:
+    - ReasonCodes
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/reasoncode-write.yaml
+        example: {"name":"Customer Reclaim"}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteReasonCode
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/reason-codes#delete-reason-code
+  tags:
+    - ReasonCodes
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

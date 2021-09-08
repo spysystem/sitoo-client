@@ -1,0 +1,133 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: pricelistid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: start
+    in: query
+    schema:
+      type: integer
+      default: 0
+  - name: num
+    in: query
+    schema:
+      type: integer
+      default: 10
+  - name: fields
+    in: query
+    schema:
+      type: array
+      items:
+        type: string
+      default: sku,moneyprice
+      example: /sites/{siteid}/pricelists/{pricelistid}/pricelistitems?fields=sku,moneyprice
+get:
+  operationId: getPriceListsItems
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/price-lists#get-price-lists-items
+  tags:
+    - PriceLists
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        default: sku,moneyprice
+        example: /sites/{siteid}/pricelists/{pricelistid}/pricelistitems?fields=sku,moneyprice
+  responses:
+    200:
+      description: Returns an envelope with items of type pricelistitem for a pricelist, ordered by productid.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../schemas/getPriceListsItemsResponse.yaml'
+          example: {"totalcount":3,"items":[{"moneyprice":"795.00","moneypricevolume":null,"sku":"36305-1"},{"moneyprice":"895.00","moneypricevolume":[{"levelstart":2,"moneyprice":"849.00"},{"levelstart":4,"moneyprice":"749.00"}],"sku":"36401-1"}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: batchSetPriceListItems
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/price-lists#batch-set-price-list-items
+  tags:
+    - PriceLists
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../../../../schemas/pricelistitem-write.yaml
+        example: [{"sku":"36305-1","moneyprice":"795.00"},{"sku":"36401-1","moneyprice":"895.00","moneypricevolume":[{"levelstart":2,"moneyprice":"849.00"},{"levelstart":4,"moneyprice":"749.00"}]},{"sku":"36522-3","moneyprice":"849.00","moneypricevolume":[{"levelstart":4,"moneyprice":"729.00"}]}]
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: [{"statuscode":200,"return":true},{"statuscode":200,"return":true},{"statuscode":200,"return":true}]
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: batchDeletePriceListItems
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/price-lists#batch-delete-price-list-items
+  tags:
+    - PriceLists
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+        example: [{"sku":"36305-1"},{"sku":"36401-1"},{"sku":"36522-3"}]
+  responses:
+    200:
+      description: Returns true or a batch envelope if array of objects was provided
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

@@ -1,0 +1,14 @@
+type: object
+description: The user that is responsible for the service order
+required:
+  - email
+properties:
+  email:
+    type: string
+    description: Email for the user
+  name:
+    type: string
+    description: Name for the user
+  employee_id:
+    type: string
+    description: Employee ID for the user

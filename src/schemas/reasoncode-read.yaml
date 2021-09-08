@@ -1,0 +1,18 @@
+type: object
+description: Reason codes are used to label warehouse transactions, events and actions.
+required:
+  - type
+  - reasoncode
+properties:
+  reasoncodeid:
+    type: integer
+    description: The unique ID of the reason code.
+  type:
+    type: integer
+    description: The type of use for the reason code.
+  reasoncode:
+    type: string
+    description: The reason code. (Max 32 characters)
+  name:
+    type: string
+    description: The display name used for the reason code. (Max 64 characters)

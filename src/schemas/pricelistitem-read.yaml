@@ -1,0 +1,19 @@
+type: object
+description: Price list item for a pricelist
+required:
+  - moneyprice
+properties:
+  productid:
+    type: integer
+    description: Product ID for the price list item.
+  moneyprice:
+    type: string
+    description: The price for the product.
+  moneypricevolume:
+    type: array
+    items:
+      $ref: 'volumepricelevel-read.yaml'
+    description: Volume pricing for the price list item. Array of volumepricelevel.
+  sku:
+    type: string
+    description: SKU for the price list item.

@@ -1,0 +1,6 @@
+type: object
+description: A resource is an uploaded file.
+properties:
+  resourceid:
+    type: string
+    description: ID for the file as a relative URL (typically the filename).

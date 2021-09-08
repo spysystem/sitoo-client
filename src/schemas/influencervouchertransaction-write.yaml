@@ -1,0 +1,26 @@
+type: object
+description: The influencer voucher transaction object.
+required:
+  - moneyordertotal
+  - moneyinfluencertotal
+  - moneyinfluencerdiscount
+  - currencycode
+properties:
+  moneyordertotal:
+    type: string
+    description: The total amount of sales for this transaction.
+  moneyinfluencertotal:
+    type: string
+    description: The amount of sold items where the influencer voucher applied for this transaction.
+  moneyinfluencerdiscount:
+    type: string
+    description: The amount of discount the influencer voucher gave for this transaction.
+  currencycode:
+    type: string
+    description: Currency for the transaction. (ISO 4217, alpha-3 uppercased)
+  merchant_reference:
+    type: string
+    description: Optional merchant/store reference for this transaction.
+  staff_reference:
+    type: string
+    description: Optional staff reference for this transaction.

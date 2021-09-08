@@ -1,0 +1,32 @@
+type: object
+description: Delivery for order.
+required:
+  - warehouseid
+  - orderdeliveryitems
+properties:
+  orderdeliveryid:
+    type: integer
+    description: The order delivery ID is unique for a system.
+  orderid:
+    type: integer
+    description: The order ID for which this delivery was made.
+  warehouseid:
+    type: integer
+    description: The warehouse ID used for this order delivery.
+  orderdeliveryref:
+    type: string
+    description: Delivery reference (waybill no. or similar tracking number).
+  datedelivery:
+    type: integer
+    description: The date of the order delivery.
+  datecancelled:
+    type: integer
+    description: The date the delivery was cancelled, or null if not cancelled.
+  pluginname:
+    type: string
+    description: Name of plugin that handles this delivery.
+  orderdeliveryitems:
+    type: array
+    items:
+      $ref: 'orderdeliveryitem-read.yaml'
+    description: Array of delivery items for this delivery. See orderdeliveryitem for fields.

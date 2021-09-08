@@ -1,0 +1,90 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+  - name: salestaxid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getSalesTax
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/sales-taxes#get-sales-tax
+  tags:
+    - SalesTaxes
+  responses:
+    200:
+      description: Returns an item of type salestax.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/salestax-read.yaml'
+          example: {"salestaxid":4,"name":"Washington State Tax","code":null,"decimalvaluedefault":"6.500","productgrouprules":[]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateSalesTax
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/sales-taxes#update-sales-tax
+  tags:
+    - SalesTaxes
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../schemas/salestax-write.yaml
+        example: {"name":"WA State Tax"}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: deleteSalesTax
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/sales-taxes#delete-sales-tax
+  tags:
+    - SalesTaxes
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

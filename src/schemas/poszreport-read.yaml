@@ -1,0 +1,245 @@
+type: object
+description: Z-report for Sitoo POS Cash Register.
+properties:
+  zreportid:
+    type: integer
+    description: ID for this report (report number).
+  registerid:
+    type: string
+    description: Unique ID for this Cash Register.
+  manufacturerid:
+    type: string
+    description: Manufacturer ID for this Cash Register.
+  registerkey:
+    type: string
+    description: Key for this Cash Register used by the Tax Authorities and also printed on receipts.
+  registernumber:
+    type: integer
+    description: Number for this Cash Register (E.g 1, 2, 3...).
+  datecreated:
+    type: integer
+    description: Timestamp for when this report was created.
+  dateopened:
+    type: integer
+    description: Timestamp for when the register was opened or null if generated with legacy versions of Sitoo POS.
+  eshopid:
+    type: integer
+    description: Eshop ID
+  store_id:
+    type: string
+    description: Store ID (external ID of the Store in Sitoo)
+  store_name:
+    type: string
+    description: The name of the store
+  company:
+    type: string
+    description: Company Name.
+  companyid:
+    type: string
+    description: Company ID.
+  address:
+    type: string
+    description: Address line 1 (street address).
+  address2:
+    type: string
+    description: Address line 2 (c/o or similar).
+  address3:
+    type: string
+    description: Address line 3 (zip, city and state).
+  currencycode:
+    type: string
+    description: Currency for the report. (ISO 4217, alpha-3 uppercased)
+  staff:
+    type: string
+    description: The name of the staff that produced the report.
+  staffuserid:
+    type: string
+    description: The user ID for the staff that produced the report.
+  comment:
+    type: string
+    description: The comment that the staff entered for the report.
+  moneysalestotal:
+    type: string
+    description: The total gross money value for sales.
+  moneysalestotalnet:
+    type: string
+    description: The total net money value for sales.
+  numsales:
+    type: integer
+    description: The total number of sales.
+  numsalesitems:
+    type: integer
+    description: The total number of items in sales.
+  vatgroupssales:
+    type: array
+    items:
+      $ref: 'poszreportvatgroup-read.yaml'
+    description: Sales grouped by vat values. See poszreportvatgroup for fields.
+  productgroupssales:
+    type: array
+    items:
+      $ref: 'poszreportproductgroup-read.yaml'
+    description: Sales grouped by product group. See poszreportproductgroup for fields.
+  moneysalesnotdeliveredtotal:
+    type: string
+    description: The total gross money value for sales not delivered.
+  moneysalesnotdeliveredtotalnet:
+    type: string
+    description: The total net money value for sales not delivered.
+  numsalesnotdelivered:
+    type: integer
+    description: The total number of sales where not all items were delivered.
+  numsalesnotdelivereditems:
+    type: integer
+    description: The total number of items in sales not delivered.
+  vatgroupssalesnotdelivered:
+    type: array
+    items:
+      $ref: 'poszreportvatgroup-read.yaml'
+    description: Sales not delivered grouped by vat values. See poszreportvatgroup for fields.
+  productgroupssalesnotdelivered:
+    type: array
+    items:
+      $ref: 'poszreportproductgroup-read.yaml'
+    description: Sales not delivered grouped by product group. See poszreportproductgroup for fields.
+  moneyrefundtotal:
+    type: string
+    description: The total gross money value for refunds.
+  moneyrefundtotalnet:
+    type: string
+    description: The total net money value for refunds.
+  numrefund:
+    type: integer
+    description: The total number of refunds.
+  numrefunditems:
+    type: integer
+    description: The total number of items in refunds.
+  vatgroupsrefund:
+    type: array
+    items:
+      $ref: 'poszreportvatgroup-read.yaml'
+    description: Refunds grouped by vat values. See poszreportvatgroup for fields.
+  productgroupsrefund:
+    type: array
+    items:
+      $ref: 'poszreportproductgroup-read.yaml'
+    description: Refunds grouped by product group. See poszreportproductgroup for fields.
+  moneyroundoff:
+    type: string
+    description: The total money value for roundoff.
+  salestaxessales:
+    type: array
+    items:
+      $ref: 'poszreportsalestax-read.yaml'
+    description: Collected sales taxes for sales grouped by name, code and taxvalue. See poszreportsalestax for fields.
+  salestaxesrefund:
+    type: array
+    items:
+      $ref: 'poszreportsalestax-read.yaml'
+    description: Collected sales taxes for refunds grouped by name, code and taxvalue. See poszreportsalestax for fields.
+  moneysalestaxinadvance:
+    type: string
+    description: The total value of sales tax collected for items not delivered (if applicable).
+  moneysummarysales:
+    type: string
+    description: The total money value for sales.
+  moneysummaryrefund:
+    type: string
+    description: The total money value for refunds.
+  moneysummarysubtotal:
+    type: string
+    description: The sub total money value (moneysummarysales - moneysummaryrefund).
+  moneysummarysalestax:
+    type: string
+    description: The sub total money value for sales tax.
+  moneysummaryroundoff:
+    type: string
+    description: The total money value for roundoff.
+  moneysummarytotal:
+    type: string
+    description: The total money value for the report (moneysummarysubtotal + moneysummarysalestax + moneysummaryroundoff).
+  paymentssales:
+    type: array
+    items:
+      $ref: 'poszreportpayment-read.yaml'
+    description: All payments for sales. See poszreportpayment for fields.
+  paymentsrefund:
+    type: array
+    items:
+      $ref: 'poszreportpayment-read.yaml'
+    description: All payments for refunds. See poszreportpayment for fields.
+  discountssales:
+    type: array
+    items:
+      $ref: 'poszreportdiscount-read.yaml'
+    description: Discounts grouped by vouchercode for sales. See poszreportdiscount for fields.
+  discountssalesnotdelivered:
+    type: array
+    items:
+      $ref: 'poszreportdiscount-read.yaml'
+    description: Discounts grouped by vouchercode for sales not delivered. See poszreportdiscount for fields.
+  discountsrefund:
+    type: array
+    items:
+      $ref: 'poszreportdiscount-read.yaml'
+    description: Discounts grouped by vouchercode for refunds. See poszreportdiscount for fields.
+  moneycash_in:
+    type: string
+    description: The entered money value for cash in the register when it was opened.
+  moneycash_salesrefunds:
+    type: string
+    description: The total amount of cash from sales/refunds for register since it was opened.
+  moneycash_petty:
+    type: string
+    description: The total petty cash change for register since it was opened.
+  moneycash_bank:
+    type: string
+    description: The total banking cash change for register since it was opened.
+  moneycash_expected:
+    type: string
+    description: The calculated money value for cash in the register before it was counted.
+  moneycash_counted:
+    type: string
+    description: The counted money value for cash in the register when closing.
+  moneycash_diff:
+    type: string
+    description: The difference in money value for cash between expected and counted values.
+  moneycash_bankfinal:
+    type: string
+    description: The amount of cash banked after cash had been counted.
+  moneycash_out:
+    type: string
+    description: The money value for cash in the register after it was closed.
+  moneydiscount:
+    type: string
+    description: The total money amount for discounts of sales (incl. VAT). For discount details see discountssales and discountsrefund.
+  numsalestypeproduct:
+    type: integer
+    description: 'The total number of items of type "product".'
+  numsalestypeservice:
+    type: integer
+    description: 'The total number of items of type "service".'
+  numsalestypegiftcard:
+    type: integer
+    description: 'The total number of items of type "gift card".'
+  numreceipts:
+    type: integer
+    description: The total number of receipts.
+  numopendrawer:
+    type: integer
+    description: The total number of time the cash register drawer was opened (except for normal transactions).
+  numpractice:
+    type: integer
+    description: The total number of transactions made in practice mode.
+  moneypractice:
+    type: string
+    description: The total money value of transactions made in practice mode.
+  moneygrandtotalsales:
+    type: string
+    description: The total money value for sales since the start of the cash register.
+  moneygrandtotalrefund:
+    type: string
+    description: The total money value for refunds since the start of the cash register.
+  moneygrandtotalnet:
+    type: string
+    description: The summary total money value since the start of the cash register (moneygrandtotalsales - moneygrandtotalrefund).

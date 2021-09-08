@@ -1,0 +1,61 @@
+parameters:
+  - name: shipmentid
+    in: path
+    schema:
+      type: integer
+    required: true
+get:
+  operationId: getShipment
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/shipments#get-shipment
+  tags:
+    - Shipments
+  responses:
+    200:
+      description: Returns an item of type shipment.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/shipment-read.yaml'
+          example: {"shipmentid":10002,"shipmentstate":10,"archived":false,"externalid":"","barcode":"","comment":"New shipment","emailowner":"","emailreceivedby":"","datenew":1550669772,"dateintransit":1550669772,"datereceived":null,"datecancelled":null,"dateestimatedpickup":null,"dateestimateddelivery":null,"sender_warehouseid":null,"sender_name":"","sender_address":"","sender_address2":"","sender_zip":"","sender_city":"","sender_state":"","sender_countryid":"","sender_referencename":"","sender_referenceemail":"","sender_referencemobile":"","sender_instructions":"","receiver_warehouseid":1,"receiver_name":"City Concept Store","receiver_address":"","receiver_address2":"","receiver_zip":"","receiver_city":"","receiver_state":"","receiver_countryid":"","receiver_referencename":"","receiver_referenceemail":"","receiver_referencemobile":"","receiver_instructions":"","carrier_name":"DHL","carrier_reference":"123456789","carrier_trackingurl":"","shipmentpackages":[{"shipmentpackageid":1,"barcode":"123456789","externalid":"","comment":""}],"shipmentitems":[{"shipmentitemid":1,"shipmentpackageid":1,"sku":"sku-1","productname":"Product 1","unitlabel":"","decimalunitquantity":null,"quantity":150,"quantityreceived":0,"moneypricein":null,"externalid":"12345-1"},{"shipmentitemid":2,"shipmentpackageid":1,"sku":"sku-2","productname":"Product 2","unitlabel":"","decimalunitquantity":null,"quantity":80,"quantityreceived":0,"moneypricein":null,"externalid":"12345-2"}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: updateShipment
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/shipments#update-shipment
+  tags:
+    - Shipments
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/shipment-write.yaml
+        example: {"shipmentstate":20,"comment":"Received at Store"}
+  responses:
+    200:
+      description: Returns true
+      content:
+        application/json:
+          schema:
+            type: boolean
+          example: true
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

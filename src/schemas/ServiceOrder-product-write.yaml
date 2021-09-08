@@ -1,0 +1,18 @@
+type: object
+description: The product being serviced
+required:
+  - sku
+  - name
+  - services
+properties:
+  sku:
+    type: string
+    description: The stock keeping unit (SKU) for this product
+  name:
+    type: string
+    description: The name of this product
+  serial:
+    type: string
+    description: A serial number for the product
+  services:
+    $ref: 'ServiceOrder-product-services-write.yaml'

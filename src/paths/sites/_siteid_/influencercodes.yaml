@@ -1,0 +1,132 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: batchAddInfluencerCodes
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/influencer-codes
+  tags:
+    - InfluencerCodes
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../../schemas/influencercode-write.yaml
+        example: [{"code":"SCRAPBOOK101","name":"Emily Hadfield","active":false,"voucherpassword":"RLFm3bef","vouchername":"All scrapbooks 10% off","maxuses":1400}]
+  responses:
+    200:
+      description: Returns batch envelope with influencer codes.
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getInfluencerCodes
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/influencer-codes#get-influencer-codes
+  tags:
+    - InfluencerCodes
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: /sites/{siteid}/influencercodes?fields=code,name,voucherpassword
+  responses:
+    200:
+      description: Returns an envelope with items of type influencercode.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/getInfluencerCodesResponse.yaml'
+          example: {"totalcount":2,"items":[{"code":"PREPARE4SUMMER","name":"Taylor Smith","active":true,"datestart":1555711200,"dateend":1559339999,"voucherpassword":"Lzs5MvMr","vouchercode":null,"vouchername":null,"vouchercomment":null,"maxuses":1000,"numused":2,"datelastused":1556466245,"moneyordertotal":"174.00","moneyinfluencertotal":"97.00","moneyinfluencerdiscount":"38.00"},{"code":"RUN-FASTER-2019","name":"Joe Mason","active":true,"datestart":1548975600,"dateend":null,"voucherpassword":"dJTv4gHE","vouchercode":null,"vouchername":null,"vouchercomment":"Discount on smartwatches.","maxuses":600,"numused":1,"datelastused":1549985297,"moneyordertotal":"1250.00","moneyinfluencertotal":"1000.00","moneyinfluencerdiscount":"250.00"}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+put:
+  operationId: batchUpdateInfluencerCodes
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/influencer-codes#batch-update-influencer-codes
+  tags:
+    - InfluencerCodes
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../../schemas/influencercode-write.yaml
+        example: [{"code":"SCRAPBOOK101","maxuses":2000}]
+  responses:
+    200:
+      description: Returns batch envelope with return value true on success.
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+delete:
+  operationId: batchDeleteInfluencerCodes
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/influencer-codes#batch-delete-influencer-codes
+  tags:
+    - InfluencerCodes
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+        example: [{"code":"SCRAPBOOK101"}]
+  responses:
+    200:
+      description: Returns batch envelope with return value true on success.
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

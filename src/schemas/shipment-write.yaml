@@ -1,0 +1,121 @@
+type: object
+description: A shipment is the object used for handling shipments in Sitoo systems. Shipments are common to all sites.
+properties:
+  shipmentstate:
+    type: integer
+    description: State of shipment.
+  archived:
+    type: boolean
+    description: Flag indicating archived shipment.
+  externalid:
+    type: string
+    description: External ID for shipment.
+  barcode:
+    type: string
+    description: Barcode used to identify this shipment. Needs to have a unique value.
+  comment:
+    type: string
+    description: Comment for the shipment.
+  emailowner:
+    type: string
+    description: The email of the owner of the shipment.
+  emailreceivedby:
+    type: string
+    description: The email of the person responsible for processing the received shipment.
+  dateestimatedpickup:
+    type: integer
+    description: The estimated date and time for pickup from sender or null if not set.
+  dateestimateddelivery:
+    type: integer
+    description: The estimated date and time for delivery to receiver or null if not set.
+  sender_warehouseid:
+    type: integer
+    description: The warehouseid in Sitoo for sender or null if not applicable.
+  sender_name:
+    type: string
+    description: The name of the sender.
+  sender_address:
+    type: string
+    description: Address for the sender.
+  sender_address2:
+    type: string
+    description: Address 2 for the sender.
+  sender_zip:
+    type: string
+    description: Zip for the sender.
+  sender_city:
+    type: string
+    description: City for the sender.
+  sender_state:
+    type: string
+    description: State for the sender.
+  sender_countryid:
+    type: string
+    description: Country ID for the sender (2-letter ISO 3166).
+  sender_referencename:
+    type: string
+    description: Reference name for the sender.
+  sender_referenceemail:
+    type: string
+    description: Reference email for the sender.
+  sender_referencemobile:
+    type: string
+    description: Reference mobile phone for the sender.
+  sender_instructions:
+    type: string
+    description: Instructions for the sender.
+  receiver_warehouseid:
+    type: integer
+    description: The warehouseid in Sitoo for receiver or null if not applicable.
+  receiver_name:
+    type: string
+    description: The name of the receiver.
+  receiver_address:
+    type: string
+    description: Address for the receiver.
+  receiver_address2:
+    type: string
+    description: Address 2 for the receiver.
+  receiver_zip:
+    type: string
+    description: Zip for the receiver.
+  receiver_city:
+    type: string
+    description: City for the receiver.
+  receiver_state:
+    type: string
+    description: State for the receiver.
+  receiver_countryid:
+    type: string
+    description: Country ID for the receiver (2-letter ISO 3166).
+  receiver_referencename:
+    type: string
+    description: Reference name for the receiver.
+  receiver_referenceemail:
+    type: string
+    description: Reference email for the receiver.
+  receiver_referencemobile:
+    type: string
+    description: Reference mobile phone for the receiver.
+  receiver_instructions:
+    type: string
+    description: Instructions for the receiver.
+  carrier_name:
+    type: string
+    description: The name of the carrier.
+  carrier_reference:
+    type: string
+    description: The carrier reference for the shipment.
+  carrier_trackingurl:
+    type: string
+    description: The carrier tracking url for the shipment.
+  shipmentpackages:
+    type: array
+    items:
+      $ref: 'shipmentpackage-write.yaml'
+    description: The packages in this shipment. An array of shipmentpackage.
+  shipmentitems:
+    type: array
+    items:
+      $ref: 'shipmentitem-write.yaml'
+    description: The items in this shipment. An array of shipmentitem.

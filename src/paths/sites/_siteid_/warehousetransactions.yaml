@@ -1,0 +1,114 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: batchAddWarehouseTransactions
+  description: This functions allows multiple transactions to be sent at once, like in the example below. For each item sent in an array a response is returned.NOTE! Transactions cannot be added to warehouses with warehousetype Virtual (20).NOTE 2! The maximum number of items allowed for one request to this endpoint is 1000.
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouse-transactions#batch-add-warehouse-transactions
+  tags:
+    - WarehouseTransactions
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../../schemas/warehousetransaction-write.yaml
+        example: [{"warehouseid":2,"transactiontype":20,"description":"Move Out","externalid":"EXTID1","reasoncode":null,"items":[{"sku":"Q100","decimalquantity":"-13.000"}]},{"warehouseid":1,"transactiontype":10,"description":"Move In","externalid":"EXTID2","reasoncode":null,"items":[{"sku":"Q100","decimalquantity":"13.000","moneypricein":"3.45"}]}]
+  responses:
+    200:
+      description: Returns warehousetransactionid or a batch envelope if multiple transactions were added
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getAllWarehouseTransactions
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/warehouse-transactions#get-all-warehouse-transactions
+  tags:
+    - WarehouseTransactions
+  parameters:
+    - name: warehousetransactionid
+      in: query
+      schema:
+        type: array
+        items:
+          type: integer
+        example: /sites/{siteid}/warehousetransactions?warehousetransactionid=123&warehousetransactionid=127&warehousetransactionid=135
+    - name: warehousetransactionidfrom
+      in: query
+      schema:
+        type: integer
+    - name: warehousetransactionidto
+      in: query
+      schema:
+        type: integer
+    - name: datecreatedfrom
+      in: query
+      schema:
+        type: integer
+    - name: datecreatedto
+      in: query
+      schema:
+        type: integer
+    - name: warehouseid
+      in: query
+      schema:
+        type: integer
+    - name: transactiontype
+      in: query
+      schema:
+        type: integer
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: sort
+      in: query
+      schema:
+        type: string
+        default: '"-warehousetransactionid"'
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        default: warehousetransactionid,warehouseid,datecreated,transactiontype,description,orderdeliveryid,shipmentid,externalid,reasoncode,items
+        example: /sites/{siteid}/warehousetransactions?fields=warehousetransactionid,warehouseid,transactiontype
+  responses:
+    200:
+      description: Returns an envelope with items of type warehousetransaction.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/getAllWarehouseTransactionsResponse.yaml'
+          example: {"totalcount":16,"items":[{"warehousetransactionid":16,"warehouseid":1,"datecreated":1550669776,"transactiontype":50,"description":"Stocktaking has been completed!","orderdeliveryid":null,"shipmentid":null,"externalid":null,"reasoncode":null,"items":[{"decimalquantity":"-1.000","decimaltotal":"9.000","moneypricein":"0.00","moneytotal":"35280.00","moneyvalue":"-3920.00","sku":"10038-1"}]},{"warehousetransactionid":15,"warehouseid":2,"datecreated":1606817252,"transactiontype":30,"description":"","orderdeliveryid":13,"shipmentid":null,"externalid":null,"reasoncode":null,"items":[{"decimalquantity":"-1.000","decimaltotal":"-1.000","moneypricein":"0.00","moneytotal":"0.00","moneyvalue":"0.00","sku":"10038-2"},{"decimalquantity":"-2.000","decimaltotal":"-2.000","moneypricein":"0.00","moneytotal":"0.00","moneyvalue":"0.00","sku":"83428-0"},{"decimalquantity":"-1.000","decimaltotal":"-1.000","moneypricein":"0.00","moneytotal":"0.00","moneyvalue":"0.00","sku":"83537-0"}]},{"warehousetransactionid":14,"warehouseid":1,"datecreated":1463041119,"transactiontype":40,"description":"","orderdeliveryid":11,"shipmentid":null,"externalid":null,"reasoncode":null,"items":[{"decimalquantity":"1.000","decimaltotal":"8.000","moneypricein":"0.00","moneytotal":"7024.00","moneyvalue":"878.00","sku":"44079-0"}]}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

@@ -1,0 +1,18 @@
+type: object
+description: A site with it's own set of stores, products, pricelists and other related data.
+properties:
+  protocol:
+    type: string
+    description: Site protocol (ie. http or https).
+  server:
+    type: string
+    description: Server (domain).
+  abspath:
+    type: string
+    description: Absolute path.
+  siteurl:
+    type: string
+    description: 'Request to the site (protocol + "://" + server + abspath).'
+  eshopid:
+    type: integer
+    description: Eshop ID. This ID should be used in place of siteid in API endpoint URLs where {siteid} is specified.

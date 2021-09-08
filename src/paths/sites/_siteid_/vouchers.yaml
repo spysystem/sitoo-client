@@ -1,0 +1,75 @@
+parameters:
+  - name: siteid
+    in: path
+    schema:
+      type: integer
+    required: true
+post:
+  operationId: addVoucher
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/vouchers
+  tags:
+    - Vouchers
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../schemas/voucher-write.yaml
+        example: {"vouchertype":200,"vouchername":"Resellers","value_x":30}
+  responses:
+    200:
+      description: Returns voucherid
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.
+get:
+  operationId: getVouchers
+  externalDocs:
+    url: https://developer.sitoo.com/api-reference/vouchers#get-vouchers
+  tags:
+    - Vouchers
+  parameters:
+    - name: start
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: num
+      in: query
+      schema:
+        type: integer
+        default: 10
+    - name: fields
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        default: voucherid,vouchername,datecreated,vouchertype,voucherstate
+        example: /sites/{siteid}/vouchers?fields=voucherid,vouchertype,voucherstate
+  responses:
+    200:
+      description: Returns an envelope with items of type voucher.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/getVouchersResponse.yaml'
+          example: {"totalcount":3,"items":[{"voucherid":1,"vouchername":"Spring Sale","datecreated":1462953900,"vouchertype":110,"voucherstate":10},{"voucherid":2,"vouchername":"10% Off","datecreated":1462954020,"vouchertype":210,"voucherstate":10},{"voucherid":3,"vouchername":"$10 Off","datecreated":1462954020,"vouchertype":200,"voucherstate":10}]}
+    400:
+      description: Bad Request. Invalid syntax, missing required argument or invalid request.
+    401:
+      description: Unauthorized. Authorization failed.
+    404:
+      description: Resource not found. The url is invalid.
+    429:
+      description: Too Many Requests.
+    500:
+      description: Internal Server Error.

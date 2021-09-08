@@ -1,0 +1,2 @@
+type: object
+description: Map of attribute values for the product. The keys must exist as ID of attributes defined. The value type is defined by the attribute.

@@ -1,0 +1,17 @@
+type: object
+description: The Service Customer
+required:
+  - first_name
+properties:
+  first_name:
+    type: string
+    description: First name of the customer
+  last_name:
+    type: string
+    description: Last name of the customer
+  email:
+    type: string
+    description: Email for the customer
+  mobile:
+    type: string
+    description: Mobile phone number for the customer

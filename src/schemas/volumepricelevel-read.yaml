@@ -1,0 +1,9 @@
+type: object
+description: Volume price level of a pricelistitem
+properties:
+  levelstart:
+    type: integer
+    description: The quantity threshold to activate this price.
+  moneyprice:
+    type: string
+    description: The price of the product at this quantity.

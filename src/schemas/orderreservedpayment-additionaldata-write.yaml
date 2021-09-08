@@ -1,0 +1,2 @@
+type: object
+description: Additional data for this reserved payment. See orderpayment for system keys.

@@ -1,0 +1,29 @@
+type: object
+description: Payment for order.
+required:
+  - name
+  - moneyamount
+properties:
+  name:
+    type: string
+    description: The name of the payment
+  moneyamount:
+    type: string
+    description: The amount of the payment
+  externalid:
+    type: string
+    description: External ID for the the payment (if applicable)
+  reftype:
+    type: string
+    description: The reference type of the payment (if applicable)
+  refid:
+    type: string
+    description: The reference transaction id of the payment (if applicable)
+  cardissuer:
+    type: string
+    description: The card issuer (if applicable)
+  additionaldata:
+    $ref: 'orderpayment-additionaldata-read.yaml'
+  reservedpaymentid:
+    type: string
+    description: Reference to the reserved payment for this payment (if applicable)
