@@ -1,0 +1,12 @@
+type: object
+description: 'Batch Add Response'
+required:
+  - statuscode
+  - return
+properties:
+  statuscode:
+    type: integer
+    description: An http status code
+  return:
+    type: integer
+    description: ID for the batch-added entity

@@ -1,9 +1,4 @@
 parameters:
-  - name: accountid
-    in: path
-    schema:
-      type: integer
-    required: true
   - name: siteid
     in: path
     schema:
@@ -14,10 +9,6 @@ parameters:
     schema:
       type: integer
     required: true
-  - name: pin
-    in: query
-    schema:
-      type: string
 get:
   operationId: getGiftCard
   externalDocs:
@@ -35,7 +26,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../../../../../schemas/giftcardresponse-read.yaml'
+            $ref: '../../../../schemas/giftcardresponse-read.yaml'
           example: {"type":"giftcard","currencycode":"USD","cardnumber":"95123456789012345678","cardnumber_display":"95** **** **** **** 5678","redeemable":true,"date_expires":1888181999,"date_created":1569923445,"moneyamount":"371.00","requirespin":false,"transactions":[{"transactionid":"3456","date":1569923445,"moneyamount":"500.00","merchant_reference":"SC101","staff_reference":null,"transaction_reference":null},{"transactionid":"3457","date":1570540431,"moneyamount":"-129.00","merchant_reference":"SC102","staff_reference":null,"transaction_reference":null}]}
     400:
       description: Bad Request. Invalid syntax, missing required argument or invalid request.

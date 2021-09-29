@@ -46,7 +46,9 @@ get:
         type: array
         items:
           type: integer
-        example: /sites/{siteid}/warehousetransactions?warehousetransactionid=123&warehousetransactionid=127&warehousetransactionid=135
+      style: form
+      explode: false
+      example: /sites/{siteid}/warehousetransactions?warehousetransactionid=123&warehousetransactionid=127&warehousetransactionid=135
     - name: warehousetransactionidfrom
       in: query
       schema:
@@ -75,25 +77,23 @@ get:
       in: query
       schema:
         type: integer
-        default: 0
     - name: num
       in: query
       schema:
         type: integer
-        default: 10
     - name: sort
       in: query
       schema:
         type: string
-        default: '"-warehousetransactionid"'
     - name: fields
       in: query
       schema:
         type: array
         items:
           type: string
-        default: warehousetransactionid,warehouseid,datecreated,transactiontype,description,orderdeliveryid,shipmentid,externalid,reasoncode,items
-        example: /sites/{siteid}/warehousetransactions?fields=warehousetransactionid,warehouseid,transactiontype
+      style: form
+      explode: false
+      description: list of fields, comma-separated
   responses:
     200:
       description: Returns an envelope with items of type warehousetransaction.

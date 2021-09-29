@@ -9,7 +9,6 @@ properties:
     description: Order item ID.
   orderitemtype:
     type: integer
-    default: 10
     description: Order item type.  Note that item of type Discount needs to be preceded by one of type Product (to which it belongs) and the field moneyrowdiscount should be used to set the value of the discount.
   productid:
     type: integer
@@ -46,7 +45,6 @@ properties:
     description: Regular net price of product per unit. (Suggested Retail Price)
   vatvalue:
     type: number
-    default: 0
     description: VAT percentage.
   deliveryinfo:
     type: string
@@ -68,7 +66,6 @@ properties:
     description: Voucher comment.
   vouchervalue:
     type: number
-    default: 0
     description: Value of voucher. Percentage or fixed sum depending on ispercentage.
   moneyoriginalprice:
     type: string

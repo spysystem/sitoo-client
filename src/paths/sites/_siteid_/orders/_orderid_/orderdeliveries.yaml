@@ -13,7 +13,6 @@ parameters:
     in: query
     schema:
       type: boolean
-      default: false
 post:
   operationId: addOrderDelivery
   description: 'See orderdelivery for fields. Required fields: warehouseid orderdeliveryitems. Required fields for order delivery items: orderitemid quantity'
@@ -26,7 +25,6 @@ post:
       in: query
       schema:
         type: boolean
-        default: false
   requestBody:
     required: true
     content:

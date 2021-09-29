@@ -125,11 +125,9 @@ properties:
     description: The date of the order. In a POST request, the default is the current timestamp. Orders generated from the POS will have the date of when the transaction was made. Note! if the POS is offline when the transaction is made, then the order will be created on the backend at a later time, but the date will still be set to when the transaction was made.
   orderstateid:
     type: integer
-    default: 0
     description: Order state.
   paymentstateid:
     type: integer
-    default: 0
     description: Payment state.
   ordertypeid:
     type: integer

@@ -12,11 +12,11 @@ servers:
         default: '1500'
         description: Account no of system
 
-components:
-  securitySchemes:
-    basic:
-      type: http
-      scheme: bearer
+  - url: https://api-sandbox.mysitoo.com/v2/accounts/{accountid}
+    variables:
+      accountid:
+        default: '1500'
+        description: Account no of system
 
 tags:
   - name: CashRegisters
@@ -98,204 +98,213 @@ tags:
     externalDocs:
       url: https://developer.sitoo.com/api-reference/warehouses
 
+security:
+  - basicAuth: []
+
 paths:
-  /accounts/{accountid}/sites/{siteid}/giftcards:
-    $ref: 'paths/accounts/_accountid_/sites/_siteid_/giftcards.yaml'
-
-  /accounts/{accountid}/sites/{siteid}/giftcards/{cardnumber}:
-    $ref: 'paths/accounts/_accountid_/sites/_siteid_/giftcards/_cardnumber_.yaml'
-
-  /accounts/{accountid}/sites/{siteid}/giftcards/{cardnumber}/transactions:
-    $ref: 'paths/accounts/_accountid_/sites/_siteid_/giftcards/_cardnumber_/transactions.yaml'
-
-  /custom_metric_values:
+  /custom_metric_values.json:
     $ref: 'paths/custom_metric_values.yaml'
 
-  /custom_metric_values/{key}:
+  /custom_metric_values/{key}.json:
     $ref: 'paths/custom_metric_values/_key_.yaml'
 
-  /custom_metrics:
+  /custom_metrics.json:
     $ref: 'paths/custom_metrics.yaml'
 
-  /custom_metrics/{key}:
+  /custom_metrics/{key}.json:
     $ref: 'paths/custom_metrics/_key_.yaml'
 
-  /orders:
+  /orders.json:
     $ref: 'paths/orders.yaml'
 
-  /reasoncodes:
+  /reasoncodes.json:
     $ref: 'paths/reasoncodes.yaml'
 
-  /reasoncodes/{reasoncodeid}:
+  /reasoncodes/{reasoncodeid}.json:
     $ref: 'paths/reasoncodes/_reasoncodeid_.yaml'
 
-  /serviceorders:
+  /serviceorders.json:
     $ref: 'paths/serviceorders.yaml'
 
-  /serviceorders/{service_order_id}:
+  /serviceorders/{service_order_id}.json:
     $ref: 'paths/serviceorders/_service_order_id_.yaml'
 
-  /shipments:
+  /shipments.json:
     $ref: 'paths/shipments.yaml'
 
-  /shipments/{shipmentid}:
+  /shipments/{shipmentid}.json:
     $ref: 'paths/shipments/_shipmentid_.yaml'
 
-  /sites:
+  /sites.json:
     $ref: 'paths/sites.yaml'
 
-  /sites/{siteid}:
+  /sites/{siteid}.json:
     $ref: 'paths/sites/_siteid_.yaml'
 
-  /sites/{siteid}/cashregisters:
+  /sites/{siteid}/cashregisters.json:
     $ref: 'paths/sites/_siteid_/cashregisters.yaml'
 
-  /sites/{siteid}/cashregisters/{registerid}:
+  /sites/{siteid}/cashregisters/{registerid}.json:
     $ref: 'paths/sites/_siteid_/cashregisters/_registerid_.yaml'
 
-  /sites/{siteid}/cashregisters/{registerid}/zreports:
+  /sites/{siteid}/cashregisters/{registerid}/zreports.json:
     $ref: 'paths/sites/_siteid_/cashregisters/_registerid_/zreports.yaml'
 
-  /sites/{siteid}/cashregisters/{registerid}/zreports/{zreportid}:
+  /sites/{siteid}/cashregisters/{registerid}/zreports/{zreportid}.json:
     $ref: 'paths/sites/_siteid_/cashregisters/_registerid_/zreports/_zreportid_.yaml'
 
-  /sites/{siteid}/categories:
+  /sites/{siteid}/categories.json:
     $ref: 'paths/sites/_siteid_/categories.yaml'
 
-  /sites/{siteid}/categories/{categoryid}:
+  /sites/{siteid}/categories/{categoryid}.json:
     $ref: 'paths/sites/_siteid_/categories/_categoryid_.yaml'
 
-  /sites/{siteid}/customattributes:
+  /sites/{siteid}/customattributes.json:
     $ref: 'paths/sites/_siteid_/customattributes.yaml'
 
-  /sites/{siteid}/customattributes/{attributeid}:
+  /sites/{siteid}/customattributes/{attributeid}.json:
     $ref: 'paths/sites/_siteid_/customattributes/_attributeid_.yaml'
 
-  /sites/{siteid}/influencercodes:
+  /sites/{siteid}/giftcards.json:
+    $ref: 'paths/sites/_siteid_/giftcards.yaml'
+
+  /sites/{siteid}/giftcards/{cardnumber}.json:
+    $ref: 'paths/sites/_siteid_/giftcards/_cardnumber_.yaml'
+
+  /sites/{siteid}/giftcards/{cardnumber}/transactions.json:
+    $ref: 'paths/sites/_siteid_/giftcards/_cardnumber_/transactions.yaml'
+
+  /sites/{siteid}/influencercodes.json:
     $ref: 'paths/sites/_siteid_/influencercodes.yaml'
 
-  /sites/{siteid}/influencercodes/{code}:
+  /sites/{siteid}/influencercodes/{code}.json:
     $ref: 'paths/sites/_siteid_/influencercodes/_code_.yaml'
 
-  /sites/{siteid}/influencervouchers/{influencercode}:
+  /sites/{siteid}/influencervouchers/{influencercode}.json:
     $ref: 'paths/sites/_siteid_/influencervouchers/_influencercode_.yaml'
 
-  /sites/{siteid}/influencervouchers/{influencercode}/transactions:
+  /sites/{siteid}/influencervouchers/{influencercode}/transactions.json:
     $ref: 'paths/sites/_siteid_/influencervouchers/_influencercode_/transactions.yaml'
 
-  /sites/{siteid}/influencervouchers/{influencercode}/transactions/{transactionid}:
+  /sites/{siteid}/influencervouchers/{influencercode}/transactions/{transactionid}.json:
     $ref: 'paths/sites/_siteid_/influencervouchers/_influencercode_/transactions/_transactionid_.yaml'
 
-  /sites/{siteid}/manufacturers:
+  /sites/{siteid}/manufacturers.json:
     $ref: 'paths/sites/_siteid_/manufacturers.yaml'
 
-  /sites/{siteid}/manufacturers/{externalcompanyid}:
+  /sites/{siteid}/manufacturers/{externalcompanyid}.json:
     $ref: 'paths/sites/_siteid_/manufacturers/_externalcompanyid_.yaml'
 
-  /sites/{siteid}/orders:
+  /sites/{siteid}/orders.json:
     $ref: 'paths/sites/_siteid_/orders.yaml'
 
-  /sites/{siteid}/orders/{orderid}:
+  /sites/{siteid}/orders/{orderid}.json:
     $ref: 'paths/sites/_siteid_/orders/_orderid_.yaml'
 
-  /sites/{siteid}/orders/{orderid}/orderdeliveries:
+  /sites/{siteid}/orders/{orderid}/orderdeliveries.json:
     $ref: 'paths/sites/_siteid_/orders/_orderid_/orderdeliveries.yaml'
 
-  /sites/{siteid}/orders/{orderid}/orderlogitems:
+  /sites/{siteid}/orders/{orderid}/orderlogitems.json:
     $ref: 'paths/sites/_siteid_/orders/_orderid_/orderlogitems.yaml'
 
-  /sites/{siteid}/pricelists:
+  /sites/{siteid}/pricelists.json:
     $ref: 'paths/sites/_siteid_/pricelists.yaml'
 
-  /sites/{siteid}/pricelists/{pricelistid}:
+  /sites/{siteid}/pricelists/{pricelistid}.json:
     $ref: 'paths/sites/_siteid_/pricelists/_pricelistid_.yaml'
 
-  /sites/{siteid}/pricelists/{pricelistid}/pricelistitems:
+  /sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json:
     $ref: 'paths/sites/_siteid_/pricelists/_pricelistid_/pricelistitems.yaml'
 
-  /sites/{siteid}/productgroups:
+  /sites/{siteid}/productgroups.json:
     $ref: 'paths/sites/_siteid_/productgroups.yaml'
 
-  /sites/{siteid}/productgroups/{vatid}:
+  /sites/{siteid}/productgroups/{vatid}.json:
     $ref: 'paths/sites/_siteid_/productgroups/_vatid_.yaml'
 
-  /sites/{siteid}/products:
+  /sites/{siteid}/products.json:
     $ref: 'paths/sites/_siteid_/products.yaml'
 
-  /sites/{siteid}/products/{productid}:
+  /sites/{siteid}/products/{productid}.json:
     $ref: 'paths/sites/_siteid_/products/_productid_.yaml'
 
-  /sites/{siteid}/products/{productid}/files:
+  /sites/{siteid}/products/{productid}/files.json:
     $ref: 'paths/sites/_siteid_/products/_productid_/files.yaml'
 
-  /sites/{siteid}/products/{productid}/files/{fileid}:
+  /sites/{siteid}/products/{productid}/files/{fileid}.json:
     $ref: 'paths/sites/_siteid_/products/_productid_/files/_fileid_.yaml'
 
-  /sites/{siteid}/products/{productid}/images:
+  /sites/{siteid}/products/{productid}/images.json:
     $ref: 'paths/sites/_siteid_/products/_productid_/images.yaml'
 
-  /sites/{siteid}/products/{productid}/images/{imageid}:
+  /sites/{siteid}/products/{productid}/images/{imageid}.json:
     $ref: 'paths/sites/_siteid_/products/_productid_/images/_imageid_.yaml'
 
-  /sites/{siteid}/products/{productid}/productvariants:
+  /sites/{siteid}/products/{productid}/productvariants.json:
     $ref: 'paths/sites/_siteid_/products/_productid_/productvariants.yaml'
 
-  /sites/{siteid}/resources:
+  /sites/{siteid}/resources.json:
     $ref: 'paths/sites/_siteid_/resources.yaml'
 
-  /sites/{siteid}/salestaxes:
+  /sites/{siteid}/salestaxes.json:
     $ref: 'paths/sites/_siteid_/salestaxes.yaml'
 
-  /sites/{siteid}/salestaxes/{salestaxid}:
+  /sites/{siteid}/salestaxes/{salestaxid}.json:
     $ref: 'paths/sites/_siteid_/salestaxes/_salestaxid_.yaml'
 
-  /sites/{siteid}/salestaxgroups:
+  /sites/{siteid}/salestaxgroups.json:
     $ref: 'paths/sites/_siteid_/salestaxgroups.yaml'
 
-  /sites/{siteid}/salestaxgroups/{salestaxgroupid}:
+  /sites/{siteid}/salestaxgroups/{salestaxgroupid}.json:
     $ref: 'paths/sites/_siteid_/salestaxgroups/_salestaxgroupid_.yaml'
 
-  /sites/{siteid}/stores:
+  /sites/{siteid}/stores.json:
     $ref: 'paths/sites/_siteid_/stores.yaml'
 
-  /sites/{siteid}/stores/{storeid}:
+  /sites/{siteid}/stores/{storeid}.json:
     $ref: 'paths/sites/_siteid_/stores/_storeid_.yaml'
 
-  /sites/{siteid}/users:
+  /sites/{siteid}/users.json:
     $ref: 'paths/sites/_siteid_/users.yaml'
 
-  /sites/{siteid}/users/{userid}:
+  /sites/{siteid}/users/{userid}.json:
     $ref: 'paths/sites/_siteid_/users/_userid_.yaml'
 
-  /sites/{siteid}/vouchers:
+  /sites/{siteid}/vouchers.json:
     $ref: 'paths/sites/_siteid_/vouchers.yaml'
 
-  /sites/{siteid}/vouchers/{voucherid}:
+  /sites/{siteid}/vouchers/{voucherid}.json:
     $ref: 'paths/sites/_siteid_/vouchers/_voucherid_.yaml'
 
-  /sites/{siteid}/warehouses:
+  /sites/{siteid}/warehouses.json:
     $ref: 'paths/sites/_siteid_/warehouses.yaml'
 
-  /sites/{siteid}/warehouses/{warehouseid}:
+  /sites/{siteid}/warehouses/{warehouseid}.json:
     $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_.yaml'
 
-  /sites/{siteid}/warehouses/{warehouseid}/warehousebatches:
+  /sites/{siteid}/warehouses/{warehouseid}/warehousebatches.json:
     $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_/warehousebatches.yaml'
 
-  /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}:
+  /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}.json:
     $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_/warehousebatches/_warehousebatchid_.yaml'
 
-  /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems:
+  /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json:
     $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_/warehousebatches/_warehousebatchid_/warehousebatchitems.yaml'
 
-  /sites/{siteid}/warehouses/{warehouseid}/warehouseitems:
+  /sites/{siteid}/warehouses/{warehouseid}/warehouseitems.json:
     $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_/warehouseitems.yaml'
 
-  /sites/{siteid}/warehouses/{warehouseid}/warehousetransactions:
+  /sites/{siteid}/warehouses/{warehouseid}/warehousetransactions.json:
     $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_/warehousetransactions.yaml'
 
-  /sites/{siteid}/warehouses/{warehouseid}/warehousetransactions/{warehousetransactionid}:
+  /sites/{siteid}/warehouses/{warehouseid}/warehousetransactions/{warehousetransactionid}.json:
     $ref: 'paths/sites/_siteid_/warehouses/_warehouseid_/warehousetransactions/_warehousetransactionid_.yaml'
 
-  /sites/{siteid}/warehousetransactions:
+  /sites/{siteid}/warehousetransactions.json:
     $ref: 'paths/sites/_siteid_/warehousetransactions.yaml'
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

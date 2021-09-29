@@ -21,12 +21,10 @@ parameters:
     in: query
     schema:
       type: integer
-      default: 0
   - name: num
     in: query
     schema:
       type: integer
-      default: 10
 get:
   operationId: getZReports
   externalDocs:
@@ -46,12 +44,10 @@ get:
       in: query
       schema:
         type: integer
-        default: 0
     - name: num
       in: query
       schema:
         type: integer
-        default: 10
   responses:
     200:
       description: Returns an envelope with items of type poszreport for a cash register.

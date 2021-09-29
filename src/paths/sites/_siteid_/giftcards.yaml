@@ -1,39 +1,9 @@
 parameters:
-  - name: accountid
-    in: path
-    schema:
-      type: integer
-    required: true
   - name: siteid
     in: path
     schema:
       type: integer
     required: true
-  - name: deliverytype
-    in: query
-    schema:
-      type: string
-      default: '"preprinted"'
-  - name: deliverytext
-    in: query
-    schema:
-      type: string
-  - name: email
-    in: query
-    schema:
-      type: string
-  - name: mobile
-    in: query
-    schema:
-      type: string
-  - name: product_reference
-    in: query
-    schema:
-      type: string
-  - name: pin
-    in: query
-    schema:
-      type: string
 post:
   operationId: addGiftCard
   externalDocs:
@@ -45,7 +15,6 @@ post:
       in: query
       schema:
         type: string
-        default: '"preprinted"'
     - name: deliverytext
       in: query
       schema:
@@ -71,7 +40,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../../../../schemas/giftcard-write.yaml
+          $ref: ../../../schemas/giftcard-write.yaml
         example: {"type":"giftcard","currencycode":"USD","cardnumber":"95116763063530548720","transactions":[{"moneyamount":"500.00","merchant_reference":"SC101"}]}
   responses:
     200:
@@ -79,7 +48,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../../../../schemas/giftcardresponse-read.yaml'
+            $ref: '../../../schemas/giftcardresponse-read.yaml'
           example: {"giftcard":{"type":"giftcard","currencycode":"USD","cardnumber":"95116763063530548720","cardnumber_display":"95** **** **** **** 8720","redeemable":true,"date_expires":1866322799,"date_created":1550669776,"moneyamount":"500.00","requirespin":false,"transactions":[{"transactionid":"3458","date":1550669776,"moneyamount":"500.00","merchant_reference":"SC101","staff_reference":null,"transaction_reference":null}]},"addedtransactionids":["3458","a8e9cbd970ebfc2c20037b8e41c7e3c0aa522238"],"receipttext":null,"print_voucher":false,"print_pin":null}
     400:
       description: Bad Request. Invalid syntax, missing required argument or invalid request.

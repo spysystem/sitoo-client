@@ -1,89 +1,3 @@
-parameters:
-  - name: eshopid
-    in: query
-    schema:
-      type: array
-      items:
-        type: integer
-      example: /orders?eshopid=1
-  - name: externalid
-    in: query
-    schema:
-      type: array
-      items:
-        type: string
-      example: /orders?externalid=EXT987654321
-  - name: orderid
-    in: query
-    schema:
-      type: array
-      items:
-        type: integer
-      example: /orders?orderid=12345,12351
-  - name: orderidfrom
-    in: query
-    schema:
-      type: integer
-  - name: orderidto
-    in: query
-    schema:
-      type: integer
-  - name: orderdatefrom
-    in: query
-    schema:
-      type: integer
-  - name: orderdateto
-    in: query
-    schema:
-      type: integer
-  - name: orderstate
-    in: query
-    schema:
-      type: array
-      items:
-        type: integer
-      example: /orders?orderstate=0,10
-  - name: paymentstate
-    in: query
-    schema:
-      type: array
-      items:
-        type: integer
-      example: /orders?paymentstate=15
-  - name: ordertype
-    in: query
-    schema:
-      type: array
-      items:
-        type: integer
-      example: /orders?ordertype=10
-  - name: email
-    in: query
-    schema:
-      type: string
-  - name: start
-    in: query
-    schema:
-      type: integer
-      default: 0
-  - name: num
-    in: query
-    schema:
-      type: integer
-      default: 10
-  - name: sort
-    in: query
-    schema:
-      type: string
-      default: '"-orderid"'
-  - name: fields
-    in: query
-    schema:
-      type: array
-      items:
-        type: string
-      default: orderid,eshopid,email,namefirst,namelast,company,moneyfinal_net,moneyfinal_vat,moneytotal_gross_roundoff,moneytotal_gross_all,checkouttypename,deliverytypename,orderdate,orderstateid,paymentstateid,ordertypeid,registerid,warehouseid,datereserved,currencycode,orderitems,payments,reservedpayments,additionaldata
-      example: /orders?fields=orderid,ordertypeid,orderitems,payments,additionaldata
 get:
   operationId: getAllOrders
   description: Use fields to only query the information needed for your use case. Use filter eshopid to only query orders for one site.
@@ -98,21 +12,27 @@ get:
         type: array
         items:
           type: integer
-        example: /orders?eshopid=1
+      style: form
+      explode: false
+      example: /orders?eshopid=1
     - name: externalid
       in: query
       schema:
         type: array
         items:
           type: string
-        example: /orders?externalid=EXT987654321
+      style: form
+      explode: false
+      example: /orders?externalid=EXT987654321
     - name: orderid
       in: query
       schema:
         type: array
         items:
           type: integer
-        example: /orders?orderid=12345,12351
+      style: form
+      explode: false
+      example: /orders?orderid=12345,12351
     - name: orderidfrom
       in: query
       schema:
@@ -135,21 +55,27 @@ get:
         type: array
         items:
           type: integer
-        example: /orders?orderstate=0,10
+      style: form
+      explode: false
+      example: /orders?orderstate=0,10
     - name: paymentstate
       in: query
       schema:
         type: array
         items:
           type: integer
-        example: /orders?paymentstate=15
+      style: form
+      explode: false
+      example: /orders?paymentstate=15
     - name: ordertype
       in: query
       schema:
         type: array
         items:
           type: integer
-        example: /orders?ordertype=10
+      style: form
+      explode: false
+      example: /orders?ordertype=10
     - name: email
       in: query
       schema:
@@ -158,25 +84,23 @@ get:
       in: query
       schema:
         type: integer
-        default: 0
     - name: num
       in: query
       schema:
         type: integer
-        default: 10
     - name: sort
       in: query
       schema:
         type: string
-        default: '"-orderid"'
     - name: fields
       in: query
       schema:
         type: array
         items:
           type: string
-        default: orderid,eshopid,email,namefirst,namelast,company,moneyfinal_net,moneyfinal_vat,moneytotal_gross_roundoff,moneytotal_gross_all,checkouttypename,deliverytypename,orderdate,orderstateid,paymentstateid,ordertypeid,registerid,warehouseid,datereserved,currencycode,orderitems,payments,reservedpayments,additionaldata
-        example: /orders?fields=orderid,ordertypeid,orderitems,payments,additionaldata
+      style: form
+      explode: false
+      description: list of fields, comma-separated
   responses:
     200:
       description: Returns an envelope with items of type order.

@@ -11,7 +11,7 @@ post:
       application/json:
         schema:
           $ref: ../schemas/CustomMetric-write.yaml
-        example:
+        example: {"key":"cm_revenue_total_budget","grouping":"date_store","type":"scalar","format":"money"}
   responses:
     200:
       description: Returns the added Custom Metric object.

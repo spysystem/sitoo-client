@@ -41,7 +41,9 @@ get:
         type: array
         items:
           type: string
-        example: /serviceorders?state=new,in_progress
+      style: form
+      explode: false
+      example: /serviceorders?state=new,in_progress
     - name: start_after_id
       in: query
       schema:
@@ -50,12 +52,10 @@ get:
       in: query
       schema:
         type: integer
-        default: 10
     - name: sort
       in: query
       schema:
         type: string
-        default: '"-created"'
   responses:
     200:
       description: Returns array of Service Order objects

@@ -1,0 +1,10 @@
+# FieldsParam
+in: query
+name: fields
+schema:
+  type: array
+  items:
+    type: string
+style: form
+explode: false
+example: ?fields=fieldA,fieldB,fieldC

@@ -2,18 +2,26 @@ type: object
 description: Product variant data.
 required:
   - productid
+  - active
   - activepos
   - title
   - sku
+  - deliverystatus
   - moneyprice
   - moneypriceorg
   - moneypricein
+  - moneyofferprice
   - barcode
+  - friendly
   - attributes
 properties:
   productid:
     type: integer
     description: The unique internal productid. It is unique over all sites in the system.
+  active:
+    type: boolean
+    deprecated: true
+    description: If false, the product is not shown in in the POS.
   activepos:
     type: boolean
     description: If false, the product is not shown in in the POS.
@@ -23,6 +31,10 @@ properties:
   sku:
     type: string
     description: Stock Keeping Unit (ie. the article number). If entered, it needs to be unique for the site.
+  deliverystatus:
+    type: string
+    deprecated: true
+    description: Delivery status. If set then it overrides any Stock texts on the site. If not set (ie. empty) then the stock is displayed using the stockcount field.
   moneyprice:
     type: string
     description: 'Price of the product. If this field is used for setting price on a product, the price will be set for the "Default" price list. It is recommended to use the Price Lists endpoints for setting product prices instead.'
@@ -32,6 +44,10 @@ properties:
   moneypricein:
     type: string
     description: Purchase price which can be used to help calculate profit on products. (Always excluding VAT)
+  moneyofferprice:
+    type: string
+    deprecated: true
+    description: If the product is in offer mode, the offerprice will be used instead of the price. The product is in offer mode if enabled and within the offer date period. (Deprecated, use price lists instead)
   barcode:
     type: string
     description: Barcode for the product.
@@ -40,6 +56,10 @@ properties:
     items:
       type: string
     description: Barcode aliases for the product. Used if multiple barcodes exist for product.
+  friendly:
+    type: string
+    deprecated: true
+    description: Friendly name. Absolute url = site url + friendly.
   attributes:
     type: array
     items:

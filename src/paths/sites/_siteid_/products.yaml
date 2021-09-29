@@ -23,6 +23,12 @@ post:
   responses:
     200:
       description: Returns productid or a batch envelope if multiple products were added
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../../schemas/batchResponse.yaml
     400:
       description: Bad Request. Invalid syntax, missing required argument or invalid request.
     401:
@@ -49,7 +55,6 @@ get:
       in: query
       schema:
         type: boolean
-        default: false
     - name: datelastmodified
       in: query
       schema:
@@ -58,20 +63,19 @@ get:
       in: query
       schema:
         type: integer
-        default: 0
     - name: num
       in: query
       schema:
         type: integer
-        default: 10
     - name: fields
       in: query
       schema:
         type: array
         items:
           type: string
-        default: productid,sku,datemodified,active,activepos,vatid,manufacturerid,stockcountenable,stockallowbackorder,barcode,moneyprice,moneyfinalprice
-        example: /sites/{siteid}/products?fields=productid,sku
+      style: form
+      explode: false
+      description: list of fields, comma-separated
   responses:
     200:
       description: Returns an envelope with items of type product.

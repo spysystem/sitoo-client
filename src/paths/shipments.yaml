@@ -14,6 +14,11 @@ post:
   responses:
     200:
       description: Returns shipmentid
+      content:
+        application/json:
+          schema:
+            type: integer
+            description: Shipment ID
     400:
       description: Bad Request. Invalid syntax, missing required argument or invalid request.
     401:
@@ -37,7 +42,9 @@ get:
         type: array
         items:
           type: integer
-        example: /shipments?shipmentid=12345,12347,12335
+      style: form
+      explode: false
+      example: /shipments?shipmentid=12345,12347,12335
     - name: sender_warehouseid
       in: query
       schema:
@@ -50,25 +57,23 @@ get:
       in: query
       schema:
         type: integer
-        default: 20
     - name: start
       in: query
       schema:
         type: integer
-        default: 0
     - name: num
       in: query
       schema:
         type: integer
-        default: 10
     - name: fields
       in: query
       schema:
         type: array
         items:
           type: string
-        default: shipmentid,shipmentstate,externalid,datenew,dateintransit,datereceived,datecancelled,dateestimatedpickup,dateestimateddelivery,sender_warehouseid,sender_name,receiver_warehouseid,receiver_name,carrier_name,carrier_reference
-        example: /shipments?fields=shipmentid,shipmentstate,sender_warehouseid,receiver_warehouseid
+      style: form
+      explode: false
+      description: list of fields, comma-separated
   responses:
     200:
       description: Returns an envelope with items of type shipment.

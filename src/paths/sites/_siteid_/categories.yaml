@@ -1,6 +1,6 @@
 parameters:
-  - name: siteid
-    in: path
+  - in: path
+    name: siteid
     schema:
       type: integer
     required: true
@@ -20,6 +20,10 @@ post:
   responses:
     200:
       description: Returns categoryid
+      content:
+        application/json:
+          schema:
+            type: integer
     400:
       description: Bad Request. Invalid syntax, missing required argument or invalid request.
     401:
@@ -41,19 +45,19 @@ get:
       in: query
       schema:
         type: integer
-        default: 0
     - name: num
       in: query
       schema:
         type: integer
-        default: 10
     - name: fields
       in: query
       schema:
         type: array
         items:
           type: string
-        example: /sites/{siteid}/categories?fields=categoryid,title,categoryparentid,sortorder
+      style: form
+      explode: false
+      description: list of fields, comma-separated
   responses:
     200:
       description: Returns an envelope with items of type category.

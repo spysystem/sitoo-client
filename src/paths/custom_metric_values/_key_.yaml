@@ -12,7 +12,6 @@ parameters:
     in: query
     schema:
       type: string
-      default: 1
   - name: store_id
     in: query
     schema:
@@ -33,7 +32,6 @@ delete:
       in: query
       schema:
         type: string
-        default: 1
     - name: store_id
       in: query
       schema:

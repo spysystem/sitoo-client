@@ -9,13 +9,6 @@ parameters:
     schema:
       type: integer
     required: true
-  - name: fields
-    in: query
-    schema:
-      type: array
-      items:
-        type: string
-      example: /sites/{siteid}/users/{userid}?fields=userid,email,namefirst,namelast
 get:
   operationId: getUser
   externalDocs:
@@ -29,7 +22,9 @@ get:
         type: array
         items:
           type: string
-        example: /sites/{siteid}/users/{userid}?fields=userid,email,namefirst,namelast
+      style: form
+      explode: false
+      description: list of fields, comma-separated
   responses:
     200:
       description: Returns an item of type user.

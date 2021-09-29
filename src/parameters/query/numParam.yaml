@@ -1,0 +1,4 @@
+name: num
+in: query
+schema:
+  type: integer

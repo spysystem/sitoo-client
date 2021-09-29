@@ -9,39 +9,6 @@ parameters:
     schema:
       type: integer
     required: true
-  - name: start
-    in: query
-    schema:
-      type: integer
-      default: 0
-  - name: num
-    in: query
-    schema:
-      type: integer
-      default: 10
-  - name: datelastmodifiedfrom
-    in: query
-    schema:
-      type: integer
-  - name: datelastmodifiedto
-    in: query
-    schema:
-      type: integer
-  - name: sku
-    in: query
-    schema:
-      type: array
-      items:
-        type: string
-      example: /sites/{siteid}/warehouses/{warehouseid}/warehouseitems?sku=123456,23456
-  - name: fields
-    in: query
-    schema:
-      type: array
-      items:
-        type: string
-      default: warehouseitemid,sku,binlocation,decimalthreshold,decimaltotal,moneytotal,datelastmodified,datelaststocktaking
-      example: /sites/{siteid}/warehouses/{warehouseid}/warehouseitems?fields=sku,decimaltotal,datelastmodified
 get:
   operationId: getWarehouseItems
   externalDocs:
@@ -53,12 +20,10 @@ get:
       in: query
       schema:
         type: integer
-        default: 0
     - name: num
       in: query
       schema:
         type: integer
-        default: 10
     - name: datelastmodifiedfrom
       in: query
       schema:
@@ -73,15 +38,18 @@ get:
         type: array
         items:
           type: string
-        example: /sites/{siteid}/warehouses/{warehouseid}/warehouseitems?sku=123456,23456
+      style: form
+      explode: false
+      example: /sites/{siteid}/warehouses/{warehouseid}/warehouseitems?sku=123456,23456
     - name: fields
       in: query
       schema:
         type: array
         items:
           type: string
-        default: warehouseitemid,sku,binlocation,decimalthreshold,decimaltotal,moneytotal,datelastmodified,datelaststocktaking
-        example: /sites/{siteid}/warehouses/{warehouseid}/warehouseitems?fields=sku,decimaltotal,datelastmodified
+      style: form
+      explode: false
+      description: list of fields, comma-separated
   responses:
     200:
       description: Returns an envelope with items of type warehouseitem for a warehouse.

@@ -4,23 +4,6 @@ parameters:
     schema:
       type: integer
     required: true
-  - name: start
-    in: query
-    schema:
-      type: integer
-      default: 0
-  - name: num
-    in: query
-    schema:
-      type: integer
-      default: 10
-  - name: fields
-    in: query
-    schema:
-      type: array
-      items:
-        type: string
-      example: /sites/{siteid}/resources?fields=resourceid,datecreated
 get:
   operationId: getResources
   externalDocs:
@@ -32,19 +15,19 @@ get:
       in: query
       schema:
         type: integer
-        default: 0
     - name: num
       in: query
       schema:
         type: integer
-        default: 10
     - name: fields
       in: query
       schema:
         type: array
         items:
           type: string
-        example: /sites/{siteid}/resources?fields=resourceid,datecreated
+      style: form
+      explode: false
+      description: list of fields, comma-separated
   responses:
     200:
       description: Returns an envelope with items of type resource.

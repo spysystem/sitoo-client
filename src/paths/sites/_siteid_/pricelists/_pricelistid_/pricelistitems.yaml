@@ -9,24 +9,6 @@ parameters:
     schema:
       type: integer
     required: true
-  - name: start
-    in: query
-    schema:
-      type: integer
-      default: 0
-  - name: num
-    in: query
-    schema:
-      type: integer
-      default: 10
-  - name: fields
-    in: query
-    schema:
-      type: array
-      items:
-        type: string
-      default: sku,moneyprice
-      example: /sites/{siteid}/pricelists/{pricelistid}/pricelistitems?fields=sku,moneyprice
 get:
   operationId: getPriceListsItems
   externalDocs:
@@ -38,20 +20,19 @@ get:
       in: query
       schema:
         type: integer
-        default: 0
     - name: num
       in: query
       schema:
         type: integer
-        default: 10
     - name: fields
       in: query
       schema:
         type: array
         items:
           type: string
-        default: sku,moneyprice
-        example: /sites/{siteid}/pricelists/{pricelistid}/pricelistitems?fields=sku,moneyprice
+      style: form
+      explode: false
+      description: list of fields, comma-separated
   responses:
     200:
       description: Returns an envelope with items of type pricelistitem for a pricelist, ordered by productid.

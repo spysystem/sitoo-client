@@ -38,11 +38,9 @@ properties:
     description: Delivery information that can be provided to the customer after the purchase.
   activepos:
     type: boolean
-    default: true
     description: If false, the product is not shown in in the POS.
   vatid:
     type: integer
-    default: 2
     description: The reference to which Product Group the product belongs to. The Product Group also determines VAT. See productgroup for more information.
   defaultcategoryid:
     type: integer
@@ -75,7 +73,6 @@ properties:
     description: Custom field 5.
   stockcountenable:
     type: boolean
-    default: true
     description: Turns on/off stock handling for the product.
   variantparentid:
     type: integer
