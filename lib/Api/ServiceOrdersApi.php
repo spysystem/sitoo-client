@@ -293,7 +293,7 @@ class ServiceOrdersApi
             );
         }
 
-        $resourcePath = '/serviceorders';
+        $resourcePath = '/serviceorders.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -346,6 +346,10 @@ class ServiceOrdersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -506,7 +510,7 @@ class ServiceOrdersApi
             );
         }
 
-        $resourcePath = '/serviceorders/{service_order_id}';
+        $resourcePath = '/serviceorders/{service_order_id}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -561,6 +565,10 @@ class ServiceOrdersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -588,14 +596,14 @@ class ServiceOrdersApi
      * @param  string $store store (optional)
      * @param  string[] $state state (optional)
      * @param  string $startAfterId startAfterId (optional)
-     * @param  int $num num (optional, default to 10)
-     * @param  string $sort sort (optional, default to '"-created"')
+     * @param  int $num num (optional)
+     * @param  string $sort sort (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getServiceOrders($store = null, $state = null, $startAfterId = null, $num = 10, $sort = '"-created"')
+    public function getServiceOrders($store = null, $state = null, $startAfterId = null, $num = null, $sort = null)
     {
         $this->getServiceOrdersWithHttpInfo($store, $state, $startAfterId, $num, $sort);
     }
@@ -606,14 +614,14 @@ class ServiceOrdersApi
      * @param  string $store (optional)
      * @param  string[] $state (optional)
      * @param  string $startAfterId (optional)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-created"')
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getServiceOrdersWithHttpInfo($store = null, $state = null, $startAfterId = null, $num = 10, $sort = '"-created"')
+    public function getServiceOrdersWithHttpInfo($store = null, $state = null, $startAfterId = null, $num = null, $sort = null)
     {
         $request = $this->getServiceOrdersRequest($store, $state, $startAfterId, $num, $sort);
 
@@ -662,13 +670,13 @@ class ServiceOrdersApi
      * @param  string $store (optional)
      * @param  string[] $state (optional)
      * @param  string $startAfterId (optional)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-created"')
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getServiceOrdersAsync($store = null, $state = null, $startAfterId = null, $num = 10, $sort = '"-created"')
+    public function getServiceOrdersAsync($store = null, $state = null, $startAfterId = null, $num = null, $sort = null)
     {
         return $this->getServiceOrdersAsyncWithHttpInfo($store, $state, $startAfterId, $num, $sort)
             ->then(
@@ -686,13 +694,13 @@ class ServiceOrdersApi
      * @param  string $store (optional)
      * @param  string[] $state (optional)
      * @param  string $startAfterId (optional)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-created"')
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getServiceOrdersAsyncWithHttpInfo($store = null, $state = null, $startAfterId = null, $num = 10, $sort = '"-created"')
+    public function getServiceOrdersAsyncWithHttpInfo($store = null, $state = null, $startAfterId = null, $num = null, $sort = null)
     {
         $returnType = '';
         $request = $this->getServiceOrdersRequest($store, $state, $startAfterId, $num, $sort);
@@ -726,16 +734,16 @@ class ServiceOrdersApi
      * @param  string $store (optional)
      * @param  string[] $state (optional)
      * @param  string $startAfterId (optional)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-created"')
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getServiceOrdersRequest($store = null, $state = null, $startAfterId = null, $num = 10, $sort = '"-created"')
+    public function getServiceOrdersRequest($store = null, $state = null, $startAfterId = null, $num = null, $sort = null)
     {
 
-        $resourcePath = '/serviceorders';
+        $resourcePath = '/serviceorders.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -751,7 +759,7 @@ class ServiceOrdersApi
         }
         // query params
         if (is_array($state)) {
-            $state = ObjectSerializer::serializeCollection($state, 'csv', true);
+            $state = ObjectSerializer::serializeCollection($state, 'form', true);
         }
         if ($state !== null) {
             $queryParams['state'] = $state;
@@ -817,6 +825,10 @@ class ServiceOrdersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -988,7 +1000,7 @@ class ServiceOrdersApi
             );
         }
 
-        $resourcePath = '/serviceorders/{service_order_id}';
+        $resourcePath = '/serviceorders/{service_order_id}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1049,6 +1061,10 @@ class ServiceOrdersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

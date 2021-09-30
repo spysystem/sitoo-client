@@ -367,7 +367,7 @@ class OrderitemWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('orderitemtype', $data, 10);
+        $this->setIfExists('orderitemtype', $data, null);
         $this->setIfExists('productname', $data, null);
         $this->setIfExists('sku', $data, null);
         $this->setIfExists('productattributes', $data, null);
@@ -377,12 +377,12 @@ class OrderitemWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('quantity', $data, null);
         $this->setIfExists('decimalunitquantity', $data, null);
         $this->setIfExists('moneypriceorg', $data, null);
-        $this->setIfExists('vatvalue', $data, 0);
+        $this->setIfExists('vatvalue', $data, null);
         $this->setIfExists('deliveryinfo', $data, null);
         $this->setIfExists('vouchercode', $data, null);
         $this->setIfExists('vouchername', $data, null);
         $this->setIfExists('vouchercomment', $data, null);
-        $this->setIfExists('vouchervalue', $data, 0);
+        $this->setIfExists('vouchervalue', $data, null);
         $this->setIfExists('salestaxes', $data, null);
         $this->setIfExists('additionaldata', $data, null);
         $this->setIfExists('moneyrowprice', $data, null);

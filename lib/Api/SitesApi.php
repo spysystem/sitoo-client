@@ -347,7 +347,7 @@ class SitesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}';
+        $resourcePath = '/sites/{siteid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -402,6 +402,10 @@ class SitesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -605,7 +609,7 @@ class SitesApi
     public function getSitesRequest()
     {
 
-        $resourcePath = '/sites';
+        $resourcePath = '/sites.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -652,6 +656,10 @@ class SitesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

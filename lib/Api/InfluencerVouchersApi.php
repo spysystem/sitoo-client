@@ -369,7 +369,7 @@ class InfluencerVouchersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/influencervouchers/{influencercode}/transactions';
+        $resourcePath = '/sites/{siteid}/influencervouchers/{influencercode}/transactions.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -438,6 +438,10 @@ class InfluencerVouchersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -674,7 +678,7 @@ class InfluencerVouchersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/influencervouchers/{influencercode}/transactions/{transactionid}';
+        $resourcePath = '/sites/{siteid}/influencervouchers/{influencercode}/transactions/{transactionid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -745,6 +749,10 @@ class InfluencerVouchersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -970,7 +978,7 @@ class InfluencerVouchersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/influencervouchers/{influencercode}';
+        $resourcePath = '/sites/{siteid}/influencervouchers/{influencercode}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1033,6 +1041,10 @@ class InfluencerVouchersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

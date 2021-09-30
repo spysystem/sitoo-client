@@ -161,11 +161,12 @@ class ShipmentsApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return int
      */
     public function addShipment($shipmentWrite)
     {
-        $this->addShipmentWithHttpInfo($shipmentWrite);
+        list($response) = $this->addShipmentWithHttpInfo($shipmentWrite);
+        return $response;
     }
 
     /**
@@ -175,7 +176,7 @@ class ShipmentsApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of int, HTTP status code, HTTP response headers (array of strings)
      */
     public function addShipmentWithHttpInfo($shipmentWrite)
     {
@@ -209,10 +210,52 @@ class ShipmentsApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('int' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                        if ('int' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'int', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'int';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+                if ('int' !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'int',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -250,14 +293,25 @@ class ShipmentsApi
      */
     public function addShipmentAsyncWithHttpInfo($shipmentWrite)
     {
-        $returnType = '';
+        $returnType = 'int';
         $request = $this->addShipmentRequest($shipmentWrite);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -293,7 +347,7 @@ class ShipmentsApi
             );
         }
 
-        $resourcePath = '/shipments';
+        $resourcePath = '/shipments.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -306,11 +360,11 @@ class ShipmentsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
@@ -346,6 +400,10 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -560,7 +618,7 @@ class ShipmentsApi
             );
         }
 
-        $resourcePath = '/shipments/{shipmentid}';
+        $resourcePath = '/shipments/{shipmentid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -615,6 +673,10 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -642,16 +704,16 @@ class ShipmentsApi
      * @param  int[] $shipmentid shipmentid (optional)
      * @param  int $senderWarehouseid senderWarehouseid (optional)
      * @param  int $receiverWarehouseid receiverWarehouseid (optional)
-     * @param  int $archived archived (optional, default to 20)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $archived archived (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetShipmentsResponse
      */
-    public function getShipments($shipmentid = null, $senderWarehouseid = null, $receiverWarehouseid = null, $archived = 20, $start = 0, $num = 10, $fields = null)
+    public function getShipments($shipmentid = null, $senderWarehouseid = null, $receiverWarehouseid = null, $archived = null, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getShipmentsWithHttpInfo($shipmentid, $senderWarehouseid, $receiverWarehouseid, $archived, $start, $num, $fields);
         return $response;
@@ -663,16 +725,16 @@ class ShipmentsApi
      * @param  int[] $shipmentid (optional)
      * @param  int $senderWarehouseid (optional)
      * @param  int $receiverWarehouseid (optional)
-     * @param  int $archived (optional, default to 20)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $archived (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetShipmentsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShipmentsWithHttpInfo($shipmentid = null, $senderWarehouseid = null, $receiverWarehouseid = null, $archived = 20, $start = 0, $num = 10, $fields = null)
+    public function getShipmentsWithHttpInfo($shipmentid = null, $senderWarehouseid = null, $receiverWarehouseid = null, $archived = null, $start = null, $num = null, $fields = null)
     {
         $request = $this->getShipmentsRequest($shipmentid, $senderWarehouseid, $receiverWarehouseid, $archived, $start, $num, $fields);
 
@@ -763,15 +825,15 @@ class ShipmentsApi
      * @param  int[] $shipmentid (optional)
      * @param  int $senderWarehouseid (optional)
      * @param  int $receiverWarehouseid (optional)
-     * @param  int $archived (optional, default to 20)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $archived (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShipmentsAsync($shipmentid = null, $senderWarehouseid = null, $receiverWarehouseid = null, $archived = 20, $start = 0, $num = 10, $fields = null)
+    public function getShipmentsAsync($shipmentid = null, $senderWarehouseid = null, $receiverWarehouseid = null, $archived = null, $start = null, $num = null, $fields = null)
     {
         return $this->getShipmentsAsyncWithHttpInfo($shipmentid, $senderWarehouseid, $receiverWarehouseid, $archived, $start, $num, $fields)
             ->then(
@@ -789,15 +851,15 @@ class ShipmentsApi
      * @param  int[] $shipmentid (optional)
      * @param  int $senderWarehouseid (optional)
      * @param  int $receiverWarehouseid (optional)
-     * @param  int $archived (optional, default to 20)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $archived (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShipmentsAsyncWithHttpInfo($shipmentid = null, $senderWarehouseid = null, $receiverWarehouseid = null, $archived = 20, $start = 0, $num = 10, $fields = null)
+    public function getShipmentsAsyncWithHttpInfo($shipmentid = null, $senderWarehouseid = null, $receiverWarehouseid = null, $archived = null, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetShipmentsResponse';
         $request = $this->getShipmentsRequest($shipmentid, $senderWarehouseid, $receiverWarehouseid, $archived, $start, $num, $fields);
@@ -842,18 +904,18 @@ class ShipmentsApi
      * @param  int[] $shipmentid (optional)
      * @param  int $senderWarehouseid (optional)
      * @param  int $receiverWarehouseid (optional)
-     * @param  int $archived (optional, default to 20)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $archived (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShipmentsRequest($shipmentid = null, $senderWarehouseid = null, $receiverWarehouseid = null, $archived = 20, $start = 0, $num = 10, $fields = null)
+    public function getShipmentsRequest($shipmentid = null, $senderWarehouseid = null, $receiverWarehouseid = null, $archived = null, $start = null, $num = null, $fields = null)
     {
 
-        $resourcePath = '/shipments';
+        $resourcePath = '/shipments.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -862,7 +924,7 @@ class ShipmentsApi
 
         // query params
         if (is_array($shipmentid)) {
-            $shipmentid = ObjectSerializer::serializeCollection($shipmentid, 'csv', true);
+            $shipmentid = ObjectSerializer::serializeCollection($shipmentid, 'form', true);
         }
         if ($shipmentid !== null) {
             $queryParams['shipmentid'] = $shipmentid;
@@ -904,7 +966,7 @@ class ShipmentsApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -949,6 +1011,10 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1174,7 +1240,7 @@ class ShipmentsApi
             );
         }
 
-        $resourcePath = '/shipments/{shipmentid}';
+        $resourcePath = '/shipments/{shipmentid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1235,6 +1301,10 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

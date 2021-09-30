@@ -605,8 +605,8 @@ class OrderRead implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('moneytotalGrossRoundoff', $data, null);
         $this->setIfExists('moneytotalGrossAll', $data, null);
         $this->setIfExists('orderdate', $data, null);
-        $this->setIfExists('orderstateid', $data, 0);
-        $this->setIfExists('paymentstateid', $data, 0);
+        $this->setIfExists('orderstateid', $data, null);
+        $this->setIfExists('paymentstateid', $data, null);
         $this->setIfExists('ordertypeid', $data, null);
         $this->setIfExists('useridStaff', $data, null);
         $this->setIfExists('registerid', $data, null);

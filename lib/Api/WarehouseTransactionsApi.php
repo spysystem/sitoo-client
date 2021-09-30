@@ -304,7 +304,7 @@ class WarehouseTransactionsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehousetransactions';
+        $resourcePath = '/sites/{siteid}/warehousetransactions.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -365,6 +365,10 @@ class WarehouseTransactionsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -397,16 +401,16 @@ class WarehouseTransactionsApi
      * @param  int $datecreatedto datecreatedto (optional)
      * @param  int $warehouseid warehouseid (optional)
      * @param  int $transactiontype transactiontype (optional)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string $sort sort (optional, default to '"-warehousetransactionid"')
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string $sort sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetAllWarehouseTransactionsResponse
      */
-    public function getAllWarehouseTransactions($siteid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $warehouseid = null, $transactiontype = null, $start = 0, $num = 10, $sort = '"-warehousetransactionid"', $fields = null)
+    public function getAllWarehouseTransactions($siteid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $warehouseid = null, $transactiontype = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         list($response) = $this->getAllWarehouseTransactionsWithHttpInfo($siteid, $warehousetransactionid, $warehousetransactionidfrom, $warehousetransactionidto, $datecreatedfrom, $datecreatedto, $warehouseid, $transactiontype, $start, $num, $sort, $fields);
         return $response;
@@ -423,16 +427,16 @@ class WarehouseTransactionsApi
      * @param  int $datecreatedto (optional)
      * @param  int $warehouseid (optional)
      * @param  int $transactiontype (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-warehousetransactionid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetAllWarehouseTransactionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllWarehouseTransactionsWithHttpInfo($siteid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $warehouseid = null, $transactiontype = null, $start = 0, $num = 10, $sort = '"-warehousetransactionid"', $fields = null)
+    public function getAllWarehouseTransactionsWithHttpInfo($siteid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $warehouseid = null, $transactiontype = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         $request = $this->getAllWarehouseTransactionsRequest($siteid, $warehousetransactionid, $warehousetransactionidfrom, $warehousetransactionidto, $datecreatedfrom, $datecreatedto, $warehouseid, $transactiontype, $start, $num, $sort, $fields);
 
@@ -528,15 +532,15 @@ class WarehouseTransactionsApi
      * @param  int $datecreatedto (optional)
      * @param  int $warehouseid (optional)
      * @param  int $transactiontype (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-warehousetransactionid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllWarehouseTransactionsAsync($siteid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $warehouseid = null, $transactiontype = null, $start = 0, $num = 10, $sort = '"-warehousetransactionid"', $fields = null)
+    public function getAllWarehouseTransactionsAsync($siteid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $warehouseid = null, $transactiontype = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         return $this->getAllWarehouseTransactionsAsyncWithHttpInfo($siteid, $warehousetransactionid, $warehousetransactionidfrom, $warehousetransactionidto, $datecreatedfrom, $datecreatedto, $warehouseid, $transactiontype, $start, $num, $sort, $fields)
             ->then(
@@ -559,15 +563,15 @@ class WarehouseTransactionsApi
      * @param  int $datecreatedto (optional)
      * @param  int $warehouseid (optional)
      * @param  int $transactiontype (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-warehousetransactionid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllWarehouseTransactionsAsyncWithHttpInfo($siteid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $warehouseid = null, $transactiontype = null, $start = 0, $num = 10, $sort = '"-warehousetransactionid"', $fields = null)
+    public function getAllWarehouseTransactionsAsyncWithHttpInfo($siteid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $warehouseid = null, $transactiontype = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetAllWarehouseTransactionsResponse';
         $request = $this->getAllWarehouseTransactionsRequest($siteid, $warehousetransactionid, $warehousetransactionidfrom, $warehousetransactionidto, $datecreatedfrom, $datecreatedto, $warehouseid, $transactiontype, $start, $num, $sort, $fields);
@@ -617,15 +621,15 @@ class WarehouseTransactionsApi
      * @param  int $datecreatedto (optional)
      * @param  int $warehouseid (optional)
      * @param  int $transactiontype (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-warehousetransactionid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAllWarehouseTransactionsRequest($siteid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $warehouseid = null, $transactiontype = null, $start = 0, $num = 10, $sort = '"-warehousetransactionid"', $fields = null)
+    public function getAllWarehouseTransactionsRequest($siteid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $warehouseid = null, $transactiontype = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -634,7 +638,7 @@ class WarehouseTransactionsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehousetransactions';
+        $resourcePath = '/sites/{siteid}/warehousetransactions.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -643,7 +647,7 @@ class WarehouseTransactionsApi
 
         // query params
         if (is_array($warehousetransactionid)) {
-            $warehousetransactionid = ObjectSerializer::serializeCollection($warehousetransactionid, 'csv', true);
+            $warehousetransactionid = ObjectSerializer::serializeCollection($warehousetransactionid, 'form', true);
         }
         if ($warehousetransactionid !== null) {
             $queryParams['warehousetransactionid'] = $warehousetransactionid;
@@ -713,7 +717,7 @@ class WarehouseTransactionsApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -766,6 +770,10 @@ class WarehouseTransactionsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1002,7 +1010,7 @@ class WarehouseTransactionsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousetransactions/{warehousetransactionid}';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousetransactions/{warehousetransactionid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1073,6 +1081,10 @@ class WarehouseTransactionsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1105,16 +1117,16 @@ class WarehouseTransactionsApi
      * @param  int $datecreatedfrom datecreatedfrom (optional)
      * @param  int $datecreatedto datecreatedto (optional)
      * @param  int $transactiontype transactiontype (optional)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string $sort sort (optional, default to '"-warehousetransactionid"')
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string $sort sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetWarehouseTransactionsResponse
      */
-    public function getWarehouseTransactions($siteid, $warehouseid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $transactiontype = null, $start = 0, $num = 10, $sort = '"-warehousetransactionid"', $fields = null)
+    public function getWarehouseTransactions($siteid, $warehouseid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $transactiontype = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         list($response) = $this->getWarehouseTransactionsWithHttpInfo($siteid, $warehouseid, $warehousetransactionid, $warehousetransactionidfrom, $warehousetransactionidto, $datecreatedfrom, $datecreatedto, $transactiontype, $start, $num, $sort, $fields);
         return $response;
@@ -1131,16 +1143,16 @@ class WarehouseTransactionsApi
      * @param  int $datecreatedfrom (optional)
      * @param  int $datecreatedto (optional)
      * @param  int $transactiontype (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-warehousetransactionid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetWarehouseTransactionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWarehouseTransactionsWithHttpInfo($siteid, $warehouseid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $transactiontype = null, $start = 0, $num = 10, $sort = '"-warehousetransactionid"', $fields = null)
+    public function getWarehouseTransactionsWithHttpInfo($siteid, $warehouseid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $transactiontype = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         $request = $this->getWarehouseTransactionsRequest($siteid, $warehouseid, $warehousetransactionid, $warehousetransactionidfrom, $warehousetransactionidto, $datecreatedfrom, $datecreatedto, $transactiontype, $start, $num, $sort, $fields);
 
@@ -1236,15 +1248,15 @@ class WarehouseTransactionsApi
      * @param  int $datecreatedfrom (optional)
      * @param  int $datecreatedto (optional)
      * @param  int $transactiontype (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-warehousetransactionid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehouseTransactionsAsync($siteid, $warehouseid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $transactiontype = null, $start = 0, $num = 10, $sort = '"-warehousetransactionid"', $fields = null)
+    public function getWarehouseTransactionsAsync($siteid, $warehouseid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $transactiontype = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         return $this->getWarehouseTransactionsAsyncWithHttpInfo($siteid, $warehouseid, $warehousetransactionid, $warehousetransactionidfrom, $warehousetransactionidto, $datecreatedfrom, $datecreatedto, $transactiontype, $start, $num, $sort, $fields)
             ->then(
@@ -1267,15 +1279,15 @@ class WarehouseTransactionsApi
      * @param  int $datecreatedfrom (optional)
      * @param  int $datecreatedto (optional)
      * @param  int $transactiontype (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-warehousetransactionid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehouseTransactionsAsyncWithHttpInfo($siteid, $warehouseid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $transactiontype = null, $start = 0, $num = 10, $sort = '"-warehousetransactionid"', $fields = null)
+    public function getWarehouseTransactionsAsyncWithHttpInfo($siteid, $warehouseid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $transactiontype = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetWarehouseTransactionsResponse';
         $request = $this->getWarehouseTransactionsRequest($siteid, $warehouseid, $warehousetransactionid, $warehousetransactionidfrom, $warehousetransactionidto, $datecreatedfrom, $datecreatedto, $transactiontype, $start, $num, $sort, $fields);
@@ -1325,15 +1337,15 @@ class WarehouseTransactionsApi
      * @param  int $datecreatedfrom (optional)
      * @param  int $datecreatedto (optional)
      * @param  int $transactiontype (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-warehousetransactionid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWarehouseTransactionsRequest($siteid, $warehouseid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $transactiontype = null, $start = 0, $num = 10, $sort = '"-warehousetransactionid"', $fields = null)
+    public function getWarehouseTransactionsRequest($siteid, $warehouseid, $warehousetransactionid = null, $warehousetransactionidfrom = null, $warehousetransactionidto = null, $datecreatedfrom = null, $datecreatedto = null, $transactiontype = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1348,7 +1360,7 @@ class WarehouseTransactionsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousetransactions';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousetransactions.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1357,7 +1369,7 @@ class WarehouseTransactionsApi
 
         // query params
         if (is_array($warehousetransactionid)) {
-            $warehousetransactionid = ObjectSerializer::serializeCollection($warehousetransactionid, 'csv', true);
+            $warehousetransactionid = ObjectSerializer::serializeCollection($warehousetransactionid, 'form', true);
         }
         if ($warehousetransactionid !== null) {
             $queryParams['warehousetransactionid'] = $warehousetransactionid;
@@ -1420,7 +1432,7 @@ class WarehouseTransactionsApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1481,6 +1493,10 @@ class WarehouseTransactionsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

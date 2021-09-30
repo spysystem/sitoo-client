@@ -304,7 +304,7 @@ class UsersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/users';
+        $resourcePath = '/sites/{siteid}/users.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -365,6 +365,10 @@ class UsersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -536,7 +540,7 @@ class UsersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/users';
+        $resourcePath = '/sites/{siteid}/users.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -597,6 +601,10 @@ class UsersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -623,15 +631,14 @@ class UsersApi
      *
      * @param  int $siteid siteid (required)
      * @param  int $userid userid (required)
-     * @param  string[] $fields fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return bool
      */
-    public function deleteUser($siteid, $userid, $fields = null)
+    public function deleteUser($siteid, $userid)
     {
-        list($response) = $this->deleteUserWithHttpInfo($siteid, $userid, $fields);
+        list($response) = $this->deleteUserWithHttpInfo($siteid, $userid);
         return $response;
     }
 
@@ -640,15 +647,14 @@ class UsersApi
      *
      * @param  int $siteid (required)
      * @param  int $userid (required)
-     * @param  string[] $fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of bool, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteUserWithHttpInfo($siteid, $userid, $fields = null)
+    public function deleteUserWithHttpInfo($siteid, $userid)
     {
-        $request = $this->deleteUserRequest($siteid, $userid, $fields);
+        $request = $this->deleteUserRequest($siteid, $userid);
 
         try {
             $options = $this->createHttpClientOption();
@@ -736,14 +742,13 @@ class UsersApi
      *
      * @param  int $siteid (required)
      * @param  int $userid (required)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserAsync($siteid, $userid, $fields = null)
+    public function deleteUserAsync($siteid, $userid)
     {
-        return $this->deleteUserAsyncWithHttpInfo($siteid, $userid, $fields)
+        return $this->deleteUserAsyncWithHttpInfo($siteid, $userid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -758,15 +763,14 @@ class UsersApi
      *
      * @param  int $siteid (required)
      * @param  int $userid (required)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserAsyncWithHttpInfo($siteid, $userid, $fields = null)
+    public function deleteUserAsyncWithHttpInfo($siteid, $userid)
     {
         $returnType = 'bool';
-        $request = $this->deleteUserRequest($siteid, $userid, $fields);
+        $request = $this->deleteUserRequest($siteid, $userid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -807,12 +811,11 @@ class UsersApi
      *
      * @param  int $siteid (required)
      * @param  int $userid (required)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteUserRequest($siteid, $userid, $fields = null)
+    public function deleteUserRequest($siteid, $userid)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -827,20 +830,13 @@ class UsersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/users/{userid}';
+        $resourcePath = '/sites/{siteid}/users/{userid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
-        }
-        if ($fields !== null) {
-            $queryParams['fields'] = $fields;
-        }
 
 
         // path params
@@ -897,6 +893,10 @@ class UsersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -923,7 +923,7 @@ class UsersApi
      *
      * @param  int $siteid siteid (required)
      * @param  int $userid userid (required)
-     * @param  string[] $fields fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -940,7 +940,7 @@ class UsersApi
      *
      * @param  int $siteid (required)
      * @param  int $userid (required)
-     * @param  string[] $fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1036,7 +1036,7 @@ class UsersApi
      *
      * @param  int $siteid (required)
      * @param  int $userid (required)
-     * @param  string[] $fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1058,7 +1058,7 @@ class UsersApi
      *
      * @param  int $siteid (required)
      * @param  int $userid (required)
-     * @param  string[] $fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1107,7 +1107,7 @@ class UsersApi
      *
      * @param  int $siteid (required)
      * @param  int $userid (required)
-     * @param  string[] $fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1127,7 +1127,7 @@ class UsersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/users/{userid}';
+        $resourcePath = '/sites/{siteid}/users/{userid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1136,7 +1136,7 @@ class UsersApi
 
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1197,6 +1197,10 @@ class UsersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1222,19 +1226,19 @@ class UsersApi
      * Operation getUsers
      *
      * @param  int $siteid siteid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
      * @param  string $email email (optional)
      * @param  string $customernumber customernumber (optional)
      * @param  string $personalid personalid (optional)
      * @param  string $mobile mobile (optional)
-     * @param  string[] $fields fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetUsersResponse
      */
-    public function getUsers($siteid, $start = 0, $num = 10, $email = null, $customernumber = null, $personalid = null, $mobile = null, $fields = null)
+    public function getUsers($siteid, $start = null, $num = null, $email = null, $customernumber = null, $personalid = null, $mobile = null, $fields = null)
     {
         list($response) = $this->getUsersWithHttpInfo($siteid, $start, $num, $email, $customernumber, $personalid, $mobile, $fields);
         return $response;
@@ -1244,19 +1248,19 @@ class UsersApi
      * Operation getUsersWithHttpInfo
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      * @param  string $email (optional)
      * @param  string $customernumber (optional)
      * @param  string $personalid (optional)
      * @param  string $mobile (optional)
-     * @param  string[] $fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUsersWithHttpInfo($siteid, $start = 0, $num = 10, $email = null, $customernumber = null, $personalid = null, $mobile = null, $fields = null)
+    public function getUsersWithHttpInfo($siteid, $start = null, $num = null, $email = null, $customernumber = null, $personalid = null, $mobile = null, $fields = null)
     {
         $request = $this->getUsersRequest($siteid, $start, $num, $email, $customernumber, $personalid, $mobile, $fields);
 
@@ -1345,18 +1349,18 @@ class UsersApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      * @param  string $email (optional)
      * @param  string $customernumber (optional)
      * @param  string $personalid (optional)
      * @param  string $mobile (optional)
-     * @param  string[] $fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUsersAsync($siteid, $start = 0, $num = 10, $email = null, $customernumber = null, $personalid = null, $mobile = null, $fields = null)
+    public function getUsersAsync($siteid, $start = null, $num = null, $email = null, $customernumber = null, $personalid = null, $mobile = null, $fields = null)
     {
         return $this->getUsersAsyncWithHttpInfo($siteid, $start, $num, $email, $customernumber, $personalid, $mobile, $fields)
             ->then(
@@ -1372,18 +1376,18 @@ class UsersApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      * @param  string $email (optional)
      * @param  string $customernumber (optional)
      * @param  string $personalid (optional)
      * @param  string $mobile (optional)
-     * @param  string[] $fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUsersAsyncWithHttpInfo($siteid, $start = 0, $num = 10, $email = null, $customernumber = null, $personalid = null, $mobile = null, $fields = null)
+    public function getUsersAsyncWithHttpInfo($siteid, $start = null, $num = null, $email = null, $customernumber = null, $personalid = null, $mobile = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetUsersResponse';
         $request = $this->getUsersRequest($siteid, $start, $num, $email, $customernumber, $personalid, $mobile, $fields);
@@ -1426,18 +1430,18 @@ class UsersApi
      * Create request for operation 'getUsers'
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      * @param  string $email (optional)
      * @param  string $customernumber (optional)
      * @param  string $personalid (optional)
      * @param  string $mobile (optional)
-     * @param  string[] $fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUsersRequest($siteid, $start = 0, $num = 10, $email = null, $customernumber = null, $personalid = null, $mobile = null, $fields = null)
+    public function getUsersRequest($siteid, $start = null, $num = null, $email = null, $customernumber = null, $personalid = null, $mobile = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1446,7 +1450,7 @@ class UsersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/users';
+        $resourcePath = '/sites/{siteid}/users.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1497,7 +1501,7 @@ class UsersApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1550,6 +1554,10 @@ class UsersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1577,15 +1585,14 @@ class UsersApi
      * @param  int $siteid siteid (required)
      * @param  int $userid userid (required)
      * @param  \Spy\SitooClient\Model\UserWrite $userWrite userWrite (required)
-     * @param  string[] $fields fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return bool
      */
-    public function updateUser($siteid, $userid, $userWrite, $fields = null)
+    public function updateUser($siteid, $userid, $userWrite)
     {
-        list($response) = $this->updateUserWithHttpInfo($siteid, $userid, $userWrite, $fields);
+        list($response) = $this->updateUserWithHttpInfo($siteid, $userid, $userWrite);
         return $response;
     }
 
@@ -1595,15 +1602,14 @@ class UsersApi
      * @param  int $siteid (required)
      * @param  int $userid (required)
      * @param  \Spy\SitooClient\Model\UserWrite $userWrite (required)
-     * @param  string[] $fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of bool, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateUserWithHttpInfo($siteid, $userid, $userWrite, $fields = null)
+    public function updateUserWithHttpInfo($siteid, $userid, $userWrite)
     {
-        $request = $this->updateUserRequest($siteid, $userid, $userWrite, $fields);
+        $request = $this->updateUserRequest($siteid, $userid, $userWrite);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1692,14 +1698,13 @@ class UsersApi
      * @param  int $siteid (required)
      * @param  int $userid (required)
      * @param  \Spy\SitooClient\Model\UserWrite $userWrite (required)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserAsync($siteid, $userid, $userWrite, $fields = null)
+    public function updateUserAsync($siteid, $userid, $userWrite)
     {
-        return $this->updateUserAsyncWithHttpInfo($siteid, $userid, $userWrite, $fields)
+        return $this->updateUserAsyncWithHttpInfo($siteid, $userid, $userWrite)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1715,15 +1720,14 @@ class UsersApi
      * @param  int $siteid (required)
      * @param  int $userid (required)
      * @param  \Spy\SitooClient\Model\UserWrite $userWrite (required)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserAsyncWithHttpInfo($siteid, $userid, $userWrite, $fields = null)
+    public function updateUserAsyncWithHttpInfo($siteid, $userid, $userWrite)
     {
         $returnType = 'bool';
-        $request = $this->updateUserRequest($siteid, $userid, $userWrite, $fields);
+        $request = $this->updateUserRequest($siteid, $userid, $userWrite);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1765,12 +1769,11 @@ class UsersApi
      * @param  int $siteid (required)
      * @param  int $userid (required)
      * @param  \Spy\SitooClient\Model\UserWrite $userWrite (required)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateUserRequest($siteid, $userid, $userWrite, $fields = null)
+    public function updateUserRequest($siteid, $userid, $userWrite)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1791,20 +1794,13 @@ class UsersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/users/{userid}';
+        $resourcePath = '/sites/{siteid}/users/{userid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
-        }
-        if ($fields !== null) {
-            $queryParams['fields'] = $fields;
-        }
 
 
         // path params
@@ -1867,6 +1863,10 @@ class UsersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

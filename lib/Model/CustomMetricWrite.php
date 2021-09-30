@@ -274,7 +274,7 @@ class CustomMetricWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('key', $data, null);
         $this->setIfExists('grouping', $data, null);
         $this->setIfExists('type', $data, null);
-        $this->setIfExists('format', $data, '"number"');
+        $this->setIfExists('format', $data, null);
     }
 
     public function setIfExists(string $variableName, $fields, $defaultValue)

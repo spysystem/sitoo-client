@@ -358,7 +358,7 @@ class CashRegistersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/cashregisters/{registerid}';
+        $resourcePath = '/sites/{siteid}/cashregisters/{registerid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -421,6 +421,10 @@ class CashRegistersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -446,14 +450,14 @@ class CashRegistersApi
      * Operation getCashRegisters
      *
      * @param  int $siteid siteid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetCashRegistersResponse
      */
-    public function getCashRegisters($siteid, $start = 0, $num = 10)
+    public function getCashRegisters($siteid, $start = null, $num = null)
     {
         list($response) = $this->getCashRegistersWithHttpInfo($siteid, $start, $num);
         return $response;
@@ -463,14 +467,14 @@ class CashRegistersApi
      * Operation getCashRegistersWithHttpInfo
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetCashRegistersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCashRegistersWithHttpInfo($siteid, $start = 0, $num = 10)
+    public function getCashRegistersWithHttpInfo($siteid, $start = null, $num = null)
     {
         $request = $this->getCashRegistersRequest($siteid, $start, $num);
 
@@ -559,13 +563,13 @@ class CashRegistersApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCashRegistersAsync($siteid, $start = 0, $num = 10)
+    public function getCashRegistersAsync($siteid, $start = null, $num = null)
     {
         return $this->getCashRegistersAsyncWithHttpInfo($siteid, $start, $num)
             ->then(
@@ -581,13 +585,13 @@ class CashRegistersApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCashRegistersAsyncWithHttpInfo($siteid, $start = 0, $num = 10)
+    public function getCashRegistersAsyncWithHttpInfo($siteid, $start = null, $num = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetCashRegistersResponse';
         $request = $this->getCashRegistersRequest($siteid, $start, $num);
@@ -630,13 +634,13 @@ class CashRegistersApi
      * Create request for operation 'getCashRegisters'
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCashRegistersRequest($siteid, $start = 0, $num = 10)
+    public function getCashRegistersRequest($siteid, $start = null, $num = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -645,7 +649,7 @@ class CashRegistersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/cashregisters';
+        $resourcePath = '/sites/{siteid}/cashregisters.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -714,6 +718,10 @@ class CashRegistersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -950,7 +958,7 @@ class CashRegistersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/cashregisters/{registerid}/zreports/{zreportid}';
+        $resourcePath = '/sites/{siteid}/cashregisters/{registerid}/zreports/{zreportid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1021,6 +1029,10 @@ class CashRegistersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1049,14 +1061,14 @@ class CashRegistersApi
      * @param  string $registerid registerid (required)
      * @param  int $datecreatedfrom datecreatedfrom (optional)
      * @param  int $datecreatedto datecreatedto (optional)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetZReportsResponse
      */
-    public function getZReports($siteid, $registerid, $datecreatedfrom = null, $datecreatedto = null, $start = 0, $num = 10)
+    public function getZReports($siteid, $registerid, $datecreatedfrom = null, $datecreatedto = null, $start = null, $num = null)
     {
         list($response) = $this->getZReportsWithHttpInfo($siteid, $registerid, $datecreatedfrom, $datecreatedto, $start, $num);
         return $response;
@@ -1069,14 +1081,14 @@ class CashRegistersApi
      * @param  string $registerid (required)
      * @param  int $datecreatedfrom (optional)
      * @param  int $datecreatedto (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetZReportsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getZReportsWithHttpInfo($siteid, $registerid, $datecreatedfrom = null, $datecreatedto = null, $start = 0, $num = 10)
+    public function getZReportsWithHttpInfo($siteid, $registerid, $datecreatedfrom = null, $datecreatedto = null, $start = null, $num = null)
     {
         $request = $this->getZReportsRequest($siteid, $registerid, $datecreatedfrom, $datecreatedto, $start, $num);
 
@@ -1168,13 +1180,13 @@ class CashRegistersApi
      * @param  string $registerid (required)
      * @param  int $datecreatedfrom (optional)
      * @param  int $datecreatedto (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getZReportsAsync($siteid, $registerid, $datecreatedfrom = null, $datecreatedto = null, $start = 0, $num = 10)
+    public function getZReportsAsync($siteid, $registerid, $datecreatedfrom = null, $datecreatedto = null, $start = null, $num = null)
     {
         return $this->getZReportsAsyncWithHttpInfo($siteid, $registerid, $datecreatedfrom, $datecreatedto, $start, $num)
             ->then(
@@ -1193,13 +1205,13 @@ class CashRegistersApi
      * @param  string $registerid (required)
      * @param  int $datecreatedfrom (optional)
      * @param  int $datecreatedto (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getZReportsAsyncWithHttpInfo($siteid, $registerid, $datecreatedfrom = null, $datecreatedto = null, $start = 0, $num = 10)
+    public function getZReportsAsyncWithHttpInfo($siteid, $registerid, $datecreatedfrom = null, $datecreatedto = null, $start = null, $num = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetZReportsResponse';
         $request = $this->getZReportsRequest($siteid, $registerid, $datecreatedfrom, $datecreatedto, $start, $num);
@@ -1245,13 +1257,13 @@ class CashRegistersApi
      * @param  string $registerid (required)
      * @param  int $datecreatedfrom (optional)
      * @param  int $datecreatedto (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getZReportsRequest($siteid, $registerid, $datecreatedfrom = null, $datecreatedto = null, $start = 0, $num = 10)
+    public function getZReportsRequest($siteid, $registerid, $datecreatedfrom = null, $datecreatedto = null, $start = null, $num = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1266,7 +1278,7 @@ class CashRegistersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/cashregisters/{registerid}/zreports';
+        $resourcePath = '/sites/{siteid}/cashregisters/{registerid}/zreports.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1357,6 +1369,10 @@ class CashRegistersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

@@ -158,15 +158,15 @@ class ResourcesApi
      * Operation getResources
      *
      * @param  int $siteid siteid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetResourcesResponse
      */
-    public function getResources($siteid, $start = 0, $num = 10, $fields = null)
+    public function getResources($siteid, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getResourcesWithHttpInfo($siteid, $start, $num, $fields);
         return $response;
@@ -176,15 +176,15 @@ class ResourcesApi
      * Operation getResourcesWithHttpInfo
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetResourcesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getResourcesWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getResourcesWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $request = $this->getResourcesRequest($siteid, $start, $num, $fields);
 
@@ -273,14 +273,14 @@ class ResourcesApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getResourcesAsync($siteid, $start = 0, $num = 10, $fields = null)
+    public function getResourcesAsync($siteid, $start = null, $num = null, $fields = null)
     {
         return $this->getResourcesAsyncWithHttpInfo($siteid, $start, $num, $fields)
             ->then(
@@ -296,14 +296,14 @@ class ResourcesApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getResourcesAsyncWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getResourcesAsyncWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetResourcesResponse';
         $request = $this->getResourcesRequest($siteid, $start, $num, $fields);
@@ -346,14 +346,14 @@ class ResourcesApi
      * Create request for operation 'getResources'
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getResourcesRequest($siteid, $start = 0, $num = 10, $fields = null)
+    public function getResourcesRequest($siteid, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -362,7 +362,7 @@ class ResourcesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/resources';
+        $resourcePath = '/sites/{siteid}/resources.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -385,7 +385,7 @@ class ResourcesApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -438,6 +438,10 @@ class ResourcesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

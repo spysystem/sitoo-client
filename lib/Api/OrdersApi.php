@@ -304,7 +304,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/orders';
+        $resourcePath = '/sites/{siteid}/orders.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -365,6 +365,10 @@ class OrdersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -392,13 +396,13 @@ class OrdersApi
      * @param  int $siteid siteid (required)
      * @param  int $orderid orderid (required)
      * @param  \Spy\SitooClient\Model\OrderdeliveryWrite $orderdeliveryWrite orderdeliveryWrite (required)
-     * @param  bool $ignorestock ignorestock (optional, default to false)
+     * @param  bool $ignorestock ignorestock (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addOrderDelivery($siteid, $orderid, $orderdeliveryWrite, $ignorestock = false)
+    public function addOrderDelivery($siteid, $orderid, $orderdeliveryWrite, $ignorestock = null)
     {
         $this->addOrderDeliveryWithHttpInfo($siteid, $orderid, $orderdeliveryWrite, $ignorestock);
     }
@@ -409,13 +413,13 @@ class OrdersApi
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      * @param  \Spy\SitooClient\Model\OrderdeliveryWrite $orderdeliveryWrite (required)
-     * @param  bool $ignorestock (optional, default to false)
+     * @param  bool $ignorestock (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addOrderDeliveryWithHttpInfo($siteid, $orderid, $orderdeliveryWrite, $ignorestock = false)
+    public function addOrderDeliveryWithHttpInfo($siteid, $orderid, $orderdeliveryWrite, $ignorestock = null)
     {
         $request = $this->addOrderDeliveryRequest($siteid, $orderid, $orderdeliveryWrite, $ignorestock);
 
@@ -464,12 +468,12 @@ class OrdersApi
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      * @param  \Spy\SitooClient\Model\OrderdeliveryWrite $orderdeliveryWrite (required)
-     * @param  bool $ignorestock (optional, default to false)
+     * @param  bool $ignorestock (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addOrderDeliveryAsync($siteid, $orderid, $orderdeliveryWrite, $ignorestock = false)
+    public function addOrderDeliveryAsync($siteid, $orderid, $orderdeliveryWrite, $ignorestock = null)
     {
         return $this->addOrderDeliveryAsyncWithHttpInfo($siteid, $orderid, $orderdeliveryWrite, $ignorestock)
             ->then(
@@ -487,12 +491,12 @@ class OrdersApi
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      * @param  \Spy\SitooClient\Model\OrderdeliveryWrite $orderdeliveryWrite (required)
-     * @param  bool $ignorestock (optional, default to false)
+     * @param  bool $ignorestock (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addOrderDeliveryAsyncWithHttpInfo($siteid, $orderid, $orderdeliveryWrite, $ignorestock = false)
+    public function addOrderDeliveryAsyncWithHttpInfo($siteid, $orderid, $orderdeliveryWrite, $ignorestock = null)
     {
         $returnType = '';
         $request = $this->addOrderDeliveryRequest($siteid, $orderid, $orderdeliveryWrite, $ignorestock);
@@ -526,12 +530,12 @@ class OrdersApi
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      * @param  \Spy\SitooClient\Model\OrderdeliveryWrite $orderdeliveryWrite (required)
-     * @param  bool $ignorestock (optional, default to false)
+     * @param  bool $ignorestock (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addOrderDeliveryRequest($siteid, $orderid, $orderdeliveryWrite, $ignorestock = false)
+    public function addOrderDeliveryRequest($siteid, $orderid, $orderdeliveryWrite, $ignorestock = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -552,7 +556,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/orders/{orderid}/orderdeliveries';
+        $resourcePath = '/sites/{siteid}/orders/{orderid}/orderdeliveries.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -628,6 +632,10 @@ class OrdersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -864,7 +872,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/orders/{orderid}/orderlogitems';
+        $resourcePath = '/sites/{siteid}/orders/{orderid}/orderlogitems.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -933,6 +941,10 @@ class OrdersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -968,16 +980,16 @@ class OrdersApi
      * @param  int[] $paymentstate paymentstate (optional)
      * @param  int[] $ordertype ordertype (optional)
      * @param  string $email email (optional)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string $sort sort (optional, default to '"-orderid"')
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string $sort sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetAllOrdersResponse
      */
-    public function getAllOrders($eshopid = null, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = 0, $num = 10, $sort = '"-orderid"', $fields = null)
+    public function getAllOrders($eshopid = null, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         list($response) = $this->getAllOrdersWithHttpInfo($eshopid, $externalid, $orderid, $orderidfrom, $orderidto, $orderdatefrom, $orderdateto, $orderstate, $paymentstate, $ordertype, $email, $start, $num, $sort, $fields);
         return $response;
@@ -997,16 +1009,16 @@ class OrdersApi
      * @param  int[] $paymentstate (optional)
      * @param  int[] $ordertype (optional)
      * @param  string $email (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-orderid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetAllOrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllOrdersWithHttpInfo($eshopid = null, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = 0, $num = 10, $sort = '"-orderid"', $fields = null)
+    public function getAllOrdersWithHttpInfo($eshopid = null, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         $request = $this->getAllOrdersRequest($eshopid, $externalid, $orderid, $orderidfrom, $orderidto, $orderdatefrom, $orderdateto, $orderstate, $paymentstate, $ordertype, $email, $start, $num, $sort, $fields);
 
@@ -1105,15 +1117,15 @@ class OrdersApi
      * @param  int[] $paymentstate (optional)
      * @param  int[] $ordertype (optional)
      * @param  string $email (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-orderid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllOrdersAsync($eshopid = null, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = 0, $num = 10, $sort = '"-orderid"', $fields = null)
+    public function getAllOrdersAsync($eshopid = null, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         return $this->getAllOrdersAsyncWithHttpInfo($eshopid, $externalid, $orderid, $orderidfrom, $orderidto, $orderdatefrom, $orderdateto, $orderstate, $paymentstate, $ordertype, $email, $start, $num, $sort, $fields)
             ->then(
@@ -1139,15 +1151,15 @@ class OrdersApi
      * @param  int[] $paymentstate (optional)
      * @param  int[] $ordertype (optional)
      * @param  string $email (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-orderid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllOrdersAsyncWithHttpInfo($eshopid = null, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = 0, $num = 10, $sort = '"-orderid"', $fields = null)
+    public function getAllOrdersAsyncWithHttpInfo($eshopid = null, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetAllOrdersResponse';
         $request = $this->getAllOrdersRequest($eshopid, $externalid, $orderid, $orderidfrom, $orderidto, $orderdatefrom, $orderdateto, $orderstate, $paymentstate, $ordertype, $email, $start, $num, $sort, $fields);
@@ -1200,18 +1212,18 @@ class OrdersApi
      * @param  int[] $paymentstate (optional)
      * @param  int[] $ordertype (optional)
      * @param  string $email (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-orderid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAllOrdersRequest($eshopid = null, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = 0, $num = 10, $sort = '"-orderid"', $fields = null)
+    public function getAllOrdersRequest($eshopid = null, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
 
-        $resourcePath = '/orders';
+        $resourcePath = '/orders.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1220,21 +1232,21 @@ class OrdersApi
 
         // query params
         if (is_array($eshopid)) {
-            $eshopid = ObjectSerializer::serializeCollection($eshopid, 'csv', true);
+            $eshopid = ObjectSerializer::serializeCollection($eshopid, 'form', true);
         }
         if ($eshopid !== null) {
             $queryParams['eshopid'] = $eshopid;
         }
         // query params
         if (is_array($externalid)) {
-            $externalid = ObjectSerializer::serializeCollection($externalid, 'csv', true);
+            $externalid = ObjectSerializer::serializeCollection($externalid, 'form', true);
         }
         if ($externalid !== null) {
             $queryParams['externalid'] = $externalid;
         }
         // query params
         if (is_array($orderid)) {
-            $orderid = ObjectSerializer::serializeCollection($orderid, 'csv', true);
+            $orderid = ObjectSerializer::serializeCollection($orderid, 'form', true);
         }
         if ($orderid !== null) {
             $queryParams['orderid'] = $orderid;
@@ -1269,21 +1281,21 @@ class OrdersApi
         }
         // query params
         if (is_array($orderstate)) {
-            $orderstate = ObjectSerializer::serializeCollection($orderstate, 'csv', true);
+            $orderstate = ObjectSerializer::serializeCollection($orderstate, 'form', true);
         }
         if ($orderstate !== null) {
             $queryParams['orderstate'] = $orderstate;
         }
         // query params
         if (is_array($paymentstate)) {
-            $paymentstate = ObjectSerializer::serializeCollection($paymentstate, 'csv', true);
+            $paymentstate = ObjectSerializer::serializeCollection($paymentstate, 'form', true);
         }
         if ($paymentstate !== null) {
             $queryParams['paymentstate'] = $paymentstate;
         }
         // query params
         if (is_array($ordertype)) {
-            $ordertype = ObjectSerializer::serializeCollection($ordertype, 'csv', true);
+            $ordertype = ObjectSerializer::serializeCollection($ordertype, 'form', true);
         }
         if ($ordertype !== null) {
             $queryParams['ordertype'] = $ordertype;
@@ -1318,7 +1330,7 @@ class OrdersApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1363,6 +1375,10 @@ class OrdersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1588,7 +1604,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/orders/{orderid}';
+        $resourcePath = '/sites/{siteid}/orders/{orderid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1651,6 +1667,10 @@ class OrdersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1677,13 +1697,13 @@ class OrdersApi
      *
      * @param  int $siteid siteid (required)
      * @param  int $orderid orderid (required)
-     * @param  bool $ignorestock ignorestock (optional, default to false)
+     * @param  bool $ignorestock ignorestock (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetOrderDeliveriesResponse
      */
-    public function getOrderDeliveries($siteid, $orderid, $ignorestock = false)
+    public function getOrderDeliveries($siteid, $orderid, $ignorestock = null)
     {
         list($response) = $this->getOrderDeliveriesWithHttpInfo($siteid, $orderid, $ignorestock);
         return $response;
@@ -1694,13 +1714,13 @@ class OrdersApi
      *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
-     * @param  bool $ignorestock (optional, default to false)
+     * @param  bool $ignorestock (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetOrderDeliveriesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrderDeliveriesWithHttpInfo($siteid, $orderid, $ignorestock = false)
+    public function getOrderDeliveriesWithHttpInfo($siteid, $orderid, $ignorestock = null)
     {
         $request = $this->getOrderDeliveriesRequest($siteid, $orderid, $ignorestock);
 
@@ -1790,12 +1810,12 @@ class OrdersApi
      *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
-     * @param  bool $ignorestock (optional, default to false)
+     * @param  bool $ignorestock (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrderDeliveriesAsync($siteid, $orderid, $ignorestock = false)
+    public function getOrderDeliveriesAsync($siteid, $orderid, $ignorestock = null)
     {
         return $this->getOrderDeliveriesAsyncWithHttpInfo($siteid, $orderid, $ignorestock)
             ->then(
@@ -1812,12 +1832,12 @@ class OrdersApi
      *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
-     * @param  bool $ignorestock (optional, default to false)
+     * @param  bool $ignorestock (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrderDeliveriesAsyncWithHttpInfo($siteid, $orderid, $ignorestock = false)
+    public function getOrderDeliveriesAsyncWithHttpInfo($siteid, $orderid, $ignorestock = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetOrderDeliveriesResponse';
         $request = $this->getOrderDeliveriesRequest($siteid, $orderid, $ignorestock);
@@ -1861,12 +1881,12 @@ class OrdersApi
      *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
-     * @param  bool $ignorestock (optional, default to false)
+     * @param  bool $ignorestock (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOrderDeliveriesRequest($siteid, $orderid, $ignorestock = false)
+    public function getOrderDeliveriesRequest($siteid, $orderid, $ignorestock = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1881,7 +1901,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/orders/{orderid}/orderdeliveries';
+        $resourcePath = '/sites/{siteid}/orders/{orderid}/orderdeliveries.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1951,6 +1971,10 @@ class OrdersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2176,7 +2200,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/orders/{orderid}/orderlogitems';
+        $resourcePath = '/sites/{siteid}/orders/{orderid}/orderlogitems.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2239,6 +2263,10 @@ class OrdersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2274,16 +2302,16 @@ class OrdersApi
      * @param  int[] $paymentstate paymentstate (optional)
      * @param  int[] $ordertype ordertype (optional)
      * @param  string $email email (optional)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string $sort sort (optional, default to '"-orderid"')
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string $sort sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetOrdersResponse
      */
-    public function getOrders($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = 0, $num = 10, $sort = '"-orderid"', $fields = null)
+    public function getOrders($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         list($response) = $this->getOrdersWithHttpInfo($siteid, $externalid, $orderid, $orderidfrom, $orderidto, $orderdatefrom, $orderdateto, $orderstate, $paymentstate, $ordertype, $email, $start, $num, $sort, $fields);
         return $response;
@@ -2303,16 +2331,16 @@ class OrdersApi
      * @param  int[] $paymentstate (optional)
      * @param  int[] $ordertype (optional)
      * @param  string $email (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-orderid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetOrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrdersWithHttpInfo($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = 0, $num = 10, $sort = '"-orderid"', $fields = null)
+    public function getOrdersWithHttpInfo($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         $request = $this->getOrdersRequest($siteid, $externalid, $orderid, $orderidfrom, $orderidto, $orderdatefrom, $orderdateto, $orderstate, $paymentstate, $ordertype, $email, $start, $num, $sort, $fields);
 
@@ -2411,15 +2439,15 @@ class OrdersApi
      * @param  int[] $paymentstate (optional)
      * @param  int[] $ordertype (optional)
      * @param  string $email (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-orderid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersAsync($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = 0, $num = 10, $sort = '"-orderid"', $fields = null)
+    public function getOrdersAsync($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         return $this->getOrdersAsyncWithHttpInfo($siteid, $externalid, $orderid, $orderidfrom, $orderidto, $orderdatefrom, $orderdateto, $orderstate, $paymentstate, $ordertype, $email, $start, $num, $sort, $fields)
             ->then(
@@ -2445,15 +2473,15 @@ class OrdersApi
      * @param  int[] $paymentstate (optional)
      * @param  int[] $ordertype (optional)
      * @param  string $email (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-orderid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersAsyncWithHttpInfo($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = 0, $num = 10, $sort = '"-orderid"', $fields = null)
+    public function getOrdersAsyncWithHttpInfo($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetOrdersResponse';
         $request = $this->getOrdersRequest($siteid, $externalid, $orderid, $orderidfrom, $orderidto, $orderdatefrom, $orderdateto, $orderstate, $paymentstate, $ordertype, $email, $start, $num, $sort, $fields);
@@ -2506,15 +2534,15 @@ class OrdersApi
      * @param  int[] $paymentstate (optional)
      * @param  int[] $ordertype (optional)
      * @param  string $email (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string $sort (optional, default to '"-orderid"')
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string $sort (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOrdersRequest($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = 0, $num = 10, $sort = '"-orderid"', $fields = null)
+    public function getOrdersRequest($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -2523,7 +2551,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/orders';
+        $resourcePath = '/sites/{siteid}/orders.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2532,14 +2560,14 @@ class OrdersApi
 
         // query params
         if (is_array($externalid)) {
-            $externalid = ObjectSerializer::serializeCollection($externalid, 'csv', true);
+            $externalid = ObjectSerializer::serializeCollection($externalid, 'form', true);
         }
         if ($externalid !== null) {
             $queryParams['externalid'] = $externalid;
         }
         // query params
         if (is_array($orderid)) {
-            $orderid = ObjectSerializer::serializeCollection($orderid, 'csv', true);
+            $orderid = ObjectSerializer::serializeCollection($orderid, 'form', true);
         }
         if ($orderid !== null) {
             $queryParams['orderid'] = $orderid;
@@ -2574,21 +2602,21 @@ class OrdersApi
         }
         // query params
         if (is_array($orderstate)) {
-            $orderstate = ObjectSerializer::serializeCollection($orderstate, 'csv', true);
+            $orderstate = ObjectSerializer::serializeCollection($orderstate, 'form', true);
         }
         if ($orderstate !== null) {
             $queryParams['orderstate'] = $orderstate;
         }
         // query params
         if (is_array($paymentstate)) {
-            $paymentstate = ObjectSerializer::serializeCollection($paymentstate, 'csv', true);
+            $paymentstate = ObjectSerializer::serializeCollection($paymentstate, 'form', true);
         }
         if ($paymentstate !== null) {
             $queryParams['paymentstate'] = $paymentstate;
         }
         // query params
         if (is_array($ordertype)) {
-            $ordertype = ObjectSerializer::serializeCollection($ordertype, 'csv', true);
+            $ordertype = ObjectSerializer::serializeCollection($ordertype, 'form', true);
         }
         if ($ordertype !== null) {
             $queryParams['ordertype'] = $ordertype;
@@ -2623,7 +2651,7 @@ class OrdersApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -2676,6 +2704,10 @@ class OrdersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2912,7 +2944,7 @@ class OrdersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/orders/{orderid}';
+        $resourcePath = '/sites/{siteid}/orders/{orderid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2981,6 +3013,10 @@ class OrdersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

@@ -428,7 +428,7 @@ class OrderitemRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('orderitemid', $data, null);
-        $this->setIfExists('orderitemtype', $data, 10);
+        $this->setIfExists('orderitemtype', $data, null);
         $this->setIfExists('productid', $data, null);
         $this->setIfExists('productname', $data, null);
         $this->setIfExists('sku', $data, null);
@@ -440,14 +440,14 @@ class OrderitemRead implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('decimalunitquantity', $data, null);
         $this->setIfExists('moneynetpriceperunit', $data, null);
         $this->setIfExists('moneypriceorg', $data, null);
-        $this->setIfExists('vatvalue', $data, 0);
+        $this->setIfExists('vatvalue', $data, null);
         $this->setIfExists('deliveryinfo', $data, null);
         $this->setIfExists('moneyitemtotalNet', $data, null);
         $this->setIfExists('moneyitemtotalVat', $data, null);
         $this->setIfExists('vouchercode', $data, null);
         $this->setIfExists('vouchername', $data, null);
         $this->setIfExists('vouchercomment', $data, null);
-        $this->setIfExists('vouchervalue', $data, 0);
+        $this->setIfExists('vouchervalue', $data, null);
         $this->setIfExists('moneyoriginalprice', $data, null);
         $this->setIfExists('moneydiscountedprice', $data, null);
         $this->setIfExists('moneydiscount', $data, null);

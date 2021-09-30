@@ -304,7 +304,7 @@ class PriceListsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/pricelists';
+        $resourcePath = '/sites/{siteid}/pricelists.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -365,6 +365,10 @@ class PriceListsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -392,17 +396,14 @@ class PriceListsApi
      * @param  int $siteid siteid (required)
      * @param  int $pricelistid pricelistid (required)
      * @param  object[] $requestBody requestBody (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function batchDeletePriceListItems($siteid, $pricelistid, $requestBody, $start = 0, $num = 10, $fields = null)
+    public function batchDeletePriceListItems($siteid, $pricelistid, $requestBody)
     {
-        $this->batchDeletePriceListItemsWithHttpInfo($siteid, $pricelistid, $requestBody, $start, $num, $fields);
+        $this->batchDeletePriceListItemsWithHttpInfo($siteid, $pricelistid, $requestBody);
     }
 
     /**
@@ -411,17 +412,14 @@ class PriceListsApi
      * @param  int $siteid (required)
      * @param  int $pricelistid (required)
      * @param  object[] $requestBody (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function batchDeletePriceListItemsWithHttpInfo($siteid, $pricelistid, $requestBody, $start = 0, $num = 10, $fields = null)
+    public function batchDeletePriceListItemsWithHttpInfo($siteid, $pricelistid, $requestBody)
     {
-        $request = $this->batchDeletePriceListItemsRequest($siteid, $pricelistid, $requestBody, $start, $num, $fields);
+        $request = $this->batchDeletePriceListItemsRequest($siteid, $pricelistid, $requestBody);
 
         try {
             $options = $this->createHttpClientOption();
@@ -468,16 +466,13 @@ class PriceListsApi
      * @param  int $siteid (required)
      * @param  int $pricelistid (required)
      * @param  object[] $requestBody (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchDeletePriceListItemsAsync($siteid, $pricelistid, $requestBody, $start = 0, $num = 10, $fields = null)
+    public function batchDeletePriceListItemsAsync($siteid, $pricelistid, $requestBody)
     {
-        return $this->batchDeletePriceListItemsAsyncWithHttpInfo($siteid, $pricelistid, $requestBody, $start, $num, $fields)
+        return $this->batchDeletePriceListItemsAsyncWithHttpInfo($siteid, $pricelistid, $requestBody)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -493,17 +488,14 @@ class PriceListsApi
      * @param  int $siteid (required)
      * @param  int $pricelistid (required)
      * @param  object[] $requestBody (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchDeletePriceListItemsAsyncWithHttpInfo($siteid, $pricelistid, $requestBody, $start = 0, $num = 10, $fields = null)
+    public function batchDeletePriceListItemsAsyncWithHttpInfo($siteid, $pricelistid, $requestBody)
     {
         $returnType = '';
-        $request = $this->batchDeletePriceListItemsRequest($siteid, $pricelistid, $requestBody, $start, $num, $fields);
+        $request = $this->batchDeletePriceListItemsRequest($siteid, $pricelistid, $requestBody);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -534,14 +526,11 @@ class PriceListsApi
      * @param  int $siteid (required)
      * @param  int $pricelistid (required)
      * @param  object[] $requestBody (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function batchDeletePriceListItemsRequest($siteid, $pricelistid, $requestBody, $start = 0, $num = 10, $fields = null)
+    public function batchDeletePriceListItemsRequest($siteid, $pricelistid, $requestBody)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -562,34 +551,13 @@ class PriceListsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/pricelists/{pricelistid}/pricelistitems';
+        $resourcePath = '/sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if (is_array($start)) {
-            $start = ObjectSerializer::serializeCollection($start, '', true);
-        }
-        if ($start !== null) {
-            $queryParams['start'] = $start;
-        }
-        // query params
-        if (is_array($num)) {
-            $num = ObjectSerializer::serializeCollection($num, '', true);
-        }
-        if ($num !== null) {
-            $queryParams['num'] = $num;
-        }
-        // query params
-        if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
-        }
-        if ($fields !== null) {
-            $queryParams['fields'] = $fields;
-        }
 
 
         // path params
@@ -652,6 +620,10 @@ class PriceListsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -679,17 +651,14 @@ class PriceListsApi
      * @param  int $siteid siteid (required)
      * @param  int $pricelistid pricelistid (required)
      * @param  \Spy\SitooClient\Model\PricelistitemWrite[] $pricelistitemWrite pricelistitemWrite (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return bool
      */
-    public function batchSetPriceListItems($siteid, $pricelistid, $pricelistitemWrite, $start = 0, $num = 10, $fields = null)
+    public function batchSetPriceListItems($siteid, $pricelistid, $pricelistitemWrite)
     {
-        list($response) = $this->batchSetPriceListItemsWithHttpInfo($siteid, $pricelistid, $pricelistitemWrite, $start, $num, $fields);
+        list($response) = $this->batchSetPriceListItemsWithHttpInfo($siteid, $pricelistid, $pricelistitemWrite);
         return $response;
     }
 
@@ -699,17 +668,14 @@ class PriceListsApi
      * @param  int $siteid (required)
      * @param  int $pricelistid (required)
      * @param  \Spy\SitooClient\Model\PricelistitemWrite[] $pricelistitemWrite (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of bool, HTTP status code, HTTP response headers (array of strings)
      */
-    public function batchSetPriceListItemsWithHttpInfo($siteid, $pricelistid, $pricelistitemWrite, $start = 0, $num = 10, $fields = null)
+    public function batchSetPriceListItemsWithHttpInfo($siteid, $pricelistid, $pricelistitemWrite)
     {
-        $request = $this->batchSetPriceListItemsRequest($siteid, $pricelistid, $pricelistitemWrite, $start, $num, $fields);
+        $request = $this->batchSetPriceListItemsRequest($siteid, $pricelistid, $pricelistitemWrite);
 
         try {
             $options = $this->createHttpClientOption();
@@ -798,16 +764,13 @@ class PriceListsApi
      * @param  int $siteid (required)
      * @param  int $pricelistid (required)
      * @param  \Spy\SitooClient\Model\PricelistitemWrite[] $pricelistitemWrite (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchSetPriceListItemsAsync($siteid, $pricelistid, $pricelistitemWrite, $start = 0, $num = 10, $fields = null)
+    public function batchSetPriceListItemsAsync($siteid, $pricelistid, $pricelistitemWrite)
     {
-        return $this->batchSetPriceListItemsAsyncWithHttpInfo($siteid, $pricelistid, $pricelistitemWrite, $start, $num, $fields)
+        return $this->batchSetPriceListItemsAsyncWithHttpInfo($siteid, $pricelistid, $pricelistitemWrite)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -823,17 +786,14 @@ class PriceListsApi
      * @param  int $siteid (required)
      * @param  int $pricelistid (required)
      * @param  \Spy\SitooClient\Model\PricelistitemWrite[] $pricelistitemWrite (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchSetPriceListItemsAsyncWithHttpInfo($siteid, $pricelistid, $pricelistitemWrite, $start = 0, $num = 10, $fields = null)
+    public function batchSetPriceListItemsAsyncWithHttpInfo($siteid, $pricelistid, $pricelistitemWrite)
     {
         $returnType = 'bool';
-        $request = $this->batchSetPriceListItemsRequest($siteid, $pricelistid, $pricelistitemWrite, $start, $num, $fields);
+        $request = $this->batchSetPriceListItemsRequest($siteid, $pricelistid, $pricelistitemWrite);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -875,14 +835,11 @@ class PriceListsApi
      * @param  int $siteid (required)
      * @param  int $pricelistid (required)
      * @param  \Spy\SitooClient\Model\PricelistitemWrite[] $pricelistitemWrite (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function batchSetPriceListItemsRequest($siteid, $pricelistid, $pricelistitemWrite, $start = 0, $num = 10, $fields = null)
+    public function batchSetPriceListItemsRequest($siteid, $pricelistid, $pricelistitemWrite)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -903,34 +860,13 @@ class PriceListsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/pricelists/{pricelistid}/pricelistitems';
+        $resourcePath = '/sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if (is_array($start)) {
-            $start = ObjectSerializer::serializeCollection($start, '', true);
-        }
-        if ($start !== null) {
-            $queryParams['start'] = $start;
-        }
-        // query params
-        if (is_array($num)) {
-            $num = ObjectSerializer::serializeCollection($num, '', true);
-        }
-        if ($num !== null) {
-            $queryParams['num'] = $num;
-        }
-        // query params
-        if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
-        }
-        if ($fields !== null) {
-            $queryParams['fields'] = $fields;
-        }
 
 
         // path params
@@ -993,6 +929,10 @@ class PriceListsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1218,7 +1158,7 @@ class PriceListsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/pricelists/{pricelistid}';
+        $resourcePath = '/sites/{siteid}/pricelists/{pricelistid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1281,6 +1221,10 @@ class PriceListsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1506,7 +1450,7 @@ class PriceListsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/pricelists/{pricelistid}';
+        $resourcePath = '/sites/{siteid}/pricelists/{pricelistid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1569,6 +1513,10 @@ class PriceListsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1594,15 +1542,15 @@ class PriceListsApi
      * Operation getPriceLists
      *
      * @param  int $siteid siteid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetPriceListsResponse
      */
-    public function getPriceLists($siteid, $start = 0, $num = 10, $fields = null)
+    public function getPriceLists($siteid, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getPriceListsWithHttpInfo($siteid, $start, $num, $fields);
         return $response;
@@ -1612,15 +1560,15 @@ class PriceListsApi
      * Operation getPriceListsWithHttpInfo
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetPriceListsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPriceListsWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getPriceListsWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $request = $this->getPriceListsRequest($siteid, $start, $num, $fields);
 
@@ -1709,14 +1657,14 @@ class PriceListsApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceListsAsync($siteid, $start = 0, $num = 10, $fields = null)
+    public function getPriceListsAsync($siteid, $start = null, $num = null, $fields = null)
     {
         return $this->getPriceListsAsyncWithHttpInfo($siteid, $start, $num, $fields)
             ->then(
@@ -1732,14 +1680,14 @@ class PriceListsApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceListsAsyncWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getPriceListsAsyncWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetPriceListsResponse';
         $request = $this->getPriceListsRequest($siteid, $start, $num, $fields);
@@ -1782,14 +1730,14 @@ class PriceListsApi
      * Create request for operation 'getPriceLists'
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPriceListsRequest($siteid, $start = 0, $num = 10, $fields = null)
+    public function getPriceListsRequest($siteid, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1798,7 +1746,7 @@ class PriceListsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/pricelists';
+        $resourcePath = '/sites/{siteid}/pricelists.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1821,7 +1769,7 @@ class PriceListsApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1874,6 +1822,10 @@ class PriceListsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1900,15 +1852,15 @@ class PriceListsApi
      *
      * @param  int $siteid siteid (required)
      * @param  int $pricelistid pricelistid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetPriceListsItemsResponse
      */
-    public function getPriceListsItems($siteid, $pricelistid, $start = 0, $num = 10, $fields = null)
+    public function getPriceListsItems($siteid, $pricelistid, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getPriceListsItemsWithHttpInfo($siteid, $pricelistid, $start, $num, $fields);
         return $response;
@@ -1919,15 +1871,15 @@ class PriceListsApi
      *
      * @param  int $siteid (required)
      * @param  int $pricelistid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetPriceListsItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPriceListsItemsWithHttpInfo($siteid, $pricelistid, $start = 0, $num = 10, $fields = null)
+    public function getPriceListsItemsWithHttpInfo($siteid, $pricelistid, $start = null, $num = null, $fields = null)
     {
         $request = $this->getPriceListsItemsRequest($siteid, $pricelistid, $start, $num, $fields);
 
@@ -2017,14 +1969,14 @@ class PriceListsApi
      *
      * @param  int $siteid (required)
      * @param  int $pricelistid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceListsItemsAsync($siteid, $pricelistid, $start = 0, $num = 10, $fields = null)
+    public function getPriceListsItemsAsync($siteid, $pricelistid, $start = null, $num = null, $fields = null)
     {
         return $this->getPriceListsItemsAsyncWithHttpInfo($siteid, $pricelistid, $start, $num, $fields)
             ->then(
@@ -2041,14 +1993,14 @@ class PriceListsApi
      *
      * @param  int $siteid (required)
      * @param  int $pricelistid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceListsItemsAsyncWithHttpInfo($siteid, $pricelistid, $start = 0, $num = 10, $fields = null)
+    public function getPriceListsItemsAsyncWithHttpInfo($siteid, $pricelistid, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetPriceListsItemsResponse';
         $request = $this->getPriceListsItemsRequest($siteid, $pricelistid, $start, $num, $fields);
@@ -2092,14 +2044,14 @@ class PriceListsApi
      *
      * @param  int $siteid (required)
      * @param  int $pricelistid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPriceListsItemsRequest($siteid, $pricelistid, $start = 0, $num = 10, $fields = null)
+    public function getPriceListsItemsRequest($siteid, $pricelistid, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -2114,7 +2066,7 @@ class PriceListsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/pricelists/{pricelistid}/pricelistitems';
+        $resourcePath = '/sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2137,7 +2089,7 @@ class PriceListsApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -2198,6 +2150,10 @@ class PriceListsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2434,7 +2390,7 @@ class PriceListsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/pricelists/{pricelistid}';
+        $resourcePath = '/sites/{siteid}/pricelists/{pricelistid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2503,6 +2459,10 @@ class PriceListsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

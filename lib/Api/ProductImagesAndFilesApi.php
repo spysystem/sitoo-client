@@ -369,7 +369,7 @@ class ProductImagesAndFilesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products/{productid}/files';
+        $resourcePath = '/sites/{siteid}/products/{productid}/files.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -438,6 +438,10 @@ class ProductImagesAndFilesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -674,7 +678,7 @@ class ProductImagesAndFilesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products/{productid}/images';
+        $resourcePath = '/sites/{siteid}/products/{productid}/images.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -743,6 +747,10 @@ class ProductImagesAndFilesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -979,7 +987,7 @@ class ProductImagesAndFilesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products/{productid}/files/{fileid}';
+        $resourcePath = '/sites/{siteid}/products/{productid}/files/{fileid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1050,6 +1058,10 @@ class ProductImagesAndFilesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1286,7 +1298,7 @@ class ProductImagesAndFilesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products/{productid}/images/{imageid}';
+        $resourcePath = '/sites/{siteid}/products/{productid}/images/{imageid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1357,6 +1369,10 @@ class ProductImagesAndFilesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1593,7 +1609,7 @@ class ProductImagesAndFilesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products/{productid}/files/{fileid}';
+        $resourcePath = '/sites/{siteid}/products/{productid}/files/{fileid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1664,6 +1680,10 @@ class ProductImagesAndFilesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1690,15 +1710,15 @@ class ProductImagesAndFilesApi
      *
      * @param  int $siteid siteid (required)
      * @param  int $productid productid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetProductFilesResponse
      */
-    public function getProductFiles($siteid, $productid, $start = 0, $num = 10, $fields = null)
+    public function getProductFiles($siteid, $productid, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getProductFilesWithHttpInfo($siteid, $productid, $start, $num, $fields);
         return $response;
@@ -1709,15 +1729,15 @@ class ProductImagesAndFilesApi
      *
      * @param  int $siteid (required)
      * @param  int $productid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetProductFilesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProductFilesWithHttpInfo($siteid, $productid, $start = 0, $num = 10, $fields = null)
+    public function getProductFilesWithHttpInfo($siteid, $productid, $start = null, $num = null, $fields = null)
     {
         $request = $this->getProductFilesRequest($siteid, $productid, $start, $num, $fields);
 
@@ -1807,14 +1827,14 @@ class ProductImagesAndFilesApi
      *
      * @param  int $siteid (required)
      * @param  int $productid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductFilesAsync($siteid, $productid, $start = 0, $num = 10, $fields = null)
+    public function getProductFilesAsync($siteid, $productid, $start = null, $num = null, $fields = null)
     {
         return $this->getProductFilesAsyncWithHttpInfo($siteid, $productid, $start, $num, $fields)
             ->then(
@@ -1831,14 +1851,14 @@ class ProductImagesAndFilesApi
      *
      * @param  int $siteid (required)
      * @param  int $productid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductFilesAsyncWithHttpInfo($siteid, $productid, $start = 0, $num = 10, $fields = null)
+    public function getProductFilesAsyncWithHttpInfo($siteid, $productid, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetProductFilesResponse';
         $request = $this->getProductFilesRequest($siteid, $productid, $start, $num, $fields);
@@ -1882,14 +1902,14 @@ class ProductImagesAndFilesApi
      *
      * @param  int $siteid (required)
      * @param  int $productid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProductFilesRequest($siteid, $productid, $start = 0, $num = 10, $fields = null)
+    public function getProductFilesRequest($siteid, $productid, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1904,7 +1924,7 @@ class ProductImagesAndFilesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products/{productid}/files';
+        $resourcePath = '/sites/{siteid}/products/{productid}/files.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1927,7 +1947,7 @@ class ProductImagesAndFilesApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1988,6 +2008,10 @@ class ProductImagesAndFilesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2224,7 +2248,7 @@ class ProductImagesAndFilesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products/{productid}/images/{imageid}';
+        $resourcePath = '/sites/{siteid}/products/{productid}/images/{imageid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2295,6 +2319,10 @@ class ProductImagesAndFilesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2321,15 +2349,15 @@ class ProductImagesAndFilesApi
      *
      * @param  int $siteid siteid (required)
      * @param  int $productid productid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetProductImagesResponse
      */
-    public function getProductImages($siteid, $productid, $start = 0, $num = 10, $fields = null)
+    public function getProductImages($siteid, $productid, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getProductImagesWithHttpInfo($siteid, $productid, $start, $num, $fields);
         return $response;
@@ -2340,15 +2368,15 @@ class ProductImagesAndFilesApi
      *
      * @param  int $siteid (required)
      * @param  int $productid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetProductImagesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProductImagesWithHttpInfo($siteid, $productid, $start = 0, $num = 10, $fields = null)
+    public function getProductImagesWithHttpInfo($siteid, $productid, $start = null, $num = null, $fields = null)
     {
         $request = $this->getProductImagesRequest($siteid, $productid, $start, $num, $fields);
 
@@ -2438,14 +2466,14 @@ class ProductImagesAndFilesApi
      *
      * @param  int $siteid (required)
      * @param  int $productid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductImagesAsync($siteid, $productid, $start = 0, $num = 10, $fields = null)
+    public function getProductImagesAsync($siteid, $productid, $start = null, $num = null, $fields = null)
     {
         return $this->getProductImagesAsyncWithHttpInfo($siteid, $productid, $start, $num, $fields)
             ->then(
@@ -2462,14 +2490,14 @@ class ProductImagesAndFilesApi
      *
      * @param  int $siteid (required)
      * @param  int $productid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductImagesAsyncWithHttpInfo($siteid, $productid, $start = 0, $num = 10, $fields = null)
+    public function getProductImagesAsyncWithHttpInfo($siteid, $productid, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetProductImagesResponse';
         $request = $this->getProductImagesRequest($siteid, $productid, $start, $num, $fields);
@@ -2513,14 +2541,14 @@ class ProductImagesAndFilesApi
      *
      * @param  int $siteid (required)
      * @param  int $productid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProductImagesRequest($siteid, $productid, $start = 0, $num = 10, $fields = null)
+    public function getProductImagesRequest($siteid, $productid, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -2535,7 +2563,7 @@ class ProductImagesAndFilesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products/{productid}/images';
+        $resourcePath = '/sites/{siteid}/products/{productid}/images.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2558,7 +2586,7 @@ class ProductImagesAndFilesApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -2619,6 +2647,10 @@ class ProductImagesAndFilesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

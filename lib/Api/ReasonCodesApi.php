@@ -293,7 +293,7 @@ class ReasonCodesApi
             );
         }
 
-        $resourcePath = '/reasoncodes';
+        $resourcePath = '/reasoncodes.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -346,6 +346,10 @@ class ReasonCodesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -560,7 +564,7 @@ class ReasonCodesApi
             );
         }
 
-        $resourcePath = '/reasoncodes/{reasoncodeid}';
+        $resourcePath = '/reasoncodes/{reasoncodeid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -615,6 +619,10 @@ class ReasonCodesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -829,7 +837,7 @@ class ReasonCodesApi
             );
         }
 
-        $resourcePath = '/reasoncodes/{reasoncodeid}';
+        $resourcePath = '/reasoncodes/{reasoncodeid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -884,6 +892,10 @@ class ReasonCodesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -909,15 +921,15 @@ class ReasonCodesApi
      * Operation getReasonCodes
      *
      * @param  int[] $type type (optional)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetReasonCodesResponse
      */
-    public function getReasonCodes($type = null, $start = 0, $num = 10, $fields = null)
+    public function getReasonCodes($type = null, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getReasonCodesWithHttpInfo($type, $start, $num, $fields);
         return $response;
@@ -927,15 +939,15 @@ class ReasonCodesApi
      * Operation getReasonCodesWithHttpInfo
      *
      * @param  int[] $type (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetReasonCodesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReasonCodesWithHttpInfo($type = null, $start = 0, $num = 10, $fields = null)
+    public function getReasonCodesWithHttpInfo($type = null, $start = null, $num = null, $fields = null)
     {
         $request = $this->getReasonCodesRequest($type, $start, $num, $fields);
 
@@ -1024,14 +1036,14 @@ class ReasonCodesApi
      * 
      *
      * @param  int[] $type (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReasonCodesAsync($type = null, $start = 0, $num = 10, $fields = null)
+    public function getReasonCodesAsync($type = null, $start = null, $num = null, $fields = null)
     {
         return $this->getReasonCodesAsyncWithHttpInfo($type, $start, $num, $fields)
             ->then(
@@ -1047,14 +1059,14 @@ class ReasonCodesApi
      * 
      *
      * @param  int[] $type (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReasonCodesAsyncWithHttpInfo($type = null, $start = 0, $num = 10, $fields = null)
+    public function getReasonCodesAsyncWithHttpInfo($type = null, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetReasonCodesResponse';
         $request = $this->getReasonCodesRequest($type, $start, $num, $fields);
@@ -1097,17 +1109,17 @@ class ReasonCodesApi
      * Create request for operation 'getReasonCodes'
      *
      * @param  int[] $type (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getReasonCodesRequest($type = null, $start = 0, $num = 10, $fields = null)
+    public function getReasonCodesRequest($type = null, $start = null, $num = null, $fields = null)
     {
 
-        $resourcePath = '/reasoncodes';
+        $resourcePath = '/reasoncodes.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1116,7 +1128,7 @@ class ReasonCodesApi
 
         // query params
         if (is_array($type)) {
-            $type = ObjectSerializer::serializeCollection($type, 'csv', true);
+            $type = ObjectSerializer::serializeCollection($type, 'form', true);
         }
         if ($type !== null) {
             $queryParams['type'] = $type;
@@ -1137,7 +1149,7 @@ class ReasonCodesApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1182,6 +1194,10 @@ class ReasonCodesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1407,7 +1423,7 @@ class ReasonCodesApi
             );
         }
 
-        $resourcePath = '/reasoncodes/{reasoncodeid}';
+        $resourcePath = '/reasoncodes/{reasoncodeid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1468,6 +1484,10 @@ class ReasonCodesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

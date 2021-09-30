@@ -28,6 +28,7 @@ docs/Api/VouchersApi.md
 docs/Api/WarehouseBatchesApi.md
 docs/Api/WarehouseTransactionsApi.md
 docs/Api/WarehousesApi.md
+docs/Model/BatchResponse.md
 docs/Model/CategoryRead.md
 docs/Model/CategoryWrite.md
 docs/Model/CustomAttributeWrite.md
@@ -204,6 +205,7 @@ lib/Api/WarehousesApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
+lib/Model/BatchResponse.php
 lib/Model/CategoryRead.php
 lib/Model/CategoryWrite.php
 lib/Model/CustomAttributeWrite.php
@@ -379,6 +381,7 @@ test/Api/VouchersApiTest.php
 test/Api/WarehouseBatchesApiTest.php
 test/Api/WarehouseTransactionsApiTest.php
 test/Api/WarehousesApiTest.php
+test/Model/BatchResponseTest.php
 test/Model/CategoryReadTest.php
 test/Model/CategoryWriteTest.php
 test/Model/CustomAttributeWriteTest.php

@@ -304,7 +304,7 @@ class ManufacturersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/manufacturers';
+        $resourcePath = '/sites/{siteid}/manufacturers.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -365,6 +365,10 @@ class ManufacturersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -536,7 +540,7 @@ class ManufacturersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/manufacturers';
+        $resourcePath = '/sites/{siteid}/manufacturers.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -597,6 +601,10 @@ class ManufacturersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -822,7 +830,7 @@ class ManufacturersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/manufacturers';
+        $resourcePath = '/sites/{siteid}/manufacturers.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -883,6 +891,10 @@ class ManufacturersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1108,7 +1120,7 @@ class ManufacturersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/manufacturers/{externalcompanyid}';
+        $resourcePath = '/sites/{siteid}/manufacturers/{externalcompanyid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1171,6 +1183,10 @@ class ManufacturersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1396,7 +1412,7 @@ class ManufacturersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/manufacturers/{externalcompanyid}';
+        $resourcePath = '/sites/{siteid}/manufacturers/{externalcompanyid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1459,6 +1475,10 @@ class ManufacturersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1484,15 +1504,15 @@ class ManufacturersApi
      * Operation getManufacturers
      *
      * @param  int $siteid siteid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetManufacturersResponse
      */
-    public function getManufacturers($siteid, $start = 0, $num = 10, $fields = null)
+    public function getManufacturers($siteid, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getManufacturersWithHttpInfo($siteid, $start, $num, $fields);
         return $response;
@@ -1502,15 +1522,15 @@ class ManufacturersApi
      * Operation getManufacturersWithHttpInfo
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetManufacturersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getManufacturersWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getManufacturersWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $request = $this->getManufacturersRequest($siteid, $start, $num, $fields);
 
@@ -1599,14 +1619,14 @@ class ManufacturersApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getManufacturersAsync($siteid, $start = 0, $num = 10, $fields = null)
+    public function getManufacturersAsync($siteid, $start = null, $num = null, $fields = null)
     {
         return $this->getManufacturersAsyncWithHttpInfo($siteid, $start, $num, $fields)
             ->then(
@@ -1622,14 +1642,14 @@ class ManufacturersApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getManufacturersAsyncWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getManufacturersAsyncWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetManufacturersResponse';
         $request = $this->getManufacturersRequest($siteid, $start, $num, $fields);
@@ -1672,14 +1692,14 @@ class ManufacturersApi
      * Create request for operation 'getManufacturers'
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getManufacturersRequest($siteid, $start = 0, $num = 10, $fields = null)
+    public function getManufacturersRequest($siteid, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1688,7 +1708,7 @@ class ManufacturersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/manufacturers';
+        $resourcePath = '/sites/{siteid}/manufacturers.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1711,7 +1731,7 @@ class ManufacturersApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1764,6 +1784,10 @@ class ManufacturersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2000,7 +2024,7 @@ class ManufacturersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/manufacturers/{externalcompanyid}';
+        $resourcePath = '/sites/{siteid}/manufacturers/{externalcompanyid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2069,6 +2093,10 @@ class ManufacturersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

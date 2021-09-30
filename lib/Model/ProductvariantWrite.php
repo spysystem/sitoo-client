@@ -62,14 +62,18 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'productid' => 'int',
+        'active' => 'bool',
         'activepos' => 'bool',
         'title' => 'string',
         'sku' => 'string',
+        'deliverystatus' => 'string',
         'moneyprice' => 'string',
         'moneypriceorg' => 'string',
         'moneypricein' => 'string',
+        'moneyofferprice' => 'string',
         'barcode' => 'string',
         'barcodealiases' => 'string[]',
+        'friendly' => 'string',
         'attributes' => 'string[]'
     ];
 
@@ -82,14 +86,18 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPIFormats = [
         'productid' => null,
+        'active' => null,
         'activepos' => null,
         'title' => null,
         'sku' => null,
+        'deliverystatus' => null,
         'moneyprice' => null,
         'moneypriceorg' => null,
         'moneypricein' => null,
+        'moneyofferprice' => null,
         'barcode' => null,
         'barcodealiases' => null,
+        'friendly' => null,
         'attributes' => null
     ];
 
@@ -100,14 +108,18 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPINullables = [
         'productid' => false,
+		'active' => false,
 		'activepos' => false,
 		'title' => false,
 		'sku' => false,
+		'deliverystatus' => false,
 		'moneyprice' => false,
 		'moneypriceorg' => false,
 		'moneypricein' => false,
+		'moneyofferprice' => false,
 		'barcode' => false,
 		'barcodealiases' => false,
+		'friendly' => false,
 		'attributes' => false
     ];
 
@@ -200,14 +212,18 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $attributeMap = [
         'productid' => 'productid',
+        'active' => 'active',
         'activepos' => 'activepos',
         'title' => 'title',
         'sku' => 'sku',
+        'deliverystatus' => 'deliverystatus',
         'moneyprice' => 'moneyprice',
         'moneypriceorg' => 'moneypriceorg',
         'moneypricein' => 'moneypricein',
+        'moneyofferprice' => 'moneyofferprice',
         'barcode' => 'barcode',
         'barcodealiases' => 'barcodealiases',
+        'friendly' => 'friendly',
         'attributes' => 'attributes'
     ];
 
@@ -218,14 +234,18 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $setters = [
         'productid' => 'setProductid',
+        'active' => 'setActive',
         'activepos' => 'setActivepos',
         'title' => 'setTitle',
         'sku' => 'setSku',
+        'deliverystatus' => 'setDeliverystatus',
         'moneyprice' => 'setMoneyprice',
         'moneypriceorg' => 'setMoneypriceorg',
         'moneypricein' => 'setMoneypricein',
+        'moneyofferprice' => 'setMoneyofferprice',
         'barcode' => 'setBarcode',
         'barcodealiases' => 'setBarcodealiases',
+        'friendly' => 'setFriendly',
         'attributes' => 'setAttributes'
     ];
 
@@ -236,14 +256,18 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $getters = [
         'productid' => 'getProductid',
+        'active' => 'getActive',
         'activepos' => 'getActivepos',
         'title' => 'getTitle',
         'sku' => 'getSku',
+        'deliverystatus' => 'getDeliverystatus',
         'moneyprice' => 'getMoneyprice',
         'moneypriceorg' => 'getMoneypriceorg',
         'moneypricein' => 'getMoneypricein',
+        'moneyofferprice' => 'getMoneyofferprice',
         'barcode' => 'getBarcode',
         'barcodealiases' => 'getBarcodealiases',
+        'friendly' => 'getFriendly',
         'attributes' => 'getAttributes'
     ];
 
@@ -308,14 +332,18 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(array $data = null)
     {
         $this->setIfExists('productid', $data, null);
+        $this->setIfExists('active', $data, null);
         $this->setIfExists('activepos', $data, null);
         $this->setIfExists('title', $data, null);
         $this->setIfExists('sku', $data, null);
+        $this->setIfExists('deliverystatus', $data, null);
         $this->setIfExists('moneyprice', $data, null);
         $this->setIfExists('moneypriceorg', $data, null);
         $this->setIfExists('moneypricein', $data, null);
+        $this->setIfExists('moneyofferprice', $data, null);
         $this->setIfExists('barcode', $data, null);
         $this->setIfExists('barcodealiases', $data, null);
+        $this->setIfExists('friendly', $data, null);
         $this->setIfExists('attributes', $data, null);
     }
 
@@ -342,6 +370,9 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['productid'] === null) {
             $invalidProperties[] = "'productid' can't be null";
         }
+        if ($this->container['active'] === null) {
+            $invalidProperties[] = "'active' can't be null";
+        }
         if ($this->container['activepos'] === null) {
             $invalidProperties[] = "'activepos' can't be null";
         }
@@ -350,6 +381,9 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
         }
         if ($this->container['sku'] === null) {
             $invalidProperties[] = "'sku' can't be null";
+        }
+        if ($this->container['deliverystatus'] === null) {
+            $invalidProperties[] = "'deliverystatus' can't be null";
         }
         if ($this->container['moneyprice'] === null) {
             $invalidProperties[] = "'moneyprice' can't be null";
@@ -360,8 +394,14 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['moneypricein'] === null) {
             $invalidProperties[] = "'moneypricein' can't be null";
         }
+        if ($this->container['moneyofferprice'] === null) {
+            $invalidProperties[] = "'moneyofferprice' can't be null";
+        }
         if ($this->container['barcode'] === null) {
             $invalidProperties[] = "'barcode' can't be null";
+        }
+        if ($this->container['friendly'] === null) {
+            $invalidProperties[] = "'friendly' can't be null";
         }
         if ($this->container['attributes'] === null) {
             $invalidProperties[] = "'attributes' can't be null";
@@ -406,6 +446,35 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
         }
 
         $this->container['productid'] = $productid;
+
+        return $this;
+    }
+
+    /**
+     * Gets active
+     *
+     * @return bool
+     */
+    public function getActive()
+    {
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool $active If false, the product is not shown in in the POS.
+     *
+     * @return self
+     */
+    public function setActive($active)
+    {
+
+        if (is_null($active)) {
+            throw new \InvalidArgumentException('non-nullable active cannot be null');
+        }
+
+        $this->container['active'] = $active;
 
         return $this;
     }
@@ -498,6 +567,35 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets deliverystatus
+     *
+     * @return string
+     */
+    public function getDeliverystatus()
+    {
+        return $this->container['deliverystatus'];
+    }
+
+    /**
+     * Sets deliverystatus
+     *
+     * @param string $deliverystatus Delivery status. If set then it overrides any Stock texts on the site. If not set (ie. empty) then the stock is displayed using the stockcount field.
+     *
+     * @return self
+     */
+    public function setDeliverystatus($deliverystatus)
+    {
+
+        if (is_null($deliverystatus)) {
+            throw new \InvalidArgumentException('non-nullable deliverystatus cannot be null');
+        }
+
+        $this->container['deliverystatus'] = $deliverystatus;
+
+        return $this;
+    }
+
+    /**
      * Gets moneyprice
      *
      * @return string
@@ -585,6 +683,35 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets moneyofferprice
+     *
+     * @return string
+     */
+    public function getMoneyofferprice()
+    {
+        return $this->container['moneyofferprice'];
+    }
+
+    /**
+     * Sets moneyofferprice
+     *
+     * @param string $moneyofferprice If the product is in offer mode, the offerprice will be used instead of the price. The product is in offer mode if enabled and within the offer date period. (Deprecated, use price lists instead)
+     *
+     * @return self
+     */
+    public function setMoneyofferprice($moneyofferprice)
+    {
+
+        if (is_null($moneyofferprice)) {
+            throw new \InvalidArgumentException('non-nullable moneyofferprice cannot be null');
+        }
+
+        $this->container['moneyofferprice'] = $moneyofferprice;
+
+        return $this;
+    }
+
+    /**
      * Gets barcode
      *
      * @return string
@@ -638,6 +765,35 @@ class ProductvariantWrite implements ModelInterface, ArrayAccess, \JsonSerializa
         }
 
         $this->container['barcodealiases'] = $barcodealiases;
+
+        return $this;
+    }
+
+    /**
+     * Gets friendly
+     *
+     * @return string
+     */
+    public function getFriendly()
+    {
+        return $this->container['friendly'];
+    }
+
+    /**
+     * Sets friendly
+     *
+     * @param string $friendly Friendly name. Absolute url = site url + friendly.
+     *
+     * @return self
+     */
+    public function setFriendly($friendly)
+    {
+
+        if (is_null($friendly)) {
+            throw new \InvalidArgumentException('non-nullable friendly cannot be null');
+        }
+
+        $this->container['friendly'] = $friendly;
 
         return $this;
     }

@@ -431,8 +431,8 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('unitlabel', $data, null);
         $this->setIfExists('allowdecimals', $data, null);
         $this->setIfExists('deliveryinfo', $data, null);
-        $this->setIfExists('activepos', $data, true);
-        $this->setIfExists('vatid', $data, 2);
+        $this->setIfExists('activepos', $data, null);
+        $this->setIfExists('vatid', $data, null);
         $this->setIfExists('defaultcategoryid', $data, null);
         $this->setIfExists('categories', $data, null);
         $this->setIfExists('manufacturerid', $data, null);
@@ -442,7 +442,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('custom3', $data, null);
         $this->setIfExists('custom4', $data, null);
         $this->setIfExists('custom5', $data, null);
-        $this->setIfExists('stockcountenable', $data, true);
+        $this->setIfExists('stockcountenable', $data, null);
         $this->setIfExists('barcode', $data, null);
         $this->setIfExists('barcodealiases', $data, null);
         $this->setIfExists('similar', $data, null);

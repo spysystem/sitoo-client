@@ -304,7 +304,7 @@ class WarehousesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses';
+        $resourcePath = '/sites/{siteid}/warehouses.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -365,6 +365,10 @@ class WarehousesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -392,20 +396,14 @@ class WarehousesApi
      * @param  int $siteid siteid (required)
      * @param  int $warehouseid warehouseid (required)
      * @param  \Spy\SitooClient\Model\WarehouseitemWrite[] $warehouseitemWrite warehouseitemWrite (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  int $datelastmodifiedfrom datelastmodifiedfrom (optional)
-     * @param  int $datelastmodifiedto datelastmodifiedto (optional)
-     * @param  string[] $sku sku (optional)
-     * @param  string[] $fields fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function batchSetWarehouseItems($siteid, $warehouseid, $warehouseitemWrite, $start = 0, $num = 10, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
+    public function batchSetWarehouseItems($siteid, $warehouseid, $warehouseitemWrite)
     {
-        $this->batchSetWarehouseItemsWithHttpInfo($siteid, $warehouseid, $warehouseitemWrite, $start, $num, $datelastmodifiedfrom, $datelastmodifiedto, $sku, $fields);
+        $this->batchSetWarehouseItemsWithHttpInfo($siteid, $warehouseid, $warehouseitemWrite);
     }
 
     /**
@@ -414,20 +412,14 @@ class WarehousesApi
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
      * @param  \Spy\SitooClient\Model\WarehouseitemWrite[] $warehouseitemWrite (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  int $datelastmodifiedfrom (optional)
-     * @param  int $datelastmodifiedto (optional)
-     * @param  string[] $sku (optional)
-     * @param  string[] $fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function batchSetWarehouseItemsWithHttpInfo($siteid, $warehouseid, $warehouseitemWrite, $start = 0, $num = 10, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
+    public function batchSetWarehouseItemsWithHttpInfo($siteid, $warehouseid, $warehouseitemWrite)
     {
-        $request = $this->batchSetWarehouseItemsRequest($siteid, $warehouseid, $warehouseitemWrite, $start, $num, $datelastmodifiedfrom, $datelastmodifiedto, $sku, $fields);
+        $request = $this->batchSetWarehouseItemsRequest($siteid, $warehouseid, $warehouseitemWrite);
 
         try {
             $options = $this->createHttpClientOption();
@@ -474,19 +466,13 @@ class WarehousesApi
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
      * @param  \Spy\SitooClient\Model\WarehouseitemWrite[] $warehouseitemWrite (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  int $datelastmodifiedfrom (optional)
-     * @param  int $datelastmodifiedto (optional)
-     * @param  string[] $sku (optional)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchSetWarehouseItemsAsync($siteid, $warehouseid, $warehouseitemWrite, $start = 0, $num = 10, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
+    public function batchSetWarehouseItemsAsync($siteid, $warehouseid, $warehouseitemWrite)
     {
-        return $this->batchSetWarehouseItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehouseitemWrite, $start, $num, $datelastmodifiedfrom, $datelastmodifiedto, $sku, $fields)
+        return $this->batchSetWarehouseItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehouseitemWrite)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -502,20 +488,14 @@ class WarehousesApi
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
      * @param  \Spy\SitooClient\Model\WarehouseitemWrite[] $warehouseitemWrite (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  int $datelastmodifiedfrom (optional)
-     * @param  int $datelastmodifiedto (optional)
-     * @param  string[] $sku (optional)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchSetWarehouseItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehouseitemWrite, $start = 0, $num = 10, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
+    public function batchSetWarehouseItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehouseitemWrite)
     {
         $returnType = '';
-        $request = $this->batchSetWarehouseItemsRequest($siteid, $warehouseid, $warehouseitemWrite, $start, $num, $datelastmodifiedfrom, $datelastmodifiedto, $sku, $fields);
+        $request = $this->batchSetWarehouseItemsRequest($siteid, $warehouseid, $warehouseitemWrite);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -546,17 +526,11 @@ class WarehousesApi
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
      * @param  \Spy\SitooClient\Model\WarehouseitemWrite[] $warehouseitemWrite (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  int $datelastmodifiedfrom (optional)
-     * @param  int $datelastmodifiedto (optional)
-     * @param  string[] $sku (optional)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function batchSetWarehouseItemsRequest($siteid, $warehouseid, $warehouseitemWrite, $start = 0, $num = 10, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
+    public function batchSetWarehouseItemsRequest($siteid, $warehouseid, $warehouseitemWrite)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -577,55 +551,13 @@ class WarehousesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehouseitems';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehouseitems.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if (is_array($start)) {
-            $start = ObjectSerializer::serializeCollection($start, '', true);
-        }
-        if ($start !== null) {
-            $queryParams['start'] = $start;
-        }
-        // query params
-        if (is_array($num)) {
-            $num = ObjectSerializer::serializeCollection($num, '', true);
-        }
-        if ($num !== null) {
-            $queryParams['num'] = $num;
-        }
-        // query params
-        if (is_array($datelastmodifiedfrom)) {
-            $datelastmodifiedfrom = ObjectSerializer::serializeCollection($datelastmodifiedfrom, '', true);
-        }
-        if ($datelastmodifiedfrom !== null) {
-            $queryParams['datelastmodifiedfrom'] = $datelastmodifiedfrom;
-        }
-        // query params
-        if (is_array($datelastmodifiedto)) {
-            $datelastmodifiedto = ObjectSerializer::serializeCollection($datelastmodifiedto, '', true);
-        }
-        if ($datelastmodifiedto !== null) {
-            $queryParams['datelastmodifiedto'] = $datelastmodifiedto;
-        }
-        // query params
-        if (is_array($sku)) {
-            $sku = ObjectSerializer::serializeCollection($sku, 'csv', true);
-        }
-        if ($sku !== null) {
-            $queryParams['sku'] = $sku;
-        }
-        // query params
-        if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
-        }
-        if ($fields !== null) {
-            $queryParams['fields'] = $fields;
-        }
 
 
         // path params
@@ -688,6 +620,10 @@ class WarehousesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -913,7 +849,7 @@ class WarehousesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -976,6 +912,10 @@ class WarehousesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1201,7 +1141,7 @@ class WarehousesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1264,6 +1204,10 @@ class WarehousesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1290,18 +1234,18 @@ class WarehousesApi
      *
      * @param  int $siteid siteid (required)
      * @param  int $warehouseid warehouseid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
      * @param  int $datelastmodifiedfrom datelastmodifiedfrom (optional)
      * @param  int $datelastmodifiedto datelastmodifiedto (optional)
      * @param  string[] $sku sku (optional)
-     * @param  string[] $fields fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetWarehouseItemsResponse
      */
-    public function getWarehouseItems($siteid, $warehouseid, $start = 0, $num = 10, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
+    public function getWarehouseItems($siteid, $warehouseid, $start = null, $num = null, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
     {
         list($response) = $this->getWarehouseItemsWithHttpInfo($siteid, $warehouseid, $start, $num, $datelastmodifiedfrom, $datelastmodifiedto, $sku, $fields);
         return $response;
@@ -1312,18 +1256,18 @@ class WarehousesApi
      *
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      * @param  int $datelastmodifiedfrom (optional)
      * @param  int $datelastmodifiedto (optional)
      * @param  string[] $sku (optional)
-     * @param  string[] $fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetWarehouseItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWarehouseItemsWithHttpInfo($siteid, $warehouseid, $start = 0, $num = 10, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
+    public function getWarehouseItemsWithHttpInfo($siteid, $warehouseid, $start = null, $num = null, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
     {
         $request = $this->getWarehouseItemsRequest($siteid, $warehouseid, $start, $num, $datelastmodifiedfrom, $datelastmodifiedto, $sku, $fields);
 
@@ -1413,17 +1357,17 @@ class WarehousesApi
      *
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      * @param  int $datelastmodifiedfrom (optional)
      * @param  int $datelastmodifiedto (optional)
      * @param  string[] $sku (optional)
-     * @param  string[] $fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehouseItemsAsync($siteid, $warehouseid, $start = 0, $num = 10, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
+    public function getWarehouseItemsAsync($siteid, $warehouseid, $start = null, $num = null, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
     {
         return $this->getWarehouseItemsAsyncWithHttpInfo($siteid, $warehouseid, $start, $num, $datelastmodifiedfrom, $datelastmodifiedto, $sku, $fields)
             ->then(
@@ -1440,17 +1384,17 @@ class WarehousesApi
      *
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      * @param  int $datelastmodifiedfrom (optional)
      * @param  int $datelastmodifiedto (optional)
      * @param  string[] $sku (optional)
-     * @param  string[] $fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehouseItemsAsyncWithHttpInfo($siteid, $warehouseid, $start = 0, $num = 10, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
+    public function getWarehouseItemsAsyncWithHttpInfo($siteid, $warehouseid, $start = null, $num = null, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetWarehouseItemsResponse';
         $request = $this->getWarehouseItemsRequest($siteid, $warehouseid, $start, $num, $datelastmodifiedfrom, $datelastmodifiedto, $sku, $fields);
@@ -1494,17 +1438,17 @@ class WarehousesApi
      *
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      * @param  int $datelastmodifiedfrom (optional)
      * @param  int $datelastmodifiedto (optional)
      * @param  string[] $sku (optional)
-     * @param  string[] $fields (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWarehouseItemsRequest($siteid, $warehouseid, $start = 0, $num = 10, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
+    public function getWarehouseItemsRequest($siteid, $warehouseid, $start = null, $num = null, $datelastmodifiedfrom = null, $datelastmodifiedto = null, $sku = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1519,7 +1463,7 @@ class WarehousesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehouseitems';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehouseitems.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1556,14 +1500,14 @@ class WarehousesApi
         }
         // query params
         if (is_array($sku)) {
-            $sku = ObjectSerializer::serializeCollection($sku, 'csv', true);
+            $sku = ObjectSerializer::serializeCollection($sku, 'form', true);
         }
         if ($sku !== null) {
             $queryParams['sku'] = $sku;
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1624,6 +1568,10 @@ class WarehousesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1649,15 +1597,15 @@ class WarehousesApi
      * Operation getWarehouses
      *
      * @param  int $siteid siteid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetWarehousesResponse
      */
-    public function getWarehouses($siteid, $start = 0, $num = 10, $fields = null)
+    public function getWarehouses($siteid, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getWarehousesWithHttpInfo($siteid, $start, $num, $fields);
         return $response;
@@ -1667,15 +1615,15 @@ class WarehousesApi
      * Operation getWarehousesWithHttpInfo
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetWarehousesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWarehousesWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getWarehousesWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $request = $this->getWarehousesRequest($siteid, $start, $num, $fields);
 
@@ -1764,14 +1712,14 @@ class WarehousesApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehousesAsync($siteid, $start = 0, $num = 10, $fields = null)
+    public function getWarehousesAsync($siteid, $start = null, $num = null, $fields = null)
     {
         return $this->getWarehousesAsyncWithHttpInfo($siteid, $start, $num, $fields)
             ->then(
@@ -1787,14 +1735,14 @@ class WarehousesApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehousesAsyncWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getWarehousesAsyncWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetWarehousesResponse';
         $request = $this->getWarehousesRequest($siteid, $start, $num, $fields);
@@ -1837,14 +1785,14 @@ class WarehousesApi
      * Create request for operation 'getWarehouses'
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWarehousesRequest($siteid, $start = 0, $num = 10, $fields = null)
+    public function getWarehousesRequest($siteid, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1853,7 +1801,7 @@ class WarehousesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses';
+        $resourcePath = '/sites/{siteid}/warehouses.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1876,7 +1824,7 @@ class WarehousesApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1929,6 +1877,10 @@ class WarehousesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2165,7 +2117,7 @@ class WarehousesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2234,6 +2186,10 @@ class WarehousesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

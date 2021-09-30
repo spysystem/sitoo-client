@@ -304,7 +304,7 @@ class ProductCustomAttributesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/customattributes';
+        $resourcePath = '/sites/{siteid}/customattributes.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -365,6 +365,10 @@ class ProductCustomAttributesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -536,7 +540,7 @@ class ProductCustomAttributesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/customattributes/{attributeid}';
+        $resourcePath = '/sites/{siteid}/customattributes/{attributeid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -599,6 +603,10 @@ class ProductCustomAttributesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -770,7 +778,7 @@ class ProductCustomAttributesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/customattributes/{attributeid}';
+        $resourcePath = '/sites/{siteid}/customattributes/{attributeid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -833,6 +841,10 @@ class ProductCustomAttributesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -858,14 +870,14 @@ class ProductCustomAttributesApi
      * Operation getCustomAttributes
      *
      * @param  int $siteid siteid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getCustomAttributes($siteid, $start = 0, $num = 10)
+    public function getCustomAttributes($siteid, $start = null, $num = null)
     {
         $this->getCustomAttributesWithHttpInfo($siteid, $start, $num);
     }
@@ -874,14 +886,14 @@ class ProductCustomAttributesApi
      * Operation getCustomAttributesWithHttpInfo
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomAttributesWithHttpInfo($siteid, $start = 0, $num = 10)
+    public function getCustomAttributesWithHttpInfo($siteid, $start = null, $num = null)
     {
         $request = $this->getCustomAttributesRequest($siteid, $start, $num);
 
@@ -928,13 +940,13 @@ class ProductCustomAttributesApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomAttributesAsync($siteid, $start = 0, $num = 10)
+    public function getCustomAttributesAsync($siteid, $start = null, $num = null)
     {
         return $this->getCustomAttributesAsyncWithHttpInfo($siteid, $start, $num)
             ->then(
@@ -950,13 +962,13 @@ class ProductCustomAttributesApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomAttributesAsyncWithHttpInfo($siteid, $start = 0, $num = 10)
+    public function getCustomAttributesAsyncWithHttpInfo($siteid, $start = null, $num = null)
     {
         $returnType = '';
         $request = $this->getCustomAttributesRequest($siteid, $start, $num);
@@ -988,13 +1000,13 @@ class ProductCustomAttributesApi
      * Create request for operation 'getCustomAttributes'
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCustomAttributesRequest($siteid, $start = 0, $num = 10)
+    public function getCustomAttributesRequest($siteid, $start = null, $num = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1003,7 +1015,7 @@ class ProductCustomAttributesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/customattributes';
+        $resourcePath = '/sites/{siteid}/customattributes.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1072,6 +1084,10 @@ class ProductCustomAttributesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1254,7 +1270,7 @@ class ProductCustomAttributesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/customattributes/{attributeid}';
+        $resourcePath = '/sites/{siteid}/customattributes/{attributeid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1323,6 +1339,10 @@ class ProductCustomAttributesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

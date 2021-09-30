@@ -162,11 +162,12 @@ class CategoriesApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return int
      */
     public function addCategory($siteid, $categoryWrite)
     {
-        $this->addCategoryWithHttpInfo($siteid, $categoryWrite);
+        list($response) = $this->addCategoryWithHttpInfo($siteid, $categoryWrite);
+        return $response;
     }
 
     /**
@@ -177,7 +178,7 @@ class CategoriesApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of int, HTTP status code, HTTP response headers (array of strings)
      */
     public function addCategoryWithHttpInfo($siteid, $categoryWrite)
     {
@@ -211,10 +212,52 @@ class CategoriesApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('int' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                        if ('int' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'int', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'int';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+                if ('int' !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'int',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -254,14 +297,25 @@ class CategoriesApi
      */
     public function addCategoryAsyncWithHttpInfo($siteid, $categoryWrite)
     {
-        $returnType = '';
+        $returnType = 'int';
         $request = $this->addCategoryRequest($siteid, $categoryWrite);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -304,7 +358,7 @@ class CategoriesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/categories';
+        $resourcePath = '/sites/{siteid}/categories.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -325,11 +379,11 @@ class CategoriesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
@@ -365,6 +419,10 @@ class CategoriesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -590,7 +648,7 @@ class CategoriesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/categories/{categoryid}';
+        $resourcePath = '/sites/{siteid}/categories/{categoryid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -653,6 +711,10 @@ class CategoriesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -678,15 +740,15 @@ class CategoriesApi
      * Operation getCategories
      *
      * @param  int $siteid siteid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetCategoriesResponse
      */
-    public function getCategories($siteid, $start = 0, $num = 10, $fields = null)
+    public function getCategories($siteid, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getCategoriesWithHttpInfo($siteid, $start, $num, $fields);
         return $response;
@@ -696,15 +758,15 @@ class CategoriesApi
      * Operation getCategoriesWithHttpInfo
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetCategoriesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCategoriesWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getCategoriesWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $request = $this->getCategoriesRequest($siteid, $start, $num, $fields);
 
@@ -793,14 +855,14 @@ class CategoriesApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCategoriesAsync($siteid, $start = 0, $num = 10, $fields = null)
+    public function getCategoriesAsync($siteid, $start = null, $num = null, $fields = null)
     {
         return $this->getCategoriesAsyncWithHttpInfo($siteid, $start, $num, $fields)
             ->then(
@@ -816,14 +878,14 @@ class CategoriesApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCategoriesAsyncWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getCategoriesAsyncWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetCategoriesResponse';
         $request = $this->getCategoriesRequest($siteid, $start, $num, $fields);
@@ -866,14 +928,14 @@ class CategoriesApi
      * Create request for operation 'getCategories'
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCategoriesRequest($siteid, $start = 0, $num = 10, $fields = null)
+    public function getCategoriesRequest($siteid, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -882,7 +944,7 @@ class CategoriesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/categories';
+        $resourcePath = '/sites/{siteid}/categories.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -905,7 +967,7 @@ class CategoriesApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -958,6 +1020,10 @@ class CategoriesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1183,7 +1249,7 @@ class CategoriesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/categories/{categoryid}';
+        $resourcePath = '/sites/{siteid}/categories/{categoryid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1246,6 +1312,10 @@ class CategoriesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1482,7 +1552,7 @@ class CategoriesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/categories/{categoryid}';
+        $resourcePath = '/sites/{siteid}/categories/{categoryid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1551,6 +1621,10 @@ class CategoriesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

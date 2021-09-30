@@ -482,8 +482,8 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('customerref', $data, null);
         $this->setIfExists('checkoutref', $data, null);
         $this->setIfExists('orderdate', $data, null);
-        $this->setIfExists('orderstateid', $data, 0);
-        $this->setIfExists('paymentstateid', $data, 0);
+        $this->setIfExists('orderstateid', $data, null);
+        $this->setIfExists('paymentstateid', $data, null);
         $this->setIfExists('ordertypeid', $data, null);
         $this->setIfExists('warehouseid', $data, null);
         $this->setIfExists('datereserved', $data, null);

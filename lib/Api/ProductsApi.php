@@ -162,11 +162,12 @@ class ProductsApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Spy\SitooClient\Model\BatchResponse[]
      */
     public function batchAddProducts($siteid, $productWrite)
     {
-        $this->batchAddProductsWithHttpInfo($siteid, $productWrite);
+        list($response) = $this->batchAddProductsWithHttpInfo($siteid, $productWrite);
+        return $response;
     }
 
     /**
@@ -177,7 +178,7 @@ class ProductsApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Spy\SitooClient\Model\BatchResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function batchAddProductsWithHttpInfo($siteid, $productWrite)
     {
@@ -211,10 +212,52 @@ class ProductsApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Spy\SitooClient\Model\BatchResponse[]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                        if ('\Spy\SitooClient\Model\BatchResponse[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\SitooClient\Model\BatchResponse[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Spy\SitooClient\Model\BatchResponse[]';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+                if ('\Spy\SitooClient\Model\BatchResponse[]' !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\SitooClient\Model\BatchResponse[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -254,14 +297,25 @@ class ProductsApi
      */
     public function batchAddProductsAsyncWithHttpInfo($siteid, $productWrite)
     {
-        $returnType = '';
+        $returnType = '\Spy\SitooClient\Model\BatchResponse[]';
         $request = $this->batchAddProductsRequest($siteid, $productWrite);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -304,7 +358,7 @@ class ProductsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products';
+        $resourcePath = '/sites/{siteid}/products.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -325,11 +379,11 @@ class ProductsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
@@ -365,6 +419,10 @@ class ProductsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -536,7 +594,7 @@ class ProductsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products';
+        $resourcePath = '/sites/{siteid}/products.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -597,6 +655,10 @@ class ProductsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -768,7 +830,7 @@ class ProductsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products';
+        $resourcePath = '/sites/{siteid}/products.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -829,6 +891,10 @@ class ProductsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1054,7 +1120,7 @@ class ProductsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products/{productid}';
+        $resourcePath = '/sites/{siteid}/products/{productid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1117,6 +1183,10 @@ class ProductsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1342,7 +1412,7 @@ class ProductsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products/{productid}';
+        $resourcePath = '/sites/{siteid}/products/{productid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1405,6 +1475,10 @@ class ProductsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1431,17 +1505,17 @@ class ProductsApi
      *
      * @param  int $siteid siteid (required)
      * @param  string $sku sku (optional)
-     * @param  bool $includeinactive includeinactive (optional, default to false)
+     * @param  bool $includeinactive includeinactive (optional)
      * @param  int $datelastmodified datelastmodified (optional)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetProductsResponse
      */
-    public function getProducts($siteid, $sku = null, $includeinactive = false, $datelastmodified = null, $start = 0, $num = 10, $fields = null)
+    public function getProducts($siteid, $sku = null, $includeinactive = null, $datelastmodified = null, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getProductsWithHttpInfo($siteid, $sku, $includeinactive, $datelastmodified, $start, $num, $fields);
         return $response;
@@ -1452,17 +1526,17 @@ class ProductsApi
      *
      * @param  int $siteid (required)
      * @param  string $sku (optional)
-     * @param  bool $includeinactive (optional, default to false)
+     * @param  bool $includeinactive (optional)
      * @param  int $datelastmodified (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetProductsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProductsWithHttpInfo($siteid, $sku = null, $includeinactive = false, $datelastmodified = null, $start = 0, $num = 10, $fields = null)
+    public function getProductsWithHttpInfo($siteid, $sku = null, $includeinactive = null, $datelastmodified = null, $start = null, $num = null, $fields = null)
     {
         $request = $this->getProductsRequest($siteid, $sku, $includeinactive, $datelastmodified, $start, $num, $fields);
 
@@ -1552,16 +1626,16 @@ class ProductsApi
      *
      * @param  int $siteid (required)
      * @param  string $sku (optional)
-     * @param  bool $includeinactive (optional, default to false)
+     * @param  bool $includeinactive (optional)
      * @param  int $datelastmodified (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductsAsync($siteid, $sku = null, $includeinactive = false, $datelastmodified = null, $start = 0, $num = 10, $fields = null)
+    public function getProductsAsync($siteid, $sku = null, $includeinactive = null, $datelastmodified = null, $start = null, $num = null, $fields = null)
     {
         return $this->getProductsAsyncWithHttpInfo($siteid, $sku, $includeinactive, $datelastmodified, $start, $num, $fields)
             ->then(
@@ -1578,16 +1652,16 @@ class ProductsApi
      *
      * @param  int $siteid (required)
      * @param  string $sku (optional)
-     * @param  bool $includeinactive (optional, default to false)
+     * @param  bool $includeinactive (optional)
      * @param  int $datelastmodified (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductsAsyncWithHttpInfo($siteid, $sku = null, $includeinactive = false, $datelastmodified = null, $start = 0, $num = 10, $fields = null)
+    public function getProductsAsyncWithHttpInfo($siteid, $sku = null, $includeinactive = null, $datelastmodified = null, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetProductsResponse';
         $request = $this->getProductsRequest($siteid, $sku, $includeinactive, $datelastmodified, $start, $num, $fields);
@@ -1631,16 +1705,16 @@ class ProductsApi
      *
      * @param  int $siteid (required)
      * @param  string $sku (optional)
-     * @param  bool $includeinactive (optional, default to false)
+     * @param  bool $includeinactive (optional)
      * @param  int $datelastmodified (optional)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProductsRequest($siteid, $sku = null, $includeinactive = false, $datelastmodified = null, $start = 0, $num = 10, $fields = null)
+    public function getProductsRequest($siteid, $sku = null, $includeinactive = null, $datelastmodified = null, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1649,7 +1723,7 @@ class ProductsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products';
+        $resourcePath = '/sites/{siteid}/products.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1693,7 +1767,7 @@ class ProductsApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1746,6 +1820,10 @@ class ProductsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1982,7 +2060,7 @@ class ProductsApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/products/{productid}';
+        $resourcePath = '/sites/{siteid}/products/{productid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2051,6 +2129,10 @@ class ProductsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

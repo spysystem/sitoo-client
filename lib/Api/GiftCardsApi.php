@@ -157,10 +157,9 @@ class GiftCardsApi
     /**
      * Operation addGiftCard
      *
-     * @param  int $accountid accountid (required)
      * @param  int $siteid siteid (required)
      * @param  \Spy\SitooClient\Model\GiftcardWrite $giftcardWrite giftcardWrite (required)
-     * @param  string $deliverytype deliverytype (optional, default to '"preprinted"')
+     * @param  string $deliverytype deliverytype (optional)
      * @param  string $deliverytext deliverytext (optional)
      * @param  string $email email (optional)
      * @param  string $mobile mobile (optional)
@@ -171,19 +170,18 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GiftcardresponseRead
      */
-    public function addGiftCard($accountid, $siteid, $giftcardWrite, $deliverytype = '"preprinted"', $deliverytext = null, $email = null, $mobile = null, $productReference = null, $pin = null)
+    public function addGiftCard($siteid, $giftcardWrite, $deliverytype = null, $deliverytext = null, $email = null, $mobile = null, $productReference = null, $pin = null)
     {
-        list($response) = $this->addGiftCardWithHttpInfo($accountid, $siteid, $giftcardWrite, $deliverytype, $deliverytext, $email, $mobile, $productReference, $pin);
+        list($response) = $this->addGiftCardWithHttpInfo($siteid, $giftcardWrite, $deliverytype, $deliverytext, $email, $mobile, $productReference, $pin);
         return $response;
     }
 
     /**
      * Operation addGiftCardWithHttpInfo
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  \Spy\SitooClient\Model\GiftcardWrite $giftcardWrite (required)
-     * @param  string $deliverytype (optional, default to '"preprinted"')
+     * @param  string $deliverytype (optional)
      * @param  string $deliverytext (optional)
      * @param  string $email (optional)
      * @param  string $mobile (optional)
@@ -194,9 +192,9 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GiftcardresponseRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addGiftCardWithHttpInfo($accountid, $siteid, $giftcardWrite, $deliverytype = '"preprinted"', $deliverytext = null, $email = null, $mobile = null, $productReference = null, $pin = null)
+    public function addGiftCardWithHttpInfo($siteid, $giftcardWrite, $deliverytype = null, $deliverytext = null, $email = null, $mobile = null, $productReference = null, $pin = null)
     {
-        $request = $this->addGiftCardRequest($accountid, $siteid, $giftcardWrite, $deliverytype, $deliverytext, $email, $mobile, $productReference, $pin);
+        $request = $this->addGiftCardRequest($siteid, $giftcardWrite, $deliverytype, $deliverytext, $email, $mobile, $productReference, $pin);
 
         try {
             $options = $this->createHttpClientOption();
@@ -282,10 +280,9 @@ class GiftCardsApi
      *
      * 
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  \Spy\SitooClient\Model\GiftcardWrite $giftcardWrite (required)
-     * @param  string $deliverytype (optional, default to '"preprinted"')
+     * @param  string $deliverytype (optional)
      * @param  string $deliverytext (optional)
      * @param  string $email (optional)
      * @param  string $mobile (optional)
@@ -295,9 +292,9 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addGiftCardAsync($accountid, $siteid, $giftcardWrite, $deliverytype = '"preprinted"', $deliverytext = null, $email = null, $mobile = null, $productReference = null, $pin = null)
+    public function addGiftCardAsync($siteid, $giftcardWrite, $deliverytype = null, $deliverytext = null, $email = null, $mobile = null, $productReference = null, $pin = null)
     {
-        return $this->addGiftCardAsyncWithHttpInfo($accountid, $siteid, $giftcardWrite, $deliverytype, $deliverytext, $email, $mobile, $productReference, $pin)
+        return $this->addGiftCardAsyncWithHttpInfo($siteid, $giftcardWrite, $deliverytype, $deliverytext, $email, $mobile, $productReference, $pin)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -310,10 +307,9 @@ class GiftCardsApi
      *
      * 
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  \Spy\SitooClient\Model\GiftcardWrite $giftcardWrite (required)
-     * @param  string $deliverytype (optional, default to '"preprinted"')
+     * @param  string $deliverytype (optional)
      * @param  string $deliverytext (optional)
      * @param  string $email (optional)
      * @param  string $mobile (optional)
@@ -323,10 +319,10 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addGiftCardAsyncWithHttpInfo($accountid, $siteid, $giftcardWrite, $deliverytype = '"preprinted"', $deliverytext = null, $email = null, $mobile = null, $productReference = null, $pin = null)
+    public function addGiftCardAsyncWithHttpInfo($siteid, $giftcardWrite, $deliverytype = null, $deliverytext = null, $email = null, $mobile = null, $productReference = null, $pin = null)
     {
         $returnType = '\Spy\SitooClient\Model\GiftcardresponseRead';
-        $request = $this->addGiftCardRequest($accountid, $siteid, $giftcardWrite, $deliverytype, $deliverytext, $email, $mobile, $productReference, $pin);
+        $request = $this->addGiftCardRequest($siteid, $giftcardWrite, $deliverytype, $deliverytext, $email, $mobile, $productReference, $pin);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -365,10 +361,9 @@ class GiftCardsApi
     /**
      * Create request for operation 'addGiftCard'
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  \Spy\SitooClient\Model\GiftcardWrite $giftcardWrite (required)
-     * @param  string $deliverytype (optional, default to '"preprinted"')
+     * @param  string $deliverytype (optional)
      * @param  string $deliverytext (optional)
      * @param  string $email (optional)
      * @param  string $mobile (optional)
@@ -378,14 +373,8 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addGiftCardRequest($accountid, $siteid, $giftcardWrite, $deliverytype = '"preprinted"', $deliverytext = null, $email = null, $mobile = null, $productReference = null, $pin = null)
+    public function addGiftCardRequest($siteid, $giftcardWrite, $deliverytype = null, $deliverytext = null, $email = null, $mobile = null, $productReference = null, $pin = null)
     {
-        // verify the required parameter 'accountid' is set
-        if ($accountid === null || (is_array($accountid) && count($accountid) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $accountid when calling addGiftCard'
-            );
-        }
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
             throw new \InvalidArgumentException(
@@ -399,7 +388,7 @@ class GiftCardsApi
             );
         }
 
-        $resourcePath = '/accounts/{accountid}/sites/{siteid}/giftcards';
+        $resourcePath = '/sites/{siteid}/giftcards.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -450,14 +439,6 @@ class GiftCardsApi
         }
 
 
-        // path params
-        if ($accountid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'accountid' . '}',
-                ObjectSerializer::toPathValue($accountid),
-                $resourcePath
-            );
-        }
         // path params
         if ($siteid !== null) {
             $resourcePath = str_replace(
@@ -510,6 +491,10 @@ class GiftCardsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -534,7 +519,6 @@ class GiftCardsApi
     /**
      * Operation addGiftCardTransaction
      *
-     * @param  int $accountid accountid (required)
      * @param  int $siteid siteid (required)
      * @param  int $cardnumber cardnumber (required)
      * @param  \Spy\SitooClient\Model\GiftcardtransactionWrite $giftcardtransactionWrite giftcardtransactionWrite (required)
@@ -544,16 +528,15 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GiftcardresponseRead
      */
-    public function addGiftCardTransaction($accountid, $siteid, $cardnumber, $giftcardtransactionWrite, $pin = null)
+    public function addGiftCardTransaction($siteid, $cardnumber, $giftcardtransactionWrite, $pin = null)
     {
-        list($response) = $this->addGiftCardTransactionWithHttpInfo($accountid, $siteid, $cardnumber, $giftcardtransactionWrite, $pin);
+        list($response) = $this->addGiftCardTransactionWithHttpInfo($siteid, $cardnumber, $giftcardtransactionWrite, $pin);
         return $response;
     }
 
     /**
      * Operation addGiftCardTransactionWithHttpInfo
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  int $cardnumber (required)
      * @param  \Spy\SitooClient\Model\GiftcardtransactionWrite $giftcardtransactionWrite (required)
@@ -563,9 +546,9 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GiftcardresponseRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addGiftCardTransactionWithHttpInfo($accountid, $siteid, $cardnumber, $giftcardtransactionWrite, $pin = null)
+    public function addGiftCardTransactionWithHttpInfo($siteid, $cardnumber, $giftcardtransactionWrite, $pin = null)
     {
-        $request = $this->addGiftCardTransactionRequest($accountid, $siteid, $cardnumber, $giftcardtransactionWrite, $pin);
+        $request = $this->addGiftCardTransactionRequest($siteid, $cardnumber, $giftcardtransactionWrite, $pin);
 
         try {
             $options = $this->createHttpClientOption();
@@ -651,7 +634,6 @@ class GiftCardsApi
      *
      * 
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  int $cardnumber (required)
      * @param  \Spy\SitooClient\Model\GiftcardtransactionWrite $giftcardtransactionWrite (required)
@@ -660,9 +642,9 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addGiftCardTransactionAsync($accountid, $siteid, $cardnumber, $giftcardtransactionWrite, $pin = null)
+    public function addGiftCardTransactionAsync($siteid, $cardnumber, $giftcardtransactionWrite, $pin = null)
     {
-        return $this->addGiftCardTransactionAsyncWithHttpInfo($accountid, $siteid, $cardnumber, $giftcardtransactionWrite, $pin)
+        return $this->addGiftCardTransactionAsyncWithHttpInfo($siteid, $cardnumber, $giftcardtransactionWrite, $pin)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -675,7 +657,6 @@ class GiftCardsApi
      *
      * 
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  int $cardnumber (required)
      * @param  \Spy\SitooClient\Model\GiftcardtransactionWrite $giftcardtransactionWrite (required)
@@ -684,10 +665,10 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addGiftCardTransactionAsyncWithHttpInfo($accountid, $siteid, $cardnumber, $giftcardtransactionWrite, $pin = null)
+    public function addGiftCardTransactionAsyncWithHttpInfo($siteid, $cardnumber, $giftcardtransactionWrite, $pin = null)
     {
         $returnType = '\Spy\SitooClient\Model\GiftcardresponseRead';
-        $request = $this->addGiftCardTransactionRequest($accountid, $siteid, $cardnumber, $giftcardtransactionWrite, $pin);
+        $request = $this->addGiftCardTransactionRequest($siteid, $cardnumber, $giftcardtransactionWrite, $pin);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -726,7 +707,6 @@ class GiftCardsApi
     /**
      * Create request for operation 'addGiftCardTransaction'
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  int $cardnumber (required)
      * @param  \Spy\SitooClient\Model\GiftcardtransactionWrite $giftcardtransactionWrite (required)
@@ -735,14 +715,8 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addGiftCardTransactionRequest($accountid, $siteid, $cardnumber, $giftcardtransactionWrite, $pin = null)
+    public function addGiftCardTransactionRequest($siteid, $cardnumber, $giftcardtransactionWrite, $pin = null)
     {
-        // verify the required parameter 'accountid' is set
-        if ($accountid === null || (is_array($accountid) && count($accountid) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $accountid when calling addGiftCardTransaction'
-            );
-        }
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
             throw new \InvalidArgumentException(
@@ -762,7 +736,7 @@ class GiftCardsApi
             );
         }
 
-        $resourcePath = '/accounts/{accountid}/sites/{siteid}/giftcards/{cardnumber}/transactions';
+        $resourcePath = '/sites/{siteid}/giftcards/{cardnumber}/transactions.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -778,14 +752,6 @@ class GiftCardsApi
         }
 
 
-        // path params
-        if ($accountid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'accountid' . '}',
-                ObjectSerializer::toPathValue($accountid),
-                $resourcePath
-            );
-        }
         // path params
         if ($siteid !== null) {
             $resourcePath = str_replace(
@@ -846,6 +812,10 @@ class GiftCardsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -870,38 +840,34 @@ class GiftCardsApi
     /**
      * Operation deleteGiftCardTransactions
      *
-     * @param  int $accountid accountid (required)
      * @param  int $siteid siteid (required)
      * @param  int $cardnumber cardnumber (required)
      * @param  \Spy\SitooClient\Model\GiftcardresponseWrite $giftcardresponseWrite giftcardresponseWrite (required)
-     * @param  string $pin pin (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return bool
      */
-    public function deleteGiftCardTransactions($accountid, $siteid, $cardnumber, $giftcardresponseWrite, $pin = null)
+    public function deleteGiftCardTransactions($siteid, $cardnumber, $giftcardresponseWrite)
     {
-        list($response) = $this->deleteGiftCardTransactionsWithHttpInfo($accountid, $siteid, $cardnumber, $giftcardresponseWrite, $pin);
+        list($response) = $this->deleteGiftCardTransactionsWithHttpInfo($siteid, $cardnumber, $giftcardresponseWrite);
         return $response;
     }
 
     /**
      * Operation deleteGiftCardTransactionsWithHttpInfo
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  int $cardnumber (required)
      * @param  \Spy\SitooClient\Model\GiftcardresponseWrite $giftcardresponseWrite (required)
-     * @param  string $pin (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of bool, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteGiftCardTransactionsWithHttpInfo($accountid, $siteid, $cardnumber, $giftcardresponseWrite, $pin = null)
+    public function deleteGiftCardTransactionsWithHttpInfo($siteid, $cardnumber, $giftcardresponseWrite)
     {
-        $request = $this->deleteGiftCardTransactionsRequest($accountid, $siteid, $cardnumber, $giftcardresponseWrite, $pin);
+        $request = $this->deleteGiftCardTransactionsRequest($siteid, $cardnumber, $giftcardresponseWrite);
 
         try {
             $options = $this->createHttpClientOption();
@@ -987,18 +953,16 @@ class GiftCardsApi
      *
      * 
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  int $cardnumber (required)
      * @param  \Spy\SitooClient\Model\GiftcardresponseWrite $giftcardresponseWrite (required)
-     * @param  string $pin (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteGiftCardTransactionsAsync($accountid, $siteid, $cardnumber, $giftcardresponseWrite, $pin = null)
+    public function deleteGiftCardTransactionsAsync($siteid, $cardnumber, $giftcardresponseWrite)
     {
-        return $this->deleteGiftCardTransactionsAsyncWithHttpInfo($accountid, $siteid, $cardnumber, $giftcardresponseWrite, $pin)
+        return $this->deleteGiftCardTransactionsAsyncWithHttpInfo($siteid, $cardnumber, $giftcardresponseWrite)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1011,19 +975,17 @@ class GiftCardsApi
      *
      * 
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  int $cardnumber (required)
      * @param  \Spy\SitooClient\Model\GiftcardresponseWrite $giftcardresponseWrite (required)
-     * @param  string $pin (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteGiftCardTransactionsAsyncWithHttpInfo($accountid, $siteid, $cardnumber, $giftcardresponseWrite, $pin = null)
+    public function deleteGiftCardTransactionsAsyncWithHttpInfo($siteid, $cardnumber, $giftcardresponseWrite)
     {
         $returnType = 'bool';
-        $request = $this->deleteGiftCardTransactionsRequest($accountid, $siteid, $cardnumber, $giftcardresponseWrite, $pin);
+        $request = $this->deleteGiftCardTransactionsRequest($siteid, $cardnumber, $giftcardresponseWrite);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1062,23 +1024,15 @@ class GiftCardsApi
     /**
      * Create request for operation 'deleteGiftCardTransactions'
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  int $cardnumber (required)
      * @param  \Spy\SitooClient\Model\GiftcardresponseWrite $giftcardresponseWrite (required)
-     * @param  string $pin (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteGiftCardTransactionsRequest($accountid, $siteid, $cardnumber, $giftcardresponseWrite, $pin = null)
+    public function deleteGiftCardTransactionsRequest($siteid, $cardnumber, $giftcardresponseWrite)
     {
-        // verify the required parameter 'accountid' is set
-        if ($accountid === null || (is_array($accountid) && count($accountid) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $accountid when calling deleteGiftCardTransactions'
-            );
-        }
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
             throw new \InvalidArgumentException(
@@ -1098,30 +1052,15 @@ class GiftCardsApi
             );
         }
 
-        $resourcePath = '/accounts/{accountid}/sites/{siteid}/giftcards/{cardnumber}/transactions';
+        $resourcePath = '/sites/{siteid}/giftcards/{cardnumber}/transactions.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if (is_array($pin)) {
-            $pin = ObjectSerializer::serializeCollection($pin, '', true);
-        }
-        if ($pin !== null) {
-            $queryParams['pin'] = $pin;
-        }
 
 
-        // path params
-        if ($accountid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'accountid' . '}',
-                ObjectSerializer::toPathValue($accountid),
-                $resourcePath
-            );
-        }
         // path params
         if ($siteid !== null) {
             $resourcePath = str_replace(
@@ -1182,6 +1121,10 @@ class GiftCardsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1206,7 +1149,6 @@ class GiftCardsApi
     /**
      * Operation getGiftCard
      *
-     * @param  int $accountid accountid (required)
      * @param  int $siteid siteid (required)
      * @param  int $cardnumber cardnumber (required)
      * @param  string $pin pin (optional)
@@ -1215,16 +1157,15 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GiftcardresponseRead
      */
-    public function getGiftCard($accountid, $siteid, $cardnumber, $pin = null)
+    public function getGiftCard($siteid, $cardnumber, $pin = null)
     {
-        list($response) = $this->getGiftCardWithHttpInfo($accountid, $siteid, $cardnumber, $pin);
+        list($response) = $this->getGiftCardWithHttpInfo($siteid, $cardnumber, $pin);
         return $response;
     }
 
     /**
      * Operation getGiftCardWithHttpInfo
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  int $cardnumber (required)
      * @param  string $pin (optional)
@@ -1233,9 +1174,9 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GiftcardresponseRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGiftCardWithHttpInfo($accountid, $siteid, $cardnumber, $pin = null)
+    public function getGiftCardWithHttpInfo($siteid, $cardnumber, $pin = null)
     {
-        $request = $this->getGiftCardRequest($accountid, $siteid, $cardnumber, $pin);
+        $request = $this->getGiftCardRequest($siteid, $cardnumber, $pin);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1321,7 +1262,6 @@ class GiftCardsApi
      *
      * 
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  int $cardnumber (required)
      * @param  string $pin (optional)
@@ -1329,9 +1269,9 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGiftCardAsync($accountid, $siteid, $cardnumber, $pin = null)
+    public function getGiftCardAsync($siteid, $cardnumber, $pin = null)
     {
-        return $this->getGiftCardAsyncWithHttpInfo($accountid, $siteid, $cardnumber, $pin)
+        return $this->getGiftCardAsyncWithHttpInfo($siteid, $cardnumber, $pin)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1344,7 +1284,6 @@ class GiftCardsApi
      *
      * 
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  int $cardnumber (required)
      * @param  string $pin (optional)
@@ -1352,10 +1291,10 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGiftCardAsyncWithHttpInfo($accountid, $siteid, $cardnumber, $pin = null)
+    public function getGiftCardAsyncWithHttpInfo($siteid, $cardnumber, $pin = null)
     {
         $returnType = '\Spy\SitooClient\Model\GiftcardresponseRead';
-        $request = $this->getGiftCardRequest($accountid, $siteid, $cardnumber, $pin);
+        $request = $this->getGiftCardRequest($siteid, $cardnumber, $pin);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1394,7 +1333,6 @@ class GiftCardsApi
     /**
      * Create request for operation 'getGiftCard'
      *
-     * @param  int $accountid (required)
      * @param  int $siteid (required)
      * @param  int $cardnumber (required)
      * @param  string $pin (optional)
@@ -1402,14 +1340,8 @@ class GiftCardsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGiftCardRequest($accountid, $siteid, $cardnumber, $pin = null)
+    public function getGiftCardRequest($siteid, $cardnumber, $pin = null)
     {
-        // verify the required parameter 'accountid' is set
-        if ($accountid === null || (is_array($accountid) && count($accountid) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $accountid when calling getGiftCard'
-            );
-        }
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
             throw new \InvalidArgumentException(
@@ -1423,7 +1355,7 @@ class GiftCardsApi
             );
         }
 
-        $resourcePath = '/accounts/{accountid}/sites/{siteid}/giftcards/{cardnumber}';
+        $resourcePath = '/sites/{siteid}/giftcards/{cardnumber}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1439,14 +1371,6 @@ class GiftCardsApi
         }
 
 
-        // path params
-        if ($accountid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'accountid' . '}',
-                ObjectSerializer::toPathValue($accountid),
-                $resourcePath
-            );
-        }
         // path params
         if ($siteid !== null) {
             $resourcePath = str_replace(
@@ -1501,6 +1425,10 @@ class GiftCardsApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

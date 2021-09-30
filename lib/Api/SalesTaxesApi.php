@@ -304,7 +304,7 @@ class SalesTaxesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/salestaxes';
+        $resourcePath = '/sites/{siteid}/salestaxes.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -365,6 +365,10 @@ class SalesTaxesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -536,7 +540,7 @@ class SalesTaxesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/salestaxgroups';
+        $resourcePath = '/sites/{siteid}/salestaxgroups.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -597,6 +601,10 @@ class SalesTaxesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -822,7 +830,7 @@ class SalesTaxesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/salestaxes/{salestaxid}';
+        $resourcePath = '/sites/{siteid}/salestaxes/{salestaxid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -885,6 +893,10 @@ class SalesTaxesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1110,7 +1122,7 @@ class SalesTaxesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/salestaxgroups/{salestaxgroupid}';
+        $resourcePath = '/sites/{siteid}/salestaxgroups/{salestaxgroupid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1173,6 +1185,10 @@ class SalesTaxesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1398,7 +1414,7 @@ class SalesTaxesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/salestaxes/{salestaxid}';
+        $resourcePath = '/sites/{siteid}/salestaxes/{salestaxid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1461,6 +1477,10 @@ class SalesTaxesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1686,7 +1706,7 @@ class SalesTaxesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/salestaxgroups/{salestaxgroupid}';
+        $resourcePath = '/sites/{siteid}/salestaxgroups/{salestaxgroupid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1749,6 +1769,10 @@ class SalesTaxesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1774,15 +1798,15 @@ class SalesTaxesApi
      * Operation getSalesTaxGroups
      *
      * @param  int $siteid siteid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetSalesTaxGroupsResponse
      */
-    public function getSalesTaxGroups($siteid, $start = 0, $num = 10, $fields = null)
+    public function getSalesTaxGroups($siteid, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getSalesTaxGroupsWithHttpInfo($siteid, $start, $num, $fields);
         return $response;
@@ -1792,15 +1816,15 @@ class SalesTaxesApi
      * Operation getSalesTaxGroupsWithHttpInfo
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetSalesTaxGroupsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSalesTaxGroupsWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getSalesTaxGroupsWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $request = $this->getSalesTaxGroupsRequest($siteid, $start, $num, $fields);
 
@@ -1889,14 +1913,14 @@ class SalesTaxesApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSalesTaxGroupsAsync($siteid, $start = 0, $num = 10, $fields = null)
+    public function getSalesTaxGroupsAsync($siteid, $start = null, $num = null, $fields = null)
     {
         return $this->getSalesTaxGroupsAsyncWithHttpInfo($siteid, $start, $num, $fields)
             ->then(
@@ -1912,14 +1936,14 @@ class SalesTaxesApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSalesTaxGroupsAsyncWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getSalesTaxGroupsAsyncWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetSalesTaxGroupsResponse';
         $request = $this->getSalesTaxGroupsRequest($siteid, $start, $num, $fields);
@@ -1962,14 +1986,14 @@ class SalesTaxesApi
      * Create request for operation 'getSalesTaxGroups'
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSalesTaxGroupsRequest($siteid, $start = 0, $num = 10, $fields = null)
+    public function getSalesTaxGroupsRequest($siteid, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1978,7 +2002,7 @@ class SalesTaxesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/salestaxgroups';
+        $resourcePath = '/sites/{siteid}/salestaxgroups.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2001,7 +2025,7 @@ class SalesTaxesApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -2054,6 +2078,10 @@ class SalesTaxesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2079,15 +2107,15 @@ class SalesTaxesApi
      * Operation getSalesTaxes
      *
      * @param  int $siteid siteid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetSalesTaxesResponse
      */
-    public function getSalesTaxes($siteid, $start = 0, $num = 10, $fields = null)
+    public function getSalesTaxes($siteid, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getSalesTaxesWithHttpInfo($siteid, $start, $num, $fields);
         return $response;
@@ -2097,15 +2125,15 @@ class SalesTaxesApi
      * Operation getSalesTaxesWithHttpInfo
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetSalesTaxesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSalesTaxesWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getSalesTaxesWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $request = $this->getSalesTaxesRequest($siteid, $start, $num, $fields);
 
@@ -2194,14 +2222,14 @@ class SalesTaxesApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSalesTaxesAsync($siteid, $start = 0, $num = 10, $fields = null)
+    public function getSalesTaxesAsync($siteid, $start = null, $num = null, $fields = null)
     {
         return $this->getSalesTaxesAsyncWithHttpInfo($siteid, $start, $num, $fields)
             ->then(
@@ -2217,14 +2245,14 @@ class SalesTaxesApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSalesTaxesAsyncWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getSalesTaxesAsyncWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetSalesTaxesResponse';
         $request = $this->getSalesTaxesRequest($siteid, $start, $num, $fields);
@@ -2267,14 +2295,14 @@ class SalesTaxesApi
      * Create request for operation 'getSalesTaxes'
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSalesTaxesRequest($siteid, $start = 0, $num = 10, $fields = null)
+    public function getSalesTaxesRequest($siteid, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -2283,7 +2311,7 @@ class SalesTaxesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/salestaxes';
+        $resourcePath = '/sites/{siteid}/salestaxes.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2306,7 +2334,7 @@ class SalesTaxesApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -2359,6 +2387,10 @@ class SalesTaxesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2595,7 +2627,7 @@ class SalesTaxesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/salestaxes/{salestaxid}';
+        $resourcePath = '/sites/{siteid}/salestaxes/{salestaxid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2664,6 +2696,10 @@ class SalesTaxesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2900,7 +2936,7 @@ class SalesTaxesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/salestaxgroups/{salestaxgroupid}';
+        $resourcePath = '/sites/{siteid}/salestaxgroups/{salestaxgroupid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2969,6 +3005,10 @@ class SalesTaxesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

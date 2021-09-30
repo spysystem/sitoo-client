@@ -315,7 +315,7 @@ class WarehouseBatchesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -384,6 +384,10 @@ class WarehouseBatchesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -412,17 +416,14 @@ class WarehouseBatchesApi
      * @param  int $warehouseid warehouseid (required)
      * @param  int $warehousebatchid warehousebatchid (required)
      * @param  object[] $requestBody requestBody (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function batchDeleteWarehouseBatchItems($siteid, $warehouseid, $warehousebatchid, $requestBody, $start = 0, $num = 10, $fields = null)
+    public function batchDeleteWarehouseBatchItems($siteid, $warehouseid, $warehousebatchid, $requestBody)
     {
-        $this->batchDeleteWarehouseBatchItemsWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $requestBody, $start, $num, $fields);
+        $this->batchDeleteWarehouseBatchItemsWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $requestBody);
     }
 
     /**
@@ -432,17 +433,14 @@ class WarehouseBatchesApi
      * @param  int $warehouseid (required)
      * @param  int $warehousebatchid (required)
      * @param  object[] $requestBody (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function batchDeleteWarehouseBatchItemsWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $requestBody, $start = 0, $num = 10, $fields = null)
+    public function batchDeleteWarehouseBatchItemsWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $requestBody)
     {
-        $request = $this->batchDeleteWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $requestBody, $start, $num, $fields);
+        $request = $this->batchDeleteWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $requestBody);
 
         try {
             $options = $this->createHttpClientOption();
@@ -490,16 +488,13 @@ class WarehouseBatchesApi
      * @param  int $warehouseid (required)
      * @param  int $warehousebatchid (required)
      * @param  object[] $requestBody (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchDeleteWarehouseBatchItemsAsync($siteid, $warehouseid, $warehousebatchid, $requestBody, $start = 0, $num = 10, $fields = null)
+    public function batchDeleteWarehouseBatchItemsAsync($siteid, $warehouseid, $warehousebatchid, $requestBody)
     {
-        return $this->batchDeleteWarehouseBatchItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $requestBody, $start, $num, $fields)
+        return $this->batchDeleteWarehouseBatchItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $requestBody)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -516,17 +511,14 @@ class WarehouseBatchesApi
      * @param  int $warehouseid (required)
      * @param  int $warehousebatchid (required)
      * @param  object[] $requestBody (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchDeleteWarehouseBatchItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $requestBody, $start = 0, $num = 10, $fields = null)
+    public function batchDeleteWarehouseBatchItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $requestBody)
     {
         $returnType = '';
-        $request = $this->batchDeleteWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $requestBody, $start, $num, $fields);
+        $request = $this->batchDeleteWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $requestBody);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -558,14 +550,11 @@ class WarehouseBatchesApi
      * @param  int $warehouseid (required)
      * @param  int $warehousebatchid (required)
      * @param  object[] $requestBody (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function batchDeleteWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $requestBody, $start = 0, $num = 10, $fields = null)
+    public function batchDeleteWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $requestBody)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -592,34 +581,13 @@ class WarehouseBatchesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if (is_array($start)) {
-            $start = ObjectSerializer::serializeCollection($start, '', true);
-        }
-        if ($start !== null) {
-            $queryParams['start'] = $start;
-        }
-        // query params
-        if (is_array($num)) {
-            $num = ObjectSerializer::serializeCollection($num, '', true);
-        }
-        if ($num !== null) {
-            $queryParams['num'] = $num;
-        }
-        // query params
-        if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
-        }
-        if ($fields !== null) {
-            $queryParams['fields'] = $fields;
-        }
 
 
         // path params
@@ -690,6 +658,10 @@ class WarehouseBatchesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -718,17 +690,14 @@ class WarehouseBatchesApi
      * @param  int $warehouseid warehouseid (required)
      * @param  int $warehousebatchid warehousebatchid (required)
      * @param  \Spy\SitooClient\Model\WarehousebatchitemWrite[] $warehousebatchitemWrite warehousebatchitemWrite (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function batchSetWarehouseBatchItems($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite, $start = 0, $num = 10, $fields = null)
+    public function batchSetWarehouseBatchItems($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite)
     {
-        $this->batchSetWarehouseBatchItemsWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite, $start, $num, $fields);
+        $this->batchSetWarehouseBatchItemsWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite);
     }
 
     /**
@@ -738,17 +707,14 @@ class WarehouseBatchesApi
      * @param  int $warehouseid (required)
      * @param  int $warehousebatchid (required)
      * @param  \Spy\SitooClient\Model\WarehousebatchitemWrite[] $warehousebatchitemWrite (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function batchSetWarehouseBatchItemsWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite, $start = 0, $num = 10, $fields = null)
+    public function batchSetWarehouseBatchItemsWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite)
     {
-        $request = $this->batchSetWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite, $start, $num, $fields);
+        $request = $this->batchSetWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite);
 
         try {
             $options = $this->createHttpClientOption();
@@ -796,16 +762,13 @@ class WarehouseBatchesApi
      * @param  int $warehouseid (required)
      * @param  int $warehousebatchid (required)
      * @param  \Spy\SitooClient\Model\WarehousebatchitemWrite[] $warehousebatchitemWrite (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchSetWarehouseBatchItemsAsync($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite, $start = 0, $num = 10, $fields = null)
+    public function batchSetWarehouseBatchItemsAsync($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite)
     {
-        return $this->batchSetWarehouseBatchItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite, $start, $num, $fields)
+        return $this->batchSetWarehouseBatchItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -822,17 +785,14 @@ class WarehouseBatchesApi
      * @param  int $warehouseid (required)
      * @param  int $warehousebatchid (required)
      * @param  \Spy\SitooClient\Model\WarehousebatchitemWrite[] $warehousebatchitemWrite (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function batchSetWarehouseBatchItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite, $start = 0, $num = 10, $fields = null)
+    public function batchSetWarehouseBatchItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite)
     {
         $returnType = '';
-        $request = $this->batchSetWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite, $start, $num, $fields);
+        $request = $this->batchSetWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -864,14 +824,11 @@ class WarehouseBatchesApi
      * @param  int $warehouseid (required)
      * @param  int $warehousebatchid (required)
      * @param  \Spy\SitooClient\Model\WarehousebatchitemWrite[] $warehousebatchitemWrite (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function batchSetWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite, $start = 0, $num = 10, $fields = null)
+    public function batchSetWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $warehousebatchitemWrite)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -898,34 +855,13 @@ class WarehouseBatchesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if (is_array($start)) {
-            $start = ObjectSerializer::serializeCollection($start, '', true);
-        }
-        if ($start !== null) {
-            $queryParams['start'] = $start;
-        }
-        // query params
-        if (is_array($num)) {
-            $num = ObjectSerializer::serializeCollection($num, '', true);
-        }
-        if ($num !== null) {
-            $queryParams['num'] = $num;
-        }
-        // query params
-        if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
-        }
-        if ($fields !== null) {
-            $queryParams['fields'] = $fields;
-        }
 
 
         // path params
@@ -996,6 +932,10 @@ class WarehouseBatchesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1232,7 +1172,7 @@ class WarehouseBatchesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1303,6 +1243,10 @@ class WarehouseBatchesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1330,15 +1274,15 @@ class WarehouseBatchesApi
      * @param  int $siteid siteid (required)
      * @param  int $warehouseid warehouseid (required)
      * @param  int $warehousebatchid warehousebatchid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetWarehouseBatchItemsResponse
      */
-    public function getWarehouseBatchItems($siteid, $warehouseid, $warehousebatchid, $start = 0, $num = 10, $fields = null)
+    public function getWarehouseBatchItems($siteid, $warehouseid, $warehousebatchid, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getWarehouseBatchItemsWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $start, $num, $fields);
         return $response;
@@ -1350,15 +1294,15 @@ class WarehouseBatchesApi
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
      * @param  int $warehousebatchid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetWarehouseBatchItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWarehouseBatchItemsWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $start = 0, $num = 10, $fields = null)
+    public function getWarehouseBatchItemsWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $start = null, $num = null, $fields = null)
     {
         $request = $this->getWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $start, $num, $fields);
 
@@ -1449,14 +1393,14 @@ class WarehouseBatchesApi
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
      * @param  int $warehousebatchid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehouseBatchItemsAsync($siteid, $warehouseid, $warehousebatchid, $start = 0, $num = 10, $fields = null)
+    public function getWarehouseBatchItemsAsync($siteid, $warehouseid, $warehousebatchid, $start = null, $num = null, $fields = null)
     {
         return $this->getWarehouseBatchItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $start, $num, $fields)
             ->then(
@@ -1474,14 +1418,14 @@ class WarehouseBatchesApi
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
      * @param  int $warehousebatchid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehouseBatchItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $start = 0, $num = 10, $fields = null)
+    public function getWarehouseBatchItemsAsyncWithHttpInfo($siteid, $warehouseid, $warehousebatchid, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetWarehouseBatchItemsResponse';
         $request = $this->getWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $start, $num, $fields);
@@ -1526,14 +1470,14 @@ class WarehouseBatchesApi
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
      * @param  int $warehousebatchid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $start = 0, $num = 10, $fields = null)
+    public function getWarehouseBatchItemsRequest($siteid, $warehouseid, $warehousebatchid, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1554,7 +1498,7 @@ class WarehouseBatchesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1577,7 +1521,7 @@ class WarehouseBatchesApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1646,6 +1590,10 @@ class WarehouseBatchesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1673,16 +1621,16 @@ class WarehouseBatchesApi
      * @param  int $siteid siteid (required)
      * @param  int $warehouseid warehouseid (required)
      * @param  int $transactiontype transactiontype (optional)
-     * @param  int $warehousebatchstate warehousebatchstate (optional, default to 10)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $warehousebatchstate warehousebatchstate (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetWarehouseBatchesResponse
      */
-    public function getWarehouseBatches($siteid, $warehouseid, $transactiontype = null, $warehousebatchstate = 10, $start = 0, $num = 10, $fields = null)
+    public function getWarehouseBatches($siteid, $warehouseid, $transactiontype = null, $warehousebatchstate = null, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getWarehouseBatchesWithHttpInfo($siteid, $warehouseid, $transactiontype, $warehousebatchstate, $start, $num, $fields);
         return $response;
@@ -1694,16 +1642,16 @@ class WarehouseBatchesApi
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
      * @param  int $transactiontype (optional)
-     * @param  int $warehousebatchstate (optional, default to 10)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $warehousebatchstate (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetWarehouseBatchesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWarehouseBatchesWithHttpInfo($siteid, $warehouseid, $transactiontype = null, $warehousebatchstate = 10, $start = 0, $num = 10, $fields = null)
+    public function getWarehouseBatchesWithHttpInfo($siteid, $warehouseid, $transactiontype = null, $warehousebatchstate = null, $start = null, $num = null, $fields = null)
     {
         $request = $this->getWarehouseBatchesRequest($siteid, $warehouseid, $transactiontype, $warehousebatchstate, $start, $num, $fields);
 
@@ -1794,15 +1742,15 @@ class WarehouseBatchesApi
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
      * @param  int $transactiontype (optional)
-     * @param  int $warehousebatchstate (optional, default to 10)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $warehousebatchstate (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehouseBatchesAsync($siteid, $warehouseid, $transactiontype = null, $warehousebatchstate = 10, $start = 0, $num = 10, $fields = null)
+    public function getWarehouseBatchesAsync($siteid, $warehouseid, $transactiontype = null, $warehousebatchstate = null, $start = null, $num = null, $fields = null)
     {
         return $this->getWarehouseBatchesAsyncWithHttpInfo($siteid, $warehouseid, $transactiontype, $warehousebatchstate, $start, $num, $fields)
             ->then(
@@ -1820,15 +1768,15 @@ class WarehouseBatchesApi
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
      * @param  int $transactiontype (optional)
-     * @param  int $warehousebatchstate (optional, default to 10)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $warehousebatchstate (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehouseBatchesAsyncWithHttpInfo($siteid, $warehouseid, $transactiontype = null, $warehousebatchstate = 10, $start = 0, $num = 10, $fields = null)
+    public function getWarehouseBatchesAsyncWithHttpInfo($siteid, $warehouseid, $transactiontype = null, $warehousebatchstate = null, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetWarehouseBatchesResponse';
         $request = $this->getWarehouseBatchesRequest($siteid, $warehouseid, $transactiontype, $warehousebatchstate, $start, $num, $fields);
@@ -1873,15 +1821,15 @@ class WarehouseBatchesApi
      * @param  int $siteid (required)
      * @param  int $warehouseid (required)
      * @param  int $transactiontype (optional)
-     * @param  int $warehousebatchstate (optional, default to 10)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $warehousebatchstate (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWarehouseBatchesRequest($siteid, $warehouseid, $transactiontype = null, $warehousebatchstate = 10, $start = 0, $num = 10, $fields = null)
+    public function getWarehouseBatchesRequest($siteid, $warehouseid, $transactiontype = null, $warehousebatchstate = null, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1896,7 +1844,7 @@ class WarehouseBatchesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1933,7 +1881,7 @@ class WarehouseBatchesApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1994,6 +1942,10 @@ class WarehouseBatchesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2241,7 +2193,7 @@ class WarehouseBatchesApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}';
+        $resourcePath = '/sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2318,6 +2270,10 @@ class WarehouseBatchesApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

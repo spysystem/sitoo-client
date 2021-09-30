@@ -304,7 +304,7 @@ class VouchersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/vouchers';
+        $resourcePath = '/sites/{siteid}/vouchers.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -365,6 +365,10 @@ class VouchersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -590,7 +594,7 @@ class VouchersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/vouchers/{voucherid}';
+        $resourcePath = '/sites/{siteid}/vouchers/{voucherid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -653,6 +657,10 @@ class VouchersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -878,7 +886,7 @@ class VouchersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/vouchers/{voucherid}';
+        $resourcePath = '/sites/{siteid}/vouchers/{voucherid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -941,6 +949,10 @@ class VouchersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -966,15 +978,15 @@ class VouchersApi
      * Operation getVouchers
      *
      * @param  int $siteid siteid (required)
-     * @param  int $start start (optional, default to 0)
-     * @param  int $num num (optional, default to 10)
-     * @param  string[] $fields fields (optional)
+     * @param  int $start start (optional)
+     * @param  int $num num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetVouchersResponse
      */
-    public function getVouchers($siteid, $start = 0, $num = 10, $fields = null)
+    public function getVouchers($siteid, $start = null, $num = null, $fields = null)
     {
         list($response) = $this->getVouchersWithHttpInfo($siteid, $start, $num, $fields);
         return $response;
@@ -984,15 +996,15 @@ class VouchersApi
      * Operation getVouchersWithHttpInfo
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetVouchersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getVouchersWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getVouchersWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $request = $this->getVouchersRequest($siteid, $start, $num, $fields);
 
@@ -1081,14 +1093,14 @@ class VouchersApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVouchersAsync($siteid, $start = 0, $num = 10, $fields = null)
+    public function getVouchersAsync($siteid, $start = null, $num = null, $fields = null)
     {
         return $this->getVouchersAsyncWithHttpInfo($siteid, $start, $num, $fields)
             ->then(
@@ -1104,14 +1116,14 @@ class VouchersApi
      * 
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVouchersAsyncWithHttpInfo($siteid, $start = 0, $num = 10, $fields = null)
+    public function getVouchersAsyncWithHttpInfo($siteid, $start = null, $num = null, $fields = null)
     {
         $returnType = '\Spy\SitooClient\Model\GetVouchersResponse';
         $request = $this->getVouchersRequest($siteid, $start, $num, $fields);
@@ -1154,14 +1166,14 @@ class VouchersApi
      * Create request for operation 'getVouchers'
      *
      * @param  int $siteid (required)
-     * @param  int $start (optional, default to 0)
-     * @param  int $num (optional, default to 10)
-     * @param  string[] $fields (optional)
+     * @param  int $start (optional)
+     * @param  int $num (optional)
+     * @param  string[] $fields list of fields, comma-separated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getVouchersRequest($siteid, $start = 0, $num = 10, $fields = null)
+    public function getVouchersRequest($siteid, $start = null, $num = null, $fields = null)
     {
         // verify the required parameter 'siteid' is set
         if ($siteid === null || (is_array($siteid) && count($siteid) === 0)) {
@@ -1170,7 +1182,7 @@ class VouchersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/vouchers';
+        $resourcePath = '/sites/{siteid}/vouchers.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1193,7 +1205,7 @@ class VouchersApi
         }
         // query params
         if (is_array($fields)) {
-            $fields = ObjectSerializer::serializeCollection($fields, 'csv', true);
+            $fields = ObjectSerializer::serializeCollection($fields, 'form', true);
         }
         if ($fields !== null) {
             $queryParams['fields'] = $fields;
@@ -1246,6 +1258,10 @@ class VouchersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1482,7 +1498,7 @@ class VouchersApi
             );
         }
 
-        $resourcePath = '/sites/{siteid}/vouchers/{voucherid}';
+        $resourcePath = '/sites/{siteid}/vouchers/{voucherid}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1551,6 +1567,10 @@ class VouchersApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

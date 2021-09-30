@@ -347,7 +347,7 @@ class CustomMetricsAPIApi
             );
         }
 
-        $resourcePath = '/custom_metrics';
+        $resourcePath = '/custom_metrics.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -400,6 +400,10 @@ class CustomMetricsAPIApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -560,7 +564,7 @@ class CustomMetricsAPIApi
             );
         }
 
-        $resourcePath = '/custom_metrics/{key}';
+        $resourcePath = '/custom_metrics/{key}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -615,6 +619,10 @@ class CustomMetricsAPIApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -641,14 +649,14 @@ class CustomMetricsAPIApi
      *
      * @param  string $key key (required)
      * @param  string $date date (optional)
-     * @param  string $numDays numDays (optional, default to '1')
+     * @param  string $numDays numDays (optional)
      * @param  string $storeId storeId (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteCustomMetricValues($key, $date = null, $numDays = '1', $storeId = null)
+    public function deleteCustomMetricValues($key, $date = null, $numDays = null, $storeId = null)
     {
         $this->deleteCustomMetricValuesWithHttpInfo($key, $date, $numDays, $storeId);
     }
@@ -658,14 +666,14 @@ class CustomMetricsAPIApi
      *
      * @param  string $key (required)
      * @param  string $date (optional)
-     * @param  string $numDays (optional, default to '1')
+     * @param  string $numDays (optional)
      * @param  string $storeId (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCustomMetricValuesWithHttpInfo($key, $date = null, $numDays = '1', $storeId = null)
+    public function deleteCustomMetricValuesWithHttpInfo($key, $date = null, $numDays = null, $storeId = null)
     {
         $request = $this->deleteCustomMetricValuesRequest($key, $date, $numDays, $storeId);
 
@@ -713,13 +721,13 @@ class CustomMetricsAPIApi
      *
      * @param  string $key (required)
      * @param  string $date (optional)
-     * @param  string $numDays (optional, default to '1')
+     * @param  string $numDays (optional)
      * @param  string $storeId (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCustomMetricValuesAsync($key, $date = null, $numDays = '1', $storeId = null)
+    public function deleteCustomMetricValuesAsync($key, $date = null, $numDays = null, $storeId = null)
     {
         return $this->deleteCustomMetricValuesAsyncWithHttpInfo($key, $date, $numDays, $storeId)
             ->then(
@@ -736,13 +744,13 @@ class CustomMetricsAPIApi
      *
      * @param  string $key (required)
      * @param  string $date (optional)
-     * @param  string $numDays (optional, default to '1')
+     * @param  string $numDays (optional)
      * @param  string $storeId (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCustomMetricValuesAsyncWithHttpInfo($key, $date = null, $numDays = '1', $storeId = null)
+    public function deleteCustomMetricValuesAsyncWithHttpInfo($key, $date = null, $numDays = null, $storeId = null)
     {
         $returnType = '';
         $request = $this->deleteCustomMetricValuesRequest($key, $date, $numDays, $storeId);
@@ -775,13 +783,13 @@ class CustomMetricsAPIApi
      *
      * @param  string $key (required)
      * @param  string $date (optional)
-     * @param  string $numDays (optional, default to '1')
+     * @param  string $numDays (optional)
      * @param  string $storeId (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteCustomMetricValuesRequest($key, $date = null, $numDays = '1', $storeId = null)
+    public function deleteCustomMetricValuesRequest($key, $date = null, $numDays = null, $storeId = null)
     {
         // verify the required parameter 'key' is set
         if ($key === null || (is_array($key) && count($key) === 0)) {
@@ -790,7 +798,7 @@ class CustomMetricsAPIApi
             );
         }
 
-        $resourcePath = '/custom_metric_values/{key}';
+        $resourcePath = '/custom_metric_values/{key}.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -866,6 +874,10 @@ class CustomMetricsAPIApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -892,14 +904,14 @@ class CustomMetricsAPIApi
      *
      * @param  string $keys keys (optional)
      * @param  string $date date (optional)
-     * @param  int $numDays numDays (optional, default to 1)
+     * @param  int $numDays numDays (optional)
      * @param  string $storeId storeId (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\CustomMetricValueRead
      */
-    public function getCustomMetricValues($keys = null, $date = null, $numDays = 1, $storeId = null)
+    public function getCustomMetricValues($keys = null, $date = null, $numDays = null, $storeId = null)
     {
         list($response) = $this->getCustomMetricValuesWithHttpInfo($keys, $date, $numDays, $storeId);
         return $response;
@@ -910,14 +922,14 @@ class CustomMetricsAPIApi
      *
      * @param  string $keys (optional)
      * @param  string $date (optional)
-     * @param  int $numDays (optional, default to 1)
+     * @param  int $numDays (optional)
      * @param  string $storeId (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\CustomMetricValueRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomMetricValuesWithHttpInfo($keys = null, $date = null, $numDays = 1, $storeId = null)
+    public function getCustomMetricValuesWithHttpInfo($keys = null, $date = null, $numDays = null, $storeId = null)
     {
         $request = $this->getCustomMetricValuesRequest($keys, $date, $numDays, $storeId);
 
@@ -1007,13 +1019,13 @@ class CustomMetricsAPIApi
      *
      * @param  string $keys (optional)
      * @param  string $date (optional)
-     * @param  int $numDays (optional, default to 1)
+     * @param  int $numDays (optional)
      * @param  string $storeId (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomMetricValuesAsync($keys = null, $date = null, $numDays = 1, $storeId = null)
+    public function getCustomMetricValuesAsync($keys = null, $date = null, $numDays = null, $storeId = null)
     {
         return $this->getCustomMetricValuesAsyncWithHttpInfo($keys, $date, $numDays, $storeId)
             ->then(
@@ -1030,13 +1042,13 @@ class CustomMetricsAPIApi
      *
      * @param  string $keys (optional)
      * @param  string $date (optional)
-     * @param  int $numDays (optional, default to 1)
+     * @param  int $numDays (optional)
      * @param  string $storeId (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomMetricValuesAsyncWithHttpInfo($keys = null, $date = null, $numDays = 1, $storeId = null)
+    public function getCustomMetricValuesAsyncWithHttpInfo($keys = null, $date = null, $numDays = null, $storeId = null)
     {
         $returnType = '\Spy\SitooClient\Model\CustomMetricValueRead';
         $request = $this->getCustomMetricValuesRequest($keys, $date, $numDays, $storeId);
@@ -1080,16 +1092,16 @@ class CustomMetricsAPIApi
      *
      * @param  string $keys (optional)
      * @param  string $date (optional)
-     * @param  int $numDays (optional, default to 1)
+     * @param  int $numDays (optional)
      * @param  string $storeId (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCustomMetricValuesRequest($keys = null, $date = null, $numDays = 1, $storeId = null)
+    public function getCustomMetricValuesRequest($keys = null, $date = null, $numDays = null, $storeId = null)
     {
 
-        $resourcePath = '/custom_metric_values';
+        $resourcePath = '/custom_metric_values.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1164,6 +1176,10 @@ class CustomMetricsAPIApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1372,7 +1388,7 @@ class CustomMetricsAPIApi
     public function getCustomMetricsRequest($keys = null)
     {
 
-        $resourcePath = '/custom_metrics';
+        $resourcePath = '/custom_metrics.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1426,6 +1442,10 @@ class CustomMetricsAPIApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1453,14 +1473,14 @@ class CustomMetricsAPIApi
      * @param  \Spy\SitooClient\Model\CustomMetricValueWrite[] $customMetricValueWrite customMetricValueWrite (required)
      * @param  string $keys keys (optional)
      * @param  string $date date (optional)
-     * @param  int $numDays numDays (optional, default to 1)
+     * @param  int $numDays numDays (optional)
      * @param  string $storeId storeId (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\CustomMetricValueRead
      */
-    public function updateCustomMetricValues($customMetricValueWrite, $keys = null, $date = null, $numDays = 1, $storeId = null)
+    public function updateCustomMetricValues($customMetricValueWrite, $keys = null, $date = null, $numDays = null, $storeId = null)
     {
         list($response) = $this->updateCustomMetricValuesWithHttpInfo($customMetricValueWrite, $keys, $date, $numDays, $storeId);
         return $response;
@@ -1472,14 +1492,14 @@ class CustomMetricsAPIApi
      * @param  \Spy\SitooClient\Model\CustomMetricValueWrite[] $customMetricValueWrite (required)
      * @param  string $keys (optional)
      * @param  string $date (optional)
-     * @param  int $numDays (optional, default to 1)
+     * @param  int $numDays (optional)
      * @param  string $storeId (optional)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\CustomMetricValueRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCustomMetricValuesWithHttpInfo($customMetricValueWrite, $keys = null, $date = null, $numDays = 1, $storeId = null)
+    public function updateCustomMetricValuesWithHttpInfo($customMetricValueWrite, $keys = null, $date = null, $numDays = null, $storeId = null)
     {
         $request = $this->updateCustomMetricValuesRequest($customMetricValueWrite, $keys, $date, $numDays, $storeId);
 
@@ -1570,13 +1590,13 @@ class CustomMetricsAPIApi
      * @param  \Spy\SitooClient\Model\CustomMetricValueWrite[] $customMetricValueWrite (required)
      * @param  string $keys (optional)
      * @param  string $date (optional)
-     * @param  int $numDays (optional, default to 1)
+     * @param  int $numDays (optional)
      * @param  string $storeId (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomMetricValuesAsync($customMetricValueWrite, $keys = null, $date = null, $numDays = 1, $storeId = null)
+    public function updateCustomMetricValuesAsync($customMetricValueWrite, $keys = null, $date = null, $numDays = null, $storeId = null)
     {
         return $this->updateCustomMetricValuesAsyncWithHttpInfo($customMetricValueWrite, $keys, $date, $numDays, $storeId)
             ->then(
@@ -1594,13 +1614,13 @@ class CustomMetricsAPIApi
      * @param  \Spy\SitooClient\Model\CustomMetricValueWrite[] $customMetricValueWrite (required)
      * @param  string $keys (optional)
      * @param  string $date (optional)
-     * @param  int $numDays (optional, default to 1)
+     * @param  int $numDays (optional)
      * @param  string $storeId (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomMetricValuesAsyncWithHttpInfo($customMetricValueWrite, $keys = null, $date = null, $numDays = 1, $storeId = null)
+    public function updateCustomMetricValuesAsyncWithHttpInfo($customMetricValueWrite, $keys = null, $date = null, $numDays = null, $storeId = null)
     {
         $returnType = '\Spy\SitooClient\Model\CustomMetricValueRead';
         $request = $this->updateCustomMetricValuesRequest($customMetricValueWrite, $keys, $date, $numDays, $storeId);
@@ -1645,13 +1665,13 @@ class CustomMetricsAPIApi
      * @param  \Spy\SitooClient\Model\CustomMetricValueWrite[] $customMetricValueWrite (required)
      * @param  string $keys (optional)
      * @param  string $date (optional)
-     * @param  int $numDays (optional, default to 1)
+     * @param  int $numDays (optional)
      * @param  string $storeId (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateCustomMetricValuesRequest($customMetricValueWrite, $keys = null, $date = null, $numDays = 1, $storeId = null)
+    public function updateCustomMetricValuesRequest($customMetricValueWrite, $keys = null, $date = null, $numDays = null, $storeId = null)
     {
         // verify the required parameter 'customMetricValueWrite' is set
         if ($customMetricValueWrite === null || (is_array($customMetricValueWrite) && count($customMetricValueWrite) === 0)) {
@@ -1660,7 +1680,7 @@ class CustomMetricsAPIApi
             );
         }
 
-        $resourcePath = '/custom_metric_values';
+        $resourcePath = '/custom_metric_values.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1741,6 +1761,10 @@ class CustomMetricsAPIApi
             }
         }
 
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

@@ -1,0 +1,46 @@
+# # ShipmentWrite
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**shipmentstate** | **int** | State of shipment. | [optional]
+**archived** | **bool** | Flag indicating archived shipment. | [optional]
+**externalid** | **string** | External ID for shipment. | [optional]
+**barcode** | **string** | Barcode used to identify this shipment. Needs to have a unique value. | [optional]
+**comment** | **string** | Comment for the shipment. | [optional]
+**emailowner** | **string** | The email of the owner of the shipment. | [optional]
+**emailreceivedby** | **string** | The email of the person responsible for processing the received shipment. | [optional]
+**dateestimatedpickup** | **int** | The estimated date and time for pickup from sender or null if not set. | [optional]
+**dateestimateddelivery** | **int** | The estimated date and time for delivery to receiver or null if not set. | [optional]
+**senderWarehouseid** | **int** | The warehouseid in Sitoo for sender or null if not applicable. | [optional]
+**senderName** | **string** | The name of the sender. | [optional]
+**senderAddress** | **string** | Address for the sender. | [optional]
+**senderAddress2** | **string** | Address 2 for the sender. | [optional]
+**senderZip** | **string** | Zip for the sender. | [optional]
+**senderCity** | **string** | City for the sender. | [optional]
+**senderState** | **string** | State for the sender. | [optional]
+**senderCountryid** | **string** | Country ID for the sender (2-letter ISO 3166). | [optional]
+**senderReferencename** | **string** | Reference name for the sender. | [optional]
+**senderReferenceemail** | **string** | Reference email for the sender. | [optional]
+**senderReferencemobile** | **string** | Reference mobile phone for the sender. | [optional]
+**senderInstructions** | **string** | Instructions for the sender. | [optional]
+**receiverWarehouseid** | **int** | The warehouseid in Sitoo for receiver or null if not applicable. | [optional]
+**receiverName** | **string** | The name of the receiver. | [optional]
+**receiverAddress** | **string** | Address for the receiver. | [optional]
+**receiverAddress2** | **string** | Address 2 for the receiver. | [optional]
+**receiverZip** | **string** | Zip for the receiver. | [optional]
+**receiverCity** | **string** | City for the receiver. | [optional]
+**receiverState** | **string** | State for the receiver. | [optional]
+**receiverCountryid** | **string** | Country ID for the receiver (2-letter ISO 3166). | [optional]
+**receiverReferencename** | **string** | Reference name for the receiver. | [optional]
+**receiverReferenceemail** | **string** | Reference email for the receiver. | [optional]
+**receiverReferencemobile** | **string** | Reference mobile phone for the receiver. | [optional]
+**receiverInstructions** | **string** | Instructions for the receiver. | [optional]
+**carrierName** | **string** | The name of the carrier. | [optional]
+**carrierReference** | **string** | The carrier reference for the shipment. | [optional]
+**carrierTrackingurl** | **string** | The carrier tracking url for the shipment. | [optional]
+**shipmentpackages** | [**\Spy\SitooClient\Model\ShipmentpackageWrite[]**](ShipmentpackageWrite.md) | The packages in this shipment. An array of shipmentpackage. | [optional]
+**shipmentitems** | [**\Spy\SitooClient\Model\ShipmentitemWrite[]**](ShipmentitemWrite.md) | The items in this shipment. An array of shipmentitem. | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

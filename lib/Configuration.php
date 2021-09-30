@@ -448,6 +448,16 @@ class Configuration
                         "default_value" => "1500",
                     ]
                 ]
+            ],
+            [
+                "url" => "https://api-sandbox.mysitoo.com/v2/accounts/{accountid}",
+                "description" => "No description provided",
+                "variables" => [
+                    "accountid" => [
+                        "description" => "Account no of system",
+                        "default_value" => "1500",
+                    ]
+                ]
             ]
         ];
     }
