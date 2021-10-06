@@ -16,7 +16,7 @@ Method | HTTP request | Description
 ## `batchAddManufacturers()`
 
 ```php
-batchAddManufacturers($siteid, $manufacturerWrite)
+batchAddManufacturers($siteid, $manufacturerWrite): \Spy\SitooClient\Model\BatchResponse[]
 ```
 
 
@@ -44,7 +44,8 @@ $siteid = 56; // int
 $manufacturerWrite = [{name=Sitoo, url1=http://www.sitoo.com}, {name=Example Inc., url1=http://www.example.com}]; // \Spy\SitooClient\Model\ManufacturerWrite[]
 
 try {
-    $apiInstance->batchAddManufacturers($siteid, $manufacturerWrite);
+    $result = $apiInstance->batchAddManufacturers($siteid, $manufacturerWrite);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManufacturersApi->batchAddManufacturers: ', $e->getMessage(), PHP_EOL;
 }
@@ -59,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Spy\SitooClient\Model\BatchResponse[]**](../Model/BatchResponse.md)
 
 ### Authorization
 
@@ -68,7 +69,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

@@ -162,11 +162,12 @@ class ManufacturersApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Spy\SitooClient\Model\BatchResponse[]
      */
     public function batchAddManufacturers($siteid, $manufacturerWrite)
     {
-        $this->batchAddManufacturersWithHttpInfo($siteid, $manufacturerWrite);
+        list($response) = $this->batchAddManufacturersWithHttpInfo($siteid, $manufacturerWrite);
+        return $response;
     }
 
     /**
@@ -177,7 +178,7 @@ class ManufacturersApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Spy\SitooClient\Model\BatchResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function batchAddManufacturersWithHttpInfo($siteid, $manufacturerWrite)
     {
@@ -211,10 +212,52 @@ class ManufacturersApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Spy\SitooClient\Model\BatchResponse[]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                        if ('\Spy\SitooClient\Model\BatchResponse[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\SitooClient\Model\BatchResponse[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Spy\SitooClient\Model\BatchResponse[]';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+                if ('\Spy\SitooClient\Model\BatchResponse[]' !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\SitooClient\Model\BatchResponse[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -254,14 +297,25 @@ class ManufacturersApi
      */
     public function batchAddManufacturersAsyncWithHttpInfo($siteid, $manufacturerWrite)
     {
-        $returnType = '';
+        $returnType = '\Spy\SitooClient\Model\BatchResponse[]';
         $request = $this->batchAddManufacturersRequest($siteid, $manufacturerWrite);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -325,11 +379,11 @@ class ManufacturersApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
