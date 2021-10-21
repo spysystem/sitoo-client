@@ -71,6 +71,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'unitlabel' => 'string',
         'allowdecimals' => 'bool',
         'deliveryinfo' => 'string',
+        'active' => 'bool',
         'activepos' => 'bool',
         'vatid' => 'int',
         'defaultcategoryid' => 'int',
@@ -110,6 +111,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'unitlabel' => null,
         'allowdecimals' => null,
         'deliveryinfo' => null,
+        'active' => null,
         'activepos' => null,
         'vatid' => null,
         'defaultcategoryid' => null,
@@ -147,6 +149,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
 		'unitlabel' => false,
 		'allowdecimals' => false,
 		'deliveryinfo' => false,
+		'active' => false,
 		'activepos' => false,
 		'vatid' => false,
 		'defaultcategoryid' => false,
@@ -266,6 +269,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'unitlabel' => 'unitlabel',
         'allowdecimals' => 'allowdecimals',
         'deliveryinfo' => 'deliveryinfo',
+        'active' => 'active',
         'activepos' => 'activepos',
         'vatid' => 'vatid',
         'defaultcategoryid' => 'defaultcategoryid',
@@ -303,6 +307,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'unitlabel' => 'setUnitlabel',
         'allowdecimals' => 'setAllowdecimals',
         'deliveryinfo' => 'setDeliveryinfo',
+        'active' => 'setActive',
         'activepos' => 'setActivepos',
         'vatid' => 'setVatid',
         'defaultcategoryid' => 'setDefaultcategoryid',
@@ -340,6 +345,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         'unitlabel' => 'getUnitlabel',
         'allowdecimals' => 'getAllowdecimals',
         'deliveryinfo' => 'getDeliveryinfo',
+        'active' => 'getActive',
         'activepos' => 'getActivepos',
         'vatid' => 'getVatid',
         'defaultcategoryid' => 'getDefaultcategoryid',
@@ -431,6 +437,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('unitlabel', $data, null);
         $this->setIfExists('allowdecimals', $data, null);
         $this->setIfExists('deliveryinfo', $data, null);
+        $this->setIfExists('active', $data, null);
         $this->setIfExists('activepos', $data, null);
         $this->setIfExists('vatid', $data, null);
         $this->setIfExists('defaultcategoryid', $data, null);
@@ -776,6 +783,35 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['deliveryinfo'] = $deliveryinfo;
+
+        return $this;
+    }
+
+    /**
+     * Gets active
+     *
+     * @return bool|null
+     */
+    public function getActive()
+    {
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool|null $active If false, the product is not shown in in the Webshop.
+     *
+     * @return self
+     */
+    public function setActive($active)
+    {
+
+        if (is_null($active)) {
+            throw new \InvalidArgumentException('non-nullable active cannot be null');
+        }
+
+        $this->container['active'] = $active;
 
         return $this;
     }

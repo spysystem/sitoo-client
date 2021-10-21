@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **unitlabel** | **string** | Unit label (eg. \&quot;pcs\&quot;, \&quot;kg\&quot;). Default is an empty string. | [optional]
 **allowdecimals** | **bool** | Set this if the product can be purchased with fractional quantity. | [optional]
 **deliveryinfo** | **string** | Delivery information that can be provided to the customer after the purchase. | [optional]
+**active** | **bool** | If false, the product is not shown in in the Webshop. | [optional]
 **activepos** | **bool** | If false, the product is not shown in in the POS. | [optional]
 **vatid** | **int** | The reference to which Product Group the product belongs to. The Product Group also determines VAT. See productgroup for more information. | [optional]
 **defaultcategoryid** | **int** | Default category for the product. If set to a category then the value will also be added to categories. If set to null, then the previous value will be removed from categories. | [optional]
