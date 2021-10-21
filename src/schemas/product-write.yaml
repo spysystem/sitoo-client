@@ -33,6 +33,10 @@ properties:
   deliveryinfo:
     type: string
     description: Delivery information that can be provided to the customer after the purchase.
+  active:
+    type: boolean
+    deprecated: true
+    description: If false, the product is not shown in in the Webshop.
   activepos:
     type: boolean
     description: If false, the product is not shown in in the POS.
