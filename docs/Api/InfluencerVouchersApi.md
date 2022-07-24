@@ -1,12 +1,12 @@
 # Spy\SitooClient\InfluencerVouchersApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addInfluencerVoucherTransaction()**](InfluencerVouchersApi.md#addInfluencerVoucherTransaction) | **POST** /sites/{siteid}/influencervouchers/{influencercode}/transactions.json | 
-[**deleteInfluencerVoucherTransaction()**](InfluencerVouchersApi.md#deleteInfluencerVoucherTransaction) | **DELETE** /sites/{siteid}/influencervouchers/{influencercode}/transactions/{transactionid}.json | 
-[**getInfluencerVoucher()**](InfluencerVouchersApi.md#getInfluencerVoucher) | **GET** /sites/{siteid}/influencervouchers/{influencercode}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addInfluencerVoucherTransaction()**](InfluencerVouchersApi.md#addInfluencerVoucherTransaction) | **POST** /sites/{siteid}/influencervouchers/{influencercode}/transactions.json |  |
+| [**deleteInfluencerVoucherTransaction()**](InfluencerVouchersApi.md#deleteInfluencerVoucherTransaction) | **DELETE** /sites/{siteid}/influencervouchers/{influencercode}/transactions/{transactionid}.json |  |
+| [**getInfluencerVoucher()**](InfluencerVouchersApi.md#getInfluencerVoucher) | **GET** /sites/{siteid}/influencervouchers/{influencercode}.json |  |
 
 
 ## `addInfluencerVoucherTransaction()`
@@ -50,11 +50,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **influencercode** | **int**|  |
- **influencervouchertransactionWrite** | [**\Spy\SitooClient\Model\InfluencervouchertransactionWrite**](../Model/InfluencervouchertransactionWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **influencercode** | **int**|  | |
+| **influencervouchertransactionWrite** | [**\Spy\SitooClient\Model\InfluencervouchertransactionWrite**](../Model/InfluencervouchertransactionWrite.md)|  | |
 
 ### Return type
 
@@ -114,11 +114,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **influencercode** | **int**|  |
- **transactionid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **influencercode** | **int**|  | |
+| **transactionid** | **int**|  | |
 
 ### Return type
 
@@ -177,10 +177,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **influencercode** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **influencercode** | **int**|  | |
 
 ### Return type
 
