@@ -5,10 +5,10 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addVoucher()**](VouchersApi.md#addVoucher) | **POST** /sites/{siteid}/vouchers.json |  |
-[**deleteVoucher()**](VouchersApi.md#deleteVoucher) | **DELETE** /sites/{siteid}/vouchers/{voucherid}.json |  |
-[**getVoucher()**](VouchersApi.md#getVoucher) | **GET** /sites/{siteid}/vouchers/{voucherid}.json |  |
-[**getVouchers()**](VouchersApi.md#getVouchers) | **GET** /sites/{siteid}/vouchers.json |  |
-[**updateVoucher()**](VouchersApi.md#updateVoucher) | **PUT** /sites/{siteid}/vouchers/{voucherid}.json |  |
+| [**deleteVoucher()**](VouchersApi.md#deleteVoucher) | **DELETE** /sites/{siteid}/vouchers/{voucherid}.json |  |
+| [**getVoucher()**](VouchersApi.md#getVoucher) | **GET** /sites/{siteid}/vouchers/{voucherid}.json |  |
+| [**getVouchers()**](VouchersApi.md#getVouchers) | **GET** /sites/{siteid}/vouchers.json |  |
+| [**updateVoucher()**](VouchersApi.md#updateVoucher) | **PUT** /sites/{siteid}/vouchers/{voucherid}.json |  |
 
 
 ## `addVoucher()`
@@ -50,10 +50,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **voucherWrite** | [**\Spy\SitooClient\Model\VoucherWrite**](../Model/VoucherWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **voucherWrite** | [**\Spy\SitooClient\Model\VoucherWrite**](../Model/VoucherWrite.md)|  | |
 
 ### Return type
 
@@ -112,10 +112,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **voucherid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **voucherid** | **int**|  | |
 
 ### Return type
 
@@ -174,10 +174,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **voucherid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **voucherid** | **int**|  | |
 
 ### Return type
 
@@ -238,12 +238,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -303,11 +303,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **voucherid** | **int**|  |
- **voucherWrite** | [**\Spy\SitooClient\Model\VoucherWrite**](../Model/VoucherWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **voucherid** | **int**|  | |
+| **voucherWrite** | [**\Spy\SitooClient\Model\VoucherWrite**](../Model/VoucherWrite.md)|  | |
 
 ### Return type
 

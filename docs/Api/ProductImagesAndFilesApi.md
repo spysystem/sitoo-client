@@ -5,13 +5,13 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addProductFile()**](ProductImagesAndFilesApi.md#addProductFile) | **POST** /sites/{siteid}/products/{productid}/files.json |  |
-[**addProductImage()**](ProductImagesAndFilesApi.md#addProductImage) | **POST** /sites/{siteid}/products/{productid}/images.json |  |
-[**deleteProductFile()**](ProductImagesAndFilesApi.md#deleteProductFile) | **DELETE** /sites/{siteid}/products/{productid}/files/{fileid}.json |  |
-[**deleteProductImage()**](ProductImagesAndFilesApi.md#deleteProductImage) | **DELETE** /sites/{siteid}/products/{productid}/images/{imageid}.json |  |
-[**getProductFile()**](ProductImagesAndFilesApi.md#getProductFile) | **GET** /sites/{siteid}/products/{productid}/files/{fileid}.json |  |
-[**getProductFiles()**](ProductImagesAndFilesApi.md#getProductFiles) | **GET** /sites/{siteid}/products/{productid}/files.json |  |
-[**getProductImage()**](ProductImagesAndFilesApi.md#getProductImage) | **GET** /sites/{siteid}/products/{productid}/images/{imageid}.json |  |
-[**getProductImages()**](ProductImagesAndFilesApi.md#getProductImages) | **GET** /sites/{siteid}/products/{productid}/images.json |  |
+| [**addProductImage()**](ProductImagesAndFilesApi.md#addProductImage) | **POST** /sites/{siteid}/products/{productid}/images.json |  |
+| [**deleteProductFile()**](ProductImagesAndFilesApi.md#deleteProductFile) | **DELETE** /sites/{siteid}/products/{productid}/files/{fileid}.json |  |
+| [**deleteProductImage()**](ProductImagesAndFilesApi.md#deleteProductImage) | **DELETE** /sites/{siteid}/products/{productid}/images/{imageid}.json |  |
+| [**getProductFile()**](ProductImagesAndFilesApi.md#getProductFile) | **GET** /sites/{siteid}/products/{productid}/files/{fileid}.json |  |
+| [**getProductFiles()**](ProductImagesAndFilesApi.md#getProductFiles) | **GET** /sites/{siteid}/products/{productid}/files.json |  |
+| [**getProductImage()**](ProductImagesAndFilesApi.md#getProductImage) | **GET** /sites/{siteid}/products/{productid}/images/{imageid}.json |  |
+| [**getProductImages()**](ProductImagesAndFilesApi.md#getProductImages) | **GET** /sites/{siteid}/products/{productid}/images.json |  |
 
 
 ## `addProductFile()`
@@ -57,11 +57,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productid** | **int**|  |
- **resourceWrite** | [**\Spy\SitooClient\Model\ResourceWrite**](../Model/ResourceWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productid** | **int**|  | |
+| **resourceWrite** | [**\Spy\SitooClient\Model\ResourceWrite**](../Model/ResourceWrite.md)|  | |
 
 ### Return type
 
@@ -123,11 +123,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productid** | **int**|  |
- **resourceWrite** | [**\Spy\SitooClient\Model\ResourceWrite**](../Model/ResourceWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productid** | **int**|  | |
+| **resourceWrite** | [**\Spy\SitooClient\Model\ResourceWrite**](../Model/ResourceWrite.md)|  | |
 
 ### Return type
 
@@ -189,11 +189,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productid** | **int**|  |
- **fileid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productid** | **int**|  | |
+| **fileid** | **int**|  | |
 
 ### Return type
 
@@ -255,11 +255,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productid** | **int**|  |
- **imageid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productid** | **int**|  | |
+| **imageid** | **int**|  | |
 
 ### Return type
 
@@ -321,11 +321,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productid** | **int**|  |
- **fileid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productid** | **int**|  | |
+| **fileid** | **int**|  | |
 
 ### Return type
 
@@ -389,13 +389,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -457,11 +457,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productid** | **int**|  |
- **imageid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productid** | **int**|  | |
+| **imageid** | **int**|  | |
 
 ### Return type
 
@@ -523,13 +523,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 

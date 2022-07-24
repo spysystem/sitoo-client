@@ -5,14 +5,14 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addOrder()**](OrdersApi.md#addOrder) | **POST** /sites/{siteid}/orders.json |  |
-[**addOrderDelivery()**](OrdersApi.md#addOrderDelivery) | **POST** /sites/{siteid}/orders/{orderid}/orderdeliveries.json |  |
-[**addOrderLogItem()**](OrdersApi.md#addOrderLogItem) | **POST** /sites/{siteid}/orders/{orderid}/orderlogitems.json |  |
-[**getAllOrders()**](OrdersApi.md#getAllOrders) | **GET** /orders.json |  |
-[**getOrder()**](OrdersApi.md#getOrder) | **GET** /sites/{siteid}/orders/{orderid}.json |  |
-[**getOrderDeliveries()**](OrdersApi.md#getOrderDeliveries) | **GET** /sites/{siteid}/orders/{orderid}/orderdeliveries.json |  |
-[**getOrderLogItems()**](OrdersApi.md#getOrderLogItems) | **GET** /sites/{siteid}/orders/{orderid}/orderlogitems.json |  |
-[**getOrders()**](OrdersApi.md#getOrders) | **GET** /sites/{siteid}/orders.json |  |
-[**updateOrder()**](OrdersApi.md#updateOrder) | **PUT** /sites/{siteid}/orders/{orderid}.json |  |
+| [**addOrderDelivery()**](OrdersApi.md#addOrderDelivery) | **POST** /sites/{siteid}/orders/{orderid}/orderdeliveries.json |  |
+| [**addOrderLogItem()**](OrdersApi.md#addOrderLogItem) | **POST** /sites/{siteid}/orders/{orderid}/orderlogitems.json |  |
+| [**getAllOrders()**](OrdersApi.md#getAllOrders) | **GET** /orders.json |  |
+| [**getOrder()**](OrdersApi.md#getOrder) | **GET** /sites/{siteid}/orders/{orderid}.json |  |
+| [**getOrderDeliveries()**](OrdersApi.md#getOrderDeliveries) | **GET** /sites/{siteid}/orders/{orderid}/orderdeliveries.json |  |
+| [**getOrderLogItems()**](OrdersApi.md#getOrderLogItems) | **GET** /sites/{siteid}/orders/{orderid}/orderlogitems.json |  |
+| [**getOrders()**](OrdersApi.md#getOrders) | **GET** /sites/{siteid}/orders.json |  |
+| [**updateOrder()**](OrdersApi.md#updateOrder) | **PUT** /sites/{siteid}/orders/{orderid}.json |  |
 
 
 ## `addOrder()`
@@ -56,10 +56,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **orderWrite** | [**\Spy\SitooClient\Model\OrderWrite**](../Model/OrderWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **orderWrite** | [**\Spy\SitooClient\Model\OrderWrite**](../Model/OrderWrite.md)|  | |
 
 ### Return type
 
@@ -121,12 +121,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **orderid** | **int**|  |
- **orderdeliveryWrite** | [**\Spy\SitooClient\Model\OrderdeliveryWrite**](../Model/OrderdeliveryWrite.md)|  |
- **ignorestock** | **bool**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **orderid** | **int**|  | |
+| **orderdeliveryWrite** | [**\Spy\SitooClient\Model\OrderdeliveryWrite**](../Model/OrderdeliveryWrite.md)|  | |
+| **ignorestock** | **bool**|  | [optional] |
 
 ### Return type
 
@@ -188,11 +188,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **orderid** | **int**|  |
- **orderlogitemWrite** | [**\Spy\SitooClient\Model\OrderlogitemWrite**](../Model/OrderlogitemWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **orderid** | **int**|  | |
+| **orderlogitemWrite** | [**\Spy\SitooClient\Model\OrderlogitemWrite**](../Model/OrderlogitemWrite.md)|  | |
 
 ### Return type
 
@@ -266,23 +266,23 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **eshopid** | [**int[]**](../Model/int.md)|  | [optional]
- **externalid** | [**string[]**](../Model/string.md)|  | [optional]
- **orderid** | [**int[]**](../Model/int.md)|  | [optional]
- **orderidfrom** | **int**|  | [optional]
- **orderidto** | **int**|  | [optional]
- **orderdatefrom** | **int**|  | [optional]
- **orderdateto** | **int**|  | [optional]
- **orderstate** | [**int[]**](../Model/int.md)|  | [optional]
- **paymentstate** | [**int[]**](../Model/int.md)|  | [optional]
- **ordertype** | [**int[]**](../Model/int.md)|  | [optional]
- **email** | **string**|  | [optional]
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **sort** | **string**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **eshopid** | [**int[]**](../Model/int.md)|  | [optional] |
+| **externalid** | [**string[]**](../Model/string.md)|  | [optional] |
+| **orderid** | [**int[]**](../Model/int.md)|  | [optional] |
+| **orderidfrom** | **int**|  | [optional] |
+| **orderidto** | **int**|  | [optional] |
+| **orderdatefrom** | **int**|  | [optional] |
+| **orderdateto** | **int**|  | [optional] |
+| **orderstate** | [**int[]**](../Model/int.md)|  | [optional] |
+| **paymentstate** | [**int[]**](../Model/int.md)|  | [optional] |
+| **ordertype** | [**int[]**](../Model/int.md)|  | [optional] |
+| **email** | **string**|  | [optional] |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **sort** | **string**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -341,10 +341,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **orderid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **orderid** | **int**|  | |
 
 ### Return type
 
@@ -406,11 +406,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **orderid** | **int**|  |
- **ignorestock** | **bool**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **orderid** | **int**|  | |
+| **ignorestock** | **bool**|  | [optional] |
 
 ### Return type
 
@@ -469,10 +469,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **orderid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **orderid** | **int**|  | |
 
 ### Return type
 
@@ -544,23 +544,23 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **externalid** | [**string[]**](../Model/string.md)|  | [optional]
- **orderid** | [**int[]**](../Model/int.md)|  | [optional]
- **orderidfrom** | **int**|  | [optional]
- **orderidto** | **int**|  | [optional]
- **orderdatefrom** | **int**|  | [optional]
- **orderdateto** | **int**|  | [optional]
- **orderstate** | [**int[]**](../Model/int.md)|  | [optional]
- **paymentstate** | [**int[]**](../Model/int.md)|  | [optional]
- **ordertype** | [**int[]**](../Model/int.md)|  | [optional]
- **email** | **string**|  | [optional]
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **sort** | **string**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **externalid** | [**string[]**](../Model/string.md)|  | [optional] |
+| **orderid** | [**int[]**](../Model/int.md)|  | [optional] |
+| **orderidfrom** | **int**|  | [optional] |
+| **orderidto** | **int**|  | [optional] |
+| **orderdatefrom** | **int**|  | [optional] |
+| **orderdateto** | **int**|  | [optional] |
+| **orderstate** | [**int[]**](../Model/int.md)|  | [optional] |
+| **paymentstate** | [**int[]**](../Model/int.md)|  | [optional] |
+| **ordertype** | [**int[]**](../Model/int.md)|  | [optional] |
+| **email** | **string**|  | [optional] |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **sort** | **string**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -620,11 +620,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **orderid** | **int**|  |
- **orderWrite** | [**\Spy\SitooClient\Model\OrderWrite**](../Model/OrderWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **orderid** | **int**|  | |
+| **orderWrite** | [**\Spy\SitooClient\Model\OrderWrite**](../Model/OrderWrite.md)|  | |
 
 ### Return type
 

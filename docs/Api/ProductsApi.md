@@ -5,12 +5,12 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**batchAddProducts()**](ProductsApi.md#batchAddProducts) | **POST** /sites/{siteid}/products.json |  |
-[**batchDeleteProducts()**](ProductsApi.md#batchDeleteProducts) | **DELETE** /sites/{siteid}/products.json |  |
-[**batchUpdateProducts()**](ProductsApi.md#batchUpdateProducts) | **PUT** /sites/{siteid}/products.json |  |
-[**deleteProduct()**](ProductsApi.md#deleteProduct) | **DELETE** /sites/{siteid}/products/{productid}.json |  |
-[**getProduct()**](ProductsApi.md#getProduct) | **GET** /sites/{siteid}/products/{productid}.json |  |
-[**getProducts()**](ProductsApi.md#getProducts) | **GET** /sites/{siteid}/products.json |  |
-[**updateProduct()**](ProductsApi.md#updateProduct) | **PUT** /sites/{siteid}/products/{productid}.json |  |
+| [**batchDeleteProducts()**](ProductsApi.md#batchDeleteProducts) | **DELETE** /sites/{siteid}/products.json |  |
+| [**batchUpdateProducts()**](ProductsApi.md#batchUpdateProducts) | **PUT** /sites/{siteid}/products.json |  |
+| [**deleteProduct()**](ProductsApi.md#deleteProduct) | **DELETE** /sites/{siteid}/products/{productid}.json |  |
+| [**getProduct()**](ProductsApi.md#getProduct) | **GET** /sites/{siteid}/products/{productid}.json |  |
+| [**getProducts()**](ProductsApi.md#getProducts) | **GET** /sites/{siteid}/products.json |  |
+| [**updateProduct()**](ProductsApi.md#updateProduct) | **PUT** /sites/{siteid}/products/{productid}.json |  |
 
 
 ## `batchAddProducts()`
@@ -55,10 +55,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productWrite** | [**\Spy\SitooClient\Model\ProductWrite[]**](../Model/ProductWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productWrite** | [**\Spy\SitooClient\Model\ProductWrite[]**](../Model/ProductWrite.md)|  | |
 
 ### Return type
 
@@ -118,10 +118,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **requestBody** | [**object[]**](../Model/object.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **requestBody** | [**object[]**](../Model/object.md)|  | |
 
 ### Return type
 
@@ -181,10 +181,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productWrite** | [**\Spy\SitooClient\Model\ProductWrite[]**](../Model/ProductWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productWrite** | [**\Spy\SitooClient\Model\ProductWrite[]**](../Model/ProductWrite.md)|  | |
 
 ### Return type
 
@@ -243,10 +243,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productid** | **int**|  | |
 
 ### Return type
 
@@ -305,10 +305,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productid** | **int**|  | |
 
 ### Return type
 
@@ -374,15 +374,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **sku** | **string**|  | [optional]
- **includeinactive** | **bool**|  | [optional]
- **datelastmodified** | **int**|  | [optional]
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **sku** | **string**|  | [optional] |
+| **includeinactive** | **bool**|  | [optional] |
+| **datelastmodified** | **int**|  | [optional] |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -442,11 +442,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productid** | **int**|  |
- **productWrite** | [**\Spy\SitooClient\Model\ProductWrite**](../Model/ProductWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productid** | **int**|  | |
+| **productWrite** | [**\Spy\SitooClient\Model\ProductWrite**](../Model/ProductWrite.md)|  | |
 
 ### Return type
 

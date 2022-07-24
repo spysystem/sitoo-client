@@ -5,7 +5,7 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**getProductVariants()**](ProductVariantsApi.md#getProductVariants) | **GET** /sites/{siteid}/products/{productid}/productvariants.json |  |
-[**setProductVariants()**](ProductVariantsApi.md#setProductVariants) | **PUT** /sites/{siteid}/products/{productid}/productvariants.json |  |
+| [**setProductVariants()**](ProductVariantsApi.md#setProductVariants) | **PUT** /sites/{siteid}/products/{productid}/productvariants.json |  |
 
 
 ## `getProductVariants()`
@@ -48,10 +48,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productid** | **int**|  | |
 
 ### Return type
 
@@ -113,11 +113,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productid** | **int**|  |
- **productvariantsWrite** | [**\Spy\SitooClient\Model\ProductvariantsWrite**](../Model/ProductvariantsWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productid** | **int**|  | |
+| **productvariantsWrite** | [**\Spy\SitooClient\Model\ProductvariantsWrite**](../Model/ProductvariantsWrite.md)|  | |
 
 ### Return type
 

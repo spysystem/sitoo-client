@@ -5,9 +5,9 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addServiceOrder()**](ServiceOrdersApi.md#addServiceOrder) | **POST** /serviceorders.json |  |
-[**getServiceOrder()**](ServiceOrdersApi.md#getServiceOrder) | **GET** /serviceorders/{service_order_id}.json |  |
-[**getServiceOrders()**](ServiceOrdersApi.md#getServiceOrders) | **GET** /serviceorders.json |  |
-[**updateServiceOrder()**](ServiceOrdersApi.md#updateServiceOrder) | **PUT** /serviceorders/{service_order_id}.json |  |
+| [**getServiceOrder()**](ServiceOrdersApi.md#getServiceOrder) | **GET** /serviceorders/{service_order_id}.json |  |
+| [**getServiceOrders()**](ServiceOrdersApi.md#getServiceOrders) | **GET** /serviceorders.json |  |
+| [**updateServiceOrder()**](ServiceOrdersApi.md#updateServiceOrder) | **PUT** /serviceorders/{service_order_id}.json |  |
 
 
 ## `addServiceOrder()`
@@ -50,9 +50,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceOrderWrite** | [**\Spy\SitooClient\Model\ServiceOrderWrite**](../Model/ServiceOrderWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **serviceOrderWrite** | [**\Spy\SitooClient\Model\ServiceOrderWrite**](../Model/ServiceOrderWrite.md)|  | |
 
 ### Return type
 
@@ -111,9 +111,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceOrderId** | **string**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **serviceOrderId** | **string**|  | |
 
 ### Return type
 
@@ -176,13 +176,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **store** | **string**|  | [optional]
- **state** | [**string[]**](../Model/string.md)|  | [optional]
- **startAfterId** | **string**|  | [optional]
- **num** | **int**|  | [optional]
- **sort** | **string**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **store** | **string**|  | [optional] |
+| **state** | [**string[]**](../Model/string.md)|  | [optional] |
+| **startAfterId** | **string**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **sort** | **string**|  | [optional] |
 
 ### Return type
 
@@ -242,10 +242,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceOrderId** | **string**|  |
- **serviceOrderWrite** | [**\Spy\SitooClient\Model\ServiceOrderWrite**](../Model/ServiceOrderWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **serviceOrderId** | **string**|  | |
+| **serviceOrderWrite** | [**\Spy\SitooClient\Model\ServiceOrderWrite**](../Model/ServiceOrderWrite.md)|  | |
 
 ### Return type
 

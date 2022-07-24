@@ -5,10 +5,10 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**batchAddInfluencerCodes()**](InfluencerCodesApi.md#batchAddInfluencerCodes) | **POST** /sites/{siteid}/influencercodes.json |  |
-[**batchDeleteInfluencerCodes()**](InfluencerCodesApi.md#batchDeleteInfluencerCodes) | **DELETE** /sites/{siteid}/influencercodes.json |  |
-[**batchUpdateInfluencerCodes()**](InfluencerCodesApi.md#batchUpdateInfluencerCodes) | **PUT** /sites/{siteid}/influencercodes.json |  |
-[**getInfluencerCode()**](InfluencerCodesApi.md#getInfluencerCode) | **GET** /sites/{siteid}/influencercodes/{code}.json |  |
-[**getInfluencerCodes()**](InfluencerCodesApi.md#getInfluencerCodes) | **GET** /sites/{siteid}/influencercodes.json |  |
+| [**batchDeleteInfluencerCodes()**](InfluencerCodesApi.md#batchDeleteInfluencerCodes) | **DELETE** /sites/{siteid}/influencercodes.json |  |
+| [**batchUpdateInfluencerCodes()**](InfluencerCodesApi.md#batchUpdateInfluencerCodes) | **PUT** /sites/{siteid}/influencercodes.json |  |
+| [**getInfluencerCode()**](InfluencerCodesApi.md#getInfluencerCode) | **GET** /sites/{siteid}/influencercodes/{code}.json |  |
+| [**getInfluencerCodes()**](InfluencerCodesApi.md#getInfluencerCodes) | **GET** /sites/{siteid}/influencercodes.json |  |
 
 
 ## `batchAddInfluencerCodes()`
@@ -50,10 +50,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **influencercodeWrite** | [**\Spy\SitooClient\Model\InfluencercodeWrite[]**](../Model/InfluencercodeWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **influencercodeWrite** | [**\Spy\SitooClient\Model\InfluencercodeWrite[]**](../Model/InfluencercodeWrite.md)|  | |
 
 ### Return type
 
@@ -111,10 +111,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **requestBody** | [**object[]**](../Model/object.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **requestBody** | [**object[]**](../Model/object.md)|  | |
 
 ### Return type
 
@@ -172,10 +172,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **influencercodeWrite** | [**\Spy\SitooClient\Model\InfluencercodeWrite[]**](../Model/InfluencercodeWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **influencercodeWrite** | [**\Spy\SitooClient\Model\InfluencercodeWrite[]**](../Model/InfluencercodeWrite.md)|  | |
 
 ### Return type
 
@@ -235,11 +235,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **code** | **int**|  |
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **code** | **int**|  | |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -300,12 +300,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 

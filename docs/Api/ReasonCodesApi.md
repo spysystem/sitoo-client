@@ -5,10 +5,10 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addReasonCode()**](ReasonCodesApi.md#addReasonCode) | **POST** /reasoncodes.json |  |
-[**deleteReasonCode()**](ReasonCodesApi.md#deleteReasonCode) | **DELETE** /reasoncodes/{reasoncodeid}.json |  |
-[**getReasonCode()**](ReasonCodesApi.md#getReasonCode) | **GET** /reasoncodes/{reasoncodeid}.json |  |
-[**getReasonCodes()**](ReasonCodesApi.md#getReasonCodes) | **GET** /reasoncodes.json |  |
-[**updateReasonCode()**](ReasonCodesApi.md#updateReasonCode) | **PUT** /reasoncodes/{reasoncodeid}.json |  |
+| [**deleteReasonCode()**](ReasonCodesApi.md#deleteReasonCode) | **DELETE** /reasoncodes/{reasoncodeid}.json |  |
+| [**getReasonCode()**](ReasonCodesApi.md#getReasonCode) | **GET** /reasoncodes/{reasoncodeid}.json |  |
+| [**getReasonCodes()**](ReasonCodesApi.md#getReasonCodes) | **GET** /reasoncodes.json |  |
+| [**updateReasonCode()**](ReasonCodesApi.md#updateReasonCode) | **PUT** /reasoncodes/{reasoncodeid}.json |  |
 
 
 ## `addReasonCode()`
@@ -49,9 +49,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **reasoncodeWrite** | [**\Spy\SitooClient\Model\ReasoncodeWrite**](../Model/ReasoncodeWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **reasoncodeWrite** | [**\Spy\SitooClient\Model\ReasoncodeWrite**](../Model/ReasoncodeWrite.md)|  | |
 
 ### Return type
 
@@ -109,9 +109,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **reasoncodeid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **reasoncodeid** | **int**|  | |
 
 ### Return type
 
@@ -169,9 +169,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **reasoncodeid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **reasoncodeid** | **int**|  | |
 
 ### Return type
 
@@ -232,12 +232,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **type** | [**int[]**](../Model/int.md)|  | [optional]
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **type** | [**int[]**](../Model/int.md)|  | [optional] |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -296,10 +296,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **reasoncodeid** | **int**|  |
- **reasoncodeWrite** | [**\Spy\SitooClient\Model\ReasoncodeWrite**](../Model/ReasoncodeWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **reasoncodeid** | **int**|  | |
+| **reasoncodeWrite** | [**\Spy\SitooClient\Model\ReasoncodeWrite**](../Model/ReasoncodeWrite.md)|  | |
 
 ### Return type
 

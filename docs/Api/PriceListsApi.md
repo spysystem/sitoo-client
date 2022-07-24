@@ -5,13 +5,13 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addPriceList()**](PriceListsApi.md#addPriceList) | **POST** /sites/{siteid}/pricelists.json |  |
-[**batchDeletePriceListItems()**](PriceListsApi.md#batchDeletePriceListItems) | **DELETE** /sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json |  |
-[**batchSetPriceListItems()**](PriceListsApi.md#batchSetPriceListItems) | **PUT** /sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json |  |
-[**deletePriceList()**](PriceListsApi.md#deletePriceList) | **DELETE** /sites/{siteid}/pricelists/{pricelistid}.json |  |
-[**getPriceList()**](PriceListsApi.md#getPriceList) | **GET** /sites/{siteid}/pricelists/{pricelistid}.json |  |
-[**getPriceLists()**](PriceListsApi.md#getPriceLists) | **GET** /sites/{siteid}/pricelists.json |  |
-[**getPriceListsItems()**](PriceListsApi.md#getPriceListsItems) | **GET** /sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json |  |
-[**updatePriceList()**](PriceListsApi.md#updatePriceList) | **PUT** /sites/{siteid}/pricelists/{pricelistid}.json |  |
+| [**batchDeletePriceListItems()**](PriceListsApi.md#batchDeletePriceListItems) | **DELETE** /sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json |  |
+| [**batchSetPriceListItems()**](PriceListsApi.md#batchSetPriceListItems) | **PUT** /sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json |  |
+| [**deletePriceList()**](PriceListsApi.md#deletePriceList) | **DELETE** /sites/{siteid}/pricelists/{pricelistid}.json |  |
+| [**getPriceList()**](PriceListsApi.md#getPriceList) | **GET** /sites/{siteid}/pricelists/{pricelistid}.json |  |
+| [**getPriceLists()**](PriceListsApi.md#getPriceLists) | **GET** /sites/{siteid}/pricelists.json |  |
+| [**getPriceListsItems()**](PriceListsApi.md#getPriceListsItems) | **GET** /sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json |  |
+| [**updatePriceList()**](PriceListsApi.md#updatePriceList) | **PUT** /sites/{siteid}/pricelists/{pricelistid}.json |  |
 
 
 ## `addPriceList()`
@@ -55,10 +55,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **pricelistWrite** | [**\Spy\SitooClient\Model\PricelistWrite**](../Model/PricelistWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **pricelistWrite** | [**\Spy\SitooClient\Model\PricelistWrite**](../Model/PricelistWrite.md)|  | |
 
 ### Return type
 
@@ -117,11 +117,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **pricelistid** | **int**|  |
- **requestBody** | [**object[]**](../Model/object.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **pricelistid** | **int**|  | |
+| **requestBody** | [**object[]**](../Model/object.md)|  | |
 
 ### Return type
 
@@ -181,11 +181,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **pricelistid** | **int**|  |
- **pricelistitemWrite** | [**\Spy\SitooClient\Model\PricelistitemWrite[]**](../Model/PricelistitemWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **pricelistid** | **int**|  | |
+| **pricelistitemWrite** | [**\Spy\SitooClient\Model\PricelistitemWrite[]**](../Model/PricelistitemWrite.md)|  | |
 
 ### Return type
 
@@ -244,10 +244,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **pricelistid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **pricelistid** | **int**|  | |
 
 ### Return type
 
@@ -306,10 +306,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **pricelistid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **pricelistid** | **int**|  | |
 
 ### Return type
 
@@ -370,12 +370,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -437,13 +437,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **pricelistid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **pricelistid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -503,11 +503,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **pricelistid** | **int**|  |
- **pricelistWrite** | [**\Spy\SitooClient\Model\PricelistWrite**](../Model/PricelistWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **pricelistid** | **int**|  | |
+| **pricelistWrite** | [**\Spy\SitooClient\Model\PricelistWrite**](../Model/PricelistWrite.md)|  | |
 
 ### Return type
 

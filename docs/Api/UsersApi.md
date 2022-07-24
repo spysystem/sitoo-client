@@ -5,11 +5,11 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**batchAddUsers()**](UsersApi.md#batchAddUsers) | **POST** /sites/{siteid}/users.json |  |
-[**batchUpdateUsers()**](UsersApi.md#batchUpdateUsers) | **PUT** /sites/{siteid}/users.json |  |
-[**deleteUser()**](UsersApi.md#deleteUser) | **DELETE** /sites/{siteid}/users/{userid}.json |  |
-[**getUser()**](UsersApi.md#getUser) | **GET** /sites/{siteid}/users/{userid}.json |  |
-[**getUsers()**](UsersApi.md#getUsers) | **GET** /sites/{siteid}/users.json |  |
-[**updateUser()**](UsersApi.md#updateUser) | **PUT** /sites/{siteid}/users/{userid}.json |  |
+| [**batchUpdateUsers()**](UsersApi.md#batchUpdateUsers) | **PUT** /sites/{siteid}/users.json |  |
+| [**deleteUser()**](UsersApi.md#deleteUser) | **DELETE** /sites/{siteid}/users/{userid}.json |  |
+| [**getUser()**](UsersApi.md#getUser) | **GET** /sites/{siteid}/users/{userid}.json |  |
+| [**getUsers()**](UsersApi.md#getUsers) | **GET** /sites/{siteid}/users.json |  |
+| [**updateUser()**](UsersApi.md#updateUser) | **PUT** /sites/{siteid}/users/{userid}.json |  |
 
 
 ## `batchAddUsers()`
@@ -51,10 +51,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **userWrite** | [**\Spy\SitooClient\Model\UserWrite[]**](../Model/UserWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **userWrite** | [**\Spy\SitooClient\Model\UserWrite[]**](../Model/UserWrite.md)|  | |
 
 ### Return type
 
@@ -114,10 +114,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **userWrite** | [**\Spy\SitooClient\Model\UserWrite[]**](../Model/UserWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **userWrite** | [**\Spy\SitooClient\Model\UserWrite[]**](../Model/UserWrite.md)|  | |
 
 ### Return type
 
@@ -176,10 +176,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **userid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **userid** | **int**|  | |
 
 ### Return type
 
@@ -239,11 +239,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **userid** | **int**|  |
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **userid** | **int**|  | |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -308,16 +308,16 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **email** | **string**|  | [optional]
- **customernumber** | **string**|  | [optional]
- **personalid** | **string**|  | [optional]
- **mobile** | **string**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **email** | **string**|  | [optional] |
+| **customernumber** | **string**|  | [optional] |
+| **personalid** | **string**|  | [optional] |
+| **mobile** | **string**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -377,11 +377,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **userid** | **int**|  |
- **userWrite** | [**\Spy\SitooClient\Model\UserWrite**](../Model/UserWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **userid** | **int**|  | |
+| **userWrite** | [**\Spy\SitooClient\Model\UserWrite**](../Model/UserWrite.md)|  | |
 
 ### Return type
 

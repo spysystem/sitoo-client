@@ -5,10 +5,10 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addCustomAttribute()**](ProductCustomAttributesApi.md#addCustomAttribute) | **POST** /sites/{siteid}/customattributes.json |  |
-[**deleteCustomAttribute()**](ProductCustomAttributesApi.md#deleteCustomAttribute) | **DELETE** /sites/{siteid}/customattributes/{attributeid}.json |  |
-[**getCustomAttribute()**](ProductCustomAttributesApi.md#getCustomAttribute) | **GET** /sites/{siteid}/customattributes/{attributeid}.json |  |
-[**getCustomAttributes()**](ProductCustomAttributesApi.md#getCustomAttributes) | **GET** /sites/{siteid}/customattributes.json |  |
-[**updateCustomAttribute()**](ProductCustomAttributesApi.md#updateCustomAttribute) | **PUT** /sites/{siteid}/customattributes/{attributeid}.json |  |
+| [**deleteCustomAttribute()**](ProductCustomAttributesApi.md#deleteCustomAttribute) | **DELETE** /sites/{siteid}/customattributes/{attributeid}.json |  |
+| [**getCustomAttribute()**](ProductCustomAttributesApi.md#getCustomAttribute) | **GET** /sites/{siteid}/customattributes/{attributeid}.json |  |
+| [**getCustomAttributes()**](ProductCustomAttributesApi.md#getCustomAttributes) | **GET** /sites/{siteid}/customattributes.json |  |
+| [**updateCustomAttribute()**](ProductCustomAttributesApi.md#updateCustomAttribute) | **PUT** /sites/{siteid}/customattributes/{attributeid}.json |  |
 
 
 ## `addCustomAttribute()`
@@ -52,10 +52,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **customAttributeWrite** | [**\Spy\SitooClient\Model\CustomAttributeWrite**](../Model/CustomAttributeWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **customAttributeWrite** | [**\Spy\SitooClient\Model\CustomAttributeWrite**](../Model/CustomAttributeWrite.md)|  | |
 
 ### Return type
 
@@ -115,10 +115,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **attributeid** | **string**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **attributeid** | **string**|  | |
 
 ### Return type
 
@@ -178,10 +178,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **attributeid** | **string**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **attributeid** | **string**|  | |
 
 ### Return type
 
@@ -242,11 +242,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
 
 ### Return type
 
@@ -307,11 +307,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **attributeid** | **string**|  |
- **customAttributeWrite** | [**\Spy\SitooClient\Model\CustomAttributeWrite**](../Model/CustomAttributeWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **attributeid** | **string**|  | |
+| **customAttributeWrite** | [**\Spy\SitooClient\Model\CustomAttributeWrite**](../Model/CustomAttributeWrite.md)|  | |
 
 ### Return type
 

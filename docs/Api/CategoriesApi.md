@@ -5,10 +5,10 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addCategory()**](CategoriesApi.md#addCategory) | **POST** /sites/{siteid}/categories.json |  |
-[**deleteCategory()**](CategoriesApi.md#deleteCategory) | **DELETE** /sites/{siteid}/categories/{categoryid}.json |  |
-[**getCategories()**](CategoriesApi.md#getCategories) | **GET** /sites/{siteid}/categories.json |  |
-[**getCategory()**](CategoriesApi.md#getCategory) | **GET** /sites/{siteid}/categories/{categoryid}.json |  |
-[**updateCategory()**](CategoriesApi.md#updateCategory) | **PUT** /sites/{siteid}/categories/{categoryid}.json |  |
+| [**deleteCategory()**](CategoriesApi.md#deleteCategory) | **DELETE** /sites/{siteid}/categories/{categoryid}.json |  |
+| [**getCategories()**](CategoriesApi.md#getCategories) | **GET** /sites/{siteid}/categories.json |  |
+| [**getCategory()**](CategoriesApi.md#getCategory) | **GET** /sites/{siteid}/categories/{categoryid}.json |  |
+| [**updateCategory()**](CategoriesApi.md#updateCategory) | **PUT** /sites/{siteid}/categories/{categoryid}.json |  |
 
 
 ## `addCategory()`
@@ -51,10 +51,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **categoryWrite** | [**\Spy\SitooClient\Model\CategoryWrite**](../Model/CategoryWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **categoryWrite** | [**\Spy\SitooClient\Model\CategoryWrite**](../Model/CategoryWrite.md)|  | |
 
 ### Return type
 
@@ -115,10 +115,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **categoryid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **categoryid** | **int**|  | |
 
 ### Return type
 
@@ -179,12 +179,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -243,10 +243,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **categoryid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **categoryid** | **int**|  | |
 
 ### Return type
 
@@ -306,11 +306,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **categoryid** | **int**|  |
- **categoryWrite** | [**\Spy\SitooClient\Model\CategoryWrite**](../Model/CategoryWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **categoryid** | **int**|  | |
+| **categoryWrite** | [**\Spy\SitooClient\Model\CategoryWrite**](../Model/CategoryWrite.md)|  | |
 
 ### Return type
 
