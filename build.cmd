@@ -1,11 +1,11 @@
 del /s /q .openapi-generator docs lib test > nul 2>&1
 
-docker pull spysystem/openapi-generator:th-spy-master-dev
+docker pull spysystem/openapi-generator:spy_branch
 
 docker run^
     --rm^
     -v "%cd%":/local^
-    spysystem/openapi-generator:th-spy-master-dev^
+    spysystem/openapi-generator:spy_branch^
     generate^
     --generator-name php^
     --config /local/src/openapi-config.yaml^
