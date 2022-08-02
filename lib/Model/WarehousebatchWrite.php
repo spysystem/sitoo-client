@@ -49,6 +49,26 @@ class WarehousebatchWrite implements ModelInterface, ArrayAccess, \JsonSerializa
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return WarehousebatchWriteModelFields
+      */
+    public static function GetModelFields(): WarehousebatchWriteModelFields
+    {
+        return new WarehousebatchWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return WarehousebatchWriteModelAttributes
+      */
+    public static function GetModelAttributes(): WarehousebatchWriteModelAttributes
+    {
+        return new WarehousebatchWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

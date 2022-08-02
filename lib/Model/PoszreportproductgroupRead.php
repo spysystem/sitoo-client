@@ -49,6 +49,26 @@ class PoszreportproductgroupRead implements ModelInterface, ArrayAccess, \JsonSe
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return PoszreportproductgroupReadModelFields
+      */
+    public static function GetModelFields(): PoszreportproductgroupReadModelFields
+    {
+        return new PoszreportproductgroupReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return PoszreportproductgroupReadModelAttributes
+      */
+    public static function GetModelAttributes(): PoszreportproductgroupReadModelAttributes
+    {
+        return new PoszreportproductgroupReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

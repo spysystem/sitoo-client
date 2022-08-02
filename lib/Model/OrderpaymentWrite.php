@@ -49,6 +49,26 @@ class OrderpaymentWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderpaymentWriteModelFields
+      */
+    public static function GetModelFields(): OrderpaymentWriteModelFields
+    {
+        return new OrderpaymentWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderpaymentWriteModelAttributes
+      */
+    public static function GetModelAttributes(): OrderpaymentWriteModelAttributes
+    {
+        return new OrderpaymentWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

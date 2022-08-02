@@ -131,7 +131,7 @@ class CashRegistersApi
      *
      * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($hostIndex)
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -191,7 +191,7 @@ class CashRegistersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -204,21 +204,20 @@ class CashRegistersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\PosregisterRead' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\PosregisterRead' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -232,12 +231,11 @@ class CashRegistersApi
             }
 
             $returnType = '\Spy\SitooClient\Model\PosregisterRead';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\PosregisterRead' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -266,8 +264,6 @@ class CashRegistersApi
     /**
      * Operation getCashRegisterAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  string $registerid (required)
      *
@@ -287,8 +283,6 @@ class CashRegistersApi
     /**
      * Operation getCashRegisterAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  string $registerid (required)
      *
@@ -304,11 +298,13 @@ class CashRegistersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -328,7 +324,7 @@ class CashRegistersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -437,10 +433,13 @@ class CashRegistersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -485,7 +484,7 @@ class CashRegistersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -498,21 +497,20 @@ class CashRegistersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\GetCashRegistersResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\GetCashRegistersResponse' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -526,12 +524,11 @@ class CashRegistersApi
             }
 
             $returnType = '\Spy\SitooClient\Model\GetCashRegistersResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\GetCashRegistersResponse' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -560,8 +557,6 @@ class CashRegistersApi
     /**
      * Operation getCashRegistersAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $start (optional)
      * @param  int $num (optional)
@@ -582,8 +577,6 @@ class CashRegistersApi
     /**
      * Operation getCashRegistersAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $start (optional)
      * @param  int $num (optional)
@@ -600,11 +593,13 @@ class CashRegistersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -624,7 +619,7 @@ class CashRegistersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -734,10 +729,13 @@ class CashRegistersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -782,7 +780,7 @@ class CashRegistersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -795,21 +793,20 @@ class CashRegistersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\PoszreportRead' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\PoszreportRead' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -823,12 +820,11 @@ class CashRegistersApi
             }
 
             $returnType = '\Spy\SitooClient\Model\PoszreportRead';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\PoszreportRead' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -857,8 +853,6 @@ class CashRegistersApi
     /**
      * Operation getZReportAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  string $registerid (required)
      * @param  int $zreportid (required)
@@ -879,8 +873,6 @@ class CashRegistersApi
     /**
      * Operation getZReportAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  string $registerid (required)
      * @param  int $zreportid (required)
@@ -897,11 +889,13 @@ class CashRegistersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -921,7 +915,7 @@ class CashRegistersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1045,10 +1039,13 @@ class CashRegistersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1099,7 +1096,7 @@ class CashRegistersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -1112,21 +1109,20 @@ class CashRegistersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\GetZReportsResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\GetZReportsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1140,12 +1136,11 @@ class CashRegistersApi
             }
 
             $returnType = '\Spy\SitooClient\Model\GetZReportsResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\GetZReportsResponse' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -1174,8 +1169,6 @@ class CashRegistersApi
     /**
      * Operation getZReportsAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  string $registerid (required)
      * @param  int $datecreatedfrom (optional)
@@ -1199,8 +1192,6 @@ class CashRegistersApi
     /**
      * Operation getZReportsAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  string $registerid (required)
      * @param  int $datecreatedfrom (optional)
@@ -1220,11 +1211,13 @@ class CashRegistersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1244,7 +1237,7 @@ class CashRegistersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1385,10 +1378,13 @@ class CashRegistersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

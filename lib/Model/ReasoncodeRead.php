@@ -49,6 +49,26 @@ class ReasoncodeRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ReasoncodeReadModelFields
+      */
+    public static function GetModelFields(): ReasoncodeReadModelFields
+    {
+        return new ReasoncodeReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ReasoncodeReadModelAttributes
+      */
+    public static function GetModelAttributes(): ReasoncodeReadModelAttributes
+    {
+        return new ReasoncodeReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

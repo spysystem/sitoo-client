@@ -49,6 +49,26 @@ class OrderitemWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderitemWriteModelFields
+      */
+    public static function GetModelFields(): OrderitemWriteModelFields
+    {
+        return new OrderitemWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderitemWriteModelAttributes
+      */
+    public static function GetModelAttributes(): OrderitemWriteModelAttributes
+    {
+        return new OrderitemWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

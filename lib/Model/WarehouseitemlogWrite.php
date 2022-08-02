@@ -49,6 +49,26 @@ class WarehouseitemlogWrite implements ModelInterface, ArrayAccess, \JsonSeriali
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return WarehouseitemlogWriteModelFields
+      */
+    public static function GetModelFields(): WarehouseitemlogWriteModelFields
+    {
+        return new WarehouseitemlogWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return WarehouseitemlogWriteModelAttributes
+      */
+    public static function GetModelAttributes(): WarehouseitemlogWriteModelAttributes
+    {
+        return new WarehouseitemlogWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

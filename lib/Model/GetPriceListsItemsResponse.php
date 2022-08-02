@@ -48,6 +48,26 @@ class GetPriceListsItemsResponse implements ModelInterface, ArrayAccess, \JsonSe
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetPriceListsItemsResponseModelFields
+      */
+    public static function GetModelFields(): GetPriceListsItemsResponseModelFields
+    {
+        return new GetPriceListsItemsResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetPriceListsItemsResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetPriceListsItemsResponseModelAttributes
+    {
+        return new GetPriceListsItemsResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

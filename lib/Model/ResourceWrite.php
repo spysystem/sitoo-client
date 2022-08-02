@@ -49,6 +49,26 @@ class ResourceWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ResourceWriteModelFields
+      */
+    public static function GetModelFields(): ResourceWriteModelFields
+    {
+        return new ResourceWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ResourceWriteModelAttributes
+      */
+    public static function GetModelAttributes(): ResourceWriteModelAttributes
+    {
+        return new ResourceWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -49,6 +49,26 @@ class SalestaxproductgroupruleWrite implements ModelInterface, ArrayAccess, \Jso
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return SalestaxproductgroupruleWriteModelFields
+      */
+    public static function GetModelFields(): SalestaxproductgroupruleWriteModelFields
+    {
+        return new SalestaxproductgroupruleWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return SalestaxproductgroupruleWriteModelAttributes
+      */
+    public static function GetModelAttributes(): SalestaxproductgroupruleWriteModelAttributes
+    {
+        return new SalestaxproductgroupruleWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

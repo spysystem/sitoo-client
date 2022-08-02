@@ -49,6 +49,26 @@ class InfluencervouchertransactionWrite implements ModelInterface, ArrayAccess, 
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return InfluencervouchertransactionWriteModelFields
+      */
+    public static function GetModelFields(): InfluencervouchertransactionWriteModelFields
+    {
+        return new InfluencervouchertransactionWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return InfluencervouchertransactionWriteModelAttributes
+      */
+    public static function GetModelAttributes(): InfluencervouchertransactionWriteModelAttributes
+    {
+        return new InfluencervouchertransactionWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

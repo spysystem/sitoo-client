@@ -131,7 +131,7 @@ class InfluencerCodesApi
      *
      * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($hostIndex)
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -190,7 +190,7 @@ class InfluencerCodesApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -203,11 +203,11 @@ class InfluencerCodesApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -222,8 +222,6 @@ class InfluencerCodesApi
 
     /**
      * Operation batchAddInfluencerCodesAsync
-     *
-     * 
      *
      * @param  int $siteid (required)
      * @param  \Spy\SitooClient\Model\InfluencercodeWrite[] $influencercodeWrite (required)
@@ -243,8 +241,6 @@ class InfluencerCodesApi
 
     /**
      * Operation batchAddInfluencerCodesAsyncWithHttpInfo
-     *
-     * 
      *
      * @param  int $siteid (required)
      * @param  \Spy\SitooClient\Model\InfluencercodeWrite[] $influencercodeWrite (required)
@@ -274,7 +270,7 @@ class InfluencerCodesApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -381,10 +377,13 @@ class InfluencerCodesApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -426,7 +425,7 @@ class InfluencerCodesApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -439,11 +438,11 @@ class InfluencerCodesApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -458,8 +457,6 @@ class InfluencerCodesApi
 
     /**
      * Operation batchDeleteInfluencerCodesAsync
-     *
-     * 
      *
      * @param  int $siteid (required)
      * @param  object[] $requestBody (required)
@@ -479,8 +476,6 @@ class InfluencerCodesApi
 
     /**
      * Operation batchDeleteInfluencerCodesAsyncWithHttpInfo
-     *
-     * 
      *
      * @param  int $siteid (required)
      * @param  object[] $requestBody (required)
@@ -510,7 +505,7 @@ class InfluencerCodesApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -617,10 +612,13 @@ class InfluencerCodesApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -662,7 +660,7 @@ class InfluencerCodesApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -675,11 +673,11 @@ class InfluencerCodesApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -694,8 +692,6 @@ class InfluencerCodesApi
 
     /**
      * Operation batchUpdateInfluencerCodesAsync
-     *
-     * 
      *
      * @param  int $siteid (required)
      * @param  \Spy\SitooClient\Model\InfluencercodeWrite[] $influencercodeWrite (required)
@@ -715,8 +711,6 @@ class InfluencerCodesApi
 
     /**
      * Operation batchUpdateInfluencerCodesAsyncWithHttpInfo
-     *
-     * 
      *
      * @param  int $siteid (required)
      * @param  \Spy\SitooClient\Model\InfluencercodeWrite[] $influencercodeWrite (required)
@@ -746,7 +740,7 @@ class InfluencerCodesApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -853,10 +847,13 @@ class InfluencerCodesApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -901,7 +898,7 @@ class InfluencerCodesApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -914,21 +911,20 @@ class InfluencerCodesApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\InfluencercodeRead' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\InfluencercodeRead' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -942,12 +938,11 @@ class InfluencerCodesApi
             }
 
             $returnType = '\Spy\SitooClient\Model\InfluencercodeRead';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\InfluencercodeRead' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -976,8 +971,6 @@ class InfluencerCodesApi
     /**
      * Operation getInfluencerCodeAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $code (required)
      * @param  string[] $fields list of fields, comma-separated (optional)
@@ -998,8 +991,6 @@ class InfluencerCodesApi
     /**
      * Operation getInfluencerCodeAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $code (required)
      * @param  string[] $fields list of fields, comma-separated (optional)
@@ -1016,11 +1007,13 @@ class InfluencerCodesApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1040,7 +1033,7 @@ class InfluencerCodesApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1157,10 +1150,13 @@ class InfluencerCodesApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1207,7 +1203,7 @@ class InfluencerCodesApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -1220,21 +1216,20 @@ class InfluencerCodesApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\GetInfluencerCodesResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\GetInfluencerCodesResponse' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1248,12 +1243,11 @@ class InfluencerCodesApi
             }
 
             $returnType = '\Spy\SitooClient\Model\GetInfluencerCodesResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\GetInfluencerCodesResponse' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -1282,8 +1276,6 @@ class InfluencerCodesApi
     /**
      * Operation getInfluencerCodesAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $start (optional)
      * @param  int $num (optional)
@@ -1305,8 +1297,6 @@ class InfluencerCodesApi
     /**
      * Operation getInfluencerCodesAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $start (optional)
      * @param  int $num (optional)
@@ -1324,11 +1314,13 @@ class InfluencerCodesApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1348,7 +1340,7 @@ class InfluencerCodesApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1466,10 +1458,13 @@ class InfluencerCodesApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

@@ -49,6 +49,26 @@ class WarehousetransactionWrite implements ModelInterface, ArrayAccess, \JsonSer
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return WarehousetransactionWriteModelFields
+      */
+    public static function GetModelFields(): WarehousetransactionWriteModelFields
+    {
+        return new WarehousetransactionWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return WarehousetransactionWriteModelAttributes
+      */
+    public static function GetModelAttributes(): WarehousetransactionWriteModelAttributes
+    {
+        return new WarehousetransactionWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

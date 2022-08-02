@@ -49,6 +49,26 @@ class WarehousetransactionRead implements ModelInterface, ArrayAccess, \JsonSeri
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return WarehousetransactionReadModelFields
+      */
+    public static function GetModelFields(): WarehousetransactionReadModelFields
+    {
+        return new WarehousetransactionReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return WarehousetransactionReadModelAttributes
+      */
+    public static function GetModelAttributes(): WarehousetransactionReadModelAttributes
+    {
+        return new WarehousetransactionReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

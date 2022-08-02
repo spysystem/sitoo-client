@@ -131,7 +131,7 @@ class ServiceOrdersApi
      *
      * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($hostIndex)
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -188,7 +188,7 @@ class ServiceOrdersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -201,11 +201,11 @@ class ServiceOrdersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -220,8 +220,6 @@ class ServiceOrdersApi
 
     /**
      * Operation addServiceOrderAsync
-     *
-     * 
      *
      * @param  \Spy\SitooClient\Model\ServiceOrderWrite $serviceOrderWrite (required)
      *
@@ -240,8 +238,6 @@ class ServiceOrdersApi
 
     /**
      * Operation addServiceOrderAsyncWithHttpInfo
-     *
-     * 
      *
      * @param  \Spy\SitooClient\Model\ServiceOrderWrite $serviceOrderWrite (required)
      *
@@ -270,7 +266,7 @@ class ServiceOrdersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -362,10 +358,13 @@ class ServiceOrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -405,7 +404,7 @@ class ServiceOrdersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -418,11 +417,11 @@ class ServiceOrdersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -437,8 +436,6 @@ class ServiceOrdersApi
 
     /**
      * Operation getServiceOrderAsync
-     *
-     * 
      *
      * @param  string $serviceOrderId (required)
      *
@@ -457,8 +454,6 @@ class ServiceOrdersApi
 
     /**
      * Operation getServiceOrderAsyncWithHttpInfo
-     *
-     * 
      *
      * @param  string $serviceOrderId (required)
      *
@@ -487,7 +482,7 @@ class ServiceOrdersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -581,10 +576,13 @@ class ServiceOrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -632,7 +630,7 @@ class ServiceOrdersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -645,11 +643,11 @@ class ServiceOrdersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -664,8 +662,6 @@ class ServiceOrdersApi
 
     /**
      * Operation getServiceOrdersAsync
-     *
-     * 
      *
      * @param  string $store (optional)
      * @param  string[] $state (optional)
@@ -688,8 +684,6 @@ class ServiceOrdersApi
 
     /**
      * Operation getServiceOrdersAsyncWithHttpInfo
-     *
-     * 
      *
      * @param  string $store (optional)
      * @param  string[] $state (optional)
@@ -722,7 +716,7 @@ class ServiceOrdersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -841,10 +835,13 @@ class ServiceOrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -886,7 +883,7 @@ class ServiceOrdersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -899,11 +896,11 @@ class ServiceOrdersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -918,8 +915,6 @@ class ServiceOrdersApi
 
     /**
      * Operation updateServiceOrderAsync
-     *
-     * 
      *
      * @param  string $serviceOrderId (required)
      * @param  \Spy\SitooClient\Model\ServiceOrderWrite $serviceOrderWrite (required)
@@ -939,8 +934,6 @@ class ServiceOrdersApi
 
     /**
      * Operation updateServiceOrderAsyncWithHttpInfo
-     *
-     * 
      *
      * @param  string $serviceOrderId (required)
      * @param  \Spy\SitooClient\Model\ServiceOrderWrite $serviceOrderWrite (required)
@@ -970,7 +963,7 @@ class ServiceOrdersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1077,10 +1070,13 @@ class ServiceOrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

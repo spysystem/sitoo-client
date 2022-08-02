@@ -49,6 +49,26 @@ class OrderlogitemRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderlogitemReadModelFields
+      */
+    public static function GetModelFields(): OrderlogitemReadModelFields
+    {
+        return new OrderlogitemReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderlogitemReadModelAttributes
+      */
+    public static function GetModelAttributes(): OrderlogitemReadModelAttributes
+    {
+        return new OrderlogitemReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

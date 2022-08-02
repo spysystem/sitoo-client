@@ -131,7 +131,7 @@ class StoresApi
      *
      * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($hostIndex)
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -190,7 +190,7 @@ class StoresApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -203,11 +203,11 @@ class StoresApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -222,8 +222,6 @@ class StoresApi
 
     /**
      * Operation addStoreAsync
-     *
-     * 
      *
      * @param  int $siteid (required)
      * @param  \Spy\SitooClient\Model\StoreWrite $storeWrite (required)
@@ -243,8 +241,6 @@ class StoresApi
 
     /**
      * Operation addStoreAsyncWithHttpInfo
-     *
-     * 
      *
      * @param  int $siteid (required)
      * @param  \Spy\SitooClient\Model\StoreWrite $storeWrite (required)
@@ -274,7 +270,7 @@ class StoresApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -381,10 +377,13 @@ class StoresApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -427,7 +426,7 @@ class StoresApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -440,21 +439,20 @@ class StoresApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('bool' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('bool' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -468,12 +466,11 @@ class StoresApi
             }
 
             $returnType = 'bool';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('bool' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -502,8 +499,6 @@ class StoresApi
     /**
      * Operation deleteStoreAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $storeid (required)
      *
@@ -523,8 +518,6 @@ class StoresApi
     /**
      * Operation deleteStoreAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $storeid (required)
      *
@@ -540,11 +533,13 @@ class StoresApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -564,7 +559,7 @@ class StoresApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -673,10 +668,13 @@ class StoresApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -719,7 +717,7 @@ class StoresApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -732,21 +730,20 @@ class StoresApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\StoreRead' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\StoreRead' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -760,12 +757,11 @@ class StoresApi
             }
 
             $returnType = '\Spy\SitooClient\Model\StoreRead';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\StoreRead' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -794,8 +790,6 @@ class StoresApi
     /**
      * Operation getStoreAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $storeid (required)
      *
@@ -815,8 +809,6 @@ class StoresApi
     /**
      * Operation getStoreAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $storeid (required)
      *
@@ -832,11 +824,13 @@ class StoresApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -856,7 +850,7 @@ class StoresApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -965,10 +959,13 @@ class StoresApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1015,7 +1012,7 @@ class StoresApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -1028,21 +1025,20 @@ class StoresApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\GetStoresResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\GetStoresResponse' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1056,12 +1052,11 @@ class StoresApi
             }
 
             $returnType = '\Spy\SitooClient\Model\GetStoresResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\GetStoresResponse' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -1090,8 +1085,6 @@ class StoresApi
     /**
      * Operation getStoresAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $start (optional)
      * @param  int $num (optional)
@@ -1113,8 +1106,6 @@ class StoresApi
     /**
      * Operation getStoresAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $start (optional)
      * @param  int $num (optional)
@@ -1132,11 +1123,13 @@ class StoresApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1156,7 +1149,7 @@ class StoresApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1274,10 +1267,13 @@ class StoresApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1322,7 +1318,7 @@ class StoresApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -1335,21 +1331,20 @@ class StoresApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('bool' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('bool' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1363,12 +1358,11 @@ class StoresApi
             }
 
             $returnType = 'bool';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('bool' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -1397,8 +1391,6 @@ class StoresApi
     /**
      * Operation updateStoreAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $storeid (required)
      * @param  \Spy\SitooClient\Model\StoreWrite $storeWrite (required)
@@ -1419,8 +1411,6 @@ class StoresApi
     /**
      * Operation updateStoreAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $storeid (required)
      * @param  \Spy\SitooClient\Model\StoreWrite $storeWrite (required)
@@ -1437,11 +1427,13 @@ class StoresApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1461,7 +1453,7 @@ class StoresApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1583,10 +1575,13 @@ class StoresApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

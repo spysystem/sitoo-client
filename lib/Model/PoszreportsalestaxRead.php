@@ -49,6 +49,26 @@ class PoszreportsalestaxRead implements ModelInterface, ArrayAccess, \JsonSerial
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return PoszreportsalestaxReadModelFields
+      */
+    public static function GetModelFields(): PoszreportsalestaxReadModelFields
+    {
+        return new PoszreportsalestaxReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return PoszreportsalestaxReadModelAttributes
+      */
+    public static function GetModelAttributes(): PoszreportsalestaxReadModelAttributes
+    {
+        return new PoszreportsalestaxReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

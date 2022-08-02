@@ -131,7 +131,7 @@ class ReasonCodesApi
      *
      * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($hostIndex)
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -188,7 +188,7 @@ class ReasonCodesApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -201,11 +201,11 @@ class ReasonCodesApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -220,8 +220,6 @@ class ReasonCodesApi
 
     /**
      * Operation addReasonCodeAsync
-     *
-     * 
      *
      * @param  \Spy\SitooClient\Model\ReasoncodeWrite $reasoncodeWrite (required)
      *
@@ -240,8 +238,6 @@ class ReasonCodesApi
 
     /**
      * Operation addReasonCodeAsyncWithHttpInfo
-     *
-     * 
      *
      * @param  \Spy\SitooClient\Model\ReasoncodeWrite $reasoncodeWrite (required)
      *
@@ -270,7 +266,7 @@ class ReasonCodesApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -362,10 +358,13 @@ class ReasonCodesApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -406,7 +405,7 @@ class ReasonCodesApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -419,21 +418,20 @@ class ReasonCodesApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('bool' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('bool' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -447,12 +445,11 @@ class ReasonCodesApi
             }
 
             $returnType = 'bool';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('bool' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -481,8 +478,6 @@ class ReasonCodesApi
     /**
      * Operation deleteReasonCodeAsync
      *
-     * 
-     *
      * @param  int $reasoncodeid (required)
      *
      * @throws \InvalidArgumentException
@@ -501,8 +496,6 @@ class ReasonCodesApi
     /**
      * Operation deleteReasonCodeAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $reasoncodeid (required)
      *
      * @throws \InvalidArgumentException
@@ -517,11 +510,13 @@ class ReasonCodesApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -541,7 +536,7 @@ class ReasonCodesApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -635,10 +630,13 @@ class ReasonCodesApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -679,7 +677,7 @@ class ReasonCodesApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -692,21 +690,20 @@ class ReasonCodesApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\ReasoncodeRead' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\ReasoncodeRead' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -720,12 +717,11 @@ class ReasonCodesApi
             }
 
             $returnType = '\Spy\SitooClient\Model\ReasoncodeRead';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\ReasoncodeRead' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -754,8 +750,6 @@ class ReasonCodesApi
     /**
      * Operation getReasonCodeAsync
      *
-     * 
-     *
      * @param  int $reasoncodeid (required)
      *
      * @throws \InvalidArgumentException
@@ -774,8 +768,6 @@ class ReasonCodesApi
     /**
      * Operation getReasonCodeAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $reasoncodeid (required)
      *
      * @throws \InvalidArgumentException
@@ -790,11 +782,13 @@ class ReasonCodesApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -814,7 +808,7 @@ class ReasonCodesApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -908,10 +902,13 @@ class ReasonCodesApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -958,7 +955,7 @@ class ReasonCodesApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -971,21 +968,20 @@ class ReasonCodesApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\GetReasonCodesResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\GetReasonCodesResponse' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -999,12 +995,11 @@ class ReasonCodesApi
             }
 
             $returnType = '\Spy\SitooClient\Model\GetReasonCodesResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\GetReasonCodesResponse' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -1033,8 +1028,6 @@ class ReasonCodesApi
     /**
      * Operation getReasonCodesAsync
      *
-     * 
-     *
      * @param  int[] $type (optional)
      * @param  int $start (optional)
      * @param  int $num (optional)
@@ -1056,8 +1049,6 @@ class ReasonCodesApi
     /**
      * Operation getReasonCodesAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int[] $type (optional)
      * @param  int $start (optional)
      * @param  int $num (optional)
@@ -1075,11 +1066,13 @@ class ReasonCodesApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1099,7 +1092,7 @@ class ReasonCodesApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1210,10 +1203,13 @@ class ReasonCodesApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1256,7 +1252,7 @@ class ReasonCodesApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -1269,21 +1265,20 @@ class ReasonCodesApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('bool' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('bool' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1297,12 +1292,11 @@ class ReasonCodesApi
             }
 
             $returnType = 'bool';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('bool' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -1331,8 +1325,6 @@ class ReasonCodesApi
     /**
      * Operation updateReasonCodeAsync
      *
-     * 
-     *
      * @param  int $reasoncodeid (required)
      * @param  \Spy\SitooClient\Model\ReasoncodeWrite $reasoncodeWrite (required)
      *
@@ -1352,8 +1344,6 @@ class ReasonCodesApi
     /**
      * Operation updateReasonCodeAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $reasoncodeid (required)
      * @param  \Spy\SitooClient\Model\ReasoncodeWrite $reasoncodeWrite (required)
      *
@@ -1369,11 +1359,13 @@ class ReasonCodesApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1393,7 +1385,7 @@ class ReasonCodesApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1500,10 +1492,13 @@ class ReasonCodesApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

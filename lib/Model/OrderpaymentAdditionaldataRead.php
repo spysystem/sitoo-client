@@ -49,6 +49,26 @@ class OrderpaymentAdditionaldataRead implements ModelInterface, ArrayAccess, \Js
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderpaymentAdditionaldataReadModelFields
+      */
+    public static function GetModelFields(): OrderpaymentAdditionaldataReadModelFields
+    {
+        return new OrderpaymentAdditionaldataReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderpaymentAdditionaldataReadModelAttributes
+      */
+    public static function GetModelAttributes(): OrderpaymentAdditionaldataReadModelAttributes
+    {
+        return new OrderpaymentAdditionaldataReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

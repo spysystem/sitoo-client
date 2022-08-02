@@ -48,6 +48,26 @@ class GetProductFilesResponse implements ModelInterface, ArrayAccess, \JsonSeria
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetProductFilesResponseModelFields
+      */
+    public static function GetModelFields(): GetProductFilesResponseModelFields
+    {
+        return new GetProductFilesResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetProductFilesResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetProductFilesResponseModelAttributes
+    {
+        return new GetProductFilesResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

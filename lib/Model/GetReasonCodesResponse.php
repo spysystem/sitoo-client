@@ -48,6 +48,26 @@ class GetReasonCodesResponse implements ModelInterface, ArrayAccess, \JsonSerial
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetReasonCodesResponseModelFields
+      */
+    public static function GetModelFields(): GetReasonCodesResponseModelFields
+    {
+        return new GetReasonCodesResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetReasonCodesResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetReasonCodesResponseModelAttributes
+    {
+        return new GetReasonCodesResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -49,6 +49,26 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return InfluencercodeReadModelFields
+      */
+    public static function GetModelFields(): InfluencercodeReadModelFields
+    {
+        return new InfluencercodeReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return InfluencercodeReadModelAttributes
+      */
+    public static function GetModelAttributes(): InfluencercodeReadModelAttributes
+    {
+        return new InfluencercodeReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -49,6 +49,26 @@ class PricelistitemRead implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return PricelistitemReadModelFields
+      */
+    public static function GetModelFields(): PricelistitemReadModelFields
+    {
+        return new PricelistitemReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return PricelistitemReadModelAttributes
+      */
+    public static function GetModelAttributes(): PricelistitemReadModelAttributes
+    {
+        return new PricelistitemReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

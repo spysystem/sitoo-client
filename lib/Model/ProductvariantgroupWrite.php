@@ -49,6 +49,26 @@ class ProductvariantgroupWrite implements ModelInterface, ArrayAccess, \JsonSeri
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ProductvariantgroupWriteModelFields
+      */
+    public static function GetModelFields(): ProductvariantgroupWriteModelFields
+    {
+        return new ProductvariantgroupWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ProductvariantgroupWriteModelAttributes
+      */
+    public static function GetModelAttributes(): ProductvariantgroupWriteModelAttributes
+    {
+        return new ProductvariantgroupWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

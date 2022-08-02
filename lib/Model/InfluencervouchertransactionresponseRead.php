@@ -49,6 +49,26 @@ class InfluencervouchertransactionresponseRead implements ModelInterface, ArrayA
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return InfluencervouchertransactionresponseReadModelFields
+      */
+    public static function GetModelFields(): InfluencervouchertransactionresponseReadModelFields
+    {
+        return new InfluencervouchertransactionresponseReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return InfluencervouchertransactionresponseReadModelAttributes
+      */
+    public static function GetModelAttributes(): InfluencervouchertransactionresponseReadModelAttributes
+    {
+        return new InfluencervouchertransactionresponseReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

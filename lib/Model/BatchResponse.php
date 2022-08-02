@@ -49,6 +49,26 @@ class BatchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return BatchResponseModelFields
+      */
+    public static function GetModelFields(): BatchResponseModelFields
+    {
+        return new BatchResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return BatchResponseModelAttributes
+      */
+    public static function GetModelAttributes(): BatchResponseModelAttributes
+    {
+        return new BatchResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

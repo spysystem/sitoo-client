@@ -49,6 +49,26 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return UserReadModelFields
+      */
+    public static function GetModelFields(): UserReadModelFields
+    {
+        return new UserReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return UserReadModelAttributes
+      */
+    public static function GetModelAttributes(): UserReadModelAttributes
+    {
+        return new UserReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

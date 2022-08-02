@@ -48,6 +48,26 @@ class GetUsersResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetUsersResponseModelFields
+      */
+    public static function GetModelFields(): GetUsersResponseModelFields
+    {
+        return new GetUsersResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetUsersResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetUsersResponseModelAttributes
+    {
+        return new GetUsersResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

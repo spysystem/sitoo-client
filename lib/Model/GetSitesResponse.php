@@ -48,6 +48,26 @@ class GetSitesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetSitesResponseModelFields
+      */
+    public static function GetModelFields(): GetSitesResponseModelFields
+    {
+        return new GetSitesResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetSitesResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetSitesResponseModelAttributes
+    {
+        return new GetSitesResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

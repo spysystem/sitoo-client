@@ -48,6 +48,26 @@ class GetAllOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetAllOrdersResponseModelFields
+      */
+    public static function GetModelFields(): GetAllOrdersResponseModelFields
+    {
+        return new GetAllOrdersResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetAllOrdersResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetAllOrdersResponseModelAttributes
+    {
+        return new GetAllOrdersResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -49,6 +49,26 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return VoucherWriteModelFields
+      */
+    public static function GetModelFields(): VoucherWriteModelFields
+    {
+        return new VoucherWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return VoucherWriteModelAttributes
+      */
+    public static function GetModelAttributes(): VoucherWriteModelAttributes
+    {
+        return new VoucherWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

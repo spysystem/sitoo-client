@@ -49,6 +49,26 @@ class OrderpaymentRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderpaymentReadModelFields
+      */
+    public static function GetModelFields(): OrderpaymentReadModelFields
+    {
+        return new OrderpaymentReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderpaymentReadModelAttributes
+      */
+    public static function GetModelAttributes(): OrderpaymentReadModelAttributes
+    {
+        return new OrderpaymentReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

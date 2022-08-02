@@ -49,6 +49,26 @@ class ReasoncodeWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ReasoncodeWriteModelFields
+      */
+    public static function GetModelFields(): ReasoncodeWriteModelFields
+    {
+        return new ReasoncodeWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ReasoncodeWriteModelAttributes
+      */
+    public static function GetModelAttributes(): ReasoncodeWriteModelAttributes
+    {
+        return new ReasoncodeWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -48,6 +48,26 @@ class GetStoresResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetStoresResponseModelFields
+      */
+    public static function GetModelFields(): GetStoresResponseModelFields
+    {
+        return new GetStoresResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetStoresResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetStoresResponseModelAttributes
+    {
+        return new GetStoresResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

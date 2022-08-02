@@ -49,6 +49,26 @@ class VolumepricelevelRead implements ModelInterface, ArrayAccess, \JsonSerializ
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return VolumepricelevelReadModelFields
+      */
+    public static function GetModelFields(): VolumepricelevelReadModelFields
+    {
+        return new VolumepricelevelReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return VolumepricelevelReadModelAttributes
+      */
+    public static function GetModelAttributes(): VolumepricelevelReadModelAttributes
+    {
+        return new VolumepricelevelReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

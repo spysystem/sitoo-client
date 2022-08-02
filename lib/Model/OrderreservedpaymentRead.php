@@ -49,6 +49,26 @@ class OrderreservedpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderreservedpaymentReadModelFields
+      */
+    public static function GetModelFields(): OrderreservedpaymentReadModelFields
+    {
+        return new OrderreservedpaymentReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderreservedpaymentReadModelAttributes
+      */
+    public static function GetModelAttributes(): OrderreservedpaymentReadModelAttributes
+    {
+        return new OrderreservedpaymentReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

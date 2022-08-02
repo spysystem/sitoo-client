@@ -1,10 +1,10 @@
 # Spy\SitooClient\ResourcesApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getResources()**](ResourcesApi.md#getResources) | **GET** /sites/{siteid}/resources.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getResources()**](ResourcesApi.md#getResources) | **GET** /sites/{siteid}/resources.json |  |
 
 
 ## `getResources()`

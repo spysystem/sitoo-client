@@ -48,6 +48,26 @@ class GetSalesTaxesResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetSalesTaxesResponseModelFields
+      */
+    public static function GetModelFields(): GetSalesTaxesResponseModelFields
+    {
+        return new GetSalesTaxesResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetSalesTaxesResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetSalesTaxesResponseModelAttributes
+    {
+        return new GetSalesTaxesResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

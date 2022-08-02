@@ -49,6 +49,26 @@ class ProductvariantsRead implements ModelInterface, ArrayAccess, \JsonSerializa
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ProductvariantsReadModelFields
+      */
+    public static function GetModelFields(): ProductvariantsReadModelFields
+    {
+        return new ProductvariantsReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ProductvariantsReadModelAttributes
+      */
+    public static function GetModelAttributes(): ProductvariantsReadModelAttributes
+    {
+        return new ProductvariantsReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

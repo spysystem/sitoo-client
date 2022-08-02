@@ -49,6 +49,26 @@ class ShipmentitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ShipmentitemWriteModelFields
+      */
+    public static function GetModelFields(): ShipmentitemWriteModelFields
+    {
+        return new ShipmentitemWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ShipmentitemWriteModelAttributes
+      */
+    public static function GetModelAttributes(): ShipmentitemWriteModelAttributes
+    {
+        return new ShipmentitemWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

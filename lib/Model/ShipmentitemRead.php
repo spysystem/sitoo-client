@@ -49,6 +49,26 @@ class ShipmentitemRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ShipmentitemReadModelFields
+      */
+    public static function GetModelFields(): ShipmentitemReadModelFields
+    {
+        return new ShipmentitemReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ShipmentitemReadModelAttributes
+      */
+    public static function GetModelAttributes(): ShipmentitemReadModelAttributes
+    {
+        return new ShipmentitemReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

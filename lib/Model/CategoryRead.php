@@ -49,6 +49,26 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return CategoryReadModelFields
+      */
+    public static function GetModelFields(): CategoryReadModelFields
+    {
+        return new CategoryReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return CategoryReadModelAttributes
+      */
+    public static function GetModelAttributes(): CategoryReadModelAttributes
+    {
+        return new CategoryReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

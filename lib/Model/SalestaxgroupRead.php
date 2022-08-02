@@ -49,6 +49,26 @@ class SalestaxgroupRead implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return SalestaxgroupReadModelFields
+      */
+    public static function GetModelFields(): SalestaxgroupReadModelFields
+    {
+        return new SalestaxgroupReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return SalestaxgroupReadModelAttributes
+      */
+    public static function GetModelAttributes(): SalestaxgroupReadModelAttributes
+    {
+        return new SalestaxgroupReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

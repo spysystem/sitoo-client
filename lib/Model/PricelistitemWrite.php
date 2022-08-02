@@ -49,6 +49,26 @@ class PricelistitemWrite implements ModelInterface, ArrayAccess, \JsonSerializab
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return PricelistitemWriteModelFields
+      */
+    public static function GetModelFields(): PricelistitemWriteModelFields
+    {
+        return new PricelistitemWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return PricelistitemWriteModelAttributes
+      */
+    public static function GetModelAttributes(): PricelistitemWriteModelAttributes
+    {
+        return new PricelistitemWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

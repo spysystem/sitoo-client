@@ -48,6 +48,26 @@ class GetShipmentsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetShipmentsResponseModelFields
+      */
+    public static function GetModelFields(): GetShipmentsResponseModelFields
+    {
+        return new GetShipmentsResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetShipmentsResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetShipmentsResponseModelAttributes
+    {
+        return new GetShipmentsResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

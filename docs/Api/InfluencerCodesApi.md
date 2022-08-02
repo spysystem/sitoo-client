@@ -1,14 +1,14 @@
 # Spy\SitooClient\InfluencerCodesApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**batchAddInfluencerCodes()**](InfluencerCodesApi.md#batchAddInfluencerCodes) | **POST** /sites/{siteid}/influencercodes.json | 
-[**batchDeleteInfluencerCodes()**](InfluencerCodesApi.md#batchDeleteInfluencerCodes) | **DELETE** /sites/{siteid}/influencercodes.json | 
-[**batchUpdateInfluencerCodes()**](InfluencerCodesApi.md#batchUpdateInfluencerCodes) | **PUT** /sites/{siteid}/influencercodes.json | 
-[**getInfluencerCode()**](InfluencerCodesApi.md#getInfluencerCode) | **GET** /sites/{siteid}/influencercodes/{code}.json | 
-[**getInfluencerCodes()**](InfluencerCodesApi.md#getInfluencerCodes) | **GET** /sites/{siteid}/influencercodes.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**batchAddInfluencerCodes()**](InfluencerCodesApi.md#batchAddInfluencerCodes) | **POST** /sites/{siteid}/influencercodes.json |  |
+[**batchDeleteInfluencerCodes()**](InfluencerCodesApi.md#batchDeleteInfluencerCodes) | **DELETE** /sites/{siteid}/influencercodes.json |  |
+[**batchUpdateInfluencerCodes()**](InfluencerCodesApi.md#batchUpdateInfluencerCodes) | **PUT** /sites/{siteid}/influencercodes.json |  |
+[**getInfluencerCode()**](InfluencerCodesApi.md#getInfluencerCode) | **GET** /sites/{siteid}/influencercodes/{code}.json |  |
+[**getInfluencerCodes()**](InfluencerCodesApi.md#getInfluencerCodes) | **GET** /sites/{siteid}/influencercodes.json |  |
 
 
 ## `batchAddInfluencerCodes()`

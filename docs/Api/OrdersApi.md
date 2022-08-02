@@ -1,18 +1,18 @@
 # Spy\SitooClient\OrdersApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addOrder()**](OrdersApi.md#addOrder) | **POST** /sites/{siteid}/orders.json | 
-[**addOrderDelivery()**](OrdersApi.md#addOrderDelivery) | **POST** /sites/{siteid}/orders/{orderid}/orderdeliveries.json | 
-[**addOrderLogItem()**](OrdersApi.md#addOrderLogItem) | **POST** /sites/{siteid}/orders/{orderid}/orderlogitems.json | 
-[**getAllOrders()**](OrdersApi.md#getAllOrders) | **GET** /orders.json | 
-[**getOrder()**](OrdersApi.md#getOrder) | **GET** /sites/{siteid}/orders/{orderid}.json | 
-[**getOrderDeliveries()**](OrdersApi.md#getOrderDeliveries) | **GET** /sites/{siteid}/orders/{orderid}/orderdeliveries.json | 
-[**getOrderLogItems()**](OrdersApi.md#getOrderLogItems) | **GET** /sites/{siteid}/orders/{orderid}/orderlogitems.json | 
-[**getOrders()**](OrdersApi.md#getOrders) | **GET** /sites/{siteid}/orders.json | 
-[**updateOrder()**](OrdersApi.md#updateOrder) | **PUT** /sites/{siteid}/orders/{orderid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addOrder()**](OrdersApi.md#addOrder) | **POST** /sites/{siteid}/orders.json |  |
+[**addOrderDelivery()**](OrdersApi.md#addOrderDelivery) | **POST** /sites/{siteid}/orders/{orderid}/orderdeliveries.json |  |
+[**addOrderLogItem()**](OrdersApi.md#addOrderLogItem) | **POST** /sites/{siteid}/orders/{orderid}/orderlogitems.json |  |
+[**getAllOrders()**](OrdersApi.md#getAllOrders) | **GET** /orders.json |  |
+[**getOrder()**](OrdersApi.md#getOrder) | **GET** /sites/{siteid}/orders/{orderid}.json |  |
+[**getOrderDeliveries()**](OrdersApi.md#getOrderDeliveries) | **GET** /sites/{siteid}/orders/{orderid}/orderdeliveries.json |  |
+[**getOrderLogItems()**](OrdersApi.md#getOrderLogItems) | **GET** /sites/{siteid}/orders/{orderid}/orderlogitems.json |  |
+[**getOrders()**](OrdersApi.md#getOrders) | **GET** /sites/{siteid}/orders.json |  |
+[**updateOrder()**](OrdersApi.md#updateOrder) | **PUT** /sites/{siteid}/orders/{orderid}.json |  |
 
 
 ## `addOrder()`

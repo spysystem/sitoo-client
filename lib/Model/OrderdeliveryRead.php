@@ -49,6 +49,26 @@ class OrderdeliveryRead implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderdeliveryReadModelFields
+      */
+    public static function GetModelFields(): OrderdeliveryReadModelFields
+    {
+        return new OrderdeliveryReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderdeliveryReadModelAttributes
+      */
+    public static function GetModelAttributes(): OrderdeliveryReadModelAttributes
+    {
+        return new OrderdeliveryReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

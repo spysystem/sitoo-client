@@ -49,6 +49,26 @@ class StoreRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return StoreReadModelFields
+      */
+    public static function GetModelFields(): StoreReadModelFields
+    {
+        return new StoreReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return StoreReadModelAttributes
+      */
+    public static function GetModelAttributes(): StoreReadModelAttributes
+    {
+        return new StoreReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

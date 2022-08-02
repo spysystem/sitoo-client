@@ -49,6 +49,26 @@ class ProductRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ProductReadModelFields
+      */
+    public static function GetModelFields(): ProductReadModelFields
+    {
+        return new ProductReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ProductReadModelAttributes
+      */
+    public static function GetModelAttributes(): ProductReadModelAttributes
+    {
+        return new ProductReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

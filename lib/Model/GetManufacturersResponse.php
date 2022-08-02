@@ -48,6 +48,26 @@ class GetManufacturersResponse implements ModelInterface, ArrayAccess, \JsonSeri
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetManufacturersResponseModelFields
+      */
+    public static function GetModelFields(): GetManufacturersResponseModelFields
+    {
+        return new GetManufacturersResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetManufacturersResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetManufacturersResponseModelAttributes
+    {
+        return new GetManufacturersResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

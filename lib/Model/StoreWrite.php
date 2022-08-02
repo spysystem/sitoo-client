@@ -49,6 +49,26 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return StoreWriteModelFields
+      */
+    public static function GetModelFields(): StoreWriteModelFields
+    {
+        return new StoreWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return StoreWriteModelAttributes
+      */
+    public static function GetModelAttributes(): StoreWriteModelAttributes
+    {
+        return new StoreWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -91,7 +91,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'OpenAPI-Generator/1.0.0/PHP';
+    protected $userAgent = 'OpenAPI-Generator/1.0.2/PHP';
 
     /**
      * Debug switch (default set to false)
@@ -378,7 +378,7 @@ class Configuration
     }
 
     /**
-     * Sets the detault configuration instance
+     * Sets the default configuration instance
      *
      * @param Configuration $config An instance of the Configuration Object
      *
@@ -400,7 +400,7 @@ class Configuration
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    The version of the OpenAPI document: 1.0.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 1.0.0' . PHP_EOL;
+        $report .= '    SDK Package Version: 1.0.2' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
@@ -463,32 +463,31 @@ class Configuration
     }
 
     /**
-     * Returns URL based on the index and variables
-     *
-     * @param int        $index     index of the host settings
-     * @param array|null $variables hash of variable and the corresponding value (optional)
-     * @return string URL based on host settings
-     */
-    public function getHostFromSettings($index, $variables = null)
+    * Returns URL based on host settings, index and variables
+    *
+    * @param array      $hostSettings array of host settings, generated from getHostSettings() or equivalent from the API clients
+    * @param int        $hostIndex    index of the host settings
+    * @param array|null $variables    hash of variable and the corresponding value (optional)
+    * @return string URL based on host settings
+    */
+    public static function getHostString(array $hostsSettings, $hostIndex, array $variables = null)
     {
         if (null === $variables) {
             $variables = [];
         }
 
-        $hosts = $this->getHostSettings();
-
         // check array index out of bound
-        if ($index < 0 || $index >= sizeof($hosts)) {
-            throw new \InvalidArgumentException("Invalid index $index when selecting the host. Must be less than ".sizeof($hosts));
+        if ($hostIndex < 0 || $hostIndex >= count($hostsSettings)) {
+            throw new \InvalidArgumentException("Invalid index $hostIndex when selecting the host. Must be less than ".count($hostsSettings));
         }
 
-        $host = $hosts[$index];
+        $host = $hostsSettings[$hostIndex];
         $url = $host["url"];
 
         // go through variable and assign a value
         foreach ($host["variables"] ?? [] as $name => $variable) {
             if (array_key_exists($name, $variables)) { // check to see if it's in the variables provided by the user
-                if ($variable['enum_values'] === null || in_array($variables[$name], $variable["enum_values"], true)) { // check to see if the value is in the enum
+                if (!isset($variable['enum_values']) || in_array($variables[$name], $variable["enum_values"], true)) { // check to see if the value is in the enum
                     $url = str_replace("{".$name."}", $variables[$name], $url);
                 } else {
                     throw new \InvalidArgumentException("The variable `$name` in the host URL has invalid value ".$variables[$name].". Must be ".join(',', $variable["enum_values"]).".");
@@ -500,5 +499,17 @@ class Configuration
         }
 
         return $url;
+    }
+
+    /**
+     * Returns URL based on the index and variables
+     *
+     * @param int        $index     index of the host settings
+     * @param array|null $variables hash of variable and the corresponding value (optional)
+     * @return string URL based on host settings
+     */
+    public function getHostFromSettings($index, $variables = null)
+    {
+        return self::getHostString($this->getHostSettings(), $index, $variables);
     }
 }

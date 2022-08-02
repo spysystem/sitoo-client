@@ -49,6 +49,26 @@ class ShipmentpackageWrite implements ModelInterface, ArrayAccess, \JsonSerializ
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ShipmentpackageWriteModelFields
+      */
+    public static function GetModelFields(): ShipmentpackageWriteModelFields
+    {
+        return new ShipmentpackageWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ShipmentpackageWriteModelAttributes
+      */
+    public static function GetModelAttributes(): ShipmentpackageWriteModelAttributes
+    {
+        return new ShipmentpackageWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

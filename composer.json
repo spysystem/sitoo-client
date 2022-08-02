@@ -1,6 +1,6 @@
 {
     "name": "spysystem/sitoo-client",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "Client for integrating to Sitoo",
     "keywords": [
         "openapitools",
@@ -24,7 +24,8 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.2",
+        "guzzlehttp/psr7": "^1.6.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0 || ^9.0",

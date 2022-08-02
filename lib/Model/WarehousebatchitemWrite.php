@@ -49,6 +49,26 @@ class WarehousebatchitemWrite implements ModelInterface, ArrayAccess, \JsonSeria
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return WarehousebatchitemWriteModelFields
+      */
+    public static function GetModelFields(): WarehousebatchitemWriteModelFields
+    {
+        return new WarehousebatchitemWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return WarehousebatchitemWriteModelAttributes
+      */
+    public static function GetModelAttributes(): WarehousebatchitemWriteModelAttributes
+    {
+        return new WarehousebatchitemWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

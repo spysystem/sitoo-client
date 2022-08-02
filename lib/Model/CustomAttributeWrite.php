@@ -49,6 +49,26 @@ class CustomAttributeWrite implements ModelInterface, ArrayAccess, \JsonSerializ
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return CustomAttributeWriteModelFields
+      */
+    public static function GetModelFields(): CustomAttributeWriteModelFields
+    {
+        return new CustomAttributeWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return CustomAttributeWriteModelAttributes
+      */
+    public static function GetModelAttributes(): CustomAttributeWriteModelAttributes
+    {
+        return new CustomAttributeWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -49,6 +49,26 @@ class SalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return SalestaxWriteModelFields
+      */
+    public static function GetModelFields(): SalestaxWriteModelFields
+    {
+        return new SalestaxWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return SalestaxWriteModelAttributes
+      */
+    public static function GetModelAttributes(): SalestaxWriteModelAttributes
+    {
+        return new SalestaxWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

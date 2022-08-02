@@ -1,16 +1,16 @@
 # Spy\SitooClient\ManufacturersApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**batchAddManufacturers()**](ManufacturersApi.md#batchAddManufacturers) | **POST** /sites/{siteid}/manufacturers.json | 
-[**batchDeleteManufacturers()**](ManufacturersApi.md#batchDeleteManufacturers) | **DELETE** /sites/{siteid}/manufacturers.json | 
-[**batchUpdateManufacturers()**](ManufacturersApi.md#batchUpdateManufacturers) | **PUT** /sites/{siteid}/manufacturers.json | 
-[**deleteManufacturer()**](ManufacturersApi.md#deleteManufacturer) | **DELETE** /sites/{siteid}/manufacturers/{externalcompanyid}.json | 
-[**getManufacturer()**](ManufacturersApi.md#getManufacturer) | **GET** /sites/{siteid}/manufacturers/{externalcompanyid}.json | 
-[**getManufacturers()**](ManufacturersApi.md#getManufacturers) | **GET** /sites/{siteid}/manufacturers.json | 
-[**updateManufacturer()**](ManufacturersApi.md#updateManufacturer) | **PUT** /sites/{siteid}/manufacturers/{externalcompanyid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**batchAddManufacturers()**](ManufacturersApi.md#batchAddManufacturers) | **POST** /sites/{siteid}/manufacturers.json |  |
+[**batchDeleteManufacturers()**](ManufacturersApi.md#batchDeleteManufacturers) | **DELETE** /sites/{siteid}/manufacturers.json |  |
+[**batchUpdateManufacturers()**](ManufacturersApi.md#batchUpdateManufacturers) | **PUT** /sites/{siteid}/manufacturers.json |  |
+[**deleteManufacturer()**](ManufacturersApi.md#deleteManufacturer) | **DELETE** /sites/{siteid}/manufacturers/{externalcompanyid}.json |  |
+[**getManufacturer()**](ManufacturersApi.md#getManufacturer) | **GET** /sites/{siteid}/manufacturers/{externalcompanyid}.json |  |
+[**getManufacturers()**](ManufacturersApi.md#getManufacturers) | **GET** /sites/{siteid}/manufacturers.json |  |
+[**updateManufacturer()**](ManufacturersApi.md#updateManufacturer) | **PUT** /sites/{siteid}/manufacturers/{externalcompanyid}.json |  |
 
 
 ## `batchAddManufacturers()`

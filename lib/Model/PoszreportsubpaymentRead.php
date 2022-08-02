@@ -49,6 +49,26 @@ class PoszreportsubpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return PoszreportsubpaymentReadModelFields
+      */
+    public static function GetModelFields(): PoszreportsubpaymentReadModelFields
+    {
+        return new PoszreportsubpaymentReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return PoszreportsubpaymentReadModelAttributes
+      */
+    public static function GetModelAttributes(): PoszreportsubpaymentReadModelAttributes
+    {
+        return new PoszreportsubpaymentReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

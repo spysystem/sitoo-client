@@ -1,19 +1,19 @@
 # Spy\SitooClient\SalesTaxesApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addSalesTax()**](SalesTaxesApi.md#addSalesTax) | **POST** /sites/{siteid}/salestaxes.json | 
-[**addSalesTaxGroup()**](SalesTaxesApi.md#addSalesTaxGroup) | **POST** /sites/{siteid}/salestaxgroups.json | 
-[**deleteSalesTax()**](SalesTaxesApi.md#deleteSalesTax) | **DELETE** /sites/{siteid}/salestaxes/{salestaxid}.json | 
-[**deleteSalesTaxGroup()**](SalesTaxesApi.md#deleteSalesTaxGroup) | **DELETE** /sites/{siteid}/salestaxgroups/{salestaxgroupid}.json | 
-[**getSalesTax()**](SalesTaxesApi.md#getSalesTax) | **GET** /sites/{siteid}/salestaxes/{salestaxid}.json | 
-[**getSalesTaxGroup()**](SalesTaxesApi.md#getSalesTaxGroup) | **GET** /sites/{siteid}/salestaxgroups/{salestaxgroupid}.json | 
-[**getSalesTaxGroups()**](SalesTaxesApi.md#getSalesTaxGroups) | **GET** /sites/{siteid}/salestaxgroups.json | 
-[**getSalesTaxes()**](SalesTaxesApi.md#getSalesTaxes) | **GET** /sites/{siteid}/salestaxes.json | 
-[**updateSalesTax()**](SalesTaxesApi.md#updateSalesTax) | **PUT** /sites/{siteid}/salestaxes/{salestaxid}.json | 
-[**updateSalesTaxGroup()**](SalesTaxesApi.md#updateSalesTaxGroup) | **PUT** /sites/{siteid}/salestaxgroups/{salestaxgroupid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addSalesTax()**](SalesTaxesApi.md#addSalesTax) | **POST** /sites/{siteid}/salestaxes.json |  |
+[**addSalesTaxGroup()**](SalesTaxesApi.md#addSalesTaxGroup) | **POST** /sites/{siteid}/salestaxgroups.json |  |
+[**deleteSalesTax()**](SalesTaxesApi.md#deleteSalesTax) | **DELETE** /sites/{siteid}/salestaxes/{salestaxid}.json |  |
+[**deleteSalesTaxGroup()**](SalesTaxesApi.md#deleteSalesTaxGroup) | **DELETE** /sites/{siteid}/salestaxgroups/{salestaxgroupid}.json |  |
+[**getSalesTax()**](SalesTaxesApi.md#getSalesTax) | **GET** /sites/{siteid}/salestaxes/{salestaxid}.json |  |
+[**getSalesTaxGroup()**](SalesTaxesApi.md#getSalesTaxGroup) | **GET** /sites/{siteid}/salestaxgroups/{salestaxgroupid}.json |  |
+[**getSalesTaxGroups()**](SalesTaxesApi.md#getSalesTaxGroups) | **GET** /sites/{siteid}/salestaxgroups.json |  |
+[**getSalesTaxes()**](SalesTaxesApi.md#getSalesTaxes) | **GET** /sites/{siteid}/salestaxes.json |  |
+[**updateSalesTax()**](SalesTaxesApi.md#updateSalesTax) | **PUT** /sites/{siteid}/salestaxes/{salestaxid}.json |  |
+[**updateSalesTaxGroup()**](SalesTaxesApi.md#updateSalesTaxGroup) | **PUT** /sites/{siteid}/salestaxgroups/{salestaxgroupid}.json |  |
 
 
 ## `addSalesTax()`

@@ -49,6 +49,26 @@ class ServiceOrderProductWrite implements ModelInterface, ArrayAccess, \JsonSeri
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ServiceOrderProductWriteModelFields
+      */
+    public static function GetModelFields(): ServiceOrderProductWriteModelFields
+    {
+        return new ServiceOrderProductWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ServiceOrderProductWriteModelAttributes
+      */
+    public static function GetModelAttributes(): ServiceOrderProductWriteModelAttributes
+    {
+        return new ServiceOrderProductWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

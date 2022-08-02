@@ -49,6 +49,26 @@ class VoucherdiscountoptionWrite implements ModelInterface, ArrayAccess, \JsonSe
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return VoucherdiscountoptionWriteModelFields
+      */
+    public static function GetModelFields(): VoucherdiscountoptionWriteModelFields
+    {
+        return new VoucherdiscountoptionWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return VoucherdiscountoptionWriteModelAttributes
+      */
+    public static function GetModelAttributes(): VoucherdiscountoptionWriteModelAttributes
+    {
+        return new VoucherdiscountoptionWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

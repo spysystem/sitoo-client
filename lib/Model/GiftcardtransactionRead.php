@@ -49,6 +49,26 @@ class GiftcardtransactionRead implements ModelInterface, ArrayAccess, \JsonSeria
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GiftcardtransactionReadModelFields
+      */
+    public static function GetModelFields(): GiftcardtransactionReadModelFields
+    {
+        return new GiftcardtransactionReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GiftcardtransactionReadModelAttributes
+      */
+    public static function GetModelAttributes(): GiftcardtransactionReadModelAttributes
+    {
+        return new GiftcardtransactionReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

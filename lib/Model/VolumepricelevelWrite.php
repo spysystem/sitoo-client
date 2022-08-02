@@ -49,6 +49,26 @@ class VolumepricelevelWrite implements ModelInterface, ArrayAccess, \JsonSeriali
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return VolumepricelevelWriteModelFields
+      */
+    public static function GetModelFields(): VolumepricelevelWriteModelFields
+    {
+        return new VolumepricelevelWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return VolumepricelevelWriteModelAttributes
+      */
+    public static function GetModelAttributes(): VolumepricelevelWriteModelAttributes
+    {
+        return new VolumepricelevelWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

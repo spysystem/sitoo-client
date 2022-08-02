@@ -1,16 +1,16 @@
 # Spy\SitooClient\WarehouseBatchesApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addWarehouseBatch()**](WarehouseBatchesApi.md#addWarehouseBatch) | **POST** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches.json | 
-[**batchDeleteWarehouseBatchItems()**](WarehouseBatchesApi.md#batchDeleteWarehouseBatchItems) | **DELETE** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json | 
-[**batchSetWarehouseBatchItems()**](WarehouseBatchesApi.md#batchSetWarehouseBatchItems) | **PUT** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json | 
-[**getWarehouseBatch()**](WarehouseBatchesApi.md#getWarehouseBatch) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}.json | 
-[**getWarehouseBatchItems()**](WarehouseBatchesApi.md#getWarehouseBatchItems) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json | 
-[**getWarehouseBatches()**](WarehouseBatchesApi.md#getWarehouseBatches) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches.json | 
-[**updateWarehouseBatch()**](WarehouseBatchesApi.md#updateWarehouseBatch) | **PUT** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addWarehouseBatch()**](WarehouseBatchesApi.md#addWarehouseBatch) | **POST** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches.json |  |
+[**batchDeleteWarehouseBatchItems()**](WarehouseBatchesApi.md#batchDeleteWarehouseBatchItems) | **DELETE** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json |  |
+[**batchSetWarehouseBatchItems()**](WarehouseBatchesApi.md#batchSetWarehouseBatchItems) | **PUT** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json |  |
+[**getWarehouseBatch()**](WarehouseBatchesApi.md#getWarehouseBatch) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}.json |  |
+[**getWarehouseBatchItems()**](WarehouseBatchesApi.md#getWarehouseBatchItems) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json |  |
+[**getWarehouseBatches()**](WarehouseBatchesApi.md#getWarehouseBatches) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches.json |  |
+[**updateWarehouseBatch()**](WarehouseBatchesApi.md#updateWarehouseBatch) | **PUT** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}.json |  |
 
 
 ## `addWarehouseBatch()`

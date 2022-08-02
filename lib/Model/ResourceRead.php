@@ -49,6 +49,26 @@ class ResourceRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ResourceReadModelFields
+      */
+    public static function GetModelFields(): ResourceReadModelFields
+    {
+        return new ResourceReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ResourceReadModelAttributes
+      */
+    public static function GetModelAttributes(): ResourceReadModelAttributes
+    {
+        return new ResourceReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

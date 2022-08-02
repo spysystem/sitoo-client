@@ -48,6 +48,26 @@ class GetProductGroupsResponse implements ModelInterface, ArrayAccess, \JsonSeri
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetProductGroupsResponseModelFields
+      */
+    public static function GetModelFields(): GetProductGroupsResponseModelFields
+    {
+        return new GetProductGroupsResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetProductGroupsResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetProductGroupsResponseModelAttributes
+    {
+        return new GetProductGroupsResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

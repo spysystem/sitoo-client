@@ -49,6 +49,26 @@ class InfluencercodeWrite implements ModelInterface, ArrayAccess, \JsonSerializa
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return InfluencercodeWriteModelFields
+      */
+    public static function GetModelFields(): InfluencercodeWriteModelFields
+    {
+        return new InfluencercodeWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return InfluencercodeWriteModelAttributes
+      */
+    public static function GetModelAttributes(): InfluencercodeWriteModelAttributes
+    {
+        return new InfluencercodeWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -49,6 +49,26 @@ class ServiceOrderCustomerWrite implements ModelInterface, ArrayAccess, \JsonSer
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ServiceOrderCustomerWriteModelFields
+      */
+    public static function GetModelFields(): ServiceOrderCustomerWriteModelFields
+    {
+        return new ServiceOrderCustomerWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ServiceOrderCustomerWriteModelAttributes
+      */
+    public static function GetModelAttributes(): ServiceOrderCustomerWriteModelAttributes
+    {
+        return new ServiceOrderCustomerWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

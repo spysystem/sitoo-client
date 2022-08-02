@@ -48,6 +48,26 @@ class GetWarehousesResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetWarehousesResponseModelFields
+      */
+    public static function GetModelFields(): GetWarehousesResponseModelFields
+    {
+        return new GetWarehousesResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetWarehousesResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetWarehousesResponseModelAttributes
+    {
+        return new GetWarehousesResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

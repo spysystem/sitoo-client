@@ -49,6 +49,26 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return PosregisterReadModelFields
+      */
+    public static function GetModelFields(): PosregisterReadModelFields
+    {
+        return new PosregisterReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return PosregisterReadModelAttributes
+      */
+    public static function GetModelAttributes(): PosregisterReadModelAttributes
+    {
+        return new PosregisterReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -49,6 +49,26 @@ class ManufacturerRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ManufacturerReadModelFields
+      */
+    public static function GetModelFields(): ManufacturerReadModelFields
+    {
+        return new ManufacturerReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ManufacturerReadModelAttributes
+      */
+    public static function GetModelAttributes(): ManufacturerReadModelAttributes
+    {
+        return new ManufacturerReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

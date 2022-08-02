@@ -49,6 +49,26 @@ class CustomMetricRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return CustomMetricReadModelFields
+      */
+    public static function GetModelFields(): CustomMetricReadModelFields
+    {
+        return new CustomMetricReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return CustomMetricReadModelAttributes
+      */
+    public static function GetModelAttributes(): CustomMetricReadModelAttributes
+    {
+        return new CustomMetricReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

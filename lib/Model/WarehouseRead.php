@@ -49,6 +49,26 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return WarehouseReadModelFields
+      */
+    public static function GetModelFields(): WarehouseReadModelFields
+    {
+        return new WarehouseReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return WarehouseReadModelAttributes
+      */
+    public static function GetModelAttributes(): WarehouseReadModelAttributes
+    {
+        return new WarehouseReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

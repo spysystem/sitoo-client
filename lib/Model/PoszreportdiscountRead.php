@@ -49,6 +49,26 @@ class PoszreportdiscountRead implements ModelInterface, ArrayAccess, \JsonSerial
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return PoszreportdiscountReadModelFields
+      */
+    public static function GetModelFields(): PoszreportdiscountReadModelFields
+    {
+        return new PoszreportdiscountReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return PoszreportdiscountReadModelAttributes
+      */
+    public static function GetModelAttributes(): PoszreportdiscountReadModelAttributes
+    {
+        return new PoszreportdiscountReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

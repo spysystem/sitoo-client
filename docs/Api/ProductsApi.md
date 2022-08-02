@@ -1,16 +1,16 @@
 # Spy\SitooClient\ProductsApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**batchAddProducts()**](ProductsApi.md#batchAddProducts) | **POST** /sites/{siteid}/products.json | 
-[**batchDeleteProducts()**](ProductsApi.md#batchDeleteProducts) | **DELETE** /sites/{siteid}/products.json | 
-[**batchUpdateProducts()**](ProductsApi.md#batchUpdateProducts) | **PUT** /sites/{siteid}/products.json | 
-[**deleteProduct()**](ProductsApi.md#deleteProduct) | **DELETE** /sites/{siteid}/products/{productid}.json | 
-[**getProduct()**](ProductsApi.md#getProduct) | **GET** /sites/{siteid}/products/{productid}.json | 
-[**getProducts()**](ProductsApi.md#getProducts) | **GET** /sites/{siteid}/products.json | 
-[**updateProduct()**](ProductsApi.md#updateProduct) | **PUT** /sites/{siteid}/products/{productid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**batchAddProducts()**](ProductsApi.md#batchAddProducts) | **POST** /sites/{siteid}/products.json |  |
+[**batchDeleteProducts()**](ProductsApi.md#batchDeleteProducts) | **DELETE** /sites/{siteid}/products.json |  |
+[**batchUpdateProducts()**](ProductsApi.md#batchUpdateProducts) | **PUT** /sites/{siteid}/products.json |  |
+[**deleteProduct()**](ProductsApi.md#deleteProduct) | **DELETE** /sites/{siteid}/products/{productid}.json |  |
+[**getProduct()**](ProductsApi.md#getProduct) | **GET** /sites/{siteid}/products/{productid}.json |  |
+[**getProducts()**](ProductsApi.md#getProducts) | **GET** /sites/{siteid}/products.json |  |
+[**updateProduct()**](ProductsApi.md#updateProduct) | **PUT** /sites/{siteid}/products/{productid}.json |  |
 
 
 ## `batchAddProducts()`

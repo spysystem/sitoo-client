@@ -49,6 +49,26 @@ class ProductvariantgroupRead implements ModelInterface, ArrayAccess, \JsonSeria
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ProductvariantgroupReadModelFields
+      */
+    public static function GetModelFields(): ProductvariantgroupReadModelFields
+    {
+        return new ProductvariantgroupReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ProductvariantgroupReadModelAttributes
+      */
+    public static function GetModelAttributes(): ProductvariantgroupReadModelAttributes
+    {
+        return new ProductvariantgroupReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

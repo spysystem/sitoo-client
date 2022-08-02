@@ -1,14 +1,14 @@
 # Spy\SitooClient\CategoriesApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addCategory()**](CategoriesApi.md#addCategory) | **POST** /sites/{siteid}/categories.json | 
-[**deleteCategory()**](CategoriesApi.md#deleteCategory) | **DELETE** /sites/{siteid}/categories/{categoryid}.json | 
-[**getCategories()**](CategoriesApi.md#getCategories) | **GET** /sites/{siteid}/categories.json | 
-[**getCategory()**](CategoriesApi.md#getCategory) | **GET** /sites/{siteid}/categories/{categoryid}.json | 
-[**updateCategory()**](CategoriesApi.md#updateCategory) | **PUT** /sites/{siteid}/categories/{categoryid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addCategory()**](CategoriesApi.md#addCategory) | **POST** /sites/{siteid}/categories.json |  |
+[**deleteCategory()**](CategoriesApi.md#deleteCategory) | **DELETE** /sites/{siteid}/categories/{categoryid}.json |  |
+[**getCategories()**](CategoriesApi.md#getCategories) | **GET** /sites/{siteid}/categories.json |  |
+[**getCategory()**](CategoriesApi.md#getCategory) | **GET** /sites/{siteid}/categories/{categoryid}.json |  |
+[**updateCategory()**](CategoriesApi.md#updateCategory) | **PUT** /sites/{siteid}/categories/{categoryid}.json |  |
 
 
 ## `addCategory()`

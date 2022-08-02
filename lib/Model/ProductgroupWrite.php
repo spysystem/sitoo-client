@@ -49,6 +49,26 @@ class ProductgroupWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ProductgroupWriteModelFields
+      */
+    public static function GetModelFields(): ProductgroupWriteModelFields
+    {
+        return new ProductgroupWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ProductgroupWriteModelAttributes
+      */
+    public static function GetModelAttributes(): ProductgroupWriteModelAttributes
+    {
+        return new ProductgroupWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

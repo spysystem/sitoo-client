@@ -48,6 +48,26 @@ class GetProductsResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetProductsResponseModelFields
+      */
+    public static function GetModelFields(): GetProductsResponseModelFields
+    {
+        return new GetProductsResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetProductsResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetProductsResponseModelAttributes
+    {
+        return new GetProductsResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

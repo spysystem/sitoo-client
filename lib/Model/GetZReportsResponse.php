@@ -48,6 +48,26 @@ class GetZReportsResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetZReportsResponseModelFields
+      */
+    public static function GetModelFields(): GetZReportsResponseModelFields
+    {
+        return new GetZReportsResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetZReportsResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetZReportsResponseModelAttributes
+    {
+        return new GetZReportsResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -48,6 +48,26 @@ class GetAllWarehouseTransactionsResponse implements ModelInterface, ArrayAccess
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetAllWarehouseTransactionsResponseModelFields
+      */
+    public static function GetModelFields(): GetAllWarehouseTransactionsResponseModelFields
+    {
+        return new GetAllWarehouseTransactionsResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetAllWarehouseTransactionsResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetAllWarehouseTransactionsResponseModelAttributes
+    {
+        return new GetAllWarehouseTransactionsResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

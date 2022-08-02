@@ -1,13 +1,13 @@
 # Spy\SitooClient\GiftCardsApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addGiftCard()**](GiftCardsApi.md#addGiftCard) | **POST** /sites/{siteid}/giftcards.json | 
-[**addGiftCardTransaction()**](GiftCardsApi.md#addGiftCardTransaction) | **POST** /sites/{siteid}/giftcards/{cardnumber}/transactions.json | 
-[**deleteGiftCardTransactions()**](GiftCardsApi.md#deleteGiftCardTransactions) | **DELETE** /sites/{siteid}/giftcards/{cardnumber}/transactions.json | 
-[**getGiftCard()**](GiftCardsApi.md#getGiftCard) | **GET** /sites/{siteid}/giftcards/{cardnumber}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addGiftCard()**](GiftCardsApi.md#addGiftCard) | **POST** /sites/{siteid}/giftcards.json |  |
+[**addGiftCardTransaction()**](GiftCardsApi.md#addGiftCardTransaction) | **POST** /sites/{siteid}/giftcards/{cardnumber}/transactions.json |  |
+[**deleteGiftCardTransactions()**](GiftCardsApi.md#deleteGiftCardTransactions) | **DELETE** /sites/{siteid}/giftcards/{cardnumber}/transactions.json |  |
+[**getGiftCard()**](GiftCardsApi.md#getGiftCard) | **GET** /sites/{siteid}/giftcards/{cardnumber}.json |  |
 
 
 ## `addGiftCard()`

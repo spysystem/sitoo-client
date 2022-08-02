@@ -49,6 +49,26 @@ class OrderdeliveryitemWrite implements ModelInterface, ArrayAccess, \JsonSerial
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderdeliveryitemWriteModelFields
+      */
+    public static function GetModelFields(): OrderdeliveryitemWriteModelFields
+    {
+        return new OrderdeliveryitemWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderdeliveryitemWriteModelAttributes
+      */
+    public static function GetModelAttributes(): OrderdeliveryitemWriteModelAttributes
+    {
+        return new OrderdeliveryitemWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

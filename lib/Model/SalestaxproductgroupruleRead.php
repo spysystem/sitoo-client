@@ -49,6 +49,26 @@ class SalestaxproductgroupruleRead implements ModelInterface, ArrayAccess, \Json
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return SalestaxproductgroupruleReadModelFields
+      */
+    public static function GetModelFields(): SalestaxproductgroupruleReadModelFields
+    {
+        return new SalestaxproductgroupruleReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return SalestaxproductgroupruleReadModelAttributes
+      */
+    public static function GetModelAttributes(): SalestaxproductgroupruleReadModelAttributes
+    {
+        return new SalestaxproductgroupruleReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

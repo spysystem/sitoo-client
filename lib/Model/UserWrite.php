@@ -49,6 +49,26 @@ class UserWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return UserWriteModelFields
+      */
+    public static function GetModelFields(): UserWriteModelFields
+    {
+        return new UserWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return UserWriteModelAttributes
+      */
+    public static function GetModelAttributes(): UserWriteModelAttributes
+    {
+        return new UserWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

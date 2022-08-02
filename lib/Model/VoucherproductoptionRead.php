@@ -49,6 +49,26 @@ class VoucherproductoptionRead implements ModelInterface, ArrayAccess, \JsonSeri
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return VoucherproductoptionReadModelFields
+      */
+    public static function GetModelFields(): VoucherproductoptionReadModelFields
+    {
+        return new VoucherproductoptionReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return VoucherproductoptionReadModelAttributes
+      */
+    public static function GetModelAttributes(): VoucherproductoptionReadModelAttributes
+    {
+        return new VoucherproductoptionReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -48,6 +48,26 @@ class GetProductImagesResponse implements ModelInterface, ArrayAccess, \JsonSeri
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetProductImagesResponseModelFields
+      */
+    public static function GetModelFields(): GetProductImagesResponseModelFields
+    {
+        return new GetProductImagesResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetProductImagesResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetProductImagesResponseModelAttributes
+    {
+        return new GetProductImagesResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

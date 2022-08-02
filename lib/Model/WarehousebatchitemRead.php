@@ -49,6 +49,26 @@ class WarehousebatchitemRead implements ModelInterface, ArrayAccess, \JsonSerial
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return WarehousebatchitemReadModelFields
+      */
+    public static function GetModelFields(): WarehousebatchitemReadModelFields
+    {
+        return new WarehousebatchitemReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return WarehousebatchitemReadModelAttributes
+      */
+    public static function GetModelAttributes(): WarehousebatchitemReadModelAttributes
+    {
+        return new WarehousebatchitemReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

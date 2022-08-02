@@ -49,6 +49,26 @@ class ProductvariantsWrite implements ModelInterface, ArrayAccess, \JsonSerializ
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ProductvariantsWriteModelFields
+      */
+    public static function GetModelFields(): ProductvariantsWriteModelFields
+    {
+        return new ProductvariantsWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ProductvariantsWriteModelAttributes
+      */
+    public static function GetModelAttributes(): ProductvariantsWriteModelAttributes
+    {
+        return new ProductvariantsWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

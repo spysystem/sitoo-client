@@ -49,6 +49,26 @@ class OrderitemsalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerial
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderitemsalestaxWriteModelFields
+      */
+    public static function GetModelFields(): OrderitemsalestaxWriteModelFields
+    {
+        return new OrderitemsalestaxWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderitemsalestaxWriteModelAttributes
+      */
+    public static function GetModelAttributes(): OrderitemsalestaxWriteModelAttributes
+    {
+        return new OrderitemsalestaxWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -49,6 +49,26 @@ class CustomMetricValueRead implements ModelInterface, ArrayAccess, \JsonSeriali
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return CustomMetricValueReadModelFields
+      */
+    public static function GetModelFields(): CustomMetricValueReadModelFields
+    {
+        return new CustomMetricValueReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return CustomMetricValueReadModelAttributes
+      */
+    public static function GetModelAttributes(): CustomMetricValueReadModelAttributes
+    {
+        return new CustomMetricValueReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

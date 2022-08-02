@@ -49,6 +49,26 @@ class GiftcardresponseRead implements ModelInterface, ArrayAccess, \JsonSerializ
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GiftcardresponseReadModelFields
+      */
+    public static function GetModelFields(): GiftcardresponseReadModelFields
+    {
+        return new GiftcardresponseReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GiftcardresponseReadModelAttributes
+      */
+    public static function GetModelAttributes(): GiftcardresponseReadModelAttributes
+    {
+        return new GiftcardresponseReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -49,6 +49,26 @@ class CustomMetricValueValueSeriesWrite implements ModelInterface, ArrayAccess, 
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return CustomMetricValueValueSeriesWriteModelFields
+      */
+    public static function GetModelFields(): CustomMetricValueValueSeriesWriteModelFields
+    {
+        return new CustomMetricValueValueSeriesWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return CustomMetricValueValueSeriesWriteModelAttributes
+      */
+    public static function GetModelAttributes(): CustomMetricValueValueSeriesWriteModelAttributes
+    {
+        return new CustomMetricValueValueSeriesWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

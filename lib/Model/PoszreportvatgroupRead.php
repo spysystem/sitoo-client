@@ -49,6 +49,26 @@ class PoszreportvatgroupRead implements ModelInterface, ArrayAccess, \JsonSerial
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return PoszreportvatgroupReadModelFields
+      */
+    public static function GetModelFields(): PoszreportvatgroupReadModelFields
+    {
+        return new PoszreportvatgroupReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return PoszreportvatgroupReadModelAttributes
+      */
+    public static function GetModelAttributes(): PoszreportvatgroupReadModelAttributes
+    {
+        return new PoszreportvatgroupReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

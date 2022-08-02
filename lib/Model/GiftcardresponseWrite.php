@@ -49,6 +49,26 @@ class GiftcardresponseWrite implements ModelInterface, ArrayAccess, \JsonSeriali
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GiftcardresponseWriteModelFields
+      */
+    public static function GetModelFields(): GiftcardresponseWriteModelFields
+    {
+        return new GiftcardresponseWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GiftcardresponseWriteModelAttributes
+      */
+    public static function GetModelAttributes(): GiftcardresponseWriteModelAttributes
+    {
+        return new GiftcardresponseWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

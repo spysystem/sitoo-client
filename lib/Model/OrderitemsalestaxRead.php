@@ -49,6 +49,26 @@ class OrderitemsalestaxRead implements ModelInterface, ArrayAccess, \JsonSeriali
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderitemsalestaxReadModelFields
+      */
+    public static function GetModelFields(): OrderitemsalestaxReadModelFields
+    {
+        return new OrderitemsalestaxReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderitemsalestaxReadModelAttributes
+      */
+    public static function GetModelAttributes(): OrderitemsalestaxReadModelAttributes
+    {
+        return new OrderitemsalestaxReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

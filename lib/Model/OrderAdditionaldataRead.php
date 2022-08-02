@@ -49,6 +49,26 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderAdditionaldataReadModelFields
+      */
+    public static function GetModelFields(): OrderAdditionaldataReadModelFields
+    {
+        return new OrderAdditionaldataReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderAdditionaldataReadModelAttributes
+      */
+    public static function GetModelAttributes(): OrderAdditionaldataReadModelAttributes
+    {
+        return new OrderAdditionaldataReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

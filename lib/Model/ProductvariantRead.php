@@ -49,6 +49,26 @@ class ProductvariantRead implements ModelInterface, ArrayAccess, \JsonSerializab
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ProductvariantReadModelFields
+      */
+    public static function GetModelFields(): ProductvariantReadModelFields
+    {
+        return new ProductvariantReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ProductvariantReadModelAttributes
+      */
+    public static function GetModelAttributes(): ProductvariantReadModelAttributes
+    {
+        return new ProductvariantReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

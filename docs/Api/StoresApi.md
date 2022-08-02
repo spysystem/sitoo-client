@@ -1,14 +1,14 @@
 # Spy\SitooClient\StoresApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addStore()**](StoresApi.md#addStore) | **POST** /sites/{siteid}/stores.json | 
-[**deleteStore()**](StoresApi.md#deleteStore) | **DELETE** /sites/{siteid}/stores/{storeid}.json | 
-[**getStore()**](StoresApi.md#getStore) | **GET** /sites/{siteid}/stores/{storeid}.json | 
-[**getStores()**](StoresApi.md#getStores) | **GET** /sites/{siteid}/stores.json | 
-[**updateStore()**](StoresApi.md#updateStore) | **PUT** /sites/{siteid}/stores/{storeid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addStore()**](StoresApi.md#addStore) | **POST** /sites/{siteid}/stores.json |  |
+[**deleteStore()**](StoresApi.md#deleteStore) | **DELETE** /sites/{siteid}/stores/{storeid}.json |  |
+[**getStore()**](StoresApi.md#getStore) | **GET** /sites/{siteid}/stores/{storeid}.json |  |
+[**getStores()**](StoresApi.md#getStores) | **GET** /sites/{siteid}/stores.json |  |
+[**updateStore()**](StoresApi.md#updateStore) | **PUT** /sites/{siteid}/stores/{storeid}.json |  |
 
 
 ## `addStore()`

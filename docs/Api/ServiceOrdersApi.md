@@ -1,13 +1,13 @@
 # Spy\SitooClient\ServiceOrdersApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addServiceOrder()**](ServiceOrdersApi.md#addServiceOrder) | **POST** /serviceorders.json | 
-[**getServiceOrder()**](ServiceOrdersApi.md#getServiceOrder) | **GET** /serviceorders/{service_order_id}.json | 
-[**getServiceOrders()**](ServiceOrdersApi.md#getServiceOrders) | **GET** /serviceorders.json | 
-[**updateServiceOrder()**](ServiceOrdersApi.md#updateServiceOrder) | **PUT** /serviceorders/{service_order_id}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addServiceOrder()**](ServiceOrdersApi.md#addServiceOrder) | **POST** /serviceorders.json |  |
+[**getServiceOrder()**](ServiceOrdersApi.md#getServiceOrder) | **GET** /serviceorders/{service_order_id}.json |  |
+[**getServiceOrders()**](ServiceOrdersApi.md#getServiceOrders) | **GET** /serviceorders.json |  |
+[**updateServiceOrder()**](ServiceOrdersApi.md#updateServiceOrder) | **PUT** /serviceorders/{service_order_id}.json |  |
 
 
 ## `addServiceOrder()`

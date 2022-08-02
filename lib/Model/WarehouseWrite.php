@@ -49,6 +49,26 @@ class WarehouseWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return WarehouseWriteModelFields
+      */
+    public static function GetModelFields(): WarehouseWriteModelFields
+    {
+        return new WarehouseWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return WarehouseWriteModelAttributes
+      */
+    public static function GetModelAttributes(): WarehouseWriteModelAttributes
+    {
+        return new WarehouseWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

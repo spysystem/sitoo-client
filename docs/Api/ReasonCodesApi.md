@@ -1,14 +1,14 @@
 # Spy\SitooClient\ReasonCodesApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addReasonCode()**](ReasonCodesApi.md#addReasonCode) | **POST** /reasoncodes.json | 
-[**deleteReasonCode()**](ReasonCodesApi.md#deleteReasonCode) | **DELETE** /reasoncodes/{reasoncodeid}.json | 
-[**getReasonCode()**](ReasonCodesApi.md#getReasonCode) | **GET** /reasoncodes/{reasoncodeid}.json | 
-[**getReasonCodes()**](ReasonCodesApi.md#getReasonCodes) | **GET** /reasoncodes.json | 
-[**updateReasonCode()**](ReasonCodesApi.md#updateReasonCode) | **PUT** /reasoncodes/{reasoncodeid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addReasonCode()**](ReasonCodesApi.md#addReasonCode) | **POST** /reasoncodes.json |  |
+[**deleteReasonCode()**](ReasonCodesApi.md#deleteReasonCode) | **DELETE** /reasoncodes/{reasoncodeid}.json |  |
+[**getReasonCode()**](ReasonCodesApi.md#getReasonCode) | **GET** /reasoncodes/{reasoncodeid}.json |  |
+[**getReasonCodes()**](ReasonCodesApi.md#getReasonCodes) | **GET** /reasoncodes.json |  |
+[**updateReasonCode()**](ReasonCodesApi.md#updateReasonCode) | **PUT** /reasoncodes/{reasoncodeid}.json |  |
 
 
 ## `addReasonCode()`

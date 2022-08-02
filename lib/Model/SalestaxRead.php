@@ -49,6 +49,26 @@ class SalestaxRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return SalestaxReadModelFields
+      */
+    public static function GetModelFields(): SalestaxReadModelFields
+    {
+        return new SalestaxReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return SalestaxReadModelAttributes
+      */
+    public static function GetModelAttributes(): SalestaxReadModelAttributes
+    {
+        return new SalestaxReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

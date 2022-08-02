@@ -1,14 +1,14 @@
 # Spy\SitooClient\VouchersApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addVoucher()**](VouchersApi.md#addVoucher) | **POST** /sites/{siteid}/vouchers.json | 
-[**deleteVoucher()**](VouchersApi.md#deleteVoucher) | **DELETE** /sites/{siteid}/vouchers/{voucherid}.json | 
-[**getVoucher()**](VouchersApi.md#getVoucher) | **GET** /sites/{siteid}/vouchers/{voucherid}.json | 
-[**getVouchers()**](VouchersApi.md#getVouchers) | **GET** /sites/{siteid}/vouchers.json | 
-[**updateVoucher()**](VouchersApi.md#updateVoucher) | **PUT** /sites/{siteid}/vouchers/{voucherid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addVoucher()**](VouchersApi.md#addVoucher) | **POST** /sites/{siteid}/vouchers.json |  |
+[**deleteVoucher()**](VouchersApi.md#deleteVoucher) | **DELETE** /sites/{siteid}/vouchers/{voucherid}.json |  |
+[**getVoucher()**](VouchersApi.md#getVoucher) | **GET** /sites/{siteid}/vouchers/{voucherid}.json |  |
+[**getVouchers()**](VouchersApi.md#getVouchers) | **GET** /sites/{siteid}/vouchers.json |  |
+[**updateVoucher()**](VouchersApi.md#updateVoucher) | **PUT** /sites/{siteid}/vouchers/{voucherid}.json |  |
 
 
 ## `addVoucher()`

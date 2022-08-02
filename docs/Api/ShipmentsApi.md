@@ -1,13 +1,13 @@
 # Spy\SitooClient\ShipmentsApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addShipment()**](ShipmentsApi.md#addShipment) | **POST** /shipments.json | 
-[**getShipment()**](ShipmentsApi.md#getShipment) | **GET** /shipments/{shipmentid}.json | 
-[**getShipments()**](ShipmentsApi.md#getShipments) | **GET** /shipments.json | 
-[**updateShipment()**](ShipmentsApi.md#updateShipment) | **PUT** /shipments/{shipmentid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addShipment()**](ShipmentsApi.md#addShipment) | **POST** /shipments.json |  |
+[**getShipment()**](ShipmentsApi.md#getShipment) | **GET** /shipments/{shipmentid}.json |  |
+[**getShipments()**](ShipmentsApi.md#getShipments) | **GET** /shipments.json |  |
+[**updateShipment()**](ShipmentsApi.md#updateShipment) | **PUT** /shipments/{shipmentid}.json |  |
 
 
 ## `addShipment()`

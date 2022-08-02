@@ -49,6 +49,26 @@ class CategoryWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return CategoryWriteModelFields
+      */
+    public static function GetModelFields(): CategoryWriteModelFields
+    {
+        return new CategoryWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return CategoryWriteModelAttributes
+      */
+    public static function GetModelAttributes(): CategoryWriteModelAttributes
+    {
+        return new CategoryWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

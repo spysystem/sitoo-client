@@ -131,7 +131,7 @@ class OrdersApi
      *
      * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($hostIndex)
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -190,7 +190,7 @@ class OrdersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -203,11 +203,11 @@ class OrdersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -222,8 +222,6 @@ class OrdersApi
 
     /**
      * Operation addOrderAsync
-     *
-     * 
      *
      * @param  int $siteid (required)
      * @param  \Spy\SitooClient\Model\OrderWrite $orderWrite (required)
@@ -243,8 +241,6 @@ class OrdersApi
 
     /**
      * Operation addOrderAsyncWithHttpInfo
-     *
-     * 
      *
      * @param  int $siteid (required)
      * @param  \Spy\SitooClient\Model\OrderWrite $orderWrite (required)
@@ -274,7 +270,7 @@ class OrdersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -381,10 +377,13 @@ class OrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -430,7 +429,7 @@ class OrdersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -443,11 +442,11 @@ class OrdersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -462,8 +461,6 @@ class OrdersApi
 
     /**
      * Operation addOrderDeliveryAsync
-     *
-     * 
      *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
@@ -485,8 +482,6 @@ class OrdersApi
 
     /**
      * Operation addOrderDeliveryAsyncWithHttpInfo
-     *
-     * 
      *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
@@ -518,7 +513,7 @@ class OrdersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -648,10 +643,13 @@ class OrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -696,7 +694,7 @@ class OrdersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -709,21 +707,20 @@ class OrdersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('bool' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('bool' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -737,12 +734,11 @@ class OrdersApi
             }
 
             $returnType = 'bool';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('bool' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -771,8 +767,6 @@ class OrdersApi
     /**
      * Operation addOrderLogItemAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      * @param  \Spy\SitooClient\Model\OrderlogitemWrite $orderlogitemWrite (required)
@@ -793,8 +787,6 @@ class OrdersApi
     /**
      * Operation addOrderLogItemAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      * @param  \Spy\SitooClient\Model\OrderlogitemWrite $orderlogitemWrite (required)
@@ -811,11 +803,13 @@ class OrdersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -835,7 +829,7 @@ class OrdersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -957,10 +951,13 @@ class OrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1029,7 +1026,7 @@ class OrdersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -1042,21 +1039,20 @@ class OrdersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\GetAllOrdersResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\GetAllOrdersResponse' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1070,12 +1066,11 @@ class OrdersApi
             }
 
             $returnType = '\Spy\SitooClient\Model\GetAllOrdersResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\GetAllOrdersResponse' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -1103,8 +1098,6 @@ class OrdersApi
 
     /**
      * Operation getAllOrdersAsync
-     *
-     * 
      *
      * @param  int[] $eshopid (optional)
      * @param  string[] $externalid (optional)
@@ -1138,8 +1131,6 @@ class OrdersApi
     /**
      * Operation getAllOrdersAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int[] $eshopid (optional)
      * @param  string[] $externalid (optional)
      * @param  int[] $orderid (optional)
@@ -1168,11 +1159,13 @@ class OrdersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1192,7 +1185,7 @@ class OrdersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1391,10 +1384,13 @@ class OrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1437,7 +1433,7 @@ class OrdersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -1450,21 +1446,20 @@ class OrdersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\OrderRead' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\OrderRead' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1478,12 +1473,11 @@ class OrdersApi
             }
 
             $returnType = '\Spy\SitooClient\Model\OrderRead';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\OrderRead' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -1512,8 +1506,6 @@ class OrdersApi
     /**
      * Operation getOrderAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      *
@@ -1533,8 +1525,6 @@ class OrdersApi
     /**
      * Operation getOrderAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      *
@@ -1550,11 +1540,13 @@ class OrdersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1574,7 +1566,7 @@ class OrdersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1683,10 +1675,13 @@ class OrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1731,7 +1726,7 @@ class OrdersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -1744,21 +1739,20 @@ class OrdersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\GetOrderDeliveriesResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\GetOrderDeliveriesResponse' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1772,12 +1766,11 @@ class OrdersApi
             }
 
             $returnType = '\Spy\SitooClient\Model\GetOrderDeliveriesResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\GetOrderDeliveriesResponse' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -1806,8 +1799,6 @@ class OrdersApi
     /**
      * Operation getOrderDeliveriesAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      * @param  bool $ignorestock (optional)
@@ -1828,8 +1819,6 @@ class OrdersApi
     /**
      * Operation getOrderDeliveriesAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      * @param  bool $ignorestock (optional)
@@ -1846,11 +1835,13 @@ class OrdersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1870,7 +1861,7 @@ class OrdersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1987,10 +1978,13 @@ class OrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2033,7 +2027,7 @@ class OrdersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -2046,21 +2040,20 @@ class OrdersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\GetOrderLogItemsResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\GetOrderLogItemsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2074,12 +2067,11 @@ class OrdersApi
             }
 
             $returnType = '\Spy\SitooClient\Model\GetOrderLogItemsResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\GetOrderLogItemsResponse' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -2108,8 +2100,6 @@ class OrdersApi
     /**
      * Operation getOrderLogItemsAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      *
@@ -2129,8 +2119,6 @@ class OrdersApi
     /**
      * Operation getOrderLogItemsAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      *
@@ -2146,11 +2134,13 @@ class OrdersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2170,7 +2160,7 @@ class OrdersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2279,10 +2269,13 @@ class OrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2291,25 +2284,26 @@ class OrdersApi
     /**
      * Operation getOrders
      *
-     * @param  int $siteid siteid (required)
-     * @param  string[] $externalid externalid (optional)
-     * @param  int[] $orderid orderid (optional)
-     * @param  int $orderidfrom orderidfrom (optional)
-     * @param  int $orderidto orderidto (optional)
-     * @param  int $orderdatefrom orderdatefrom (optional)
-     * @param  int $orderdateto orderdateto (optional)
-     * @param  int[] $orderstate orderstate (optional)
-     * @param  int[] $paymentstate paymentstate (optional)
-     * @param  int[] $ordertype ordertype (optional)
-     * @param  string $email email (optional)
-     * @param  int $start start (optional)
-     * @param  int $num num (optional)
-     * @param  string $sort sort (optional)
-     * @param  string[] $fields list of fields, comma-separated (optional)
+     * @param  int $siteid siteid (required) (deprecated)
+     * @param  string[] $externalid externalid (optional) (deprecated)
+     * @param  int[] $orderid orderid (optional) (deprecated)
+     * @param  int $orderidfrom orderidfrom (optional) (deprecated)
+     * @param  int $orderidto orderidto (optional) (deprecated)
+     * @param  int $orderdatefrom orderdatefrom (optional) (deprecated)
+     * @param  int $orderdateto orderdateto (optional) (deprecated)
+     * @param  int[] $orderstate orderstate (optional) (deprecated)
+     * @param  int[] $paymentstate paymentstate (optional) (deprecated)
+     * @param  int[] $ordertype ordertype (optional) (deprecated)
+     * @param  string $email email (optional) (deprecated)
+     * @param  int $start start (optional) (deprecated)
+     * @param  int $num num (optional) (deprecated)
+     * @param  string $sort sort (optional) (deprecated)
+     * @param  string[] $fields list of fields, comma-separated (optional) (deprecated)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Spy\SitooClient\Model\GetOrdersResponse
+     * @deprecated
      */
     public function getOrders($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
@@ -2320,25 +2314,26 @@ class OrdersApi
     /**
      * Operation getOrdersWithHttpInfo
      *
-     * @param  int $siteid (required)
-     * @param  string[] $externalid (optional)
-     * @param  int[] $orderid (optional)
-     * @param  int $orderidfrom (optional)
-     * @param  int $orderidto (optional)
-     * @param  int $orderdatefrom (optional)
-     * @param  int $orderdateto (optional)
-     * @param  int[] $orderstate (optional)
-     * @param  int[] $paymentstate (optional)
-     * @param  int[] $ordertype (optional)
-     * @param  string $email (optional)
-     * @param  int $start (optional)
-     * @param  int $num (optional)
-     * @param  string $sort (optional)
-     * @param  string[] $fields list of fields, comma-separated (optional)
+     * @param  int $siteid (required) (deprecated)
+     * @param  string[] $externalid (optional) (deprecated)
+     * @param  int[] $orderid (optional) (deprecated)
+     * @param  int $orderidfrom (optional) (deprecated)
+     * @param  int $orderidto (optional) (deprecated)
+     * @param  int $orderdatefrom (optional) (deprecated)
+     * @param  int $orderdateto (optional) (deprecated)
+     * @param  int[] $orderstate (optional) (deprecated)
+     * @param  int[] $paymentstate (optional) (deprecated)
+     * @param  int[] $ordertype (optional) (deprecated)
+     * @param  string $email (optional) (deprecated)
+     * @param  int $start (optional) (deprecated)
+     * @param  int $num (optional) (deprecated)
+     * @param  string $sort (optional) (deprecated)
+     * @param  string[] $fields list of fields, comma-separated (optional) (deprecated)
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Spy\SitooClient\Model\GetOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getOrdersWithHttpInfo($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
@@ -2351,7 +2346,7 @@ class OrdersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -2364,21 +2359,20 @@ class OrdersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\GetOrdersResponse' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\GetOrdersResponse' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2392,12 +2386,11 @@ class OrdersApi
             }
 
             $returnType = '\Spy\SitooClient\Model\GetOrdersResponse';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\GetOrdersResponse' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -2426,26 +2419,25 @@ class OrdersApi
     /**
      * Operation getOrdersAsync
      *
-     * 
-     *
-     * @param  int $siteid (required)
-     * @param  string[] $externalid (optional)
-     * @param  int[] $orderid (optional)
-     * @param  int $orderidfrom (optional)
-     * @param  int $orderidto (optional)
-     * @param  int $orderdatefrom (optional)
-     * @param  int $orderdateto (optional)
-     * @param  int[] $orderstate (optional)
-     * @param  int[] $paymentstate (optional)
-     * @param  int[] $ordertype (optional)
-     * @param  string $email (optional)
-     * @param  int $start (optional)
-     * @param  int $num (optional)
-     * @param  string $sort (optional)
-     * @param  string[] $fields list of fields, comma-separated (optional)
+     * @param  int $siteid (required) (deprecated)
+     * @param  string[] $externalid (optional) (deprecated)
+     * @param  int[] $orderid (optional) (deprecated)
+     * @param  int $orderidfrom (optional) (deprecated)
+     * @param  int $orderidto (optional) (deprecated)
+     * @param  int $orderdatefrom (optional) (deprecated)
+     * @param  int $orderdateto (optional) (deprecated)
+     * @param  int[] $orderstate (optional) (deprecated)
+     * @param  int[] $paymentstate (optional) (deprecated)
+     * @param  int[] $ordertype (optional) (deprecated)
+     * @param  string $email (optional) (deprecated)
+     * @param  int $start (optional) (deprecated)
+     * @param  int $num (optional) (deprecated)
+     * @param  string $sort (optional) (deprecated)
+     * @param  string[] $fields list of fields, comma-separated (optional) (deprecated)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getOrdersAsync($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
@@ -2460,26 +2452,25 @@ class OrdersApi
     /**
      * Operation getOrdersAsyncWithHttpInfo
      *
-     * 
-     *
-     * @param  int $siteid (required)
-     * @param  string[] $externalid (optional)
-     * @param  int[] $orderid (optional)
-     * @param  int $orderidfrom (optional)
-     * @param  int $orderidto (optional)
-     * @param  int $orderdatefrom (optional)
-     * @param  int $orderdateto (optional)
-     * @param  int[] $orderstate (optional)
-     * @param  int[] $paymentstate (optional)
-     * @param  int[] $ordertype (optional)
-     * @param  string $email (optional)
-     * @param  int $start (optional)
-     * @param  int $num (optional)
-     * @param  string $sort (optional)
-     * @param  string[] $fields list of fields, comma-separated (optional)
+     * @param  int $siteid (required) (deprecated)
+     * @param  string[] $externalid (optional) (deprecated)
+     * @param  int[] $orderid (optional) (deprecated)
+     * @param  int $orderidfrom (optional) (deprecated)
+     * @param  int $orderidto (optional) (deprecated)
+     * @param  int $orderdatefrom (optional) (deprecated)
+     * @param  int $orderdateto (optional) (deprecated)
+     * @param  int[] $orderstate (optional) (deprecated)
+     * @param  int[] $paymentstate (optional) (deprecated)
+     * @param  int[] $ordertype (optional) (deprecated)
+     * @param  string $email (optional) (deprecated)
+     * @param  int $start (optional) (deprecated)
+     * @param  int $num (optional) (deprecated)
+     * @param  string $sort (optional) (deprecated)
+     * @param  string[] $fields list of fields, comma-separated (optional) (deprecated)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getOrdersAsyncWithHttpInfo($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
@@ -2490,11 +2481,13 @@ class OrdersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2514,7 +2507,7 @@ class OrdersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2523,24 +2516,25 @@ class OrdersApi
     /**
      * Create request for operation 'getOrders'
      *
-     * @param  int $siteid (required)
-     * @param  string[] $externalid (optional)
-     * @param  int[] $orderid (optional)
-     * @param  int $orderidfrom (optional)
-     * @param  int $orderidto (optional)
-     * @param  int $orderdatefrom (optional)
-     * @param  int $orderdateto (optional)
-     * @param  int[] $orderstate (optional)
-     * @param  int[] $paymentstate (optional)
-     * @param  int[] $ordertype (optional)
-     * @param  string $email (optional)
-     * @param  int $start (optional)
-     * @param  int $num (optional)
-     * @param  string $sort (optional)
-     * @param  string[] $fields list of fields, comma-separated (optional)
+     * @param  int $siteid (required) (deprecated)
+     * @param  string[] $externalid (optional) (deprecated)
+     * @param  int[] $orderid (optional) (deprecated)
+     * @param  int $orderidfrom (optional) (deprecated)
+     * @param  int $orderidto (optional) (deprecated)
+     * @param  int $orderdatefrom (optional) (deprecated)
+     * @param  int $orderdateto (optional) (deprecated)
+     * @param  int[] $orderstate (optional) (deprecated)
+     * @param  int[] $paymentstate (optional) (deprecated)
+     * @param  int[] $ordertype (optional) (deprecated)
+     * @param  string $email (optional) (deprecated)
+     * @param  int $start (optional) (deprecated)
+     * @param  int $num (optional) (deprecated)
+     * @param  string $sort (optional) (deprecated)
+     * @param  string[] $fields list of fields, comma-separated (optional) (deprecated)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getOrdersRequest($siteid, $externalid = null, $orderid = null, $orderidfrom = null, $orderidto = null, $orderdatefrom = null, $orderdateto = null, $orderstate = null, $paymentstate = null, $ordertype = null, $email = null, $start = null, $num = null, $sort = null, $fields = null)
     {
@@ -2720,10 +2714,13 @@ class OrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -2768,7 +2765,7 @@ class OrdersApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -2781,21 +2778,20 @@ class OrdersApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('bool' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('bool' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2809,12 +2805,11 @@ class OrdersApi
             }
 
             $returnType = 'bool';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('bool' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -2843,8 +2838,6 @@ class OrdersApi
     /**
      * Operation updateOrderAsync
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      * @param  \Spy\SitooClient\Model\OrderWrite $orderWrite (required)
@@ -2865,8 +2858,6 @@ class OrdersApi
     /**
      * Operation updateOrderAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  int $siteid (required)
      * @param  int $orderid (required)
      * @param  \Spy\SitooClient\Model\OrderWrite $orderWrite (required)
@@ -2883,11 +2874,13 @@ class OrdersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -2907,7 +2900,7 @@ class OrdersApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -3029,10 +3022,13 @@ class OrdersApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

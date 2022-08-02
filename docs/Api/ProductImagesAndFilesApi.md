@@ -1,17 +1,17 @@
 # Spy\SitooClient\ProductImagesAndFilesApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addProductFile()**](ProductImagesAndFilesApi.md#addProductFile) | **POST** /sites/{siteid}/products/{productid}/files.json | 
-[**addProductImage()**](ProductImagesAndFilesApi.md#addProductImage) | **POST** /sites/{siteid}/products/{productid}/images.json | 
-[**deleteProductFile()**](ProductImagesAndFilesApi.md#deleteProductFile) | **DELETE** /sites/{siteid}/products/{productid}/files/{fileid}.json | 
-[**deleteProductImage()**](ProductImagesAndFilesApi.md#deleteProductImage) | **DELETE** /sites/{siteid}/products/{productid}/images/{imageid}.json | 
-[**getProductFile()**](ProductImagesAndFilesApi.md#getProductFile) | **GET** /sites/{siteid}/products/{productid}/files/{fileid}.json | 
-[**getProductFiles()**](ProductImagesAndFilesApi.md#getProductFiles) | **GET** /sites/{siteid}/products/{productid}/files.json | 
-[**getProductImage()**](ProductImagesAndFilesApi.md#getProductImage) | **GET** /sites/{siteid}/products/{productid}/images/{imageid}.json | 
-[**getProductImages()**](ProductImagesAndFilesApi.md#getProductImages) | **GET** /sites/{siteid}/products/{productid}/images.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addProductFile()**](ProductImagesAndFilesApi.md#addProductFile) | **POST** /sites/{siteid}/products/{productid}/files.json |  |
+[**addProductImage()**](ProductImagesAndFilesApi.md#addProductImage) | **POST** /sites/{siteid}/products/{productid}/images.json |  |
+[**deleteProductFile()**](ProductImagesAndFilesApi.md#deleteProductFile) | **DELETE** /sites/{siteid}/products/{productid}/files/{fileid}.json |  |
+[**deleteProductImage()**](ProductImagesAndFilesApi.md#deleteProductImage) | **DELETE** /sites/{siteid}/products/{productid}/images/{imageid}.json |  |
+[**getProductFile()**](ProductImagesAndFilesApi.md#getProductFile) | **GET** /sites/{siteid}/products/{productid}/files/{fileid}.json |  |
+[**getProductFiles()**](ProductImagesAndFilesApi.md#getProductFiles) | **GET** /sites/{siteid}/products/{productid}/files.json |  |
+[**getProductImage()**](ProductImagesAndFilesApi.md#getProductImage) | **GET** /sites/{siteid}/products/{productid}/images/{imageid}.json |  |
+[**getProductImages()**](ProductImagesAndFilesApi.md#getProductImages) | **GET** /sites/{siteid}/products/{productid}/images.json |  |
 
 
 ## `addProductFile()`

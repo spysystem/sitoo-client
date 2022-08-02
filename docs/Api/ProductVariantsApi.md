@@ -1,11 +1,11 @@
 # Spy\SitooClient\ProductVariantsApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getProductVariants()**](ProductVariantsApi.md#getProductVariants) | **GET** /sites/{siteid}/products/{productid}/productvariants.json | 
-[**setProductVariants()**](ProductVariantsApi.md#setProductVariants) | **PUT** /sites/{siteid}/products/{productid}/productvariants.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getProductVariants()**](ProductVariantsApi.md#getProductVariants) | **GET** /sites/{siteid}/products/{productid}/productvariants.json |  |
+[**setProductVariants()**](ProductVariantsApi.md#setProductVariants) | **PUT** /sites/{siteid}/products/{productid}/productvariants.json |  |
 
 
 ## `getProductVariants()`

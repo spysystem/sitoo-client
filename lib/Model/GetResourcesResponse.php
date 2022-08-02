@@ -48,6 +48,26 @@ class GetResourcesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetResourcesResponseModelFields
+      */
+    public static function GetModelFields(): GetResourcesResponseModelFields
+    {
+        return new GetResourcesResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetResourcesResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetResourcesResponseModelAttributes
+    {
+        return new GetResourcesResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

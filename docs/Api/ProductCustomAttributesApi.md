@@ -1,14 +1,14 @@
 # Spy\SitooClient\ProductCustomAttributesApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addCustomAttribute()**](ProductCustomAttributesApi.md#addCustomAttribute) | **POST** /sites/{siteid}/customattributes.json | 
-[**deleteCustomAttribute()**](ProductCustomAttributesApi.md#deleteCustomAttribute) | **DELETE** /sites/{siteid}/customattributes/{attributeid}.json | 
-[**getCustomAttribute()**](ProductCustomAttributesApi.md#getCustomAttribute) | **GET** /sites/{siteid}/customattributes/{attributeid}.json | 
-[**getCustomAttributes()**](ProductCustomAttributesApi.md#getCustomAttributes) | **GET** /sites/{siteid}/customattributes.json | 
-[**updateCustomAttribute()**](ProductCustomAttributesApi.md#updateCustomAttribute) | **PUT** /sites/{siteid}/customattributes/{attributeid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addCustomAttribute()**](ProductCustomAttributesApi.md#addCustomAttribute) | **POST** /sites/{siteid}/customattributes.json |  |
+[**deleteCustomAttribute()**](ProductCustomAttributesApi.md#deleteCustomAttribute) | **DELETE** /sites/{siteid}/customattributes/{attributeid}.json |  |
+[**getCustomAttribute()**](ProductCustomAttributesApi.md#getCustomAttribute) | **GET** /sites/{siteid}/customattributes/{attributeid}.json |  |
+[**getCustomAttributes()**](ProductCustomAttributesApi.md#getCustomAttributes) | **GET** /sites/{siteid}/customattributes.json |  |
+[**updateCustomAttribute()**](ProductCustomAttributesApi.md#updateCustomAttribute) | **PUT** /sites/{siteid}/customattributes/{attributeid}.json |  |
 
 
 ## `addCustomAttribute()`

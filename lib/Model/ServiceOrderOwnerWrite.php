@@ -49,6 +49,26 @@ class ServiceOrderOwnerWrite implements ModelInterface, ArrayAccess, \JsonSerial
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ServiceOrderOwnerWriteModelFields
+      */
+    public static function GetModelFields(): ServiceOrderOwnerWriteModelFields
+    {
+        return new ServiceOrderOwnerWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ServiceOrderOwnerWriteModelAttributes
+      */
+    public static function GetModelAttributes(): ServiceOrderOwnerWriteModelAttributes
+    {
+        return new ServiceOrderOwnerWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

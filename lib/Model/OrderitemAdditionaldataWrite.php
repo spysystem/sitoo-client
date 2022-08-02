@@ -49,6 +49,26 @@ class OrderitemAdditionaldataWrite implements ModelInterface, ArrayAccess, \Json
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderitemAdditionaldataWriteModelFields
+      */
+    public static function GetModelFields(): OrderitemAdditionaldataWriteModelFields
+    {
+        return new OrderitemAdditionaldataWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderitemAdditionaldataWriteModelAttributes
+      */
+    public static function GetModelAttributes(): OrderitemAdditionaldataWriteModelAttributes
+    {
+        return new OrderitemAdditionaldataWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -1,15 +1,15 @@
 # Spy\SitooClient\UsersApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**batchAddUsers()**](UsersApi.md#batchAddUsers) | **POST** /sites/{siteid}/users.json | 
-[**batchUpdateUsers()**](UsersApi.md#batchUpdateUsers) | **PUT** /sites/{siteid}/users.json | 
-[**deleteUser()**](UsersApi.md#deleteUser) | **DELETE** /sites/{siteid}/users/{userid}.json | 
-[**getUser()**](UsersApi.md#getUser) | **GET** /sites/{siteid}/users/{userid}.json | 
-[**getUsers()**](UsersApi.md#getUsers) | **GET** /sites/{siteid}/users.json | 
-[**updateUser()**](UsersApi.md#updateUser) | **PUT** /sites/{siteid}/users/{userid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**batchAddUsers()**](UsersApi.md#batchAddUsers) | **POST** /sites/{siteid}/users.json |  |
+[**batchUpdateUsers()**](UsersApi.md#batchUpdateUsers) | **PUT** /sites/{siteid}/users.json |  |
+[**deleteUser()**](UsersApi.md#deleteUser) | **DELETE** /sites/{siteid}/users/{userid}.json |  |
+[**getUser()**](UsersApi.md#getUser) | **GET** /sites/{siteid}/users/{userid}.json |  |
+[**getUsers()**](UsersApi.md#getUsers) | **GET** /sites/{siteid}/users.json |  |
+[**updateUser()**](UsersApi.md#updateUser) | **PUT** /sites/{siteid}/users/{userid}.json |  |
 
 
 ## `batchAddUsers()`

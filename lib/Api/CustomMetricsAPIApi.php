@@ -131,7 +131,7 @@ class CustomMetricsAPIApi
      *
      * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($hostIndex)
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -189,7 +189,7 @@ class CustomMetricsAPIApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -202,21 +202,20 @@ class CustomMetricsAPIApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\CustomMetricRead' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\CustomMetricRead' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -230,12 +229,11 @@ class CustomMetricsAPIApi
             }
 
             $returnType = '\Spy\SitooClient\Model\CustomMetricRead';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\CustomMetricRead' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -264,8 +262,6 @@ class CustomMetricsAPIApi
     /**
      * Operation addCustomMetricAsync
      *
-     * 
-     *
      * @param  \Spy\SitooClient\Model\CustomMetricWrite $customMetricWrite (required)
      *
      * @throws \InvalidArgumentException
@@ -284,8 +280,6 @@ class CustomMetricsAPIApi
     /**
      * Operation addCustomMetricAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  \Spy\SitooClient\Model\CustomMetricWrite $customMetricWrite (required)
      *
      * @throws \InvalidArgumentException
@@ -300,11 +294,13 @@ class CustomMetricsAPIApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -324,7 +320,7 @@ class CustomMetricsAPIApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -416,10 +412,13 @@ class CustomMetricsAPIApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -459,7 +458,7 @@ class CustomMetricsAPIApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -472,11 +471,11 @@ class CustomMetricsAPIApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -491,8 +490,6 @@ class CustomMetricsAPIApi
 
     /**
      * Operation deleteCustomMetricAsync
-     *
-     * 
      *
      * @param  string $key (required)
      *
@@ -511,8 +508,6 @@ class CustomMetricsAPIApi
 
     /**
      * Operation deleteCustomMetricAsyncWithHttpInfo
-     *
-     * 
      *
      * @param  string $key (required)
      *
@@ -541,7 +536,7 @@ class CustomMetricsAPIApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -635,10 +630,13 @@ class CustomMetricsAPIApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -684,7 +682,7 @@ class CustomMetricsAPIApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -697,11 +695,11 @@ class CustomMetricsAPIApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
@@ -716,8 +714,6 @@ class CustomMetricsAPIApi
 
     /**
      * Operation deleteCustomMetricValuesAsync
-     *
-     * 
      *
      * @param  string $key (required)
      * @param  string $date (optional)
@@ -739,8 +735,6 @@ class CustomMetricsAPIApi
 
     /**
      * Operation deleteCustomMetricValuesAsyncWithHttpInfo
-     *
-     * 
      *
      * @param  string $key (required)
      * @param  string $date (optional)
@@ -772,7 +766,7 @@ class CustomMetricsAPIApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -890,10 +884,13 @@ class CustomMetricsAPIApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -940,7 +937,7 @@ class CustomMetricsAPIApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -953,21 +950,20 @@ class CustomMetricsAPIApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\CustomMetricValueRead' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\CustomMetricValueRead' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -981,12 +977,11 @@ class CustomMetricsAPIApi
             }
 
             $returnType = '\Spy\SitooClient\Model\CustomMetricValueRead';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\CustomMetricValueRead' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -1015,8 +1010,6 @@ class CustomMetricsAPIApi
     /**
      * Operation getCustomMetricValuesAsync
      *
-     * 
-     *
      * @param  string $keys (optional)
      * @param  string $date (optional)
      * @param  int $numDays (optional)
@@ -1038,8 +1031,6 @@ class CustomMetricsAPIApi
     /**
      * Operation getCustomMetricValuesAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  string $keys (optional)
      * @param  string $date (optional)
      * @param  int $numDays (optional)
@@ -1057,11 +1048,13 @@ class CustomMetricsAPIApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1081,7 +1074,7 @@ class CustomMetricsAPIApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1192,10 +1185,13 @@ class CustomMetricsAPIApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1236,7 +1232,7 @@ class CustomMetricsAPIApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -1249,21 +1245,20 @@ class CustomMetricsAPIApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\CustomMetricRead' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\CustomMetricRead' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1277,12 +1272,11 @@ class CustomMetricsAPIApi
             }
 
             $returnType = '\Spy\SitooClient\Model\CustomMetricRead';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\CustomMetricRead' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -1311,8 +1305,6 @@ class CustomMetricsAPIApi
     /**
      * Operation getCustomMetricsAsync
      *
-     * 
-     *
      * @param  string $keys (optional)
      *
      * @throws \InvalidArgumentException
@@ -1331,8 +1323,6 @@ class CustomMetricsAPIApi
     /**
      * Operation getCustomMetricsAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  string $keys (optional)
      *
      * @throws \InvalidArgumentException
@@ -1347,11 +1337,13 @@ class CustomMetricsAPIApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1371,7 +1363,7 @@ class CustomMetricsAPIApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1458,10 +1450,13 @@ class CustomMetricsAPIApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1510,7 +1505,7 @@ class CustomMetricsAPIApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
@@ -1523,21 +1518,20 @@ class CustomMetricsAPIApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        $request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    $response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
-            $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
                     if ('\Spy\SitooClient\Model\CustomMetricValueRead' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                         if ('\Spy\SitooClient\Model\CustomMetricValueRead' !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1551,12 +1545,11 @@ class CustomMetricsAPIApi
             }
 
             $returnType = '\Spy\SitooClient\Model\CustomMetricValueRead';
-            $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
-                if ('\Spy\SitooClient\Model\CustomMetricValueRead' !== 'string') {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }
             }
@@ -1585,8 +1578,6 @@ class CustomMetricsAPIApi
     /**
      * Operation updateCustomMetricValuesAsync
      *
-     * 
-     *
      * @param  \Spy\SitooClient\Model\CustomMetricValueWrite[] $customMetricValueWrite (required)
      * @param  string $keys (optional)
      * @param  string $date (optional)
@@ -1609,8 +1600,6 @@ class CustomMetricsAPIApi
     /**
      * Operation updateCustomMetricValuesAsyncWithHttpInfo
      *
-     * 
-     *
      * @param  \Spy\SitooClient\Model\CustomMetricValueWrite[] $customMetricValueWrite (required)
      * @param  string $keys (optional)
      * @param  string $date (optional)
@@ -1629,11 +1618,13 @@ class CustomMetricsAPIApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
                     }
 
                     return [
@@ -1653,7 +1644,7 @@ class CustomMetricsAPIApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        $response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1777,10 +1768,13 @@ class CustomMetricsAPIApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $operationHost = $this->config->getHost();
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

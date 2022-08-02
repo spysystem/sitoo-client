@@ -49,6 +49,26 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ProductWriteModelFields
+      */
+    public static function GetModelFields(): ProductWriteModelFields
+    {
+        return new ProductWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ProductWriteModelAttributes
+      */
+    public static function GetModelAttributes(): ProductWriteModelAttributes
+    {
+        return new ProductWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

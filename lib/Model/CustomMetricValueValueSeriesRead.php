@@ -49,6 +49,26 @@ class CustomMetricValueValueSeriesRead implements ModelInterface, ArrayAccess, \
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return CustomMetricValueValueSeriesReadModelFields
+      */
+    public static function GetModelFields(): CustomMetricValueValueSeriesReadModelFields
+    {
+        return new CustomMetricValueValueSeriesReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return CustomMetricValueValueSeriesReadModelAttributes
+      */
+    public static function GetModelAttributes(): CustomMetricValueValueSeriesReadModelAttributes
+    {
+        return new CustomMetricValueValueSeriesReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

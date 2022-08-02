@@ -49,6 +49,26 @@ class SiteRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return SiteReadModelFields
+      */
+    public static function GetModelFields(): SiteReadModelFields
+    {
+        return new SiteReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return SiteReadModelAttributes
+      */
+    public static function GetModelAttributes(): SiteReadModelAttributes
+    {
+        return new SiteReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

@@ -48,6 +48,26 @@ class GetVouchersResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetVouchersResponseModelFields
+      */
+    public static function GetModelFields(): GetVouchersResponseModelFields
+    {
+        return new GetVouchersResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetVouchersResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetVouchersResponseModelAttributes
+    {
+        return new GetVouchersResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

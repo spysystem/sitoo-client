@@ -48,6 +48,26 @@ class GetOrderLogItemsResponse implements ModelInterface, ArrayAccess, \JsonSeri
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetOrderLogItemsResponseModelFields
+      */
+    public static function GetModelFields(): GetOrderLogItemsResponseModelFields
+    {
+        return new GetOrderLogItemsResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetOrderLogItemsResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetOrderLogItemsResponseModelAttributes
+    {
+        return new GetOrderLogItemsResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

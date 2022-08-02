@@ -49,6 +49,26 @@ class GiftcardWrite implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GiftcardWriteModelFields
+      */
+    public static function GetModelFields(): GiftcardWriteModelFields
+    {
+        return new GiftcardWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GiftcardWriteModelAttributes
+      */
+    public static function GetModelAttributes(): GiftcardWriteModelAttributes
+    {
+        return new GiftcardWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

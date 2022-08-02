@@ -49,6 +49,26 @@ class VoucherproductoptionWrite implements ModelInterface, ArrayAccess, \JsonSer
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return VoucherproductoptionWriteModelFields
+      */
+    public static function GetModelFields(): VoucherproductoptionWriteModelFields
+    {
+        return new VoucherproductoptionWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return VoucherproductoptionWriteModelAttributes
+      */
+    public static function GetModelAttributes(): VoucherproductoptionWriteModelAttributes
+    {
+        return new VoucherproductoptionWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

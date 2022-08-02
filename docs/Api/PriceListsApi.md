@@ -1,17 +1,17 @@
 # Spy\SitooClient\PriceListsApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addPriceList()**](PriceListsApi.md#addPriceList) | **POST** /sites/{siteid}/pricelists.json | 
-[**batchDeletePriceListItems()**](PriceListsApi.md#batchDeletePriceListItems) | **DELETE** /sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json | 
-[**batchSetPriceListItems()**](PriceListsApi.md#batchSetPriceListItems) | **PUT** /sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json | 
-[**deletePriceList()**](PriceListsApi.md#deletePriceList) | **DELETE** /sites/{siteid}/pricelists/{pricelistid}.json | 
-[**getPriceList()**](PriceListsApi.md#getPriceList) | **GET** /sites/{siteid}/pricelists/{pricelistid}.json | 
-[**getPriceLists()**](PriceListsApi.md#getPriceLists) | **GET** /sites/{siteid}/pricelists.json | 
-[**getPriceListsItems()**](PriceListsApi.md#getPriceListsItems) | **GET** /sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json | 
-[**updatePriceList()**](PriceListsApi.md#updatePriceList) | **PUT** /sites/{siteid}/pricelists/{pricelistid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addPriceList()**](PriceListsApi.md#addPriceList) | **POST** /sites/{siteid}/pricelists.json |  |
+[**batchDeletePriceListItems()**](PriceListsApi.md#batchDeletePriceListItems) | **DELETE** /sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json |  |
+[**batchSetPriceListItems()**](PriceListsApi.md#batchSetPriceListItems) | **PUT** /sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json |  |
+[**deletePriceList()**](PriceListsApi.md#deletePriceList) | **DELETE** /sites/{siteid}/pricelists/{pricelistid}.json |  |
+[**getPriceList()**](PriceListsApi.md#getPriceList) | **GET** /sites/{siteid}/pricelists/{pricelistid}.json |  |
+[**getPriceLists()**](PriceListsApi.md#getPriceLists) | **GET** /sites/{siteid}/pricelists.json |  |
+[**getPriceListsItems()**](PriceListsApi.md#getPriceListsItems) | **GET** /sites/{siteid}/pricelists/{pricelistid}/pricelistitems.json |  |
+[**updatePriceList()**](PriceListsApi.md#updatePriceList) | **PUT** /sites/{siteid}/pricelists/{pricelistid}.json |  |
 
 
 ## `addPriceList()`

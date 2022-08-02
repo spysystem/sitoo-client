@@ -48,6 +48,26 @@ class GetOrderDeliveriesResponse implements ModelInterface, ArrayAccess, \JsonSe
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetOrderDeliveriesResponseModelFields
+      */
+    public static function GetModelFields(): GetOrderDeliveriesResponseModelFields
+    {
+        return new GetOrderDeliveriesResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetOrderDeliveriesResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetOrderDeliveriesResponseModelAttributes
+    {
+        return new GetOrderDeliveriesResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

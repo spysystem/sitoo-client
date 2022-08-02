@@ -49,6 +49,26 @@ class VoucherRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return VoucherReadModelFields
+      */
+    public static function GetModelFields(): VoucherReadModelFields
+    {
+        return new VoucherReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return VoucherReadModelAttributes
+      */
+    public static function GetModelAttributes(): VoucherReadModelAttributes
+    {
+        return new VoucherReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

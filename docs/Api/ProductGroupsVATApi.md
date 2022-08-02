@@ -1,14 +1,14 @@
 # Spy\SitooClient\ProductGroupsVATApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addProductGroup()**](ProductGroupsVATApi.md#addProductGroup) | **POST** /sites/{siteid}/productgroups.json | 
-[**deleteProductGroup()**](ProductGroupsVATApi.md#deleteProductGroup) | **DELETE** /sites/{siteid}/productgroups/{vatid}.json | 
-[**getProductGroup()**](ProductGroupsVATApi.md#getProductGroup) | **GET** /sites/{siteid}/productgroups/{vatid}.json | 
-[**getProductGroups()**](ProductGroupsVATApi.md#getProductGroups) | **GET** /sites/{siteid}/productgroups.json | 
-[**updateProductGroup()**](ProductGroupsVATApi.md#updateProductGroup) | **PUT** /sites/{siteid}/productgroups/{vatid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addProductGroup()**](ProductGroupsVATApi.md#addProductGroup) | **POST** /sites/{siteid}/productgroups.json |  |
+[**deleteProductGroup()**](ProductGroupsVATApi.md#deleteProductGroup) | **DELETE** /sites/{siteid}/productgroups/{vatid}.json |  |
+[**getProductGroup()**](ProductGroupsVATApi.md#getProductGroup) | **GET** /sites/{siteid}/productgroups/{vatid}.json |  |
+[**getProductGroups()**](ProductGroupsVATApi.md#getProductGroups) | **GET** /sites/{siteid}/productgroups.json |  |
+[**updateProductGroup()**](ProductGroupsVATApi.md#updateProductGroup) | **PUT** /sites/{siteid}/productgroups/{vatid}.json |  |
 
 
 ## `addProductGroup()`

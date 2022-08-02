@@ -49,6 +49,26 @@ class InfluencervoucherRead implements ModelInterface, ArrayAccess, \JsonSeriali
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return InfluencervoucherReadModelFields
+      */
+    public static function GetModelFields(): InfluencervoucherReadModelFields
+    {
+        return new InfluencervoucherReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return InfluencervoucherReadModelAttributes
+      */
+    public static function GetModelAttributes(): InfluencervoucherReadModelAttributes
+    {
+        return new InfluencervoucherReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

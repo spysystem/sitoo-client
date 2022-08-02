@@ -1,15 +1,15 @@
 # Spy\SitooClient\CustomMetricsAPIApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addCustomMetric()**](CustomMetricsAPIApi.md#addCustomMetric) | **POST** /custom_metrics.json | 
-[**deleteCustomMetric()**](CustomMetricsAPIApi.md#deleteCustomMetric) | **DELETE** /custom_metrics/{key}.json | 
-[**deleteCustomMetricValues()**](CustomMetricsAPIApi.md#deleteCustomMetricValues) | **DELETE** /custom_metric_values/{key}.json | 
-[**getCustomMetricValues()**](CustomMetricsAPIApi.md#getCustomMetricValues) | **GET** /custom_metric_values.json | 
-[**getCustomMetrics()**](CustomMetricsAPIApi.md#getCustomMetrics) | **GET** /custom_metrics.json | 
-[**updateCustomMetricValues()**](CustomMetricsAPIApi.md#updateCustomMetricValues) | **PUT** /custom_metric_values.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addCustomMetric()**](CustomMetricsAPIApi.md#addCustomMetric) | **POST** /custom_metrics.json |  |
+[**deleteCustomMetric()**](CustomMetricsAPIApi.md#deleteCustomMetric) | **DELETE** /custom_metrics/{key}.json |  |
+[**deleteCustomMetricValues()**](CustomMetricsAPIApi.md#deleteCustomMetricValues) | **DELETE** /custom_metric_values/{key}.json |  |
+[**getCustomMetricValues()**](CustomMetricsAPIApi.md#getCustomMetricValues) | **GET** /custom_metric_values.json |  |
+[**getCustomMetrics()**](CustomMetricsAPIApi.md#getCustomMetrics) | **GET** /custom_metrics.json |  |
+[**updateCustomMetricValues()**](CustomMetricsAPIApi.md#updateCustomMetricValues) | **PUT** /custom_metric_values.json |  |
 
 
 ## `addCustomMetric()`

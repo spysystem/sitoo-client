@@ -49,6 +49,26 @@ class ProductgroupRead implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ProductgroupReadModelFields
+      */
+    public static function GetModelFields(): ProductgroupReadModelFields
+    {
+        return new ProductgroupReadModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ProductgroupReadModelAttributes
+      */
+    public static function GetModelAttributes(): ProductgroupReadModelAttributes
+    {
+        return new ProductgroupReadModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

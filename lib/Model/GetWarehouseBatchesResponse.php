@@ -48,6 +48,26 @@ class GetWarehouseBatchesResponse implements ModelInterface, ArrayAccess, \JsonS
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetWarehouseBatchesResponseModelFields
+      */
+    public static function GetModelFields(): GetWarehouseBatchesResponseModelFields
+    {
+        return new GetWarehouseBatchesResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetWarehouseBatchesResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetWarehouseBatchesResponseModelAttributes
+    {
+        return new GetWarehouseBatchesResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

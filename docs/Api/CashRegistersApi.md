@@ -1,13 +1,13 @@
 # Spy\SitooClient\CashRegistersApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getCashRegister()**](CashRegistersApi.md#getCashRegister) | **GET** /sites/{siteid}/cashregisters/{registerid}.json | 
-[**getCashRegisters()**](CashRegistersApi.md#getCashRegisters) | **GET** /sites/{siteid}/cashregisters.json | 
-[**getZReport()**](CashRegistersApi.md#getZReport) | **GET** /sites/{siteid}/cashregisters/{registerid}/zreports/{zreportid}.json | 
-[**getZReports()**](CashRegistersApi.md#getZReports) | **GET** /sites/{siteid}/cashregisters/{registerid}/zreports.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getCashRegister()**](CashRegistersApi.md#getCashRegister) | **GET** /sites/{siteid}/cashregisters/{registerid}.json |  |
+[**getCashRegisters()**](CashRegistersApi.md#getCashRegisters) | **GET** /sites/{siteid}/cashregisters.json |  |
+[**getZReport()**](CashRegistersApi.md#getZReport) | **GET** /sites/{siteid}/cashregisters/{registerid}/zreports/{zreportid}.json |  |
+[**getZReports()**](CashRegistersApi.md#getZReports) | **GET** /sites/{siteid}/cashregisters/{registerid}/zreports.json |  |
 
 
 ## `getCashRegister()`

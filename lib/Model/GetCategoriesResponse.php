@@ -48,6 +48,26 @@ class GetCategoriesResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetCategoriesResponseModelFields
+      */
+    public static function GetModelFields(): GetCategoriesResponseModelFields
+    {
+        return new GetCategoriesResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetCategoriesResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetCategoriesResponseModelAttributes
+    {
+        return new GetCategoriesResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

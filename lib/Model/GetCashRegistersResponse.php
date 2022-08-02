@@ -48,6 +48,26 @@ class GetCashRegistersResponse implements ModelInterface, ArrayAccess, \JsonSeri
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetCashRegistersResponseModelFields
+      */
+    public static function GetModelFields(): GetCashRegistersResponseModelFields
+    {
+        return new GetCashRegistersResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetCashRegistersResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetCashRegistersResponseModelAttributes
+    {
+        return new GetCashRegistersResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

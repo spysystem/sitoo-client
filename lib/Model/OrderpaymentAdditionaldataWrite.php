@@ -49,6 +49,26 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderpaymentAdditionaldataWriteModelFields
+      */
+    public static function GetModelFields(): OrderpaymentAdditionaldataWriteModelFields
+    {
+        return new OrderpaymentAdditionaldataWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderpaymentAdditionaldataWriteModelAttributes
+      */
+    public static function GetModelAttributes(): OrderpaymentAdditionaldataWriteModelAttributes
+    {
+        return new OrderpaymentAdditionaldataWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

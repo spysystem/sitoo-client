@@ -49,6 +49,26 @@ class CustomMetricWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return CustomMetricWriteModelFields
+      */
+    public static function GetModelFields(): CustomMetricWriteModelFields
+    {
+        return new CustomMetricWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return CustomMetricWriteModelAttributes
+      */
+    public static function GetModelAttributes(): CustomMetricWriteModelAttributes
+    {
+        return new CustomMetricWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

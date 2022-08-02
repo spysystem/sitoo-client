@@ -49,6 +49,26 @@ class OrderreservedpaymentWrite implements ModelInterface, ArrayAccess, \JsonSer
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return OrderreservedpaymentWriteModelFields
+      */
+    public static function GetModelFields(): OrderreservedpaymentWriteModelFields
+    {
+        return new OrderreservedpaymentWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return OrderreservedpaymentWriteModelAttributes
+      */
+    public static function GetModelAttributes(): OrderreservedpaymentWriteModelAttributes
+    {
+        return new OrderreservedpaymentWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

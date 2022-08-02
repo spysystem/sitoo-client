@@ -1,11 +1,11 @@
 # Spy\SitooClient\SitesApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getSite()**](SitesApi.md#getSite) | **GET** /sites/{siteid}.json | 
-[**getSites()**](SitesApi.md#getSites) | **GET** /sites.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getSite()**](SitesApi.md#getSite) | **GET** /sites/{siteid}.json |  |
+[**getSites()**](SitesApi.md#getSites) | **GET** /sites.json |  |
 
 
 ## `getSite()`

@@ -48,6 +48,26 @@ class GetInfluencerCodesResponse implements ModelInterface, ArrayAccess, \JsonSe
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return GetInfluencerCodesResponseModelFields
+      */
+    public static function GetModelFields(): GetInfluencerCodesResponseModelFields
+    {
+        return new GetInfluencerCodesResponseModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return GetInfluencerCodesResponseModelAttributes
+      */
+    public static function GetModelAttributes(): GetInfluencerCodesResponseModelAttributes
+    {
+        return new GetInfluencerCodesResponseModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

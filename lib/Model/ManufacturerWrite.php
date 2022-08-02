@@ -49,6 +49,26 @@ class ManufacturerWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const DISCRIMINATOR = null;
 
     /**
+      * Return an object with the Model Fields
+      *
+      * @return ManufacturerWriteModelFields
+      */
+    public static function GetModelFields(): ManufacturerWriteModelFields
+    {
+        return new ManufacturerWriteModelFields();
+    }
+
+    /**
+      * Return an object with the Model Attributes
+      *
+      * @return ManufacturerWriteModelAttributes
+      */
+    public static function GetModelAttributes(): ManufacturerWriteModelAttributes
+    {
+        return new ManufacturerWriteModelAttributes();
+    }
+
+    /**
       * The original name of the model.
       *
       * @var string

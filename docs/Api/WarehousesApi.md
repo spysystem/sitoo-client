@@ -1,16 +1,16 @@
 # Spy\SitooClient\WarehousesApi
 
-All URIs are relative to https://api.mysitoo.com/v2/accounts/1500.
+All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addWarehouse()**](WarehousesApi.md#addWarehouse) | **POST** /sites/{siteid}/warehouses.json | 
-[**batchSetWarehouseItems()**](WarehousesApi.md#batchSetWarehouseItems) | **PUT** /sites/{siteid}/warehouses/{warehouseid}/warehouseitems.json | 
-[**deleteWarehouse()**](WarehousesApi.md#deleteWarehouse) | **DELETE** /sites/{siteid}/warehouses/{warehouseid}.json | 
-[**getWarehouse()**](WarehousesApi.md#getWarehouse) | **GET** /sites/{siteid}/warehouses/{warehouseid}.json | 
-[**getWarehouseItems()**](WarehousesApi.md#getWarehouseItems) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehouseitems.json | 
-[**getWarehouses()**](WarehousesApi.md#getWarehouses) | **GET** /sites/{siteid}/warehouses.json | 
-[**updateWarehouse()**](WarehousesApi.md#updateWarehouse) | **PUT** /sites/{siteid}/warehouses/{warehouseid}.json | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addWarehouse()**](WarehousesApi.md#addWarehouse) | **POST** /sites/{siteid}/warehouses.json |  |
+[**batchSetWarehouseItems()**](WarehousesApi.md#batchSetWarehouseItems) | **PUT** /sites/{siteid}/warehouses/{warehouseid}/warehouseitems.json |  |
+[**deleteWarehouse()**](WarehousesApi.md#deleteWarehouse) | **DELETE** /sites/{siteid}/warehouses/{warehouseid}.json |  |
+[**getWarehouse()**](WarehousesApi.md#getWarehouse) | **GET** /sites/{siteid}/warehouses/{warehouseid}.json |  |
+[**getWarehouseItems()**](WarehousesApi.md#getWarehouseItems) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehouseitems.json |  |
+[**getWarehouses()**](WarehousesApi.md#getWarehouses) | **GET** /sites/{siteid}/warehouses.json |  |
+[**updateWarehouse()**](WarehousesApi.md#updateWarehouse) | **PUT** /sites/{siteid}/warehouses/{warehouseid}.json |  |
 
 
 ## `addWarehouse()`
