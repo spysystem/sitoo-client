@@ -54,10 +54,7 @@ get:
     - name: includeinactive
       in: query
       schema:
-        type: string
-        enum:
-          - true
-          - false
+        type: boolean
     - name: datelastmodified
       in: query
       schema:
