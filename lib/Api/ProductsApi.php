@@ -1500,7 +1500,7 @@ class ProductsApi
      *
      * @param  int $siteid siteid (required)
      * @param  string $sku sku (optional)
-     * @param  bool $includeinactive includeinactive (optional)
+     * @param  string $includeinactive includeinactive (optional)
      * @param  int $datelastmodified datelastmodified (optional)
      * @param  int $start start (optional)
      * @param  int $num num (optional)
@@ -1521,7 +1521,7 @@ class ProductsApi
      *
      * @param  int $siteid (required)
      * @param  string $sku (optional)
-     * @param  bool $includeinactive (optional)
+     * @param  string $includeinactive (optional)
      * @param  int $datelastmodified (optional)
      * @param  int $start (optional)
      * @param  int $num (optional)
@@ -1617,7 +1617,7 @@ class ProductsApi
      *
      * @param  int $siteid (required)
      * @param  string $sku (optional)
-     * @param  bool $includeinactive (optional)
+     * @param  string $includeinactive (optional)
      * @param  int $datelastmodified (optional)
      * @param  int $start (optional)
      * @param  int $num (optional)
@@ -1641,7 +1641,7 @@ class ProductsApi
      *
      * @param  int $siteid (required)
      * @param  string $sku (optional)
-     * @param  bool $includeinactive (optional)
+     * @param  string $includeinactive (optional)
      * @param  int $datelastmodified (optional)
      * @param  int $start (optional)
      * @param  int $num (optional)
@@ -1696,7 +1696,7 @@ class ProductsApi
      *
      * @param  int $siteid (required)
      * @param  string $sku (optional)
-     * @param  bool $includeinactive (optional)
+     * @param  string $includeinactive (optional)
      * @param  int $datelastmodified (optional)
      * @param  int $start (optional)
      * @param  int $num (optional)

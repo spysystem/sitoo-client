@@ -358,7 +358,7 @@ $apiInstance = new Spy\SitooClient\Api\ProductsApi(
 );
 $siteid = 56; // int
 $sku = 'sku_example'; // string
-$includeinactive = True; // bool
+$includeinactive = 'includeinactive_example'; // string
 $datelastmodified = 56; // int
 $start = 56; // int
 $num = 56; // int
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **siteid** | **int**|  |
  **sku** | **string**|  | [optional]
- **includeinactive** | **bool**|  | [optional]
+ **includeinactive** | **string**|  | [optional]
  **datelastmodified** | **int**|  | [optional]
  **start** | **int**|  | [optional]
  **num** | **int**|  | [optional]
