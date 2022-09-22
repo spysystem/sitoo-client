@@ -1,6 +1,6 @@
 {
     "name": "spysystem/sitoo-client",
-    "version": "1.0.2.1",
+    "version": "1.0.3.1",
     "description": "Client for integrating to Sitoo",
     "keywords": [
         "openapitools",
