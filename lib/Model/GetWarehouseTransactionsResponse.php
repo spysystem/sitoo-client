@@ -151,6 +151,16 @@ class GetWarehouseTransactionsResponse implements ModelInterface, ArrayAccess, \
     }
 
     /**
+     * Setter - Array of nullable field names deliberately set to null
+     *
+     * @param boolean[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
      * Checks if a property is nullable
      *
      * @param string $property
