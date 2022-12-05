@@ -16,6 +16,7 @@ properties:
     description: The type of value used for the attribute
   enums:
     type: array
+    nullable: true
     items:
       type: string
     description: An array of valid values for attribute of type string. Set to null if any value should be allowed.
