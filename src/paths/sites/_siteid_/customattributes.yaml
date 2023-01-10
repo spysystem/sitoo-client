@@ -52,6 +52,10 @@ get:
   responses:
     200:
       description: Returns a Custom Attribute Envelope Object.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/getCustomAttributesResponse.yaml'
     400:
       description: Invalid request. Data sent from client is invalid.
     401:

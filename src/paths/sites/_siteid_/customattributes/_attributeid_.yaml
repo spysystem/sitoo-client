@@ -19,6 +19,10 @@ get:
   responses:
     200:
       description: Returns the Custom Attribute Object.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../schemas/CustomAttribute-read.yaml'
     400:
       description: Invalid request. Data sent from client is invalid.
     401:
@@ -41,7 +45,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: ../../../../schemas/CustomAttribute-write.yaml
+          $ref: '../../../../schemas/CustomAttribute-write.yaml'
         example: {"enums":["Cotton","Polyester","Velvet"]}
   responses:
     200:
