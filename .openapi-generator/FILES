@@ -31,6 +31,7 @@ docs/Api/WarehousesApi.md
 docs/Model/BatchResponse.md
 docs/Model/CategoryRead.md
 docs/Model/CategoryWrite.md
+docs/Model/CustomAttributeRead.md
 docs/Model/CustomAttributeWrite.md
 docs/Model/CustomMetricRead.md
 docs/Model/CustomMetricValueRead.md
@@ -44,6 +45,7 @@ docs/Model/GetAllOrdersResponse.md
 docs/Model/GetAllWarehouseTransactionsResponse.md
 docs/Model/GetCashRegistersResponse.md
 docs/Model/GetCategoriesResponse.md
+docs/Model/GetCustomAttributesResponse.md
 docs/Model/GetInfluencerCodesResponse.md
 docs/Model/GetManufacturersResponse.md
 docs/Model/GetOrderDeliveriesResponse.md
@@ -214,6 +216,9 @@ lib/Model/CategoryReadModelFields.php
 lib/Model/CategoryWrite.php
 lib/Model/CategoryWriteModelAttributes.php
 lib/Model/CategoryWriteModelFields.php
+lib/Model/CustomAttributeRead.php
+lib/Model/CustomAttributeReadModelAttributes.php
+lib/Model/CustomAttributeReadModelFields.php
 lib/Model/CustomAttributeWrite.php
 lib/Model/CustomAttributeWriteModelAttributes.php
 lib/Model/CustomAttributeWriteModelFields.php
@@ -253,6 +258,9 @@ lib/Model/GetCashRegistersResponseModelFields.php
 lib/Model/GetCategoriesResponse.php
 lib/Model/GetCategoriesResponseModelAttributes.php
 lib/Model/GetCategoriesResponseModelFields.php
+lib/Model/GetCustomAttributesResponse.php
+lib/Model/GetCustomAttributesResponseModelAttributes.php
+lib/Model/GetCustomAttributesResponseModelFields.php
 lib/Model/GetInfluencerCodesResponse.php
 lib/Model/GetInfluencerCodesResponseModelAttributes.php
 lib/Model/GetInfluencerCodesResponseModelFields.php
@@ -678,6 +686,7 @@ test/Api/WarehousesApiTest.php
 test/Model/BatchResponseTest.php
 test/Model/CategoryReadTest.php
 test/Model/CategoryWriteTest.php
+test/Model/CustomAttributeReadTest.php
 test/Model/CustomAttributeWriteTest.php
 test/Model/CustomMetricReadTest.php
 test/Model/CustomMetricValueReadTest.php
@@ -691,6 +700,7 @@ test/Model/GetAllOrdersResponseTest.php
 test/Model/GetAllWarehouseTransactionsResponseTest.php
 test/Model/GetCashRegistersResponseTest.php
 test/Model/GetCategoriesResponseTest.php
+test/Model/GetCustomAttributesResponseTest.php
 test/Model/GetInfluencerCodesResponseTest.php
 test/Model/GetManufacturersResponseTest.php
 test/Model/GetOrderDeliveriesResponseTest.php

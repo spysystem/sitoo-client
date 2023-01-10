@@ -140,7 +140,7 @@ void (empty response body)
 ## `getCustomAttribute()`
 
 ```php
-getCustomAttribute($siteid, $attributeid)
+getCustomAttribute($siteid, $attributeid): \Spy\SitooClient\Model\CustomAttributeRead
 ```
 
 
@@ -170,7 +170,8 @@ $siteid = 56; // int
 $attributeid = 'attributeid_example'; // string
 
 try {
-    $apiInstance->getCustomAttribute($siteid, $attributeid);
+    $result = $apiInstance->getCustomAttribute($siteid, $attributeid);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductCustomAttributesApi->getCustomAttribute: ', $e->getMessage(), PHP_EOL;
 }
@@ -185,7 +186,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\Spy\SitooClient\Model\CustomAttributeRead**](../Model/CustomAttributeRead.md)
 
 ### Authorization
 
@@ -194,7 +195,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -203,7 +204,7 @@ void (empty response body)
 ## `getCustomAttributes()`
 
 ```php
-getCustomAttributes($siteid, $start, $num)
+getCustomAttributes($siteid, $start, $num): \Spy\SitooClient\Model\GetCustomAttributesResponse
 ```
 
 
@@ -234,7 +235,8 @@ $start = 56; // int
 $num = 56; // int
 
 try {
-    $apiInstance->getCustomAttributes($siteid, $start, $num);
+    $result = $apiInstance->getCustomAttributes($siteid, $start, $num);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductCustomAttributesApi->getCustomAttributes: ', $e->getMessage(), PHP_EOL;
 }
@@ -250,7 +252,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\Spy\SitooClient\Model\GetCustomAttributesResponse**](../Model/GetCustomAttributesResponse.md)
 
 ### Authorization
 
@@ -259,7 +261,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

@@ -672,11 +672,12 @@ class ProductCustomAttributesApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Spy\SitooClient\Model\CustomAttributeRead
      */
     public function getCustomAttribute($siteid, $attributeid, string $contentType = self::contentTypes['getCustomAttribute'][0])
     {
-        $this->getCustomAttributeWithHttpInfo($siteid, $attributeid, $contentType);
+        list($response) = $this->getCustomAttributeWithHttpInfo($siteid, $attributeid, $contentType);
+        return $response;
     }
 
     /**
@@ -688,7 +689,7 @@ class ProductCustomAttributesApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Spy\SitooClient\Model\CustomAttributeRead, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomAttributeWithHttpInfo($siteid, $attributeid, string $contentType = self::contentTypes['getCustomAttribute'][0])
     {
@@ -729,10 +730,50 @@ class ProductCustomAttributesApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\Spy\SitooClient\Model\CustomAttributeRead' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\SitooClient\Model\CustomAttributeRead' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\SitooClient\Model\CustomAttributeRead', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Spy\SitooClient\Model\CustomAttributeRead';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\SitooClient\Model\CustomAttributeRead',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -770,14 +811,27 @@ class ProductCustomAttributesApi
      */
     public function getCustomAttributeAsyncWithHttpInfo($siteid, $attributeid, string $contentType = self::contentTypes['getCustomAttribute'][0])
     {
-        $returnType = '';
+        $returnType = '\Spy\SitooClient\Model\CustomAttributeRead';
         $request = $this->getCustomAttributeRequest($siteid, $attributeid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -852,7 +906,7 @@ class ProductCustomAttributesApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -918,11 +972,12 @@ class ProductCustomAttributesApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Spy\SitooClient\Model\GetCustomAttributesResponse
      */
     public function getCustomAttributes($siteid, $start = null, $num = null, string $contentType = self::contentTypes['getCustomAttributes'][0])
     {
-        $this->getCustomAttributesWithHttpInfo($siteid, $start, $num, $contentType);
+        list($response) = $this->getCustomAttributesWithHttpInfo($siteid, $start, $num, $contentType);
+        return $response;
     }
 
     /**
@@ -935,7 +990,7 @@ class ProductCustomAttributesApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Spy\SitooClient\Model\GetCustomAttributesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomAttributesWithHttpInfo($siteid, $start = null, $num = null, string $contentType = self::contentTypes['getCustomAttributes'][0])
     {
@@ -976,10 +1031,50 @@ class ProductCustomAttributesApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\Spy\SitooClient\Model\GetCustomAttributesResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\SitooClient\Model\GetCustomAttributesResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\SitooClient\Model\GetCustomAttributesResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Spy\SitooClient\Model\GetCustomAttributesResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\SitooClient\Model\GetCustomAttributesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -1019,14 +1114,27 @@ class ProductCustomAttributesApi
      */
     public function getCustomAttributesAsyncWithHttpInfo($siteid, $start = null, $num = null, string $contentType = self::contentTypes['getCustomAttributes'][0])
     {
-        $returnType = '';
+        $returnType = '\Spy\SitooClient\Model\GetCustomAttributesResponse';
         $request = $this->getCustomAttributesRequest($siteid, $start, $num, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -1107,7 +1215,7 @@ class ProductCustomAttributesApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
