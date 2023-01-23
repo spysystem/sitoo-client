@@ -1,0 +1,12 @@
+type: object
+description: 'Batch Update Response'
+required:
+  - statuscode
+  - return
+properties:
+  statuscode:
+    type: integer
+    description: An http status code
+  return:
+    type: boolean
+    description: true if properly updated

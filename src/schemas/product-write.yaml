@@ -3,6 +3,8 @@ description: The main product object. Note that stock values are retrieved using
 required:
   - sku
 properties:
+  productid:
+    type: integer
   sku:
     type: string
     description: Stock Keeping Unit (ie. the article number). Should only contain [A-Za-z0-9_+-/].

@@ -113,6 +113,10 @@ put:
   responses:
     200:
       description: Returns true or a batch envelope if multiple products were updated
+      content:
+        application/json:
+          schema:
+            $ref: '../../../schemas/batchUpdateProductsResponse.yaml'
     400:
       description: Bad Request. Invalid syntax, missing required argument or invalid request.
     401:
