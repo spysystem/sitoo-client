@@ -39,6 +39,7 @@ namespace Spy\SitooClient\Model;
  */
 class ProductWriteModelAttributes
 {
+    public string $strProductid = 'productid';
     public string $strSku = 'sku';
     public string $strSkumanufacturer = 'skumanufacturer';
     public string $strDescriptionshort = 'descriptionshort';

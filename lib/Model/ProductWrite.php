@@ -78,6 +78,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'productid' => 'int',
         'sku' => 'string',
         'skumanufacturer' => 'string',
         'descriptionshort' => 'string',
@@ -118,6 +119,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'productid' => null,
         'sku' => null,
         'skumanufacturer' => null,
         'descriptionshort' => null,
@@ -156,7 +158,8 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'sku' => false,
+        'productid' => false,
+		'sku' => false,
 		'skumanufacturer' => false,
 		'descriptionshort' => false,
 		'description' => false,
@@ -274,6 +277,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'productid' => 'productid',
         'sku' => 'sku',
         'skumanufacturer' => 'skumanufacturer',
         'descriptionshort' => 'descriptionshort',
@@ -312,6 +316,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'productid' => 'setProductid',
         'sku' => 'setSku',
         'skumanufacturer' => 'setSkumanufacturer',
         'descriptionshort' => 'setDescriptionshort',
@@ -350,6 +355,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'productid' => 'getProductid',
         'sku' => 'getSku',
         'skumanufacturer' => 'getSkumanufacturer',
         'descriptionshort' => 'getDescriptionshort',
@@ -439,6 +445,7 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('productid', $data ?? [], null);
         $this->setIfExists('sku', $data ?? [], null);
         $this->setIfExists('skumanufacturer', $data ?? [], null);
         $this->setIfExists('descriptionshort', $data ?? [], null);
@@ -515,6 +522,35 @@ class ProductWrite implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets productid
+     *
+     * @return int|null
+     */
+    public function getProductid()
+    {
+        return $this->container['productid'];
+    }
+
+    /**
+     * Sets productid
+     *
+     * @param int|null $productid productid
+     *
+     * @return self
+     */
+    public function setProductid($productid)
+    {
+
+        if (is_null($productid)) {
+            throw new \InvalidArgumentException('non-nullable productid cannot be null');
+        }
+
+        $this->container['productid'] = $productid;
+
+        return $this;
+    }
 
     /**
      * Gets sku

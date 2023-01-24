@@ -221,6 +221,7 @@ Class | Method | HTTP request | Description
 ## Models
 
 - [BatchResponse](docs/Model/BatchResponse.md)
+- [BatchUpdateItemResponse](docs/Model/BatchUpdateItemResponse.md)
 - [CategoryRead](docs/Model/CategoryRead.md)
 - [CategoryWrite](docs/Model/CategoryWrite.md)
 - [CustomAttributeRead](docs/Model/CustomAttributeRead.md)

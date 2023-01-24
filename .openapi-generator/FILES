@@ -29,6 +29,7 @@ docs/Api/WarehouseBatchesApi.md
 docs/Api/WarehouseTransactionsApi.md
 docs/Api/WarehousesApi.md
 docs/Model/BatchResponse.md
+docs/Model/BatchUpdateItemResponse.md
 docs/Model/CategoryRead.md
 docs/Model/CategoryWrite.md
 docs/Model/CustomAttributeRead.md
@@ -210,6 +211,9 @@ lib/HeaderSelector.php
 lib/Model/BatchResponse.php
 lib/Model/BatchResponseModelAttributes.php
 lib/Model/BatchResponseModelFields.php
+lib/Model/BatchUpdateItemResponse.php
+lib/Model/BatchUpdateItemResponseModelAttributes.php
+lib/Model/BatchUpdateItemResponseModelFields.php
 lib/Model/CategoryRead.php
 lib/Model/CategoryReadModelAttributes.php
 lib/Model/CategoryReadModelFields.php
@@ -684,6 +688,7 @@ test/Api/WarehouseBatchesApiTest.php
 test/Api/WarehouseTransactionsApiTest.php
 test/Api/WarehousesApiTest.php
 test/Model/BatchResponseTest.php
+test/Model/BatchUpdateItemResponseTest.php
 test/Model/CategoryReadTest.php
 test/Model/CategoryWriteTest.php
 test/Model/CustomAttributeReadTest.php

@@ -731,11 +731,12 @@ class ProductsApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Spy\SitooClient\Model\BatchUpdateItemResponse[]
      */
     public function batchUpdateProducts($siteid, $productWrite, string $contentType = self::contentTypes['batchUpdateProducts'][0])
     {
-        $this->batchUpdateProductsWithHttpInfo($siteid, $productWrite, $contentType);
+        list($response) = $this->batchUpdateProductsWithHttpInfo($siteid, $productWrite, $contentType);
+        return $response;
     }
 
     /**
@@ -747,7 +748,7 @@ class ProductsApi
      *
      * @throws \Spy\SitooClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Spy\SitooClient\Model\BatchUpdateItemResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function batchUpdateProductsWithHttpInfo($siteid, $productWrite, string $contentType = self::contentTypes['batchUpdateProducts'][0])
     {
@@ -788,10 +789,50 @@ class ProductsApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\Spy\SitooClient\Model\BatchUpdateItemResponse[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\SitooClient\Model\BatchUpdateItemResponse[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\SitooClient\Model\BatchUpdateItemResponse[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Spy\SitooClient\Model\BatchUpdateItemResponse[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\SitooClient\Model\BatchUpdateItemResponse[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -829,14 +870,27 @@ class ProductsApi
      */
     public function batchUpdateProductsAsyncWithHttpInfo($siteid, $productWrite, string $contentType = self::contentTypes['batchUpdateProducts'][0])
     {
-        $returnType = '';
+        $returnType = '\Spy\SitooClient\Model\BatchUpdateItemResponse[]';
         $request = $this->batchUpdateProductsRequest($siteid, $productWrite, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -903,7 +957,7 @@ class ProductsApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );

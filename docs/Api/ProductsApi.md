@@ -143,7 +143,7 @@ void (empty response body)
 ## `batchUpdateProducts()`
 
 ```php
-batchUpdateProducts($siteid, $productWrite)
+batchUpdateProducts($siteid, $productWrite): \Spy\SitooClient\Model\BatchUpdateItemResponse[]
 ```
 
 
@@ -173,7 +173,8 @@ $siteid = 56; // int
 $productWrite = [{productid=12, moneyprice=990.00}, {productid=13, moneyprice=1290.00}]; // \Spy\SitooClient\Model\ProductWrite[]
 
 try {
-    $apiInstance->batchUpdateProducts($siteid, $productWrite);
+    $result = $apiInstance->batchUpdateProducts($siteid, $productWrite);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->batchUpdateProducts: ', $e->getMessage(), PHP_EOL;
 }
@@ -188,7 +189,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\Spy\SitooClient\Model\BatchUpdateItemResponse[]**](../Model/BatchUpdateItemResponse.md)
 
 ### Authorization
 
@@ -197,7 +198,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

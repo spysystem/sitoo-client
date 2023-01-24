@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**productid** | **int** |  | [optional]
 **sku** | **string** | Stock Keeping Unit (ie. the article number). Should only contain [A-Za-z0-9_+-/]. |
 **skumanufacturer** | **string** | The Stock Keeping Unit (SKU) for the manufacturer. | [optional]
 **descriptionshort** | **string** | A short description, typically used in product lists etc. | [optional]
