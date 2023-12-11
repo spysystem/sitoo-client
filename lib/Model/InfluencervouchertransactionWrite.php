@@ -376,11 +376,9 @@ class InfluencervouchertransactionWrite implements ModelInterface, ArrayAccess, 
      */
     public function setMoneyordertotal($moneyordertotal)
     {
-
         if (is_null($moneyordertotal)) {
             throw new \InvalidArgumentException('non-nullable moneyordertotal cannot be null');
         }
-
         $this->container['moneyordertotal'] = $moneyordertotal;
 
         return $this;
@@ -405,11 +403,9 @@ class InfluencervouchertransactionWrite implements ModelInterface, ArrayAccess, 
      */
     public function setMoneyinfluencertotal($moneyinfluencertotal)
     {
-
         if (is_null($moneyinfluencertotal)) {
             throw new \InvalidArgumentException('non-nullable moneyinfluencertotal cannot be null');
         }
-
         $this->container['moneyinfluencertotal'] = $moneyinfluencertotal;
 
         return $this;
@@ -434,11 +430,9 @@ class InfluencervouchertransactionWrite implements ModelInterface, ArrayAccess, 
      */
     public function setMoneyinfluencerdiscount($moneyinfluencerdiscount)
     {
-
         if (is_null($moneyinfluencerdiscount)) {
             throw new \InvalidArgumentException('non-nullable moneyinfluencerdiscount cannot be null');
         }
-
         $this->container['moneyinfluencerdiscount'] = $moneyinfluencerdiscount;
 
         return $this;
@@ -463,11 +457,9 @@ class InfluencervouchertransactionWrite implements ModelInterface, ArrayAccess, 
      */
     public function setCurrencycode($currencycode)
     {
-
         if (is_null($currencycode)) {
             throw new \InvalidArgumentException('non-nullable currencycode cannot be null');
         }
-
         $this->container['currencycode'] = $currencycode;
 
         return $this;
@@ -492,11 +484,9 @@ class InfluencervouchertransactionWrite implements ModelInterface, ArrayAccess, 
      */
     public function setMerchantReference($merchantReference)
     {
-
         if (is_null($merchantReference)) {
             throw new \InvalidArgumentException('non-nullable merchantReference cannot be null');
         }
-
         $this->container['merchantReference'] = $merchantReference;
 
         return $this;
@@ -521,11 +511,9 @@ class InfluencervouchertransactionWrite implements ModelInterface, ArrayAccess, 
      */
     public function setStaffReference($staffReference)
     {
-
         if (is_null($staffReference)) {
             throw new \InvalidArgumentException('non-nullable staffReference cannot be null');
         }
-
         $this->container['staffReference'] = $staffReference;
 
         return $this;

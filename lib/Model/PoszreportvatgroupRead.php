@@ -350,11 +350,9 @@ class PoszreportvatgroupRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setVatvalue($vatvalue)
     {
-
         if (is_null($vatvalue)) {
             throw new \InvalidArgumentException('non-nullable vatvalue cannot be null');
         }
-
         $this->container['vatvalue'] = $vatvalue;
 
         return $this;
@@ -379,11 +377,9 @@ class PoszreportvatgroupRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setMoneytotal($moneytotal)
     {
-
         if (is_null($moneytotal)) {
             throw new \InvalidArgumentException('non-nullable moneytotal cannot be null');
         }
-
         $this->container['moneytotal'] = $moneytotal;
 
         return $this;
@@ -408,11 +404,9 @@ class PoszreportvatgroupRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setMoneytotalnet($moneytotalnet)
     {
-
         if (is_null($moneytotalnet)) {
             throw new \InvalidArgumentException('non-nullable moneytotalnet cannot be null');
         }
-
         $this->container['moneytotalnet'] = $moneytotalnet;
 
         return $this;
@@ -437,11 +431,9 @@ class PoszreportvatgroupRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setMoneytotalvat($moneytotalvat)
     {
-
         if (is_null($moneytotalvat)) {
             throw new \InvalidArgumentException('non-nullable moneytotalvat cannot be null');
         }
-
         $this->container['moneytotalvat'] = $moneytotalvat;
 
         return $this;

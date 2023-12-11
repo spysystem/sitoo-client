@@ -342,11 +342,9 @@ class BatchUpdateItemResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setStatuscode($statuscode)
     {
-
         if (is_null($statuscode)) {
             throw new \InvalidArgumentException('non-nullable statuscode cannot be null');
         }
-
         $this->container['statuscode'] = $statuscode;
 
         return $this;
@@ -371,11 +369,9 @@ class BatchUpdateItemResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setReturn($return)
     {
-
         if (is_null($return)) {
             throw new \InvalidArgumentException('non-nullable return cannot be null');
         }
-
         $this->container['return'] = $return;
 
         return $this;

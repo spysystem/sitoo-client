@@ -360,11 +360,9 @@ class CustomMetricValueWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setKey($key)
     {
-
         if (is_null($key)) {
             throw new \InvalidArgumentException('non-nullable key cannot be null');
         }
-
         $this->container['key'] = $key;
 
         return $this;
@@ -389,11 +387,9 @@ class CustomMetricValueWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setDate($date)
     {
-
         if (is_null($date)) {
             throw new \InvalidArgumentException('non-nullable date cannot be null');
         }
-
         $this->container['date'] = $date;
 
         return $this;
@@ -418,11 +414,9 @@ class CustomMetricValueWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setStoreId($storeId)
     {
-
         if (is_null($storeId)) {
             throw new \InvalidArgumentException('non-nullable storeId cannot be null');
         }
-
         $this->container['storeId'] = $storeId;
 
         return $this;
@@ -447,11 +441,9 @@ class CustomMetricValueWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setValueScalar($valueScalar)
     {
-
         if (is_null($valueScalar)) {
             throw new \InvalidArgumentException('non-nullable valueScalar cannot be null');
         }
-
         $this->container['valueScalar'] = $valueScalar;
 
         return $this;
@@ -476,11 +468,9 @@ class CustomMetricValueWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setValueSeries($valueSeries)
     {
-
         if (is_null($valueSeries)) {
             throw new \InvalidArgumentException('non-nullable valueSeries cannot be null');
         }
-
         $this->container['valueSeries'] = $valueSeries;
 
         return $this;

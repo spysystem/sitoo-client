@@ -21,6 +21,11 @@ post:
   responses:
     200:
       description: Returns pricelistid
+      content:
+        application/json:
+          schema:
+            type: integer
+          example: 1
     400:
       description: Bad Request. Invalid syntax, missing required argument or invalid request.
     401:

@@ -356,11 +356,9 @@ class GiftcardWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setType($type)
     {
-
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-
         $this->container['type'] = $type;
 
         return $this;
@@ -385,11 +383,9 @@ class GiftcardWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCurrencycode($currencycode)
     {
-
         if (is_null($currencycode)) {
             throw new \InvalidArgumentException('non-nullable currencycode cannot be null');
         }
-
         $this->container['currencycode'] = $currencycode;
 
         return $this;
@@ -414,11 +410,9 @@ class GiftcardWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCardnumber($cardnumber)
     {
-
         if (is_null($cardnumber)) {
             throw new \InvalidArgumentException('non-nullable cardnumber cannot be null');
         }
-
         $this->container['cardnumber'] = $cardnumber;
 
         return $this;
@@ -443,11 +437,9 @@ class GiftcardWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setTransactions($transactions)
     {
-
         if (is_null($transactions)) {
             throw new \InvalidArgumentException('non-nullable transactions cannot be null');
         }
-
         $this->container['transactions'] = $transactions;
 
         return $this;

@@ -367,11 +367,9 @@ class GiftcardtransactionRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setTransactionid($transactionid)
     {
-
         if (is_null($transactionid)) {
             throw new \InvalidArgumentException('non-nullable transactionid cannot be null');
         }
-
         $this->container['transactionid'] = $transactionid;
 
         return $this;
@@ -396,11 +394,9 @@ class GiftcardtransactionRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setDate($date)
     {
-
         if (is_null($date)) {
             throw new \InvalidArgumentException('non-nullable date cannot be null');
         }
-
         $this->container['date'] = $date;
 
         return $this;
@@ -425,11 +421,9 @@ class GiftcardtransactionRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setMoneyamount($moneyamount)
     {
-
         if (is_null($moneyamount)) {
             throw new \InvalidArgumentException('non-nullable moneyamount cannot be null');
         }
-
         $this->container['moneyamount'] = $moneyamount;
 
         return $this;
@@ -454,11 +448,9 @@ class GiftcardtransactionRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setMerchantReference($merchantReference)
     {
-
         if (is_null($merchantReference)) {
             throw new \InvalidArgumentException('non-nullable merchantReference cannot be null');
         }
-
         $this->container['merchantReference'] = $merchantReference;
 
         return $this;
@@ -483,11 +475,9 @@ class GiftcardtransactionRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setStaffReference($staffReference)
     {
-
         if (is_null($staffReference)) {
             throw new \InvalidArgumentException('non-nullable staffReference cannot be null');
         }
-
         $this->container['staffReference'] = $staffReference;
 
         return $this;
@@ -512,11 +502,9 @@ class GiftcardtransactionRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setTransactionReference($transactionReference)
     {
-
         if (is_null($transactionReference)) {
             throw new \InvalidArgumentException('non-nullable transactionReference cannot be null');
         }
-
         $this->container['transactionReference'] = $transactionReference;
 
         return $this;

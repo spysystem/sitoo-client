@@ -357,11 +357,9 @@ class PoszreportsubpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -386,11 +384,9 @@ class PoszreportsubpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setMoneysubtotal($moneysubtotal)
     {
-
         if (is_null($moneysubtotal)) {
             throw new \InvalidArgumentException('non-nullable moneysubtotal cannot be null');
         }
-
         $this->container['moneysubtotal'] = $moneysubtotal;
 
         return $this;
@@ -415,11 +411,9 @@ class PoszreportsubpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setMoneycaptured($moneycaptured)
     {
-
         if (is_null($moneycaptured)) {
             throw new \InvalidArgumentException('non-nullable moneycaptured cannot be null');
         }
-
         $this->container['moneycaptured'] = $moneycaptured;
 
         return $this;
@@ -444,11 +438,9 @@ class PoszreportsubpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setMoneyinadvance($moneyinadvance)
     {
-
         if (is_null($moneyinadvance)) {
             throw new \InvalidArgumentException('non-nullable moneyinadvance cannot be null');
         }
-
         $this->container['moneyinadvance'] = $moneyinadvance;
 
         return $this;
@@ -473,11 +465,9 @@ class PoszreportsubpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setMoneyreserved($moneyreserved)
     {
-
         if (is_null($moneyreserved)) {
             throw new \InvalidArgumentException('non-nullable moneyreserved cannot be null');
         }
-
         $this->container['moneyreserved'] = $moneyreserved;
 
         return $this;

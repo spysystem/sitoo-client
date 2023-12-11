@@ -356,11 +356,9 @@ class SalestaxgroupRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setSalestaxgroupid($salestaxgroupid)
     {
-
         if (is_null($salestaxgroupid)) {
             throw new \InvalidArgumentException('non-nullable salestaxgroupid cannot be null');
         }
-
         $this->container['salestaxgroupid'] = $salestaxgroupid;
 
         return $this;
@@ -385,11 +383,9 @@ class SalestaxgroupRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -414,11 +410,9 @@ class SalestaxgroupRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setRegion($region)
     {
-
         if (is_null($region)) {
             throw new \InvalidArgumentException('non-nullable region cannot be null');
         }
-
         $this->container['region'] = $region;
 
         return $this;
@@ -443,11 +437,9 @@ class SalestaxgroupRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setSalestaxes($salestaxes)
     {
-
         if (is_null($salestaxes)) {
             throw new \InvalidArgumentException('non-nullable salestaxes cannot be null');
         }
-
         $this->container['salestaxes'] = $salestaxes;
 
         return $this;

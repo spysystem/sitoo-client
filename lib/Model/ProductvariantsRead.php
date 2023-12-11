@@ -342,11 +342,9 @@ class ProductvariantsRead implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setGroups($groups)
     {
-
         if (is_null($groups)) {
             throw new \InvalidArgumentException('non-nullable groups cannot be null');
         }
-
         $this->container['groups'] = $groups;
 
         return $this;
@@ -371,11 +369,9 @@ class ProductvariantsRead implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setVariants($variants)
     {
-
         if (is_null($variants)) {
             throw new \InvalidArgumentException('non-nullable variants cannot be null');
         }
-
         $this->container['variants'] = $variants;
 
         return $this;

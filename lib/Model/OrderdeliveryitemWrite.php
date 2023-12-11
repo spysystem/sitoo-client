@@ -342,11 +342,9 @@ class OrderdeliveryitemWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setOrderitemid($orderitemid)
     {
-
         if (is_null($orderitemid)) {
             throw new \InvalidArgumentException('non-nullable orderitemid cannot be null');
         }
-
         $this->container['orderitemid'] = $orderitemid;
 
         return $this;
@@ -371,11 +369,9 @@ class OrderdeliveryitemWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setQuantity($quantity)
     {
-
         if (is_null($quantity)) {
             throw new \InvalidArgumentException('non-nullable quantity cannot be null');
         }
-
         $this->container['quantity'] = $quantity;
 
         return $this;

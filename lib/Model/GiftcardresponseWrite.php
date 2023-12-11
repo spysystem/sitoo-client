@@ -357,11 +357,9 @@ class GiftcardresponseWrite implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setGiftcard($giftcard)
     {
-
         if (is_null($giftcard)) {
             throw new \InvalidArgumentException('non-nullable giftcard cannot be null');
         }
-
         $this->container['giftcard'] = $giftcard;
 
         return $this;
@@ -386,11 +384,9 @@ class GiftcardresponseWrite implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setAddedtransactionids($addedtransactionids)
     {
-
         if (is_null($addedtransactionids)) {
             throw new \InvalidArgumentException('non-nullable addedtransactionids cannot be null');
         }
-
         $this->container['addedtransactionids'] = $addedtransactionids;
 
         return $this;
@@ -415,11 +411,9 @@ class GiftcardresponseWrite implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setReceipttext($receipttext)
     {
-
         if (is_null($receipttext)) {
             throw new \InvalidArgumentException('non-nullable receipttext cannot be null');
         }
-
         $this->container['receipttext'] = $receipttext;
 
         return $this;
@@ -444,11 +438,9 @@ class GiftcardresponseWrite implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setPrintVoucher($printVoucher)
     {
-
         if (is_null($printVoucher)) {
             throw new \InvalidArgumentException('non-nullable printVoucher cannot be null');
         }
-
         $this->container['printVoucher'] = $printVoucher;
 
         return $this;
@@ -473,11 +465,9 @@ class GiftcardresponseWrite implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setPrintPin($printPin)
     {
-
         if (is_null($printPin)) {
             throw new \InvalidArgumentException('non-nullable printPin cannot be null');
         }
-
         $this->container['printPin'] = $printPin;
 
         return $this;

@@ -349,11 +349,9 @@ class OrderdeliveryWrite implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setWarehouseid($warehouseid)
     {
-
         if (is_null($warehouseid)) {
             throw new \InvalidArgumentException('non-nullable warehouseid cannot be null');
         }
-
         $this->container['warehouseid'] = $warehouseid;
 
         return $this;
@@ -378,11 +376,9 @@ class OrderdeliveryWrite implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setOrderdeliveryref($orderdeliveryref)
     {
-
         if (is_null($orderdeliveryref)) {
             throw new \InvalidArgumentException('non-nullable orderdeliveryref cannot be null');
         }
-
         $this->container['orderdeliveryref'] = $orderdeliveryref;
 
         return $this;
@@ -407,11 +403,9 @@ class OrderdeliveryWrite implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setOrderdeliveryitems($orderdeliveryitems)
     {
-
         if (is_null($orderdeliveryitems)) {
             throw new \InvalidArgumentException('non-nullable orderdeliveryitems cannot be null');
         }
-
         $this->container['orderdeliveryitems'] = $orderdeliveryitems;
 
         return $this;

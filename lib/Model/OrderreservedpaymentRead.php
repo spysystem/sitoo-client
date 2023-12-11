@@ -387,11 +387,9 @@ class OrderreservedpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setId($id)
     {
-
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-
         $this->container['id'] = $id;
 
         return $this;
@@ -416,11 +414,9 @@ class OrderreservedpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -445,11 +441,9 @@ class OrderreservedpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setMoneyreserved($moneyreserved)
     {
-
         if (is_null($moneyreserved)) {
             throw new \InvalidArgumentException('non-nullable moneyreserved cannot be null');
         }
-
         $this->container['moneyreserved'] = $moneyreserved;
 
         return $this;
@@ -474,11 +468,9 @@ class OrderreservedpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;
@@ -503,11 +495,9 @@ class OrderreservedpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setReftype($reftype)
     {
-
         if (is_null($reftype)) {
             throw new \InvalidArgumentException('non-nullable reftype cannot be null');
         }
-
         $this->container['reftype'] = $reftype;
 
         return $this;
@@ -532,11 +522,9 @@ class OrderreservedpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setRefid($refid)
     {
-
         if (is_null($refid)) {
             throw new \InvalidArgumentException('non-nullable refid cannot be null');
         }
-
         $this->container['refid'] = $refid;
 
         return $this;
@@ -561,11 +549,9 @@ class OrderreservedpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setCardissuer($cardissuer)
     {
-
         if (is_null($cardissuer)) {
             throw new \InvalidArgumentException('non-nullable cardissuer cannot be null');
         }
-
         $this->container['cardissuer'] = $cardissuer;
 
         return $this;
@@ -590,11 +576,9 @@ class OrderreservedpaymentRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setAdditionaldata($additionaldata)
     {
-
         if (is_null($additionaldata)) {
             throw new \InvalidArgumentException('non-nullable additionaldata cannot be null');
         }
-
         $this->container['additionaldata'] = $additionaldata;
 
         return $this;

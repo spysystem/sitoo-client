@@ -391,11 +391,9 @@ class WarehouseitemlogRead implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setWarehouseitemlogid($warehouseitemlogid)
     {
-
         if (is_null($warehouseitemlogid)) {
             throw new \InvalidArgumentException('non-nullable warehouseitemlogid cannot be null');
         }
-
         $this->container['warehouseitemlogid'] = $warehouseitemlogid;
 
         return $this;
@@ -420,11 +418,9 @@ class WarehouseitemlogRead implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setWarehouseitemid($warehouseitemid)
     {
-
         if (is_null($warehouseitemid)) {
             throw new \InvalidArgumentException('non-nullable warehouseitemid cannot be null');
         }
-
         $this->container['warehouseitemid'] = $warehouseitemid;
 
         return $this;
@@ -449,11 +445,9 @@ class WarehouseitemlogRead implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setWarehousetransactionid($warehousetransactionid)
     {
-
         if (is_null($warehousetransactionid)) {
             throw new \InvalidArgumentException('non-nullable warehousetransactionid cannot be null');
         }
-
         $this->container['warehousetransactionid'] = $warehousetransactionid;
 
         return $this;
@@ -478,11 +472,9 @@ class WarehouseitemlogRead implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setDecimalquantity($decimalquantity)
     {
-
         if (is_null($decimalquantity)) {
             throw new \InvalidArgumentException('non-nullable decimalquantity cannot be null');
         }
-
         $this->container['decimalquantity'] = $decimalquantity;
 
         return $this;
@@ -507,11 +499,9 @@ class WarehouseitemlogRead implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setDecimaltotal($decimaltotal)
     {
-
         if (is_null($decimaltotal)) {
             throw new \InvalidArgumentException('non-nullable decimaltotal cannot be null');
         }
-
         $this->container['decimaltotal'] = $decimaltotal;
 
         return $this;
@@ -536,11 +526,9 @@ class WarehouseitemlogRead implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setMoneypricein($moneypricein)
     {
-
         if (is_null($moneypricein)) {
             throw new \InvalidArgumentException('non-nullable moneypricein cannot be null');
         }
-
         $this->container['moneypricein'] = $moneypricein;
 
         return $this;
@@ -565,11 +553,9 @@ class WarehouseitemlogRead implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setMoneytotal($moneytotal)
     {
-
         if (is_null($moneytotal)) {
             throw new \InvalidArgumentException('non-nullable moneytotal cannot be null');
         }
-
         $this->container['moneytotal'] = $moneytotal;
 
         return $this;
@@ -594,11 +580,9 @@ class WarehouseitemlogRead implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setMoneyvalue($moneyvalue)
     {
-
         if (is_null($moneyvalue)) {
             throw new \InvalidArgumentException('non-nullable moneyvalue cannot be null');
         }
-
         $this->container['moneyvalue'] = $moneyvalue;
 
         return $this;
@@ -623,11 +607,9 @@ class WarehouseitemlogRead implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setSku($sku)
     {
-
         if (is_null($sku)) {
             throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
-
         $this->container['sku'] = $sku;
 
         return $this;

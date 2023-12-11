@@ -360,11 +360,9 @@ class OrderlogitemRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDatelog($datelog)
     {
-
         if (is_null($datelog)) {
             throw new \InvalidArgumentException('non-nullable datelog cannot be null');
         }
-
         $this->container['datelog'] = $datelog;
 
         return $this;
@@ -389,11 +387,9 @@ class OrderlogitemRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setOrderid($orderid)
     {
-
         if (is_null($orderid)) {
             throw new \InvalidArgumentException('non-nullable orderid cannot be null');
         }
-
         $this->container['orderid'] = $orderid;
 
         return $this;
@@ -418,11 +414,9 @@ class OrderlogitemRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setOrderlogtypeid($orderlogtypeid)
     {
-
         if (is_null($orderlogtypeid)) {
             throw new \InvalidArgumentException('non-nullable orderlogtypeid cannot be null');
         }
-
         $this->container['orderlogtypeid'] = $orderlogtypeid;
 
         return $this;
@@ -447,11 +441,9 @@ class OrderlogitemRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setStrvalue($strvalue)
     {
-
         if (is_null($strvalue)) {
             throw new \InvalidArgumentException('non-nullable strvalue cannot be null');
         }
-
         $this->container['strvalue'] = $strvalue;
 
         return $this;
@@ -476,11 +468,9 @@ class OrderlogitemRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setFvalue($fvalue)
     {
-
         if (is_null($fvalue)) {
             throw new \InvalidArgumentException('non-nullable fvalue cannot be null');
         }
-
         $this->container['fvalue'] = $fvalue;
 
         return $this;

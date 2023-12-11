@@ -402,11 +402,9 @@ class WarehousebatchRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setWarehousebatchid($warehousebatchid)
     {
-
         if (is_null($warehousebatchid)) {
             throw new \InvalidArgumentException('non-nullable warehousebatchid cannot be null');
         }
-
         $this->container['warehousebatchid'] = $warehousebatchid;
 
         return $this;
@@ -431,11 +429,9 @@ class WarehousebatchRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setWarehouseid($warehouseid)
     {
-
         if (is_null($warehouseid)) {
             throw new \InvalidArgumentException('non-nullable warehouseid cannot be null');
         }
-
         $this->container['warehouseid'] = $warehouseid;
 
         return $this;
@@ -460,11 +456,9 @@ class WarehousebatchRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setWarehousetransactionid($warehousetransactionid)
     {
-
         if (is_null($warehousetransactionid)) {
             throw new \InvalidArgumentException('non-nullable warehousetransactionid cannot be null');
         }
-
         $this->container['warehousetransactionid'] = $warehousetransactionid;
 
         return $this;
@@ -489,11 +483,9 @@ class WarehousebatchRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setTransactiontype($transactiontype)
     {
-
         if (is_null($transactiontype)) {
             throw new \InvalidArgumentException('non-nullable transactiontype cannot be null');
         }
-
         $this->container['transactiontype'] = $transactiontype;
 
         return $this;
@@ -518,11 +510,9 @@ class WarehousebatchRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setDatecreated($datecreated)
     {
-
         if (is_null($datecreated)) {
             throw new \InvalidArgumentException('non-nullable datecreated cannot be null');
         }
-
         $this->container['datecreated'] = $datecreated;
 
         return $this;
@@ -547,11 +537,9 @@ class WarehousebatchRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setWarehousebatchstate($warehousebatchstate)
     {
-
         if (is_null($warehousebatchstate)) {
             throw new \InvalidArgumentException('non-nullable warehousebatchstate cannot be null');
         }
-
         $this->container['warehousebatchstate'] = $warehousebatchstate;
 
         return $this;
@@ -576,11 +564,9 @@ class WarehousebatchRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setEmailowner($emailowner)
     {
-
         if (is_null($emailowner)) {
             throw new \InvalidArgumentException('non-nullable emailowner cannot be null');
         }
-
         $this->container['emailowner'] = $emailowner;
 
         return $this;
@@ -605,11 +591,9 @@ class WarehousebatchRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setComment($comment)
     {
-
         if (is_null($comment)) {
             throw new \InvalidArgumentException('non-nullable comment cannot be null');
         }
-
         $this->container['comment'] = $comment;
 
         return $this;
@@ -634,11 +618,9 @@ class WarehousebatchRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setShipmentid($shipmentid)
     {
-
         if (is_null($shipmentid)) {
             throw new \InvalidArgumentException('non-nullable shipmentid cannot be null');
         }
-
         $this->container['shipmentid'] = $shipmentid;
 
         return $this;
@@ -663,11 +645,9 @@ class WarehousebatchRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;
@@ -692,11 +672,9 @@ class WarehousebatchRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setReasoncode($reasoncode)
     {
-
         if (is_null($reasoncode)) {
             throw new \InvalidArgumentException('non-nullable reasoncode cannot be null');
         }
-
         $this->container['reasoncode'] = $reasoncode;
 
         return $this;

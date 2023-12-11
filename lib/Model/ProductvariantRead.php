@@ -419,11 +419,9 @@ class ProductvariantRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setProductid($productid)
     {
-
         if (is_null($productid)) {
             throw new \InvalidArgumentException('non-nullable productid cannot be null');
         }
-
         $this->container['productid'] = $productid;
 
         return $this;
@@ -448,11 +446,9 @@ class ProductvariantRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setActivepos($activepos)
     {
-
         if (is_null($activepos)) {
             throw new \InvalidArgumentException('non-nullable activepos cannot be null');
         }
-
         $this->container['activepos'] = $activepos;
 
         return $this;
@@ -477,11 +473,9 @@ class ProductvariantRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setTitle($title)
     {
-
         if (is_null($title)) {
             throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-
         $this->container['title'] = $title;
 
         return $this;
@@ -506,11 +500,9 @@ class ProductvariantRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setSku($sku)
     {
-
         if (is_null($sku)) {
             throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
-
         $this->container['sku'] = $sku;
 
         return $this;
@@ -535,11 +527,9 @@ class ProductvariantRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setMoneyprice($moneyprice)
     {
-
         if (is_null($moneyprice)) {
             throw new \InvalidArgumentException('non-nullable moneyprice cannot be null');
         }
-
         $this->container['moneyprice'] = $moneyprice;
 
         return $this;
@@ -564,11 +554,9 @@ class ProductvariantRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setMoneypriceorg($moneypriceorg)
     {
-
         if (is_null($moneypriceorg)) {
             throw new \InvalidArgumentException('non-nullable moneypriceorg cannot be null');
         }
-
         $this->container['moneypriceorg'] = $moneypriceorg;
 
         return $this;
@@ -593,11 +581,9 @@ class ProductvariantRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setMoneypricein($moneypricein)
     {
-
         if (is_null($moneypricein)) {
             throw new \InvalidArgumentException('non-nullable moneypricein cannot be null');
         }
-
         $this->container['moneypricein'] = $moneypricein;
 
         return $this;
@@ -622,11 +608,9 @@ class ProductvariantRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setBarcode($barcode)
     {
-
         if (is_null($barcode)) {
             throw new \InvalidArgumentException('non-nullable barcode cannot be null');
         }
-
         $this->container['barcode'] = $barcode;
 
         return $this;
@@ -651,11 +635,9 @@ class ProductvariantRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setBarcodealiases($barcodealiases)
     {
-
         if (is_null($barcodealiases)) {
             throw new \InvalidArgumentException('non-nullable barcodealiases cannot be null');
         }
-
         $this->container['barcodealiases'] = $barcodealiases;
 
         return $this;
@@ -680,11 +662,9 @@ class ProductvariantRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setAttributes($attributes)
     {
-
         if (is_null($attributes)) {
             throw new \InvalidArgumentException('non-nullable attributes cannot be null');
         }
-
         $this->container['attributes'] = $attributes;
 
         return $this;

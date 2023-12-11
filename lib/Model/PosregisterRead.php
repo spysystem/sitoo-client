@@ -434,11 +434,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setRegisterid($registerid)
     {
-
         if (is_null($registerid)) {
             throw new \InvalidArgumentException('non-nullable registerid cannot be null');
         }
-
         $this->container['registerid'] = $registerid;
 
         return $this;
@@ -463,11 +461,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setManufacturerid($manufacturerid)
     {
-
         if (is_null($manufacturerid)) {
             throw new \InvalidArgumentException('non-nullable manufacturerid cannot be null');
         }
-
         $this->container['manufacturerid'] = $manufacturerid;
 
         return $this;
@@ -492,11 +488,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setRegisterkey($registerkey)
     {
-
         if (is_null($registerkey)) {
             throw new \InvalidArgumentException('non-nullable registerkey cannot be null');
         }
-
         $this->container['registerkey'] = $registerkey;
 
         return $this;
@@ -521,11 +515,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCompany($company)
     {
-
         if (is_null($company)) {
             throw new \InvalidArgumentException('non-nullable company cannot be null');
         }
-
         $this->container['company'] = $company;
 
         return $this;
@@ -550,11 +542,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCompanyid($companyid)
     {
-
         if (is_null($companyid)) {
             throw new \InvalidArgumentException('non-nullable companyid cannot be null');
         }
-
         $this->container['companyid'] = $companyid;
 
         return $this;
@@ -579,11 +569,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddress($address)
     {
-
         if (is_null($address)) {
             throw new \InvalidArgumentException('non-nullable address cannot be null');
         }
-
         $this->container['address'] = $address;
 
         return $this;
@@ -608,11 +596,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddress2($address2)
     {
-
         if (is_null($address2)) {
             throw new \InvalidArgumentException('non-nullable address2 cannot be null');
         }
-
         $this->container['address2'] = $address2;
 
         return $this;
@@ -637,11 +623,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setZip($zip)
     {
-
         if (is_null($zip)) {
             throw new \InvalidArgumentException('non-nullable zip cannot be null');
         }
-
         $this->container['zip'] = $zip;
 
         return $this;
@@ -666,11 +650,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCity($city)
     {
-
         if (is_null($city)) {
             throw new \InvalidArgumentException('non-nullable city cannot be null');
         }
-
         $this->container['city'] = $city;
 
         return $this;
@@ -695,11 +677,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setState($state)
     {
-
         if (is_null($state)) {
             throw new \InvalidArgumentException('non-nullable state cannot be null');
         }
-
         $this->container['state'] = $state;
 
         return $this;
@@ -724,11 +704,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCountryid($countryid)
     {
-
         if (is_null($countryid)) {
             throw new \InvalidArgumentException('non-nullable countryid cannot be null');
         }
-
         $this->container['countryid'] = $countryid;
 
         return $this;
@@ -753,11 +731,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCurrencycode($currencycode)
     {
-
         if (is_null($currencycode)) {
             throw new \InvalidArgumentException('non-nullable currencycode cannot be null');
         }
-
         $this->container['currencycode'] = $currencycode;
 
         return $this;
@@ -782,11 +758,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReceiptlanguagetag($receiptlanguagetag)
     {
-
         if (is_null($receiptlanguagetag)) {
             throw new \InvalidArgumentException('non-nullable receiptlanguagetag cannot be null');
         }
-
         $this->container['receiptlanguagetag'] = $receiptlanguagetag;
 
         return $this;
@@ -811,11 +785,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setStoresettingid($storesettingid)
     {
-
         if (is_null($storesettingid)) {
             throw new \InvalidArgumentException('non-nullable storesettingid cannot be null');
         }
-
         $this->container['storesettingid'] = $storesettingid;
 
         return $this;
@@ -840,11 +812,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setWarehouseid($warehouseid)
     {
-
         if (is_null($warehouseid)) {
             throw new \InvalidArgumentException('non-nullable warehouseid cannot be null');
         }
-
         $this->container['warehouseid'] = $warehouseid;
 
         return $this;
@@ -869,11 +839,9 @@ class PosregisterRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSalestaxgroupid($salestaxgroupid)
     {
-
         if (is_null($salestaxgroupid)) {
             throw new \InvalidArgumentException('non-nullable salestaxgroupid cannot be null');
         }
-
         $this->container['salestaxgroupid'] = $salestaxgroupid;
 
         return $this;

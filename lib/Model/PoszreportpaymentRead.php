@@ -364,11 +364,9 @@ class PoszreportpaymentRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -393,11 +391,9 @@ class PoszreportpaymentRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setMoneytotal($moneytotal)
     {
-
         if (is_null($moneytotal)) {
             throw new \InvalidArgumentException('non-nullable moneytotal cannot be null');
         }
-
         $this->container['moneytotal'] = $moneytotal;
 
         return $this;
@@ -422,11 +418,9 @@ class PoszreportpaymentRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setMoneycaptured($moneycaptured)
     {
-
         if (is_null($moneycaptured)) {
             throw new \InvalidArgumentException('non-nullable moneycaptured cannot be null');
         }
-
         $this->container['moneycaptured'] = $moneycaptured;
 
         return $this;
@@ -451,11 +445,9 @@ class PoszreportpaymentRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setMoneyinadvance($moneyinadvance)
     {
-
         if (is_null($moneyinadvance)) {
             throw new \InvalidArgumentException('non-nullable moneyinadvance cannot be null');
         }
-
         $this->container['moneyinadvance'] = $moneyinadvance;
 
         return $this;
@@ -480,11 +472,9 @@ class PoszreportpaymentRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setMoneyreserved($moneyreserved)
     {
-
         if (is_null($moneyreserved)) {
             throw new \InvalidArgumentException('non-nullable moneyreserved cannot be null');
         }
-
         $this->container['moneyreserved'] = $moneyreserved;
 
         return $this;
@@ -509,11 +499,9 @@ class PoszreportpaymentRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setSubpayments($subpayments)
     {
-
         if (is_null($subpayments)) {
             throw new \InvalidArgumentException('non-nullable subpayments cannot be null');
         }
-
         $this->container['subpayments'] = $subpayments;
 
         return $this;

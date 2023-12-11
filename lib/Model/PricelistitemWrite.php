@@ -353,11 +353,9 @@ class PricelistitemWrite implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setProductid($productid)
     {
-
         if (is_null($productid)) {
             throw new \InvalidArgumentException('non-nullable productid cannot be null');
         }
-
         $this->container['productid'] = $productid;
 
         return $this;
@@ -382,11 +380,9 @@ class PricelistitemWrite implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setMoneyprice($moneyprice)
     {
-
         if (is_null($moneyprice)) {
             throw new \InvalidArgumentException('non-nullable moneyprice cannot be null');
         }
-
         $this->container['moneyprice'] = $moneyprice;
 
         return $this;
@@ -411,11 +407,9 @@ class PricelistitemWrite implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setMoneypricevolume($moneypricevolume)
     {
-
         if (is_null($moneypricevolume)) {
             throw new \InvalidArgumentException('non-nullable moneypricevolume cannot be null');
         }
-
         $this->container['moneypricevolume'] = $moneypricevolume;
 
         return $this;
@@ -440,11 +434,9 @@ class PricelistitemWrite implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setSku($sku)
     {
-
         if (is_null($sku)) {
             throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
-
         $this->container['sku'] = $sku;
 
         return $this;

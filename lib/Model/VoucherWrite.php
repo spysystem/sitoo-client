@@ -496,11 +496,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setActivepos($activepos)
     {
-
         if (is_null($activepos)) {
             throw new \InvalidArgumentException('non-nullable activepos cannot be null');
         }
-
         $this->container['activepos'] = $activepos;
 
         return $this;
@@ -525,11 +523,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVouchercode($vouchercode)
     {
-
         if (is_null($vouchercode)) {
             throw new \InvalidArgumentException('non-nullable vouchercode cannot be null');
         }
-
         $this->container['vouchercode'] = $vouchercode;
 
         return $this;
@@ -554,11 +550,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVoucherpassword($voucherpassword)
     {
-
         if (is_null($voucherpassword)) {
             throw new \InvalidArgumentException('non-nullable voucherpassword cannot be null');
         }
-
         $this->container['voucherpassword'] = $voucherpassword;
 
         return $this;
@@ -583,11 +577,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVouchername($vouchername)
     {
-
         if (is_null($vouchername)) {
             throw new \InvalidArgumentException('non-nullable vouchername cannot be null');
         }
-
         $this->container['vouchername'] = $vouchername;
 
         return $this;
@@ -612,11 +604,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVouchercomment($vouchercomment)
     {
-
         if (is_null($vouchercomment)) {
             throw new \InvalidArgumentException('non-nullable vouchercomment cannot be null');
         }
-
         $this->container['vouchercomment'] = $vouchercomment;
 
         return $this;
@@ -641,11 +631,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDatestart($datestart)
     {
-
         if (is_null($datestart)) {
             throw new \InvalidArgumentException('non-nullable datestart cannot be null');
         }
-
         $this->container['datestart'] = $datestart;
 
         return $this;
@@ -670,11 +658,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDateend($dateend)
     {
-
         if (is_null($dateend)) {
             throw new \InvalidArgumentException('non-nullable dateend cannot be null');
         }
-
         $this->container['dateend'] = $dateend;
 
         return $this;
@@ -699,11 +685,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setTags($tags)
     {
-
         if (is_null($tags)) {
             throw new \InvalidArgumentException('non-nullable tags cannot be null');
         }
-
         $this->container['tags'] = $tags;
 
         return $this;
@@ -728,11 +712,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVouchertype($vouchertype)
     {
-
         if (is_null($vouchertype)) {
             throw new \InvalidArgumentException('non-nullable vouchertype cannot be null');
         }
-
         $this->container['vouchertype'] = $vouchertype;
 
         return $this;
@@ -757,11 +739,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setValueX($valueX)
     {
-
         if (is_null($valueX)) {
             throw new \InvalidArgumentException('non-nullable valueX cannot be null');
         }
-
         $this->container['valueX'] = $valueX;
 
         return $this;
@@ -786,11 +766,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setValueY($valueY)
     {
-
         if (is_null($valueY)) {
             throw new \InvalidArgumentException('non-nullable valueY cannot be null');
         }
-
         $this->container['valueY'] = $valueY;
 
         return $this;
@@ -815,11 +793,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setValueZ($valueZ)
     {
-
         if (is_null($valueZ)) {
             throw new \InvalidArgumentException('non-nullable valueZ cannot be null');
         }
-
         $this->container['valueZ'] = $valueZ;
 
         return $this;
@@ -844,11 +820,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneyM($moneyM)
     {
-
         if (is_null($moneyM)) {
             throw new \InvalidArgumentException('non-nullable moneyM cannot be null');
         }
-
         $this->container['moneyM'] = $moneyM;
 
         return $this;
@@ -873,11 +847,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneyN($moneyN)
     {
-
         if (is_null($moneyN)) {
             throw new \InvalidArgumentException('non-nullable moneyN cannot be null');
         }
-
         $this->container['moneyN'] = $moneyN;
 
         return $this;
@@ -902,11 +874,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVouchername1($vouchername1)
     {
-
         if (is_null($vouchername1)) {
             throw new \InvalidArgumentException('non-nullable vouchername1 cannot be null');
         }
-
         $this->container['vouchername1'] = $vouchername1;
 
         return $this;
@@ -931,11 +901,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVouchercode1($vouchercode1)
     {
-
         if (is_null($vouchercode1)) {
             throw new \InvalidArgumentException('non-nullable vouchercode1 cannot be null');
         }
-
         $this->container['vouchercode1'] = $vouchercode1;
 
         return $this;
@@ -960,11 +928,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVouchername2($vouchername2)
     {
-
         if (is_null($vouchername2)) {
             throw new \InvalidArgumentException('non-nullable vouchername2 cannot be null');
         }
-
         $this->container['vouchername2'] = $vouchername2;
 
         return $this;
@@ -989,11 +955,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVouchercode2($vouchercode2)
     {
-
         if (is_null($vouchercode2)) {
             throw new \InvalidArgumentException('non-nullable vouchercode2 cannot be null');
         }
-
         $this->container['vouchercode2'] = $vouchercode2;
 
         return $this;
@@ -1018,11 +982,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMaxuses($maxuses)
     {
-
         if (is_null($maxuses)) {
             throw new \InvalidArgumentException('non-nullable maxuses cannot be null');
         }
-
         $this->container['maxuses'] = $maxuses;
 
         return $this;
@@ -1047,11 +1009,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPriority($priority)
     {
-
         if (is_null($priority)) {
             throw new \InvalidArgumentException('non-nullable priority cannot be null');
         }
-
         $this->container['priority'] = $priority;
 
         return $this;
@@ -1076,11 +1036,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPricelisttags($pricelisttags)
     {
-
         if (is_null($pricelisttags)) {
             throw new \InvalidArgumentException('non-nullable pricelisttags cannot be null');
         }
-
         $this->container['pricelisttags'] = $pricelisttags;
 
         return $this;
@@ -1105,11 +1063,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setProducts($products)
     {
-
         if (is_null($products)) {
             throw new \InvalidArgumentException('non-nullable products cannot be null');
         }
-
         $this->container['products'] = $products;
 
         return $this;
@@ -1134,11 +1090,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setProductoptions($productoptions)
     {
-
         if (is_null($productoptions)) {
             throw new \InvalidArgumentException('non-nullable productoptions cannot be null');
         }
-
         $this->container['productoptions'] = $productoptions;
 
         return $this;
@@ -1163,11 +1117,9 @@ class VoucherWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDiscountoptions($discountoptions)
     {
-
         if (is_null($discountoptions)) {
             throw new \InvalidArgumentException('non-nullable discountoptions cannot be null');
         }
-
         $this->container['discountoptions'] = $discountoptions;
 
         return $this;

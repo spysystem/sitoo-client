@@ -363,11 +363,9 @@ class SalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSalestaxid($salestaxid)
     {
-
         if (is_null($salestaxid)) {
             throw new \InvalidArgumentException('non-nullable salestaxid cannot be null');
         }
-
         $this->container['salestaxid'] = $salestaxid;
 
         return $this;
@@ -392,11 +390,9 @@ class SalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -421,11 +417,9 @@ class SalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCode($code)
     {
-
         if (is_null($code)) {
             throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
-
         $this->container['code'] = $code;
 
         return $this;
@@ -450,11 +444,9 @@ class SalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDecimalvaluedefault($decimalvaluedefault)
     {
-
         if (is_null($decimalvaluedefault)) {
             throw new \InvalidArgumentException('non-nullable decimalvaluedefault cannot be null');
         }
-
         $this->container['decimalvaluedefault'] = $decimalvaluedefault;
 
         return $this;
@@ -479,11 +471,9 @@ class SalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setProductgrouprules($productgrouprules)
     {
-
         if (is_null($productgrouprules)) {
             throw new \InvalidArgumentException('non-nullable productgrouprules cannot be null');
         }
-
         $this->container['productgrouprules'] = $productgrouprules;
 
         return $this;

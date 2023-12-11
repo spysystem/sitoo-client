@@ -507,11 +507,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setUserid($userid)
     {
-
         if (is_null($userid)) {
             throw new \InvalidArgumentException('non-nullable userid cannot be null');
         }
-
         $this->container['userid'] = $userid;
 
         return $this;
@@ -536,11 +534,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setEmail($email)
     {
-
         if (is_null($email)) {
             throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
-
         $this->container['email'] = $email;
 
         return $this;
@@ -565,11 +561,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNamefirst($namefirst)
     {
-
         if (is_null($namefirst)) {
             throw new \InvalidArgumentException('non-nullable namefirst cannot be null');
         }
-
         $this->container['namefirst'] = $namefirst;
 
         return $this;
@@ -594,11 +588,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNamelast($namelast)
     {
-
         if (is_null($namelast)) {
             throw new \InvalidArgumentException('non-nullable namelast cannot be null');
         }
-
         $this->container['namelast'] = $namelast;
 
         return $this;
@@ -623,11 +615,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPersonalid($personalid)
     {
-
         if (is_null($personalid)) {
             throw new \InvalidArgumentException('non-nullable personalid cannot be null');
         }
-
         $this->container['personalid'] = $personalid;
 
         return $this;
@@ -652,11 +642,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;
@@ -681,11 +669,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCompany($company)
     {
-
         if (is_null($company)) {
             throw new \InvalidArgumentException('non-nullable company cannot be null');
         }
-
         $this->container['company'] = $company;
 
         return $this;
@@ -710,11 +696,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDepartment($department)
     {
-
         if (is_null($department)) {
             throw new \InvalidArgumentException('non-nullable department cannot be null');
         }
-
         $this->container['department'] = $department;
 
         return $this;
@@ -739,11 +723,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCompanyid($companyid)
     {
-
         if (is_null($companyid)) {
             throw new \InvalidArgumentException('non-nullable companyid cannot be null');
         }
-
         $this->container['companyid'] = $companyid;
 
         return $this;
@@ -768,11 +750,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddress($address)
     {
-
         if (is_null($address)) {
             throw new \InvalidArgumentException('non-nullable address cannot be null');
         }
-
         $this->container['address'] = $address;
 
         return $this;
@@ -797,11 +777,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddress2($address2)
     {
-
         if (is_null($address2)) {
             throw new \InvalidArgumentException('non-nullable address2 cannot be null');
         }
-
         $this->container['address2'] = $address2;
 
         return $this;
@@ -826,11 +804,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setZip($zip)
     {
-
         if (is_null($zip)) {
             throw new \InvalidArgumentException('non-nullable zip cannot be null');
         }
-
         $this->container['zip'] = $zip;
 
         return $this;
@@ -855,11 +831,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCity($city)
     {
-
         if (is_null($city)) {
             throw new \InvalidArgumentException('non-nullable city cannot be null');
         }
-
         $this->container['city'] = $city;
 
         return $this;
@@ -884,11 +858,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setState($state)
     {
-
         if (is_null($state)) {
             throw new \InvalidArgumentException('non-nullable state cannot be null');
         }
-
         $this->container['state'] = $state;
 
         return $this;
@@ -913,11 +885,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCountryid($countryid)
     {
-
         if (is_null($countryid)) {
             throw new \InvalidArgumentException('non-nullable countryid cannot be null');
         }
-
         $this->container['countryid'] = $countryid;
 
         return $this;
@@ -942,11 +912,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPhone($phone)
     {
-
         if (is_null($phone)) {
             throw new \InvalidArgumentException('non-nullable phone cannot be null');
         }
-
         $this->container['phone'] = $phone;
 
         return $this;
@@ -971,11 +939,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMobile($mobile)
     {
-
         if (is_null($mobile)) {
             throw new \InvalidArgumentException('non-nullable mobile cannot be null');
         }
-
         $this->container['mobile'] = $mobile;
 
         return $this;
@@ -1000,11 +966,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNotes($notes)
     {
-
         if (is_null($notes)) {
             throw new \InvalidArgumentException('non-nullable notes cannot be null');
         }
-
         $this->container['notes'] = $notes;
 
         return $this;
@@ -1029,11 +993,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPin($pin)
     {
-
         if (is_null($pin)) {
             throw new \InvalidArgumentException('non-nullable pin cannot be null');
         }
-
         $this->container['pin'] = $pin;
 
         return $this;
@@ -1058,11 +1020,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCustomernumber($customernumber)
     {
-
         if (is_null($customernumber)) {
             throw new \InvalidArgumentException('non-nullable customernumber cannot be null');
         }
-
         $this->container['customernumber'] = $customernumber;
 
         return $this;
@@ -1087,11 +1047,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDatecreated($datecreated)
     {
-
         if (is_null($datecreated)) {
             throw new \InvalidArgumentException('non-nullable datecreated cannot be null');
         }
-
         $this->container['datecreated'] = $datecreated;
 
         return $this;
@@ -1116,11 +1074,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDatemodified($datemodified)
     {
-
         if (is_null($datemodified)) {
             throw new \InvalidArgumentException('non-nullable datemodified cannot be null');
         }
-
         $this->container['datemodified'] = $datemodified;
 
         return $this;
@@ -1145,11 +1101,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVoucherpasswords($voucherpasswords)
     {
-
         if (is_null($voucherpasswords)) {
             throw new \InvalidArgumentException('non-nullable voucherpasswords cannot be null');
         }
-
         $this->container['voucherpasswords'] = $voucherpasswords;
 
         return $this;
@@ -1174,11 +1128,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setRole($role)
     {
-
         if (is_null($role)) {
             throw new \InvalidArgumentException('non-nullable role cannot be null');
         }
-
         $this->container['role'] = $role;
 
         return $this;
@@ -1203,11 +1155,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setWarehouses($warehouses)
     {
-
         if (is_null($warehouses)) {
             throw new \InvalidArgumentException('non-nullable warehouses cannot be null');
         }
-
         $this->container['warehouses'] = $warehouses;
 
         return $this;
@@ -1232,11 +1182,9 @@ class UserRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPosrefundcard($posrefundcard)
     {
-
         if (is_null($posrefundcard)) {
             throw new \InvalidArgumentException('non-nullable posrefundcard cannot be null');
         }
-
         $this->container['posrefundcard'] = $posrefundcard;
 
         return $this;

@@ -349,11 +349,9 @@ class WarehouseitemlogWrite implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setDecimalquantity($decimalquantity)
     {
-
         if (is_null($decimalquantity)) {
             throw new \InvalidArgumentException('non-nullable decimalquantity cannot be null');
         }
-
         $this->container['decimalquantity'] = $decimalquantity;
 
         return $this;
@@ -378,11 +376,9 @@ class WarehouseitemlogWrite implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setMoneypricein($moneypricein)
     {
-
         if (is_null($moneypricein)) {
             throw new \InvalidArgumentException('non-nullable moneypricein cannot be null');
         }
-
         $this->container['moneypricein'] = $moneypricein;
 
         return $this;
@@ -407,11 +403,9 @@ class WarehouseitemlogWrite implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setSku($sku)
     {
-
         if (is_null($sku)) {
             throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
-
         $this->container['sku'] = $sku;
 
         return $this;

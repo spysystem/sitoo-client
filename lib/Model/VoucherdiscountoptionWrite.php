@@ -357,11 +357,9 @@ class VoucherdiscountoptionWrite implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setNum($num)
     {
-
         if (is_null($num)) {
             throw new \InvalidArgumentException('non-nullable num cannot be null');
         }
-
         $this->container['num'] = $num;
 
         return $this;
@@ -386,11 +384,9 @@ class VoucherdiscountoptionWrite implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setProducts($products)
     {
-
         if (is_null($products)) {
             throw new \InvalidArgumentException('non-nullable products cannot be null');
         }
-
         $this->container['products'] = $products;
 
         return $this;
@@ -415,11 +411,9 @@ class VoucherdiscountoptionWrite implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setMoneyprice($moneyprice)
     {
-
         if (is_null($moneyprice)) {
             throw new \InvalidArgumentException('non-nullable moneyprice cannot be null');
         }
-
         $this->container['moneyprice'] = $moneyprice;
 
         return $this;
@@ -444,11 +438,9 @@ class VoucherdiscountoptionWrite implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setMoneydiscount($moneydiscount)
     {
-
         if (is_null($moneydiscount)) {
             throw new \InvalidArgumentException('non-nullable moneydiscount cannot be null');
         }
-
         $this->container['moneydiscount'] = $moneydiscount;
 
         return $this;
@@ -473,11 +465,9 @@ class VoucherdiscountoptionWrite implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setDecimaldiscount($decimaldiscount)
     {
-
         if (is_null($decimaldiscount)) {
             throw new \InvalidArgumentException('non-nullable decimaldiscount cannot be null');
         }
-
         $this->container['decimaldiscount'] = $decimaldiscount;
 
         return $this;

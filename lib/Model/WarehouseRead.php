@@ -429,11 +429,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setWarehouseid($warehouseid)
     {
-
         if (is_null($warehouseid)) {
             throw new \InvalidArgumentException('non-nullable warehouseid cannot be null');
         }
-
         $this->container['warehouseid'] = $warehouseid;
 
         return $this;
@@ -458,11 +456,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setWarehousetype($warehousetype)
     {
-
         if (is_null($warehousetype)) {
             throw new \InvalidArgumentException('non-nullable warehousetype cannot be null');
         }
-
         $this->container['warehousetype'] = $warehousetype;
 
         return $this;
@@ -487,11 +483,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setUsetype($usetype)
     {
-
         if (is_null($usetype)) {
             throw new \InvalidArgumentException('non-nullable usetype cannot be null');
         }
-
         $this->container['usetype'] = $usetype;
 
         return $this;
@@ -516,11 +510,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setStoreid($storeid)
     {
-
         if (is_null($storeid)) {
             throw new \InvalidArgumentException('non-nullable storeid cannot be null');
         }
-
         $this->container['storeid'] = $storeid;
 
         return $this;
@@ -545,11 +537,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSellable($sellable)
     {
-
         if (is_null($sellable)) {
             throw new \InvalidArgumentException('non-nullable sellable cannot be null');
         }
-
         $this->container['sellable'] = $sellable;
 
         return $this;
@@ -574,11 +564,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCurrencycode($currencycode)
     {
-
         if (is_null($currencycode)) {
             throw new \InvalidArgumentException('non-nullable currencycode cannot be null');
         }
-
         $this->container['currencycode'] = $currencycode;
 
         return $this;
@@ -603,11 +591,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -632,11 +618,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddress($address)
     {
-
         if (is_null($address)) {
             throw new \InvalidArgumentException('non-nullable address cannot be null');
         }
-
         $this->container['address'] = $address;
 
         return $this;
@@ -661,11 +645,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddress2($address2)
     {
-
         if (is_null($address2)) {
             throw new \InvalidArgumentException('non-nullable address2 cannot be null');
         }
-
         $this->container['address2'] = $address2;
 
         return $this;
@@ -690,11 +672,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setZip($zip)
     {
-
         if (is_null($zip)) {
             throw new \InvalidArgumentException('non-nullable zip cannot be null');
         }
-
         $this->container['zip'] = $zip;
 
         return $this;
@@ -719,11 +699,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCity($city)
     {
-
         if (is_null($city)) {
             throw new \InvalidArgumentException('non-nullable city cannot be null');
         }
-
         $this->container['city'] = $city;
 
         return $this;
@@ -748,11 +726,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setState($state)
     {
-
         if (is_null($state)) {
             throw new \InvalidArgumentException('non-nullable state cannot be null');
         }
-
         $this->container['state'] = $state;
 
         return $this;
@@ -777,11 +753,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCountryid($countryid)
     {
-
         if (is_null($countryid)) {
             throw new \InvalidArgumentException('non-nullable countryid cannot be null');
         }
-
         $this->container['countryid'] = $countryid;
 
         return $this;
@@ -806,11 +780,9 @@ class WarehouseRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;

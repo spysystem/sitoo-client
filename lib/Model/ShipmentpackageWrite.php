@@ -350,11 +350,9 @@ class ShipmentpackageWrite implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setShipmentpackageid($shipmentpackageid)
     {
-
         if (is_null($shipmentpackageid)) {
             throw new \InvalidArgumentException('non-nullable shipmentpackageid cannot be null');
         }
-
         $this->container['shipmentpackageid'] = $shipmentpackageid;
 
         return $this;
@@ -379,11 +377,9 @@ class ShipmentpackageWrite implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setBarcode($barcode)
     {
-
         if (is_null($barcode)) {
             throw new \InvalidArgumentException('non-nullable barcode cannot be null');
         }
-
         $this->container['barcode'] = $barcode;
 
         return $this;
@@ -408,11 +404,9 @@ class ShipmentpackageWrite implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;
@@ -437,11 +431,9 @@ class ShipmentpackageWrite implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setComment($comment)
     {
-
         if (is_null($comment)) {
             throw new \InvalidArgumentException('non-nullable comment cannot be null');
         }
-
         $this->container['comment'] = $comment;
 
         return $this;

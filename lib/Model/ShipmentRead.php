@@ -623,11 +623,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShipmentid($shipmentid)
     {
-
         if (is_null($shipmentid)) {
             throw new \InvalidArgumentException('non-nullable shipmentid cannot be null');
         }
-
         $this->container['shipmentid'] = $shipmentid;
 
         return $this;
@@ -652,11 +650,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShipmentstate($shipmentstate)
     {
-
         if (is_null($shipmentstate)) {
             throw new \InvalidArgumentException('non-nullable shipmentstate cannot be null');
         }
-
         $this->container['shipmentstate'] = $shipmentstate;
 
         return $this;
@@ -681,11 +677,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setArchived($archived)
     {
-
         if (is_null($archived)) {
             throw new \InvalidArgumentException('non-nullable archived cannot be null');
         }
-
         $this->container['archived'] = $archived;
 
         return $this;
@@ -710,11 +704,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;
@@ -739,11 +731,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBarcode($barcode)
     {
-
         if (is_null($barcode)) {
             throw new \InvalidArgumentException('non-nullable barcode cannot be null');
         }
-
         $this->container['barcode'] = $barcode;
 
         return $this;
@@ -768,11 +758,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setComment($comment)
     {
-
         if (is_null($comment)) {
             throw new \InvalidArgumentException('non-nullable comment cannot be null');
         }
-
         $this->container['comment'] = $comment;
 
         return $this;
@@ -797,11 +785,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setEmailowner($emailowner)
     {
-
         if (is_null($emailowner)) {
             throw new \InvalidArgumentException('non-nullable emailowner cannot be null');
         }
-
         $this->container['emailowner'] = $emailowner;
 
         return $this;
@@ -826,11 +812,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setEmailreceivedby($emailreceivedby)
     {
-
         if (is_null($emailreceivedby)) {
             throw new \InvalidArgumentException('non-nullable emailreceivedby cannot be null');
         }
-
         $this->container['emailreceivedby'] = $emailreceivedby;
 
         return $this;
@@ -855,11 +839,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDatenew($datenew)
     {
-
         if (is_null($datenew)) {
             throw new \InvalidArgumentException('non-nullable datenew cannot be null');
         }
-
         $this->container['datenew'] = $datenew;
 
         return $this;
@@ -884,11 +866,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDateintransit($dateintransit)
     {
-
         if (is_null($dateintransit)) {
             throw new \InvalidArgumentException('non-nullable dateintransit cannot be null');
         }
-
         $this->container['dateintransit'] = $dateintransit;
 
         return $this;
@@ -913,11 +893,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDatereceived($datereceived)
     {
-
         if (is_null($datereceived)) {
             throw new \InvalidArgumentException('non-nullable datereceived cannot be null');
         }
-
         $this->container['datereceived'] = $datereceived;
 
         return $this;
@@ -942,11 +920,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDatecancelled($datecancelled)
     {
-
         if (is_null($datecancelled)) {
             throw new \InvalidArgumentException('non-nullable datecancelled cannot be null');
         }
-
         $this->container['datecancelled'] = $datecancelled;
 
         return $this;
@@ -971,11 +947,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDateestimatedpickup($dateestimatedpickup)
     {
-
         if (is_null($dateestimatedpickup)) {
             throw new \InvalidArgumentException('non-nullable dateestimatedpickup cannot be null');
         }
-
         $this->container['dateestimatedpickup'] = $dateestimatedpickup;
 
         return $this;
@@ -1000,11 +974,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDateestimateddelivery($dateestimateddelivery)
     {
-
         if (is_null($dateestimateddelivery)) {
             throw new \InvalidArgumentException('non-nullable dateestimateddelivery cannot be null');
         }
-
         $this->container['dateestimateddelivery'] = $dateestimateddelivery;
 
         return $this;
@@ -1029,11 +1001,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSenderWarehouseid($senderWarehouseid)
     {
-
         if (is_null($senderWarehouseid)) {
             throw new \InvalidArgumentException('non-nullable senderWarehouseid cannot be null');
         }
-
         $this->container['senderWarehouseid'] = $senderWarehouseid;
 
         return $this;
@@ -1058,11 +1028,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSenderName($senderName)
     {
-
         if (is_null($senderName)) {
             throw new \InvalidArgumentException('non-nullable senderName cannot be null');
         }
-
         $this->container['senderName'] = $senderName;
 
         return $this;
@@ -1087,11 +1055,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSenderAddress($senderAddress)
     {
-
         if (is_null($senderAddress)) {
             throw new \InvalidArgumentException('non-nullable senderAddress cannot be null');
         }
-
         $this->container['senderAddress'] = $senderAddress;
 
         return $this;
@@ -1116,11 +1082,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSenderAddress2($senderAddress2)
     {
-
         if (is_null($senderAddress2)) {
             throw new \InvalidArgumentException('non-nullable senderAddress2 cannot be null');
         }
-
         $this->container['senderAddress2'] = $senderAddress2;
 
         return $this;
@@ -1145,11 +1109,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSenderZip($senderZip)
     {
-
         if (is_null($senderZip)) {
             throw new \InvalidArgumentException('non-nullable senderZip cannot be null');
         }
-
         $this->container['senderZip'] = $senderZip;
 
         return $this;
@@ -1174,11 +1136,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSenderCity($senderCity)
     {
-
         if (is_null($senderCity)) {
             throw new \InvalidArgumentException('non-nullable senderCity cannot be null');
         }
-
         $this->container['senderCity'] = $senderCity;
 
         return $this;
@@ -1203,11 +1163,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSenderState($senderState)
     {
-
         if (is_null($senderState)) {
             throw new \InvalidArgumentException('non-nullable senderState cannot be null');
         }
-
         $this->container['senderState'] = $senderState;
 
         return $this;
@@ -1232,11 +1190,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSenderCountryid($senderCountryid)
     {
-
         if (is_null($senderCountryid)) {
             throw new \InvalidArgumentException('non-nullable senderCountryid cannot be null');
         }
-
         $this->container['senderCountryid'] = $senderCountryid;
 
         return $this;
@@ -1261,11 +1217,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSenderReferencename($senderReferencename)
     {
-
         if (is_null($senderReferencename)) {
             throw new \InvalidArgumentException('non-nullable senderReferencename cannot be null');
         }
-
         $this->container['senderReferencename'] = $senderReferencename;
 
         return $this;
@@ -1290,11 +1244,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSenderReferenceemail($senderReferenceemail)
     {
-
         if (is_null($senderReferenceemail)) {
             throw new \InvalidArgumentException('non-nullable senderReferenceemail cannot be null');
         }
-
         $this->container['senderReferenceemail'] = $senderReferenceemail;
 
         return $this;
@@ -1319,11 +1271,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSenderReferencemobile($senderReferencemobile)
     {
-
         if (is_null($senderReferencemobile)) {
             throw new \InvalidArgumentException('non-nullable senderReferencemobile cannot be null');
         }
-
         $this->container['senderReferencemobile'] = $senderReferencemobile;
 
         return $this;
@@ -1348,11 +1298,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSenderInstructions($senderInstructions)
     {
-
         if (is_null($senderInstructions)) {
             throw new \InvalidArgumentException('non-nullable senderInstructions cannot be null');
         }
-
         $this->container['senderInstructions'] = $senderInstructions;
 
         return $this;
@@ -1377,11 +1325,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReceiverWarehouseid($receiverWarehouseid)
     {
-
         if (is_null($receiverWarehouseid)) {
             throw new \InvalidArgumentException('non-nullable receiverWarehouseid cannot be null');
         }
-
         $this->container['receiverWarehouseid'] = $receiverWarehouseid;
 
         return $this;
@@ -1406,11 +1352,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReceiverName($receiverName)
     {
-
         if (is_null($receiverName)) {
             throw new \InvalidArgumentException('non-nullable receiverName cannot be null');
         }
-
         $this->container['receiverName'] = $receiverName;
 
         return $this;
@@ -1435,11 +1379,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReceiverAddress($receiverAddress)
     {
-
         if (is_null($receiverAddress)) {
             throw new \InvalidArgumentException('non-nullable receiverAddress cannot be null');
         }
-
         $this->container['receiverAddress'] = $receiverAddress;
 
         return $this;
@@ -1464,11 +1406,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReceiverAddress2($receiverAddress2)
     {
-
         if (is_null($receiverAddress2)) {
             throw new \InvalidArgumentException('non-nullable receiverAddress2 cannot be null');
         }
-
         $this->container['receiverAddress2'] = $receiverAddress2;
 
         return $this;
@@ -1493,11 +1433,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReceiverZip($receiverZip)
     {
-
         if (is_null($receiverZip)) {
             throw new \InvalidArgumentException('non-nullable receiverZip cannot be null');
         }
-
         $this->container['receiverZip'] = $receiverZip;
 
         return $this;
@@ -1522,11 +1460,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReceiverCity($receiverCity)
     {
-
         if (is_null($receiverCity)) {
             throw new \InvalidArgumentException('non-nullable receiverCity cannot be null');
         }
-
         $this->container['receiverCity'] = $receiverCity;
 
         return $this;
@@ -1551,11 +1487,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReceiverState($receiverState)
     {
-
         if (is_null($receiverState)) {
             throw new \InvalidArgumentException('non-nullable receiverState cannot be null');
         }
-
         $this->container['receiverState'] = $receiverState;
 
         return $this;
@@ -1580,11 +1514,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReceiverCountryid($receiverCountryid)
     {
-
         if (is_null($receiverCountryid)) {
             throw new \InvalidArgumentException('non-nullable receiverCountryid cannot be null');
         }
-
         $this->container['receiverCountryid'] = $receiverCountryid;
 
         return $this;
@@ -1609,11 +1541,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReceiverReferencename($receiverReferencename)
     {
-
         if (is_null($receiverReferencename)) {
             throw new \InvalidArgumentException('non-nullable receiverReferencename cannot be null');
         }
-
         $this->container['receiverReferencename'] = $receiverReferencename;
 
         return $this;
@@ -1638,11 +1568,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReceiverReferenceemail($receiverReferenceemail)
     {
-
         if (is_null($receiverReferenceemail)) {
             throw new \InvalidArgumentException('non-nullable receiverReferenceemail cannot be null');
         }
-
         $this->container['receiverReferenceemail'] = $receiverReferenceemail;
 
         return $this;
@@ -1667,11 +1595,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReceiverReferencemobile($receiverReferencemobile)
     {
-
         if (is_null($receiverReferencemobile)) {
             throw new \InvalidArgumentException('non-nullable receiverReferencemobile cannot be null');
         }
-
         $this->container['receiverReferencemobile'] = $receiverReferencemobile;
 
         return $this;
@@ -1696,11 +1622,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReceiverInstructions($receiverInstructions)
     {
-
         if (is_null($receiverInstructions)) {
             throw new \InvalidArgumentException('non-nullable receiverInstructions cannot be null');
         }
-
         $this->container['receiverInstructions'] = $receiverInstructions;
 
         return $this;
@@ -1725,11 +1649,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCarrierName($carrierName)
     {
-
         if (is_null($carrierName)) {
             throw new \InvalidArgumentException('non-nullable carrierName cannot be null');
         }
-
         $this->container['carrierName'] = $carrierName;
 
         return $this;
@@ -1754,11 +1676,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCarrierReference($carrierReference)
     {
-
         if (is_null($carrierReference)) {
             throw new \InvalidArgumentException('non-nullable carrierReference cannot be null');
         }
-
         $this->container['carrierReference'] = $carrierReference;
 
         return $this;
@@ -1783,11 +1703,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCarrierTrackingurl($carrierTrackingurl)
     {
-
         if (is_null($carrierTrackingurl)) {
             throw new \InvalidArgumentException('non-nullable carrierTrackingurl cannot be null');
         }
-
         $this->container['carrierTrackingurl'] = $carrierTrackingurl;
 
         return $this;
@@ -1812,11 +1730,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShipmentpackages($shipmentpackages)
     {
-
         if (is_null($shipmentpackages)) {
             throw new \InvalidArgumentException('non-nullable shipmentpackages cannot be null');
         }
-
         $this->container['shipmentpackages'] = $shipmentpackages;
 
         return $this;
@@ -1841,11 +1757,9 @@ class ShipmentRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShipmentitems($shipmentitems)
     {
-
         if (is_null($shipmentitems)) {
             throw new \InvalidArgumentException('non-nullable shipmentitems cannot be null');
         }
-
         $this->container['shipmentitems'] = $shipmentitems;
 
         return $this;

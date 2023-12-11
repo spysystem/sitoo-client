@@ -374,11 +374,9 @@ class WarehousebatchWrite implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setTransactiontype($transactiontype)
     {
-
         if (is_null($transactiontype)) {
             throw new \InvalidArgumentException('non-nullable transactiontype cannot be null');
         }
-
         $this->container['transactiontype'] = $transactiontype;
 
         return $this;
@@ -403,11 +401,9 @@ class WarehousebatchWrite implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setWarehousebatchstate($warehousebatchstate)
     {
-
         if (is_null($warehousebatchstate)) {
             throw new \InvalidArgumentException('non-nullable warehousebatchstate cannot be null');
         }
-
         $this->container['warehousebatchstate'] = $warehousebatchstate;
 
         return $this;
@@ -432,11 +428,9 @@ class WarehousebatchWrite implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setEmailowner($emailowner)
     {
-
         if (is_null($emailowner)) {
             throw new \InvalidArgumentException('non-nullable emailowner cannot be null');
         }
-
         $this->container['emailowner'] = $emailowner;
 
         return $this;
@@ -461,11 +455,9 @@ class WarehousebatchWrite implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setComment($comment)
     {
-
         if (is_null($comment)) {
             throw new \InvalidArgumentException('non-nullable comment cannot be null');
         }
-
         $this->container['comment'] = $comment;
 
         return $this;
@@ -490,11 +482,9 @@ class WarehousebatchWrite implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setShipmentid($shipmentid)
     {
-
         if (is_null($shipmentid)) {
             throw new \InvalidArgumentException('non-nullable shipmentid cannot be null');
         }
-
         $this->container['shipmentid'] = $shipmentid;
 
         return $this;
@@ -519,11 +509,9 @@ class WarehousebatchWrite implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;
@@ -548,11 +536,9 @@ class WarehousebatchWrite implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setReasoncode($reasoncode)
     {
-
         if (is_null($reasoncode)) {
             throw new \InvalidArgumentException('non-nullable reasoncode cannot be null');
         }
-
         $this->container['reasoncode'] = $reasoncode;
 
         return $this;

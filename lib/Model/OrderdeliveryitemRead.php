@@ -356,11 +356,9 @@ class OrderdeliveryitemRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setOrderdeliveryitemid($orderdeliveryitemid)
     {
-
         if (is_null($orderdeliveryitemid)) {
             throw new \InvalidArgumentException('non-nullable orderdeliveryitemid cannot be null');
         }
-
         $this->container['orderdeliveryitemid'] = $orderdeliveryitemid;
 
         return $this;
@@ -385,11 +383,9 @@ class OrderdeliveryitemRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setOrderdeliveryid($orderdeliveryid)
     {
-
         if (is_null($orderdeliveryid)) {
             throw new \InvalidArgumentException('non-nullable orderdeliveryid cannot be null');
         }
-
         $this->container['orderdeliveryid'] = $orderdeliveryid;
 
         return $this;
@@ -414,11 +410,9 @@ class OrderdeliveryitemRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setOrderitemid($orderitemid)
     {
-
         if (is_null($orderitemid)) {
             throw new \InvalidArgumentException('non-nullable orderitemid cannot be null');
         }
-
         $this->container['orderitemid'] = $orderitemid;
 
         return $this;
@@ -443,11 +437,9 @@ class OrderdeliveryitemRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setQuantity($quantity)
     {
-
         if (is_null($quantity)) {
             throw new \InvalidArgumentException('non-nullable quantity cannot be null');
         }
-
         $this->container['quantity'] = $quantity;
 
         return $this;

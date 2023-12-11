@@ -364,11 +364,9 @@ class ResourceRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setResourceid($resourceid)
     {
-
         if (is_null($resourceid)) {
             throw new \InvalidArgumentException('non-nullable resourceid cannot be null');
         }
-
         $this->container['resourceid'] = $resourceid;
 
         return $this;
@@ -393,11 +391,9 @@ class ResourceRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMimetype($mimetype)
     {
-
         if (is_null($mimetype)) {
             throw new \InvalidArgumentException('non-nullable mimetype cannot be null');
         }
-
         $this->container['mimetype'] = $mimetype;
 
         return $this;
@@ -422,11 +418,9 @@ class ResourceRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setWidth($width)
     {
-
         if (is_null($width)) {
             throw new \InvalidArgumentException('non-nullable width cannot be null');
         }
-
         $this->container['width'] = $width;
 
         return $this;
@@ -451,11 +445,9 @@ class ResourceRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setHeight($height)
     {
-
         if (is_null($height)) {
             throw new \InvalidArgumentException('non-nullable height cannot be null');
         }
-
         $this->container['height'] = $height;
 
         return $this;
@@ -480,11 +472,9 @@ class ResourceRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setFilesize($filesize)
     {
-
         if (is_null($filesize)) {
             throw new \InvalidArgumentException('non-nullable filesize cannot be null');
         }
-
         $this->container['filesize'] = $filesize;
 
         return $this;
@@ -509,11 +499,9 @@ class ResourceRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDatecreated($datecreated)
     {
-
         if (is_null($datecreated)) {
             throw new \InvalidArgumentException('non-nullable datecreated cannot be null');
         }
-
         $this->container['datecreated'] = $datecreated;
 
         return $this;

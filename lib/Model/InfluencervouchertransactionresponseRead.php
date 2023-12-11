@@ -329,11 +329,9 @@ class InfluencervouchertransactionresponseRead implements ModelInterface, ArrayA
      */
     public function setTransactionid($transactionid)
     {
-
         if (is_null($transactionid)) {
             throw new \InvalidArgumentException('non-nullable transactionid cannot be null');
         }
-
         $this->container['transactionid'] = $transactionid;
 
         return $this;

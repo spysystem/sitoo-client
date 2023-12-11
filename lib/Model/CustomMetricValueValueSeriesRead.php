@@ -352,11 +352,9 @@ class CustomMetricValueValueSeriesRead implements ModelInterface, ArrayAccess, \
      */
     public function setTotalCount($totalCount)
     {
-
         if (is_null($totalCount)) {
             throw new \InvalidArgumentException('non-nullable totalCount cannot be null');
         }
-
         $this->container['totalCount'] = $totalCount;
 
         return $this;
@@ -381,11 +379,9 @@ class CustomMetricValueValueSeriesRead implements ModelInterface, ArrayAccess, \
      */
     public function setTotalValue($totalValue)
     {
-
         if (is_null($totalValue)) {
             throw new \InvalidArgumentException('non-nullable totalValue cannot be null');
         }
-
         $this->container['totalValue'] = $totalValue;
 
         return $this;
@@ -410,11 +406,9 @@ class CustomMetricValueValueSeriesRead implements ModelInterface, ArrayAccess, \
      */
     public function setSeries($series)
     {
-
         if (is_null($series)) {
             throw new \InvalidArgumentException('non-nullable series cannot be null');
         }
-
         $this->container['series'] = $series;
 
         return $this;

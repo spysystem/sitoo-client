@@ -371,11 +371,9 @@ class InfluencervoucherRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setInfluencercode($influencercode)
     {
-
         if (is_null($influencercode)) {
             throw new \InvalidArgumentException('non-nullable influencercode cannot be null');
         }
-
         $this->container['influencercode'] = $influencercode;
 
         return $this;
@@ -400,11 +398,9 @@ class InfluencervoucherRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setInfluencername($influencername)
     {
-
         if (is_null($influencername)) {
             throw new \InvalidArgumentException('non-nullable influencername cannot be null');
         }
-
         $this->container['influencername'] = $influencername;
 
         return $this;
@@ -429,11 +425,9 @@ class InfluencervoucherRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setVoucherpassword($voucherpassword)
     {
-
         if (is_null($voucherpassword)) {
             throw new \InvalidArgumentException('non-nullable voucherpassword cannot be null');
         }
-
         $this->container['voucherpassword'] = $voucherpassword;
 
         return $this;
@@ -458,11 +452,9 @@ class InfluencervoucherRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setVouchercode($vouchercode)
     {
-
         if (is_null($vouchercode)) {
             throw new \InvalidArgumentException('non-nullable vouchercode cannot be null');
         }
-
         $this->container['vouchercode'] = $vouchercode;
 
         return $this;
@@ -487,11 +479,9 @@ class InfluencervoucherRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setVouchername($vouchername)
     {
-
         if (is_null($vouchername)) {
             throw new \InvalidArgumentException('non-nullable vouchername cannot be null');
         }
-
         $this->container['vouchername'] = $vouchername;
 
         return $this;
@@ -516,11 +506,9 @@ class InfluencervoucherRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setVouchercomment($vouchercomment)
     {
-
         if (is_null($vouchercomment)) {
             throw new \InvalidArgumentException('non-nullable vouchercomment cannot be null');
         }
-
         $this->container['vouchercomment'] = $vouchercomment;
 
         return $this;
@@ -545,11 +533,9 @@ class InfluencervoucherRead implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setRedeemable($redeemable)
     {
-
         if (is_null($redeemable)) {
             throw new \InvalidArgumentException('non-nullable redeemable cannot be null');
         }
-
         $this->container['redeemable'] = $redeemable;
 
         return $this;

@@ -364,11 +364,9 @@ class PoszreportproductgroupRead implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -393,11 +391,9 @@ class PoszreportproductgroupRead implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setVatvalue($vatvalue)
     {
-
         if (is_null($vatvalue)) {
             throw new \InvalidArgumentException('non-nullable vatvalue cannot be null');
         }
-
         $this->container['vatvalue'] = $vatvalue;
 
         return $this;
@@ -422,11 +418,9 @@ class PoszreportproductgroupRead implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setNumtotal($numtotal)
     {
-
         if (is_null($numtotal)) {
             throw new \InvalidArgumentException('non-nullable numtotal cannot be null');
         }
-
         $this->container['numtotal'] = $numtotal;
 
         return $this;
@@ -451,11 +445,9 @@ class PoszreportproductgroupRead implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setMoneytotal($moneytotal)
     {
-
         if (is_null($moneytotal)) {
             throw new \InvalidArgumentException('non-nullable moneytotal cannot be null');
         }
-
         $this->container['moneytotal'] = $moneytotal;
 
         return $this;
@@ -480,11 +472,9 @@ class PoszreportproductgroupRead implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setMoneytotalnet($moneytotalnet)
     {
-
         if (is_null($moneytotalnet)) {
             throw new \InvalidArgumentException('non-nullable moneytotalnet cannot be null');
         }
-
         $this->container['moneytotalnet'] = $moneytotalnet;
 
         return $this;
@@ -509,11 +499,9 @@ class PoszreportproductgroupRead implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setMoneytotalvat($moneytotalvat)
     {
-
         if (is_null($moneytotalvat)) {
             throw new \InvalidArgumentException('non-nullable moneytotalvat cannot be null');
         }
-
         $this->container['moneytotalvat'] = $moneytotalvat;
 
         return $this;

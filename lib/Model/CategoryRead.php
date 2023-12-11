@@ -416,11 +416,9 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCategoryid($categoryid)
     {
-
         if (is_null($categoryid)) {
             throw new \InvalidArgumentException('non-nullable categoryid cannot be null');
         }
-
         $this->container['categoryid'] = $categoryid;
 
         return $this;
@@ -445,11 +443,9 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCategoryparentid($categoryparentid)
     {
-
         if (is_null($categoryparentid)) {
             throw new \InvalidArgumentException('non-nullable categoryparentid cannot be null');
         }
-
         $this->container['categoryparentid'] = $categoryparentid;
 
         return $this;
@@ -474,11 +470,9 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVisible($visible)
     {
-
         if (is_null($visible)) {
             throw new \InvalidArgumentException('non-nullable visible cannot be null');
         }
-
         $this->container['visible'] = $visible;
 
         return $this;
@@ -503,11 +497,9 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSortorder($sortorder)
     {
-
         if (is_null($sortorder)) {
             throw new \InvalidArgumentException('non-nullable sortorder cannot be null');
         }
-
         $this->container['sortorder'] = $sortorder;
 
         return $this;
@@ -532,11 +524,9 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCustom1($custom1)
     {
-
         if (is_null($custom1)) {
             throw new \InvalidArgumentException('non-nullable custom1 cannot be null');
         }
-
         $this->container['custom1'] = $custom1;
 
         return $this;
@@ -561,11 +551,9 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCustom2($custom2)
     {
-
         if (is_null($custom2)) {
             throw new \InvalidArgumentException('non-nullable custom2 cannot be null');
         }
-
         $this->container['custom2'] = $custom2;
 
         return $this;
@@ -590,11 +578,9 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setFriendly($friendly)
     {
-
         if (is_null($friendly)) {
             throw new \InvalidArgumentException('non-nullable friendly cannot be null');
         }
-
         $this->container['friendly'] = $friendly;
 
         return $this;
@@ -619,11 +605,9 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSeoTitle($seoTitle)
     {
-
         if (is_null($seoTitle)) {
             throw new \InvalidArgumentException('non-nullable seoTitle cannot be null');
         }
-
         $this->container['seoTitle'] = $seoTitle;
 
         return $this;
@@ -648,11 +632,9 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSeoKeywords($seoKeywords)
     {
-
         if (is_null($seoKeywords)) {
             throw new \InvalidArgumentException('non-nullable seoKeywords cannot be null');
         }
-
         $this->container['seoKeywords'] = $seoKeywords;
 
         return $this;
@@ -677,11 +659,9 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSeoDescription($seoDescription)
     {
-
         if (is_null($seoDescription)) {
             throw new \InvalidArgumentException('non-nullable seoDescription cannot be null');
         }
-
         $this->container['seoDescription'] = $seoDescription;
 
         return $this;
@@ -706,11 +686,9 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setTitle($title)
     {
-
         if (is_null($title)) {
             throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-
         $this->container['title'] = $title;
 
         return $this;
@@ -735,11 +713,9 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDatecreated($datecreated)
     {
-
         if (is_null($datecreated)) {
             throw new \InvalidArgumentException('non-nullable datecreated cannot be null');
         }
-
         $this->container['datecreated'] = $datecreated;
 
         return $this;
@@ -764,11 +740,9 @@ class CategoryRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDatemodified($datemodified)
     {
-
         if (is_null($datemodified)) {
             throw new \InvalidArgumentException('non-nullable datemodified cannot be null');
         }
-
         $this->container['datemodified'] = $datemodified;
 
         return $this;

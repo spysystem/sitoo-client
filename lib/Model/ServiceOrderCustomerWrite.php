@@ -353,11 +353,9 @@ class ServiceOrderCustomerWrite implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setFirstName($firstName)
     {
-
         if (is_null($firstName)) {
             throw new \InvalidArgumentException('non-nullable firstName cannot be null');
         }
-
         $this->container['firstName'] = $firstName;
 
         return $this;
@@ -382,11 +380,9 @@ class ServiceOrderCustomerWrite implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setLastName($lastName)
     {
-
         if (is_null($lastName)) {
             throw new \InvalidArgumentException('non-nullable lastName cannot be null');
         }
-
         $this->container['lastName'] = $lastName;
 
         return $this;
@@ -411,11 +407,9 @@ class ServiceOrderCustomerWrite implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setEmail($email)
     {
-
         if (is_null($email)) {
             throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
-
         $this->container['email'] = $email;
 
         return $this;
@@ -440,11 +434,9 @@ class ServiceOrderCustomerWrite implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setMobile($mobile)
     {
-
         if (is_null($mobile)) {
             throw new \InvalidArgumentException('non-nullable mobile cannot be null');
         }
-
         $this->container['mobile'] = $mobile;
 
         return $this;

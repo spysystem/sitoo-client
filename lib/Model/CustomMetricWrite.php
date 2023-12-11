@@ -359,11 +359,9 @@ class CustomMetricWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setKey($key)
     {
-
         if (is_null($key)) {
             throw new \InvalidArgumentException('non-nullable key cannot be null');
         }
-
         $this->container['key'] = $key;
 
         return $this;
@@ -388,11 +386,9 @@ class CustomMetricWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setGrouping($grouping)
     {
-
         if (is_null($grouping)) {
             throw new \InvalidArgumentException('non-nullable grouping cannot be null');
         }
-
         $this->container['grouping'] = $grouping;
 
         return $this;
@@ -417,11 +413,9 @@ class CustomMetricWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setType($type)
     {
-
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-
         $this->container['type'] = $type;
 
         return $this;
@@ -446,11 +440,9 @@ class CustomMetricWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setFormat($format)
     {
-
         if (is_null($format)) {
             throw new \InvalidArgumentException('non-nullable format cannot be null');
         }
-
         $this->container['format'] = $format;
 
         return $this;

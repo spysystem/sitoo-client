@@ -384,11 +384,9 @@ class OrderdeliveryRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setOrderdeliveryid($orderdeliveryid)
     {
-
         if (is_null($orderdeliveryid)) {
             throw new \InvalidArgumentException('non-nullable orderdeliveryid cannot be null');
         }
-
         $this->container['orderdeliveryid'] = $orderdeliveryid;
 
         return $this;
@@ -413,11 +411,9 @@ class OrderdeliveryRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setOrderid($orderid)
     {
-
         if (is_null($orderid)) {
             throw new \InvalidArgumentException('non-nullable orderid cannot be null');
         }
-
         $this->container['orderid'] = $orderid;
 
         return $this;
@@ -442,11 +438,9 @@ class OrderdeliveryRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setWarehouseid($warehouseid)
     {
-
         if (is_null($warehouseid)) {
             throw new \InvalidArgumentException('non-nullable warehouseid cannot be null');
         }
-
         $this->container['warehouseid'] = $warehouseid;
 
         return $this;
@@ -471,11 +465,9 @@ class OrderdeliveryRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setOrderdeliveryref($orderdeliveryref)
     {
-
         if (is_null($orderdeliveryref)) {
             throw new \InvalidArgumentException('non-nullable orderdeliveryref cannot be null');
         }
-
         $this->container['orderdeliveryref'] = $orderdeliveryref;
 
         return $this;
@@ -500,11 +492,9 @@ class OrderdeliveryRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setDatedelivery($datedelivery)
     {
-
         if (is_null($datedelivery)) {
             throw new \InvalidArgumentException('non-nullable datedelivery cannot be null');
         }
-
         $this->container['datedelivery'] = $datedelivery;
 
         return $this;
@@ -529,11 +519,9 @@ class OrderdeliveryRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setDatecancelled($datecancelled)
     {
-
         if (is_null($datecancelled)) {
             throw new \InvalidArgumentException('non-nullable datecancelled cannot be null');
         }
-
         $this->container['datecancelled'] = $datecancelled;
 
         return $this;
@@ -558,11 +546,9 @@ class OrderdeliveryRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setPluginname($pluginname)
     {
-
         if (is_null($pluginname)) {
             throw new \InvalidArgumentException('non-nullable pluginname cannot be null');
         }
-
         $this->container['pluginname'] = $pluginname;
 
         return $this;
@@ -587,11 +573,9 @@ class OrderdeliveryRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setOrderdeliveryitems($orderdeliveryitems)
     {
-
         if (is_null($orderdeliveryitems)) {
             throw new \InvalidArgumentException('non-nullable orderdeliveryitems cannot be null');
         }
-
         $this->container['orderdeliveryitems'] = $orderdeliveryitems;
 
         return $this;

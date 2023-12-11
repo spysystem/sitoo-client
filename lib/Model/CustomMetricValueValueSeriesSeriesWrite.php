@@ -336,11 +336,9 @@ class CustomMetricValueValueSeriesSeriesWrite implements ModelInterface, ArrayAc
      */
     public function setLabel($label)
     {
-
         if (is_null($label)) {
             throw new \InvalidArgumentException('non-nullable label cannot be null');
         }
-
         $this->container['label'] = $label;
 
         return $this;
@@ -365,11 +363,9 @@ class CustomMetricValueValueSeriesSeriesWrite implements ModelInterface, ArrayAc
      */
     public function setValue($value)
     {
-
         if (is_null($value)) {
             throw new \InvalidArgumentException('non-nullable value cannot be null');
         }
-
         $this->container['value'] = $value;
 
         return $this;

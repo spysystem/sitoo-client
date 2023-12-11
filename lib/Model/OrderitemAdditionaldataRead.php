@@ -413,11 +413,9 @@ class OrderitemAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setCrmBonuscheckid($crmBonuscheckid)
     {
-
         if (is_null($crmBonuscheckid)) {
             throw new \InvalidArgumentException('non-nullable crmBonuscheckid cannot be null');
         }
-
         $this->container['crmBonuscheckid'] = $crmBonuscheckid;
 
         return $this;
@@ -442,11 +440,9 @@ class OrderitemAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setCrmPromotionid($crmPromotionid)
     {
-
         if (is_null($crmPromotionid)) {
             throw new \InvalidArgumentException('non-nullable crmPromotionid cannot be null');
         }
-
         $this->container['crmPromotionid'] = $crmPromotionid;
 
         return $this;
@@ -471,11 +467,9 @@ class OrderitemAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setCustomcrmBonuscheckid($customcrmBonuscheckid)
     {
-
         if (is_null($customcrmBonuscheckid)) {
             throw new \InvalidArgumentException('non-nullable customcrmBonuscheckid cannot be null');
         }
-
         $this->container['customcrmBonuscheckid'] = $customcrmBonuscheckid;
 
         return $this;
@@ -500,11 +494,9 @@ class OrderitemAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setCustomcrmPromotionid($customcrmPromotionid)
     {
-
         if (is_null($customcrmPromotionid)) {
             throw new \InvalidArgumentException('non-nullable customcrmPromotionid cannot be null');
         }
-
         $this->container['customcrmPromotionid'] = $customcrmPromotionid;
 
         return $this;
@@ -529,11 +521,9 @@ class OrderitemAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setGiftcardCardnumber($giftcardCardnumber)
     {
-
         if (is_null($giftcardCardnumber)) {
             throw new \InvalidArgumentException('non-nullable giftcardCardnumber cannot be null');
         }
-
         $this->container['giftcardCardnumber'] = $giftcardCardnumber;
 
         return $this;
@@ -558,11 +548,9 @@ class OrderitemAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setOrderitemMoneyrowdiscount($orderitemMoneyrowdiscount)
     {
-
         if (is_null($orderitemMoneyrowdiscount)) {
             throw new \InvalidArgumentException('non-nullable orderitemMoneyrowdiscount cannot be null');
         }
-
         $this->container['orderitemMoneyrowdiscount'] = $orderitemMoneyrowdiscount;
 
         return $this;
@@ -587,11 +575,9 @@ class OrderitemAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setPosOriginalsalesOrderitemid($posOriginalsalesOrderitemid)
     {
-
         if (is_null($posOriginalsalesOrderitemid)) {
             throw new \InvalidArgumentException('non-nullable posOriginalsalesOrderitemid cannot be null');
         }
-
         $this->container['posOriginalsalesOrderitemid'] = $posOriginalsalesOrderitemid;
 
         return $this;
@@ -616,11 +602,9 @@ class OrderitemAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setPricelistExternalid($pricelistExternalid)
     {
-
         if (is_null($pricelistExternalid)) {
             throw new \InvalidArgumentException('non-nullable pricelistExternalid cannot be null');
         }
-
         $this->container['pricelistExternalid'] = $pricelistExternalid;
 
         return $this;
@@ -645,11 +629,9 @@ class OrderitemAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setProductGroupName($productGroupName)
     {
-
         if (is_null($productGroupName)) {
             throw new \InvalidArgumentException('non-nullable productGroupName cannot be null');
         }
-
         $this->container['productGroupName'] = $productGroupName;
 
         return $this;
@@ -674,11 +656,9 @@ class OrderitemAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setReasoncodeManualdiscount($reasoncodeManualdiscount)
     {
-
         if (is_null($reasoncodeManualdiscount)) {
             throw new \InvalidArgumentException('non-nullable reasoncodeManualdiscount cannot be null');
         }
-
         $this->container['reasoncodeManualdiscount'] = $reasoncodeManualdiscount;
 
         return $this;
@@ -703,11 +683,9 @@ class OrderitemAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setReasoncodeManualprice($reasoncodeManualprice)
     {
-
         if (is_null($reasoncodeManualprice)) {
             throw new \InvalidArgumentException('non-nullable reasoncodeManualprice cannot be null');
         }
-
         $this->container['reasoncodeManualprice'] = $reasoncodeManualprice;
 
         return $this;
@@ -732,11 +710,9 @@ class OrderitemAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setReasoncodeReturn($reasoncodeReturn)
     {
-
         if (is_null($reasoncodeReturn)) {
             throw new \InvalidArgumentException('non-nullable reasoncodeReturn cannot be null');
         }
-
         $this->container['reasoncodeReturn'] = $reasoncodeReturn;
 
         return $this;
@@ -761,11 +737,9 @@ class OrderitemAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setReturnWarehouseid($returnWarehouseid)
     {
-
         if (is_null($returnWarehouseid)) {
             throw new \InvalidArgumentException('non-nullable returnWarehouseid cannot be null');
         }
-
         $this->container['returnWarehouseid'] = $returnWarehouseid;
 
         return $this;

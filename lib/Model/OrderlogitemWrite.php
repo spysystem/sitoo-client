@@ -346,11 +346,9 @@ class OrderlogitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setOrderlogtypeid($orderlogtypeid)
     {
-
         if (is_null($orderlogtypeid)) {
             throw new \InvalidArgumentException('non-nullable orderlogtypeid cannot be null');
         }
-
         $this->container['orderlogtypeid'] = $orderlogtypeid;
 
         return $this;
@@ -375,11 +373,9 @@ class OrderlogitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setStrvalue($strvalue)
     {
-
         if (is_null($strvalue)) {
             throw new \InvalidArgumentException('non-nullable strvalue cannot be null');
         }
-
         $this->container['strvalue'] = $strvalue;
 
         return $this;
@@ -404,11 +400,9 @@ class OrderlogitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setFvalue($fvalue)
     {
-
         if (is_null($fvalue)) {
             throw new \InvalidArgumentException('non-nullable fvalue cannot be null');
         }
-
         $this->container['fvalue'] = $fvalue;
 
         return $this;

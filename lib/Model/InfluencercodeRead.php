@@ -436,11 +436,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setCode($code)
     {
-
         if (is_null($code)) {
             throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
-
         $this->container['code'] = $code;
 
         return $this;
@@ -465,11 +463,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -494,11 +490,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setActive($active)
     {
-
         if (is_null($active)) {
             throw new \InvalidArgumentException('non-nullable active cannot be null');
         }
-
         $this->container['active'] = $active;
 
         return $this;
@@ -523,11 +517,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setDatestart($datestart)
     {
-
         if (is_null($datestart)) {
             throw new \InvalidArgumentException('non-nullable datestart cannot be null');
         }
-
         $this->container['datestart'] = $datestart;
 
         return $this;
@@ -552,11 +544,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setDateend($dateend)
     {
-
         if (is_null($dateend)) {
             throw new \InvalidArgumentException('non-nullable dateend cannot be null');
         }
-
         $this->container['dateend'] = $dateend;
 
         return $this;
@@ -581,11 +571,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setVoucherpassword($voucherpassword)
     {
-
         if (is_null($voucherpassword)) {
             throw new \InvalidArgumentException('non-nullable voucherpassword cannot be null');
         }
-
         $this->container['voucherpassword'] = $voucherpassword;
 
         return $this;
@@ -610,11 +598,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setVouchercode($vouchercode)
     {
-
         if (is_null($vouchercode)) {
             throw new \InvalidArgumentException('non-nullable vouchercode cannot be null');
         }
-
         $this->container['vouchercode'] = $vouchercode;
 
         return $this;
@@ -639,11 +625,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setVouchername($vouchername)
     {
-
         if (is_null($vouchername)) {
             throw new \InvalidArgumentException('non-nullable vouchername cannot be null');
         }
-
         $this->container['vouchername'] = $vouchername;
 
         return $this;
@@ -668,11 +652,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setVouchercomment($vouchercomment)
     {
-
         if (is_null($vouchercomment)) {
             throw new \InvalidArgumentException('non-nullable vouchercomment cannot be null');
         }
-
         $this->container['vouchercomment'] = $vouchercomment;
 
         return $this;
@@ -697,11 +679,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setMaxuses($maxuses)
     {
-
         if (is_null($maxuses)) {
             throw new \InvalidArgumentException('non-nullable maxuses cannot be null');
         }
-
         $this->container['maxuses'] = $maxuses;
 
         return $this;
@@ -726,11 +706,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setNumused($numused)
     {
-
         if (is_null($numused)) {
             throw new \InvalidArgumentException('non-nullable numused cannot be null');
         }
-
         $this->container['numused'] = $numused;
 
         return $this;
@@ -755,11 +733,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setDatelastused($datelastused)
     {
-
         if (is_null($datelastused)) {
             throw new \InvalidArgumentException('non-nullable datelastused cannot be null');
         }
-
         $this->container['datelastused'] = $datelastused;
 
         return $this;
@@ -784,11 +760,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setMoneyordertotal($moneyordertotal)
     {
-
         if (is_null($moneyordertotal)) {
             throw new \InvalidArgumentException('non-nullable moneyordertotal cannot be null');
         }
-
         $this->container['moneyordertotal'] = $moneyordertotal;
 
         return $this;
@@ -813,11 +787,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setMoneyinfluencertotal($moneyinfluencertotal)
     {
-
         if (is_null($moneyinfluencertotal)) {
             throw new \InvalidArgumentException('non-nullable moneyinfluencertotal cannot be null');
         }
-
         $this->container['moneyinfluencertotal'] = $moneyinfluencertotal;
 
         return $this;
@@ -842,11 +814,9 @@ class InfluencercodeRead implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setMoneyinfluencerdiscount($moneyinfluencerdiscount)
     {
-
         if (is_null($moneyinfluencerdiscount)) {
             throw new \InvalidArgumentException('non-nullable moneyinfluencerdiscount cannot be null');
         }
-
         $this->container['moneyinfluencerdiscount'] = $moneyinfluencerdiscount;
 
         return $this;

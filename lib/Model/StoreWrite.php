@@ -489,11 +489,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setEshopid($eshopid)
     {
-
         if (is_null($eshopid)) {
             throw new \InvalidArgumentException('non-nullable eshopid cannot be null');
         }
-
         $this->container['eshopid'] = $eshopid;
 
         return $this;
@@ -518,11 +516,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setStoretype($storetype)
     {
-
         if (is_null($storetype)) {
             throw new \InvalidArgumentException('non-nullable storetype cannot be null');
         }
-
         $this->container['storetype'] = $storetype;
 
         return $this;
@@ -547,11 +543,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -576,11 +570,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;
@@ -605,11 +597,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setExternalgroupid($externalgroupid)
     {
-
         if (is_null($externalgroupid)) {
             throw new \InvalidArgumentException('non-nullable externalgroupid cannot be null');
         }
-
         $this->container['externalgroupid'] = $externalgroupid;
 
         return $this;
@@ -634,11 +624,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPhone($phone)
     {
-
         if (is_null($phone)) {
             throw new \InvalidArgumentException('non-nullable phone cannot be null');
         }
-
         $this->container['phone'] = $phone;
 
         return $this;
@@ -663,11 +651,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setEmail($email)
     {
-
         if (is_null($email)) {
             throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
-
         $this->container['email'] = $email;
 
         return $this;
@@ -692,11 +678,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddress($address)
     {
-
         if (is_null($address)) {
             throw new \InvalidArgumentException('non-nullable address cannot be null');
         }
-
         $this->container['address'] = $address;
 
         return $this;
@@ -721,11 +705,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddress2($address2)
     {
-
         if (is_null($address2)) {
             throw new \InvalidArgumentException('non-nullable address2 cannot be null');
         }
-
         $this->container['address2'] = $address2;
 
         return $this;
@@ -750,11 +732,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setZip($zip)
     {
-
         if (is_null($zip)) {
             throw new \InvalidArgumentException('non-nullable zip cannot be null');
         }
-
         $this->container['zip'] = $zip;
 
         return $this;
@@ -779,11 +759,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCity($city)
     {
-
         if (is_null($city)) {
             throw new \InvalidArgumentException('non-nullable city cannot be null');
         }
-
         $this->container['city'] = $city;
 
         return $this;
@@ -808,11 +786,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setState($state)
     {
-
         if (is_null($state)) {
             throw new \InvalidArgumentException('non-nullable state cannot be null');
         }
-
         $this->container['state'] = $state;
 
         return $this;
@@ -837,11 +813,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCountryid($countryid)
     {
-
         if (is_null($countryid)) {
             throw new \InvalidArgumentException('non-nullable countryid cannot be null');
         }
-
         $this->container['countryid'] = $countryid;
 
         return $this;
@@ -866,11 +840,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setLatitude($latitude)
     {
-
         if (is_null($latitude)) {
             throw new \InvalidArgumentException('non-nullable latitude cannot be null');
         }
-
         $this->container['latitude'] = $latitude;
 
         return $this;
@@ -895,11 +867,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setLongitude($longitude)
     {
-
         if (is_null($longitude)) {
             throw new \InvalidArgumentException('non-nullable longitude cannot be null');
         }
-
         $this->container['longitude'] = $longitude;
 
         return $this;
@@ -924,11 +894,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNearbyStores($nearbyStores)
     {
-
         if (is_null($nearbyStores)) {
             throw new \InvalidArgumentException('non-nullable nearbyStores cannot be null');
         }
-
         $this->container['nearbyStores'] = $nearbyStores;
 
         return $this;
@@ -953,11 +921,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setUsetypeMovein($usetypeMovein)
     {
-
         if (is_null($usetypeMovein)) {
             throw new \InvalidArgumentException('non-nullable usetypeMovein cannot be null');
         }
-
         $this->container['usetypeMovein'] = $usetypeMovein;
 
         return $this;
@@ -982,11 +948,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setUsetypeMoveout($usetypeMoveout)
     {
-
         if (is_null($usetypeMoveout)) {
             throw new \InvalidArgumentException('non-nullable usetypeMoveout cannot be null');
         }
-
         $this->container['usetypeMoveout'] = $usetypeMoveout;
 
         return $this;
@@ -1011,11 +975,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setUsetypeManualin($usetypeManualin)
     {
-
         if (is_null($usetypeManualin)) {
             throw new \InvalidArgumentException('non-nullable usetypeManualin cannot be null');
         }
-
         $this->container['usetypeManualin'] = $usetypeManualin;
 
         return $this;
@@ -1040,11 +1002,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setUsetypeManualout($usetypeManualout)
     {
-
         if (is_null($usetypeManualout)) {
             throw new \InvalidArgumentException('non-nullable usetypeManualout cannot be null');
         }
-
         $this->container['usetypeManualout'] = $usetypeManualout;
 
         return $this;
@@ -1069,11 +1029,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setUsetypeShipmentin($usetypeShipmentin)
     {
-
         if (is_null($usetypeShipmentin)) {
             throw new \InvalidArgumentException('non-nullable usetypeShipmentin cannot be null');
         }
-
         $this->container['usetypeShipmentin'] = $usetypeShipmentin;
 
         return $this;
@@ -1098,11 +1056,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setUsetypeShipmentout($usetypeShipmentout)
     {
-
         if (is_null($usetypeShipmentout)) {
             throw new \InvalidArgumentException('non-nullable usetypeShipmentout cannot be null');
         }
-
         $this->container['usetypeShipmentout'] = $usetypeShipmentout;
 
         return $this;
@@ -1127,11 +1083,9 @@ class StoreWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setTags($tags)
     {
-
         if (is_null($tags)) {
             throw new \InvalidArgumentException('non-nullable tags cannot be null');
         }
-
         $this->container['tags'] = $tags;
 
         return $this;

@@ -367,11 +367,9 @@ class SalestaxproductgroupruleWrite implements ModelInterface, ArrayAccess, \Jso
      */
     public function setVatid($vatid)
     {
-
         if (is_null($vatid)) {
             throw new \InvalidArgumentException('non-nullable vatid cannot be null');
         }
-
         $this->container['vatid'] = $vatid;
 
         return $this;
@@ -396,11 +394,9 @@ class SalestaxproductgroupruleWrite implements ModelInterface, ArrayAccess, \Jso
      */
     public function setType($type)
     {
-
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-
         $this->container['type'] = $type;
 
         return $this;
@@ -425,11 +421,9 @@ class SalestaxproductgroupruleWrite implements ModelInterface, ArrayAccess, \Jso
      */
     public function setMoneymin($moneymin)
     {
-
         if (is_null($moneymin)) {
             throw new \InvalidArgumentException('non-nullable moneymin cannot be null');
         }
-
         $this->container['moneymin'] = $moneymin;
 
         return $this;
@@ -454,11 +448,9 @@ class SalestaxproductgroupruleWrite implements ModelInterface, ArrayAccess, \Jso
      */
     public function setMoneymax($moneymax)
     {
-
         if (is_null($moneymax)) {
             throw new \InvalidArgumentException('non-nullable moneymax cannot be null');
         }
-
         $this->container['moneymax'] = $moneymax;
 
         return $this;
@@ -483,11 +475,9 @@ class SalestaxproductgroupruleWrite implements ModelInterface, ArrayAccess, \Jso
      */
     public function setDecimalvalue($decimalvalue)
     {
-
         if (is_null($decimalvalue)) {
             throw new \InvalidArgumentException('non-nullable decimalvalue cannot be null');
         }
-
         $this->container['decimalvalue'] = $decimalvalue;
 
         return $this;
@@ -512,11 +502,9 @@ class SalestaxproductgroupruleWrite implements ModelInterface, ArrayAccess, \Jso
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;

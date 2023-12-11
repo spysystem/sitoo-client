@@ -357,11 +357,9 @@ class SiteRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setProtocol($protocol)
     {
-
         if (is_null($protocol)) {
             throw new \InvalidArgumentException('non-nullable protocol cannot be null');
         }
-
         $this->container['protocol'] = $protocol;
 
         return $this;
@@ -386,11 +384,9 @@ class SiteRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setServer($server)
     {
-
         if (is_null($server)) {
             throw new \InvalidArgumentException('non-nullable server cannot be null');
         }
-
         $this->container['server'] = $server;
 
         return $this;
@@ -415,11 +411,9 @@ class SiteRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAbspath($abspath)
     {
-
         if (is_null($abspath)) {
             throw new \InvalidArgumentException('non-nullable abspath cannot be null');
         }
-
         $this->container['abspath'] = $abspath;
 
         return $this;
@@ -444,11 +438,9 @@ class SiteRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSiteurl($siteurl)
     {
-
         if (is_null($siteurl)) {
             throw new \InvalidArgumentException('non-nullable siteurl cannot be null');
         }
-
         $this->container['siteurl'] = $siteurl;
 
         return $this;
@@ -473,11 +465,9 @@ class SiteRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setEshopid($eshopid)
     {
-
         if (is_null($eshopid)) {
             throw new \InvalidArgumentException('non-nullable eshopid cannot be null');
         }
-
         $this->container['eshopid'] = $eshopid;
 
         return $this;

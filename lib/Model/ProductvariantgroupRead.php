@@ -342,11 +342,9 @@ class ProductvariantgroupRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -371,11 +369,9 @@ class ProductvariantgroupRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setOptions($options)
     {
-
         if (is_null($options)) {
             throw new \InvalidArgumentException('non-nullable options cannot be null');
         }
-
         $this->container['options'] = $options;
 
         return $this;

@@ -329,11 +329,9 @@ class ResourceWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setResourceid($resourceid)
     {
-
         if (is_null($resourceid)) {
             throw new \InvalidArgumentException('non-nullable resourceid cannot be null');
         }
-
         $this->container['resourceid'] = $resourceid;
 
         return $this;

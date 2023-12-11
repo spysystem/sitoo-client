@@ -356,11 +356,9 @@ class ReasoncodeRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReasoncodeid($reasoncodeid)
     {
-
         if (is_null($reasoncodeid)) {
             throw new \InvalidArgumentException('non-nullable reasoncodeid cannot be null');
         }
-
         $this->container['reasoncodeid'] = $reasoncodeid;
 
         return $this;
@@ -385,11 +383,9 @@ class ReasoncodeRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setType($type)
     {
-
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-
         $this->container['type'] = $type;
 
         return $this;
@@ -414,11 +410,9 @@ class ReasoncodeRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReasoncode($reasoncode)
     {
-
         if (is_null($reasoncode)) {
             throw new \InvalidArgumentException('non-nullable reasoncode cannot be null');
         }
-
         $this->container['reasoncode'] = $reasoncode;
 
         return $this;
@@ -443,11 +437,9 @@ class ReasoncodeRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;

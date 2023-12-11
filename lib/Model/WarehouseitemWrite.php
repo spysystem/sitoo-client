@@ -360,11 +360,9 @@ class WarehouseitemWrite implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setSku($sku)
     {
-
         if (is_null($sku)) {
             throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
-
         $this->container['sku'] = $sku;
 
         return $this;
@@ -389,11 +387,9 @@ class WarehouseitemWrite implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setBinlocation($binlocation)
     {
-
         if (is_null($binlocation)) {
             throw new \InvalidArgumentException('non-nullable binlocation cannot be null');
         }
-
         $this->container['binlocation'] = $binlocation;
 
         return $this;
@@ -418,11 +414,9 @@ class WarehouseitemWrite implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setDecimalthreshold($decimalthreshold)
     {
-
         if (is_null($decimalthreshold)) {
             throw new \InvalidArgumentException('non-nullable decimalthreshold cannot be null');
         }
-
         $this->container['decimalthreshold'] = $decimalthreshold;
 
         return $this;
@@ -447,11 +441,9 @@ class WarehouseitemWrite implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setDecimaltotal($decimaltotal)
     {
-
         if (is_null($decimaltotal)) {
             throw new \InvalidArgumentException('non-nullable decimaltotal cannot be null');
         }
-
         $this->container['decimaltotal'] = $decimaltotal;
 
         return $this;
@@ -476,11 +468,9 @@ class WarehouseitemWrite implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setMoneytotal($moneytotal)
     {
-
         if (is_null($moneytotal)) {
             throw new \InvalidArgumentException('non-nullable moneytotal cannot be null');
         }
-
         $this->container['moneytotal'] = $moneytotal;
 
         return $this;

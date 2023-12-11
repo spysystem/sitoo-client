@@ -546,11 +546,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setAdyenCardalias($adyenCardalias)
     {
-
         if (is_null($adyenCardalias)) {
             throw new \InvalidArgumentException('non-nullable adyenCardalias cannot be null');
         }
-
         $this->container['adyenCardalias'] = $adyenCardalias;
 
         return $this;
@@ -575,11 +573,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setAdyenCardtype($adyenCardtype)
     {
-
         if (is_null($adyenCardtype)) {
             throw new \InvalidArgumentException('non-nullable adyenCardtype cannot be null');
         }
-
         $this->container['adyenCardtype'] = $adyenCardtype;
 
         return $this;
@@ -604,11 +600,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setAdyenPaymentmethod($adyenPaymentmethod)
     {
-
         if (is_null($adyenPaymentmethod)) {
             throw new \InvalidArgumentException('non-nullable adyenPaymentmethod cannot be null');
         }
-
         $this->container['adyenPaymentmethod'] = $adyenPaymentmethod;
 
         return $this;
@@ -633,11 +627,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setAdyenPaymentmethodvariant($adyenPaymentmethodvariant)
     {
-
         if (is_null($adyenPaymentmethodvariant)) {
             throw new \InvalidArgumentException('non-nullable adyenPaymentmethodvariant cannot be null');
         }
-
         $this->container['adyenPaymentmethodvariant'] = $adyenPaymentmethodvariant;
 
         return $this;
@@ -662,11 +654,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setAdyenPspreference($adyenPspreference)
     {
-
         if (is_null($adyenPspreference)) {
             throw new \InvalidArgumentException('non-nullable adyenPspreference cannot be null');
         }
-
         $this->container['adyenPspreference'] = $adyenPspreference;
 
         return $this;
@@ -691,11 +681,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setAdyenTenderreference($adyenTenderreference)
     {
-
         if (is_null($adyenTenderreference)) {
             throw new \InvalidArgumentException('non-nullable adyenTenderreference cannot be null');
         }
-
         $this->container['adyenTenderreference'] = $adyenTenderreference;
 
         return $this;
@@ -720,11 +708,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setAdyenTxdate($adyenTxdate)
     {
-
         if (is_null($adyenTxdate)) {
             throw new \InvalidArgumentException('non-nullable adyenTxdate cannot be null');
         }
-
         $this->container['adyenTxdate'] = $adyenTxdate;
 
         return $this;
@@ -749,11 +735,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setBamboraHost2tInternalreference($bamboraHost2tInternalreference)
     {
-
         if (is_null($bamboraHost2tInternalreference)) {
             throw new \InvalidArgumentException('non-nullable bamboraHost2tInternalreference cannot be null');
         }
-
         $this->container['bamboraHost2tInternalreference'] = $bamboraHost2tInternalreference;
 
         return $this;
@@ -778,11 +762,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setBamboraHost2tTerminalid($bamboraHost2tTerminalid)
     {
-
         if (is_null($bamboraHost2tTerminalid)) {
             throw new \InvalidArgumentException('non-nullable bamboraHost2tTerminalid cannot be null');
         }
-
         $this->container['bamboraHost2tTerminalid'] = $bamboraHost2tTerminalid;
 
         return $this;
@@ -807,11 +789,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setCoineyTransactionref($coineyTransactionref)
     {
-
         if (is_null($coineyTransactionref)) {
             throw new \InvalidArgumentException('non-nullable coineyTransactionref cannot be null');
         }
-
         $this->container['coineyTransactionref'] = $coineyTransactionref;
 
         return $this;
@@ -836,11 +816,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setCustompaymentMobile($custompaymentMobile)
     {
-
         if (is_null($custompaymentMobile)) {
             throw new \InvalidArgumentException('non-nullable custompaymentMobile cannot be null');
         }
-
         $this->container['custompaymentMobile'] = $custompaymentMobile;
 
         return $this;
@@ -865,11 +843,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setCustompaymentPaymentid($custompaymentPaymentid)
     {
-
         if (is_null($custompaymentPaymentid)) {
             throw new \InvalidArgumentException('non-nullable custompaymentPaymentid cannot be null');
         }
-
         $this->container['custompaymentPaymentid'] = $custompaymentPaymentid;
 
         return $this;
@@ -894,11 +870,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setGiftcardCardnumber($giftcardCardnumber)
     {
-
         if (is_null($giftcardCardnumber)) {
             throw new \InvalidArgumentException('non-nullable giftcardCardnumber cannot be null');
         }
-
         $this->container['giftcardCardnumber'] = $giftcardCardnumber;
 
         return $this;
@@ -923,11 +897,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setGiftcardCardnumberDisplay($giftcardCardnumberDisplay)
     {
-
         if (is_null($giftcardCardnumberDisplay)) {
             throw new \InvalidArgumentException('non-nullable giftcardCardnumberDisplay cannot be null');
         }
-
         $this->container['giftcardCardnumberDisplay'] = $giftcardCardnumberDisplay;
 
         return $this;
@@ -952,11 +924,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setIzettlePanhash($izettlePanhash)
     {
-
         if (is_null($izettlePanhash)) {
             throw new \InvalidArgumentException('non-nullable izettlePanhash cannot be null');
         }
-
         $this->container['izettlePanhash'] = $izettlePanhash;
 
         return $this;
@@ -981,11 +951,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setIzettleSitooreference($izettleSitooreference)
     {
-
         if (is_null($izettleSitooreference)) {
             throw new \InvalidArgumentException('non-nullable izettleSitooreference cannot be null');
         }
-
         $this->container['izettleSitooreference'] = $izettleSitooreference;
 
         return $this;
@@ -1010,11 +978,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setKlarnaKlarnareference($klarnaKlarnareference)
     {
-
         if (is_null($klarnaKlarnareference)) {
             throw new \InvalidArgumentException('non-nullable klarnaKlarnareference cannot be null');
         }
-
         $this->container['klarnaKlarnareference'] = $klarnaKlarnareference;
 
         return $this;
@@ -1039,11 +1005,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setKlarnaMerchantid($klarnaMerchantid)
     {
-
         if (is_null($klarnaMerchantid)) {
             throw new \InvalidArgumentException('non-nullable klarnaMerchantid cannot be null');
         }
-
         $this->container['klarnaMerchantid'] = $klarnaMerchantid;
 
         return $this;
@@ -1068,11 +1032,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setKlarnaOrderid($klarnaOrderid)
     {
-
         if (is_null($klarnaOrderid)) {
             throw new \InvalidArgumentException('non-nullable klarnaOrderid cannot be null');
         }
-
         $this->container['klarnaOrderid'] = $klarnaOrderid;
 
         return $this;
@@ -1097,11 +1059,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setKlarnav2Id($klarnav2Id)
     {
-
         if (is_null($klarnav2Id)) {
             throw new \InvalidArgumentException('non-nullable klarnav2Id cannot be null');
         }
-
         $this->container['klarnav2Id'] = $klarnav2Id;
 
         return $this;
@@ -1126,11 +1086,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setMobile($mobile)
     {
-
         if (is_null($mobile)) {
             throw new \InvalidArgumentException('non-nullable mobile cannot be null');
         }
-
         $this->container['mobile'] = $mobile;
 
         return $this;
@@ -1155,11 +1113,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setMobilepayPaymentid($mobilepayPaymentid)
     {
-
         if (is_null($mobilepayPaymentid)) {
             throw new \InvalidArgumentException('non-nullable mobilepayPaymentid cannot be null');
         }
-
         $this->container['mobilepayPaymentid'] = $mobilepayPaymentid;
 
         return $this;
@@ -1184,11 +1140,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setNetsAmount($netsAmount)
     {
-
         if (is_null($netsAmount)) {
             throw new \InvalidArgumentException('non-nullable netsAmount cannot be null');
         }
-
         $this->container['netsAmount'] = $netsAmount;
 
         return $this;
@@ -1213,11 +1167,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setNetsIssuerid($netsIssuerid)
     {
-
         if (is_null($netsIssuerid)) {
             throw new \InvalidArgumentException('non-nullable netsIssuerid cannot be null');
         }
-
         $this->container['netsIssuerid'] = $netsIssuerid;
 
         return $this;
@@ -1242,11 +1194,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setNetsSitooreference($netsSitooreference)
     {
-
         if (is_null($netsSitooreference)) {
             throw new \InvalidArgumentException('non-nullable netsSitooreference cannot be null');
         }
-
         $this->container['netsSitooreference'] = $netsSitooreference;
 
         return $this;
@@ -1271,11 +1221,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setNetsTerminalid($netsTerminalid)
     {
-
         if (is_null($netsTerminalid)) {
             throw new \InvalidArgumentException('non-nullable netsTerminalid cannot be null');
         }
-
         $this->container['netsTerminalid'] = $netsTerminalid;
 
         return $this;
@@ -1300,11 +1248,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setPaymentMethod($paymentMethod)
     {
-
         if (is_null($paymentMethod)) {
             throw new \InvalidArgumentException('non-nullable paymentMethod cannot be null');
         }
-
         $this->container['paymentMethod'] = $paymentMethod;
 
         return $this;
@@ -1329,11 +1275,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setPosOriginalsalesPaymentIndex($posOriginalsalesPaymentIndex)
     {
-
         if (is_null($posOriginalsalesPaymentIndex)) {
             throw new \InvalidArgumentException('non-nullable posOriginalsalesPaymentIndex cannot be null');
         }
-
         $this->container['posOriginalsalesPaymentIndex'] = $posOriginalsalesPaymentIndex;
 
         return $this;
@@ -1358,11 +1302,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setSwishPaymentid($swishPaymentid)
     {
-
         if (is_null($swishPaymentid)) {
             throw new \InvalidArgumentException('non-nullable swishPaymentid cannot be null');
         }
-
         $this->container['swishPaymentid'] = $swishPaymentid;
 
         return $this;
@@ -1387,11 +1329,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setVerifoneLppReferenceNumber($verifoneLppReferenceNumber)
     {
-
         if (is_null($verifoneLppReferenceNumber)) {
             throw new \InvalidArgumentException('non-nullable verifoneLppReferenceNumber cannot be null');
         }
-
         $this->container['verifoneLppReferenceNumber'] = $verifoneLppReferenceNumber;
 
         return $this;
@@ -1416,11 +1356,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setVerifoneCardMaskedPan($verifoneCardMaskedPan)
     {
-
         if (is_null($verifoneCardMaskedPan)) {
             throw new \InvalidArgumentException('non-nullable verifoneCardMaskedPan cannot be null');
         }
-
         $this->container['verifoneCardMaskedPan'] = $verifoneCardMaskedPan;
 
         return $this;
@@ -1445,11 +1383,9 @@ class OrderpaymentAdditionaldataWrite implements ModelInterface, ArrayAccess, \J
      */
     public function setVirtualPayment($virtualPayment)
     {
-
         if (is_null($virtualPayment)) {
             throw new \InvalidArgumentException('non-nullable virtualPayment cannot be null');
         }
-
         $this->container['virtualPayment'] = $virtualPayment;
 
         return $this;

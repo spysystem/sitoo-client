@@ -353,11 +353,9 @@ class GiftcardtransactionWrite implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setMoneyamount($moneyamount)
     {
-
         if (is_null($moneyamount)) {
             throw new \InvalidArgumentException('non-nullable moneyamount cannot be null');
         }
-
         $this->container['moneyamount'] = $moneyamount;
 
         return $this;
@@ -382,11 +380,9 @@ class GiftcardtransactionWrite implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setMerchantReference($merchantReference)
     {
-
         if (is_null($merchantReference)) {
             throw new \InvalidArgumentException('non-nullable merchantReference cannot be null');
         }
-
         $this->container['merchantReference'] = $merchantReference;
 
         return $this;
@@ -411,11 +407,9 @@ class GiftcardtransactionWrite implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setStaffReference($staffReference)
     {
-
         if (is_null($staffReference)) {
             throw new \InvalidArgumentException('non-nullable staffReference cannot be null');
         }
-
         $this->container['staffReference'] = $staffReference;
 
         return $this;
@@ -440,11 +434,9 @@ class GiftcardtransactionWrite implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setTransactionReference($transactionReference)
     {
-
         if (is_null($transactionReference)) {
             throw new \InvalidArgumentException('non-nullable transactionReference cannot be null');
         }
-
         $this->container['transactionReference'] = $transactionReference;
 
         return $this;

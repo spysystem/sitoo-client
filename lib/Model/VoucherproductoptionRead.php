@@ -336,11 +336,9 @@ class VoucherproductoptionRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setNum($num)
     {
-
         if (is_null($num)) {
             throw new \InvalidArgumentException('non-nullable num cannot be null');
         }
-
         $this->container['num'] = $num;
 
         return $this;
@@ -365,11 +363,9 @@ class VoucherproductoptionRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setProducts($products)
     {
-
         if (is_null($products)) {
             throw new \InvalidArgumentException('non-nullable products cannot be null');
         }
-
         $this->container['products'] = $products;
 
         return $this;

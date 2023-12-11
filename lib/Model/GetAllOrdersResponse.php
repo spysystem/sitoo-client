@@ -341,11 +341,9 @@ class GetAllOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setTotalcount($totalcount)
     {
-
         if (is_null($totalcount)) {
             throw new \InvalidArgumentException('non-nullable totalcount cannot be null');
         }
-
         $this->container['totalcount'] = $totalcount;
 
         return $this;
@@ -370,11 +368,9 @@ class GetAllOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setItems($items)
     {
-
         if (is_null($items)) {
             throw new \InvalidArgumentException('non-nullable items cannot be null');
         }
-
         $this->container['items'] = $items;
 
         return $this;

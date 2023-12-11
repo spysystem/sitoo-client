@@ -392,11 +392,9 @@ class ShipmentitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setShipmentitemid($shipmentitemid)
     {
-
         if (is_null($shipmentitemid)) {
             throw new \InvalidArgumentException('non-nullable shipmentitemid cannot be null');
         }
-
         $this->container['shipmentitemid'] = $shipmentitemid;
 
         return $this;
@@ -421,11 +419,9 @@ class ShipmentitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setShipmentpackageid($shipmentpackageid)
     {
-
         if (is_null($shipmentpackageid)) {
             throw new \InvalidArgumentException('non-nullable shipmentpackageid cannot be null');
         }
-
         $this->container['shipmentpackageid'] = $shipmentpackageid;
 
         return $this;
@@ -450,11 +446,9 @@ class ShipmentitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setSku($sku)
     {
-
         if (is_null($sku)) {
             throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
-
         $this->container['sku'] = $sku;
 
         return $this;
@@ -479,11 +473,9 @@ class ShipmentitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setProductname($productname)
     {
-
         if (is_null($productname)) {
             throw new \InvalidArgumentException('non-nullable productname cannot be null');
         }
-
         $this->container['productname'] = $productname;
 
         return $this;
@@ -508,11 +500,9 @@ class ShipmentitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setUnitlabel($unitlabel)
     {
-
         if (is_null($unitlabel)) {
             throw new \InvalidArgumentException('non-nullable unitlabel cannot be null');
         }
-
         $this->container['unitlabel'] = $unitlabel;
 
         return $this;
@@ -537,11 +527,9 @@ class ShipmentitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setDecimalunitquantity($decimalunitquantity)
     {
-
         if (is_null($decimalunitquantity)) {
             throw new \InvalidArgumentException('non-nullable decimalunitquantity cannot be null');
         }
-
         $this->container['decimalunitquantity'] = $decimalunitquantity;
 
         return $this;
@@ -566,11 +554,9 @@ class ShipmentitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setQuantity($quantity)
     {
-
         if (is_null($quantity)) {
             throw new \InvalidArgumentException('non-nullable quantity cannot be null');
         }
-
         $this->container['quantity'] = $quantity;
 
         return $this;
@@ -595,11 +581,9 @@ class ShipmentitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setQuantityreceived($quantityreceived)
     {
-
         if (is_null($quantityreceived)) {
             throw new \InvalidArgumentException('non-nullable quantityreceived cannot be null');
         }
-
         $this->container['quantityreceived'] = $quantityreceived;
 
         return $this;
@@ -624,11 +608,9 @@ class ShipmentitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setMoneypricein($moneypricein)
     {
-
         if (is_null($moneypricein)) {
             throw new \InvalidArgumentException('non-nullable moneypricein cannot be null');
         }
-
         $this->container['moneypricein'] = $moneypricein;
 
         return $this;
@@ -653,11 +635,9 @@ class ShipmentitemWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;

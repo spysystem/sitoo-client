@@ -346,11 +346,9 @@ class ServiceOrderAuthorWrite implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setEmail($email)
     {
-
         if (is_null($email)) {
             throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
-
         $this->container['email'] = $email;
 
         return $this;
@@ -375,11 +373,9 @@ class ServiceOrderAuthorWrite implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -404,11 +400,9 @@ class ServiceOrderAuthorWrite implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setEmployeeId($employeeId)
     {
-
         if (is_null($employeeId)) {
             throw new \InvalidArgumentException('non-nullable employeeId cannot be null');
         }
-
         $this->container['employeeId'] = $employeeId;
 
         return $this;

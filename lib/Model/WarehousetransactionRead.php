@@ -401,11 +401,9 @@ class WarehousetransactionRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setWarehousetransactionid($warehousetransactionid)
     {
-
         if (is_null($warehousetransactionid)) {
             throw new \InvalidArgumentException('non-nullable warehousetransactionid cannot be null');
         }
-
         $this->container['warehousetransactionid'] = $warehousetransactionid;
 
         return $this;
@@ -430,11 +428,9 @@ class WarehousetransactionRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setWarehouseid($warehouseid)
     {
-
         if (is_null($warehouseid)) {
             throw new \InvalidArgumentException('non-nullable warehouseid cannot be null');
         }
-
         $this->container['warehouseid'] = $warehouseid;
 
         return $this;
@@ -459,11 +455,9 @@ class WarehousetransactionRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setDatecreated($datecreated)
     {
-
         if (is_null($datecreated)) {
             throw new \InvalidArgumentException('non-nullable datecreated cannot be null');
         }
-
         $this->container['datecreated'] = $datecreated;
 
         return $this;
@@ -488,11 +482,9 @@ class WarehousetransactionRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setTransactiontype($transactiontype)
     {
-
         if (is_null($transactiontype)) {
             throw new \InvalidArgumentException('non-nullable transactiontype cannot be null');
         }
-
         $this->container['transactiontype'] = $transactiontype;
 
         return $this;
@@ -517,11 +509,9 @@ class WarehousetransactionRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setDescription($description)
     {
-
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-
         $this->container['description'] = $description;
 
         return $this;
@@ -546,11 +536,9 @@ class WarehousetransactionRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setOrderdeliveryid($orderdeliveryid)
     {
-
         if (is_null($orderdeliveryid)) {
             throw new \InvalidArgumentException('non-nullable orderdeliveryid cannot be null');
         }
-
         $this->container['orderdeliveryid'] = $orderdeliveryid;
 
         return $this;
@@ -575,11 +563,9 @@ class WarehousetransactionRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setShipmentid($shipmentid)
     {
-
         if (is_null($shipmentid)) {
             throw new \InvalidArgumentException('non-nullable shipmentid cannot be null');
         }
-
         $this->container['shipmentid'] = $shipmentid;
 
         return $this;
@@ -604,11 +590,9 @@ class WarehousetransactionRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;
@@ -633,11 +617,9 @@ class WarehousetransactionRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setReasoncode($reasoncode)
     {
-
         if (is_null($reasoncode)) {
             throw new \InvalidArgumentException('non-nullable reasoncode cannot be null');
         }
-
         $this->container['reasoncode'] = $reasoncode;
 
         return $this;
@@ -662,11 +644,9 @@ class WarehousetransactionRead implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setItems($items)
     {
-
         if (is_null($items)) {
             throw new \InvalidArgumentException('non-nullable items cannot be null');
         }
-
         $this->container['items'] = $items;
 
         return $this;

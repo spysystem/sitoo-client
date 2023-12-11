@@ -398,11 +398,9 @@ class GiftcardRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setType($type)
     {
-
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-
         $this->container['type'] = $type;
 
         return $this;
@@ -427,11 +425,9 @@ class GiftcardRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCurrencycode($currencycode)
     {
-
         if (is_null($currencycode)) {
             throw new \InvalidArgumentException('non-nullable currencycode cannot be null');
         }
-
         $this->container['currencycode'] = $currencycode;
 
         return $this;
@@ -456,11 +452,9 @@ class GiftcardRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCardnumber($cardnumber)
     {
-
         if (is_null($cardnumber)) {
             throw new \InvalidArgumentException('non-nullable cardnumber cannot be null');
         }
-
         $this->container['cardnumber'] = $cardnumber;
 
         return $this;
@@ -485,11 +479,9 @@ class GiftcardRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCardnumberDisplay($cardnumberDisplay)
     {
-
         if (is_null($cardnumberDisplay)) {
             throw new \InvalidArgumentException('non-nullable cardnumberDisplay cannot be null');
         }
-
         $this->container['cardnumberDisplay'] = $cardnumberDisplay;
 
         return $this;
@@ -514,11 +506,9 @@ class GiftcardRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setRedeemable($redeemable)
     {
-
         if (is_null($redeemable)) {
             throw new \InvalidArgumentException('non-nullable redeemable cannot be null');
         }
-
         $this->container['redeemable'] = $redeemable;
 
         return $this;
@@ -543,11 +533,9 @@ class GiftcardRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDateExpires($dateExpires)
     {
-
         if (is_null($dateExpires)) {
             throw new \InvalidArgumentException('non-nullable dateExpires cannot be null');
         }
-
         $this->container['dateExpires'] = $dateExpires;
 
         return $this;
@@ -572,11 +560,9 @@ class GiftcardRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDateCreated($dateCreated)
     {
-
         if (is_null($dateCreated)) {
             throw new \InvalidArgumentException('non-nullable dateCreated cannot be null');
         }
-
         $this->container['dateCreated'] = $dateCreated;
 
         return $this;
@@ -601,11 +587,9 @@ class GiftcardRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneyamount($moneyamount)
     {
-
         if (is_null($moneyamount)) {
             throw new \InvalidArgumentException('non-nullable moneyamount cannot be null');
         }
-
         $this->container['moneyamount'] = $moneyamount;
 
         return $this;
@@ -630,11 +614,9 @@ class GiftcardRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setRequirespin($requirespin)
     {
-
         if (is_null($requirespin)) {
             throw new \InvalidArgumentException('non-nullable requirespin cannot be null');
         }
-
         $this->container['requirespin'] = $requirespin;
 
         return $this;
@@ -659,11 +641,9 @@ class GiftcardRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setTransactions($transactions)
     {
-
         if (is_null($transactions)) {
             throw new \InvalidArgumentException('non-nullable transactions cannot be null');
         }
-
         $this->container['transactions'] = $transactions;
 
         return $this;

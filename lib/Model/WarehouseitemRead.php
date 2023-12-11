@@ -402,11 +402,9 @@ class WarehouseitemRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setWarehouseitemid($warehouseitemid)
     {
-
         if (is_null($warehouseitemid)) {
             throw new \InvalidArgumentException('non-nullable warehouseitemid cannot be null');
         }
-
         $this->container['warehouseitemid'] = $warehouseitemid;
 
         return $this;
@@ -431,11 +429,9 @@ class WarehouseitemRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setWarehouseid($warehouseid)
     {
-
         if (is_null($warehouseid)) {
             throw new \InvalidArgumentException('non-nullable warehouseid cannot be null');
         }
-
         $this->container['warehouseid'] = $warehouseid;
 
         return $this;
@@ -460,11 +456,9 @@ class WarehouseitemRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setSku($sku)
     {
-
         if (is_null($sku)) {
             throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
-
         $this->container['sku'] = $sku;
 
         return $this;
@@ -489,11 +483,9 @@ class WarehouseitemRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setBinlocation($binlocation)
     {
-
         if (is_null($binlocation)) {
             throw new \InvalidArgumentException('non-nullable binlocation cannot be null');
         }
-
         $this->container['binlocation'] = $binlocation;
 
         return $this;
@@ -518,11 +510,9 @@ class WarehouseitemRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setDecimalthreshold($decimalthreshold)
     {
-
         if (is_null($decimalthreshold)) {
             throw new \InvalidArgumentException('non-nullable decimalthreshold cannot be null');
         }
-
         $this->container['decimalthreshold'] = $decimalthreshold;
 
         return $this;
@@ -547,11 +537,9 @@ class WarehouseitemRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setDecimaltotal($decimaltotal)
     {
-
         if (is_null($decimaltotal)) {
             throw new \InvalidArgumentException('non-nullable decimaltotal cannot be null');
         }
-
         $this->container['decimaltotal'] = $decimaltotal;
 
         return $this;
@@ -576,11 +564,9 @@ class WarehouseitemRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setMoneytotal($moneytotal)
     {
-
         if (is_null($moneytotal)) {
             throw new \InvalidArgumentException('non-nullable moneytotal cannot be null');
         }
-
         $this->container['moneytotal'] = $moneytotal;
 
         return $this;
@@ -605,11 +591,9 @@ class WarehouseitemRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setDatelastmodified($datelastmodified)
     {
-
         if (is_null($datelastmodified)) {
             throw new \InvalidArgumentException('non-nullable datelastmodified cannot be null');
         }
-
         $this->container['datelastmodified'] = $datelastmodified;
 
         return $this;
@@ -634,11 +618,9 @@ class WarehouseitemRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setDatelaststocktaking($datelaststocktaking)
     {
-
         if (is_null($datelaststocktaking)) {
             throw new \InvalidArgumentException('non-nullable datelaststocktaking cannot be null');
         }
-
         $this->container['datelaststocktaking'] = $datelaststocktaking;
 
         return $this;
@@ -663,11 +645,9 @@ class WarehouseitemRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setDecimalreserved($decimalreserved)
     {
-
         if (is_null($decimalreserved)) {
             throw new \InvalidArgumentException('non-nullable decimalreserved cannot be null');
         }
-
         $this->container['decimalreserved'] = $decimalreserved;
 
         return $this;
@@ -692,11 +672,9 @@ class WarehouseitemRead implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setDecimalavailable($decimalavailable)
     {
-
         if (is_null($decimalavailable)) {
             throw new \InvalidArgumentException('non-nullable decimalavailable cannot be null');
         }
-
         $this->container['decimalavailable'] = $decimalavailable;
 
         return $this;

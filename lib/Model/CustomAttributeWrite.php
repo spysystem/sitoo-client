@@ -366,11 +366,9 @@ class CustomAttributeWrite implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setId($id)
     {
-
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-
         $this->container['id'] = $id;
 
         return $this;
@@ -395,11 +393,9 @@ class CustomAttributeWrite implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setTitle($title)
     {
-
         if (is_null($title)) {
             throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-
         $this->container['title'] = $title;
 
         return $this;
@@ -424,11 +420,9 @@ class CustomAttributeWrite implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setType($type)
     {
-
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-
         $this->container['type'] = $type;
 
         return $this;
@@ -453,7 +447,6 @@ class CustomAttributeWrite implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setEnums($enums)
     {
-
         if (is_null($enums)) {
             array_push($this->openAPINullablesSetToNull, 'enums');
         } else {
@@ -464,7 +457,6 @@ class CustomAttributeWrite implements ModelInterface, ArrayAccess, \JsonSerializ
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
         $this->container['enums'] = $enums;
 
         return $this;
@@ -489,11 +481,9 @@ class CustomAttributeWrite implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setSearchable($searchable)
     {
-
         if (is_null($searchable)) {
             throw new \InvalidArgumentException('non-nullable searchable cannot be null');
         }
-
         $this->container['searchable'] = $searchable;
 
         return $this;

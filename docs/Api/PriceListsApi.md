@@ -17,7 +17,7 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 ## `addPriceList()`
 
 ```php
-addPriceList($siteid, $pricelistWrite)
+addPriceList($siteid, $pricelistWrite): int
 ```
 
 
@@ -47,7 +47,8 @@ $siteid = 56; // int
 $pricelistWrite = {pricelistname=Resellers}; // \Spy\SitooClient\Model\PricelistWrite
 
 try {
-    $apiInstance->addPriceList($siteid, $pricelistWrite);
+    $result = $apiInstance->addPriceList($siteid, $pricelistWrite);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PriceListsApi->addPriceList: ', $e->getMessage(), PHP_EOL;
 }
@@ -62,7 +63,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+**int**
 
 ### Authorization
 
@@ -71,7 +72,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

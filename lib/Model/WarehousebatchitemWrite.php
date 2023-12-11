@@ -360,11 +360,9 @@ class WarehousebatchitemWrite implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setDecimalquantity($decimalquantity)
     {
-
         if (is_null($decimalquantity)) {
             throw new \InvalidArgumentException('non-nullable decimalquantity cannot be null');
         }
-
         $this->container['decimalquantity'] = $decimalquantity;
 
         return $this;
@@ -389,11 +387,9 @@ class WarehousebatchitemWrite implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setMoneypricein($moneypricein)
     {
-
         if (is_null($moneypricein)) {
             throw new \InvalidArgumentException('non-nullable moneypricein cannot be null');
         }
-
         $this->container['moneypricein'] = $moneypricein;
 
         return $this;
@@ -418,11 +414,9 @@ class WarehousebatchitemWrite implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setEmailowner($emailowner)
     {
-
         if (is_null($emailowner)) {
             throw new \InvalidArgumentException('non-nullable emailowner cannot be null');
         }
-
         $this->container['emailowner'] = $emailowner;
 
         return $this;
@@ -447,11 +441,9 @@ class WarehousebatchitemWrite implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setComment($comment)
     {
-
         if (is_null($comment)) {
             throw new \InvalidArgumentException('non-nullable comment cannot be null');
         }
-
         $this->container['comment'] = $comment;
 
         return $this;
@@ -476,11 +468,9 @@ class WarehousebatchitemWrite implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setSku($sku)
     {
-
         if (is_null($sku)) {
             throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
-
         $this->container['sku'] = $sku;
 
         return $this;

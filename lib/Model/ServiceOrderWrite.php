@@ -403,11 +403,9 @@ class ServiceOrderWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setRevision($revision)
     {
-
         if (is_null($revision)) {
             throw new \InvalidArgumentException('non-nullable revision cannot be null');
         }
-
         $this->container['revision'] = $revision;
 
         return $this;
@@ -432,11 +430,9 @@ class ServiceOrderWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setState($state)
     {
-
         if (is_null($state)) {
             throw new \InvalidArgumentException('non-nullable state cannot be null');
         }
-
         $this->container['state'] = $state;
 
         return $this;
@@ -461,11 +457,9 @@ class ServiceOrderWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setStore($store)
     {
-
         if (is_null($store)) {
             throw new \InvalidArgumentException('non-nullable store cannot be null');
         }
-
         $this->container['store'] = $store;
 
         return $this;
@@ -490,11 +484,9 @@ class ServiceOrderWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setOwner($owner)
     {
-
         if (is_null($owner)) {
             throw new \InvalidArgumentException('non-nullable owner cannot be null');
         }
-
         $this->container['owner'] = $owner;
 
         return $this;
@@ -519,11 +511,9 @@ class ServiceOrderWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setCustomer($customer)
     {
-
         if (is_null($customer)) {
             throw new \InvalidArgumentException('non-nullable customer cannot be null');
         }
-
         $this->container['customer'] = $customer;
 
         return $this;
@@ -548,11 +538,9 @@ class ServiceOrderWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setCurrency($currency)
     {
-
         if (is_null($currency)) {
             throw new \InvalidArgumentException('non-nullable currency cannot be null');
         }
-
         $this->container['currency'] = $currency;
 
         return $this;
@@ -577,11 +565,9 @@ class ServiceOrderWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setNote($note)
     {
-
         if (is_null($note)) {
             throw new \InvalidArgumentException('non-nullable note cannot be null');
         }
-
         $this->container['note'] = $note;
 
         return $this;
@@ -606,11 +592,9 @@ class ServiceOrderWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setProduct($product)
     {
-
         if (is_null($product)) {
             throw new \InvalidArgumentException('non-nullable product cannot be null');
         }
-
         $this->container['product'] = $product;
 
         return $this;
@@ -635,11 +619,9 @@ class ServiceOrderWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setAuthor($author)
     {
-
         if (is_null($author)) {
             throw new \InvalidArgumentException('non-nullable author cannot be null');
         }
-
         $this->container['author'] = $author;
 
         return $this;

@@ -388,11 +388,9 @@ class WarehousebatchitemRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setWarehousebatchitemid($warehousebatchitemid)
     {
-
         if (is_null($warehousebatchitemid)) {
             throw new \InvalidArgumentException('non-nullable warehousebatchitemid cannot be null');
         }
-
         $this->container['warehousebatchitemid'] = $warehousebatchitemid;
 
         return $this;
@@ -417,11 +415,9 @@ class WarehousebatchitemRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setWarehousebatchid($warehousebatchid)
     {
-
         if (is_null($warehousebatchid)) {
             throw new \InvalidArgumentException('non-nullable warehousebatchid cannot be null');
         }
-
         $this->container['warehousebatchid'] = $warehousebatchid;
 
         return $this;
@@ -446,11 +442,9 @@ class WarehousebatchitemRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setWarehouseitemid($warehouseitemid)
     {
-
         if (is_null($warehouseitemid)) {
             throw new \InvalidArgumentException('non-nullable warehouseitemid cannot be null');
         }
-
         $this->container['warehouseitemid'] = $warehouseitemid;
 
         return $this;
@@ -475,11 +469,9 @@ class WarehousebatchitemRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setDatemodified($datemodified)
     {
-
         if (is_null($datemodified)) {
             throw new \InvalidArgumentException('non-nullable datemodified cannot be null');
         }
-
         $this->container['datemodified'] = $datemodified;
 
         return $this;
@@ -504,11 +496,9 @@ class WarehousebatchitemRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setDecimalquantity($decimalquantity)
     {
-
         if (is_null($decimalquantity)) {
             throw new \InvalidArgumentException('non-nullable decimalquantity cannot be null');
         }
-
         $this->container['decimalquantity'] = $decimalquantity;
 
         return $this;
@@ -533,11 +523,9 @@ class WarehousebatchitemRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setMoneypricein($moneypricein)
     {
-
         if (is_null($moneypricein)) {
             throw new \InvalidArgumentException('non-nullable moneypricein cannot be null');
         }
-
         $this->container['moneypricein'] = $moneypricein;
 
         return $this;
@@ -562,11 +550,9 @@ class WarehousebatchitemRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setEmailowner($emailowner)
     {
-
         if (is_null($emailowner)) {
             throw new \InvalidArgumentException('non-nullable emailowner cannot be null');
         }
-
         $this->container['emailowner'] = $emailowner;
 
         return $this;
@@ -591,11 +577,9 @@ class WarehousebatchitemRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setComment($comment)
     {
-
         if (is_null($comment)) {
             throw new \InvalidArgumentException('non-nullable comment cannot be null');
         }
-
         $this->container['comment'] = $comment;
 
         return $this;
@@ -620,11 +604,9 @@ class WarehousebatchitemRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setSku($sku)
     {
-
         if (is_null($sku)) {
             throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
-
         $this->container['sku'] = $sku;
 
         return $this;

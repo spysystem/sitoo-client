@@ -360,11 +360,9 @@ class ProductgroupRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVatid($vatid)
     {
-
         if (is_null($vatid)) {
             throw new \InvalidArgumentException('non-nullable vatid cannot be null');
         }
-
         $this->container['vatid'] = $vatid;
 
         return $this;
@@ -389,11 +387,9 @@ class ProductgroupRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setValue($value)
     {
-
         if (is_null($value)) {
             throw new \InvalidArgumentException('non-nullable value cannot be null');
         }
-
         $this->container['value'] = $value;
 
         return $this;
@@ -418,11 +414,9 @@ class ProductgroupRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setProductgrouptype($productgrouptype)
     {
-
         if (is_null($productgrouptype)) {
             throw new \InvalidArgumentException('non-nullable productgrouptype cannot be null');
         }
-
         $this->container['productgrouptype'] = $productgrouptype;
 
         return $this;
@@ -447,11 +441,9 @@ class ProductgroupRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setProductgroupname($productgroupname)
     {
-
         if (is_null($productgroupname)) {
             throw new \InvalidArgumentException('non-nullable productgroupname cannot be null');
         }
-
         $this->container['productgroupname'] = $productgroupname;
 
         return $this;
@@ -476,11 +468,9 @@ class ProductgroupRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setComment($comment)
     {
-
         if (is_null($comment)) {
             throw new \InvalidArgumentException('non-nullable comment cannot be null');
         }
-
         $this->container['comment'] = $comment;
 
         return $this;

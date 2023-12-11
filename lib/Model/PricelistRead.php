@@ -374,11 +374,9 @@ class PricelistRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPricelistid($pricelistid)
     {
-
         if (is_null($pricelistid)) {
             throw new \InvalidArgumentException('non-nullable pricelistid cannot be null');
         }
-
         $this->container['pricelistid'] = $pricelistid;
 
         return $this;
@@ -403,11 +401,9 @@ class PricelistRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPricelistname($pricelistname)
     {
-
         if (is_null($pricelistname)) {
             throw new \InvalidArgumentException('non-nullable pricelistname cannot be null');
         }
-
         $this->container['pricelistname'] = $pricelistname;
 
         return $this;
@@ -432,11 +428,9 @@ class PricelistRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPricelistdescription($pricelistdescription)
     {
-
         if (is_null($pricelistdescription)) {
             throw new \InvalidArgumentException('non-nullable pricelistdescription cannot be null');
         }
-
         $this->container['pricelistdescription'] = $pricelistdescription;
 
         return $this;
@@ -461,11 +455,9 @@ class PricelistRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setActive($active)
     {
-
         if (is_null($active)) {
             throw new \InvalidArgumentException('non-nullable active cannot be null');
         }
-
         $this->container['active'] = $active;
 
         return $this;
@@ -490,11 +482,9 @@ class PricelistRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;
@@ -519,11 +509,9 @@ class PricelistRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCurrencycode($currencycode)
     {
-
         if (is_null($currencycode)) {
             throw new \InvalidArgumentException('non-nullable currencycode cannot be null');
         }
-
         $this->container['currencycode'] = $currencycode;
 
         return $this;
@@ -548,11 +536,9 @@ class PricelistRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setTags($tags)
     {
-
         if (is_null($tags)) {
             throw new \InvalidArgumentException('non-nullable tags cannot be null');
         }
-
         $this->container['tags'] = $tags;
 
         return $this;

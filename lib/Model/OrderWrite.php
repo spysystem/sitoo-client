@@ -570,11 +570,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;
@@ -599,11 +597,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCreditorderid($creditorderid)
     {
-
         if (is_null($creditorderid)) {
             throw new \InvalidArgumentException('non-nullable creditorderid cannot be null');
         }
-
         $this->container['creditorderid'] = $creditorderid;
 
         return $this;
@@ -628,11 +624,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setEmail($email)
     {
-
         if (is_null($email)) {
             throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
-
         $this->container['email'] = $email;
 
         return $this;
@@ -657,11 +651,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNamefirst($namefirst)
     {
-
         if (is_null($namefirst)) {
             throw new \InvalidArgumentException('non-nullable namefirst cannot be null');
         }
-
         $this->container['namefirst'] = $namefirst;
 
         return $this;
@@ -686,11 +678,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNamelast($namelast)
     {
-
         if (is_null($namelast)) {
             throw new \InvalidArgumentException('non-nullable namelast cannot be null');
         }
-
         $this->container['namelast'] = $namelast;
 
         return $this;
@@ -715,11 +705,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPersonalid($personalid)
     {
-
         if (is_null($personalid)) {
             throw new \InvalidArgumentException('non-nullable personalid cannot be null');
         }
-
         $this->container['personalid'] = $personalid;
 
         return $this;
@@ -744,11 +732,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCompany($company)
     {
-
         if (is_null($company)) {
             throw new \InvalidArgumentException('non-nullable company cannot be null');
         }
-
         $this->container['company'] = $company;
 
         return $this;
@@ -773,11 +759,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPhone($phone)
     {
-
         if (is_null($phone)) {
             throw new \InvalidArgumentException('non-nullable phone cannot be null');
         }
-
         $this->container['phone'] = $phone;
 
         return $this;
@@ -802,11 +786,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setInvoiceAddress($invoiceAddress)
     {
-
         if (is_null($invoiceAddress)) {
             throw new \InvalidArgumentException('non-nullable invoiceAddress cannot be null');
         }
-
         $this->container['invoiceAddress'] = $invoiceAddress;
 
         return $this;
@@ -831,11 +813,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setInvoiceAddress2($invoiceAddress2)
     {
-
         if (is_null($invoiceAddress2)) {
             throw new \InvalidArgumentException('non-nullable invoiceAddress2 cannot be null');
         }
-
         $this->container['invoiceAddress2'] = $invoiceAddress2;
 
         return $this;
@@ -860,11 +840,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setInvoiceZip($invoiceZip)
     {
-
         if (is_null($invoiceZip)) {
             throw new \InvalidArgumentException('non-nullable invoiceZip cannot be null');
         }
-
         $this->container['invoiceZip'] = $invoiceZip;
 
         return $this;
@@ -889,11 +867,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setInvoiceCity($invoiceCity)
     {
-
         if (is_null($invoiceCity)) {
             throw new \InvalidArgumentException('non-nullable invoiceCity cannot be null');
         }
-
         $this->container['invoiceCity'] = $invoiceCity;
 
         return $this;
@@ -918,11 +894,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setInvoiceState($invoiceState)
     {
-
         if (is_null($invoiceState)) {
             throw new \InvalidArgumentException('non-nullable invoiceState cannot be null');
         }
-
         $this->container['invoiceState'] = $invoiceState;
 
         return $this;
@@ -947,11 +921,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setInvoiceCountryid($invoiceCountryid)
     {
-
         if (is_null($invoiceCountryid)) {
             throw new \InvalidArgumentException('non-nullable invoiceCountryid cannot be null');
         }
-
         $this->container['invoiceCountryid'] = $invoiceCountryid;
 
         return $this;
@@ -976,11 +948,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDeliveryAddress($deliveryAddress)
     {
-
         if (is_null($deliveryAddress)) {
             throw new \InvalidArgumentException('non-nullable deliveryAddress cannot be null');
         }
-
         $this->container['deliveryAddress'] = $deliveryAddress;
 
         return $this;
@@ -1005,11 +975,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDeliveryAddress2($deliveryAddress2)
     {
-
         if (is_null($deliveryAddress2)) {
             throw new \InvalidArgumentException('non-nullable deliveryAddress2 cannot be null');
         }
-
         $this->container['deliveryAddress2'] = $deliveryAddress2;
 
         return $this;
@@ -1034,11 +1002,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDeliveryZip($deliveryZip)
     {
-
         if (is_null($deliveryZip)) {
             throw new \InvalidArgumentException('non-nullable deliveryZip cannot be null');
         }
-
         $this->container['deliveryZip'] = $deliveryZip;
 
         return $this;
@@ -1063,11 +1029,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDeliveryCity($deliveryCity)
     {
-
         if (is_null($deliveryCity)) {
             throw new \InvalidArgumentException('non-nullable deliveryCity cannot be null');
         }
-
         $this->container['deliveryCity'] = $deliveryCity;
 
         return $this;
@@ -1092,11 +1056,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDeliveryState($deliveryState)
     {
-
         if (is_null($deliveryState)) {
             throw new \InvalidArgumentException('non-nullable deliveryState cannot be null');
         }
-
         $this->container['deliveryState'] = $deliveryState;
 
         return $this;
@@ -1121,11 +1083,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDeliveryCountryid($deliveryCountryid)
     {
-
         if (is_null($deliveryCountryid)) {
             throw new \InvalidArgumentException('non-nullable deliveryCountryid cannot be null');
         }
-
         $this->container['deliveryCountryid'] = $deliveryCountryid;
 
         return $this;
@@ -1150,11 +1110,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setComment($comment)
     {
-
         if (is_null($comment)) {
             throw new \InvalidArgumentException('non-nullable comment cannot be null');
         }
-
         $this->container['comment'] = $comment;
 
         return $this;
@@ -1179,11 +1137,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCommentinternal($commentinternal)
     {
-
         if (is_null($commentinternal)) {
             throw new \InvalidArgumentException('non-nullable commentinternal cannot be null');
         }
-
         $this->container['commentinternal'] = $commentinternal;
 
         return $this;
@@ -1208,11 +1164,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCustomerref($customerref)
     {
-
         if (is_null($customerref)) {
             throw new \InvalidArgumentException('non-nullable customerref cannot be null');
         }
-
         $this->container['customerref'] = $customerref;
 
         return $this;
@@ -1237,11 +1191,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCheckoutref($checkoutref)
     {
-
         if (is_null($checkoutref)) {
             throw new \InvalidArgumentException('non-nullable checkoutref cannot be null');
         }
-
         $this->container['checkoutref'] = $checkoutref;
 
         return $this;
@@ -1266,11 +1218,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setOrderdate($orderdate)
     {
-
         if (is_null($orderdate)) {
             throw new \InvalidArgumentException('non-nullable orderdate cannot be null');
         }
-
         $this->container['orderdate'] = $orderdate;
 
         return $this;
@@ -1295,11 +1245,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setOrderstateid($orderstateid)
     {
-
         if (is_null($orderstateid)) {
             throw new \InvalidArgumentException('non-nullable orderstateid cannot be null');
         }
-
         $this->container['orderstateid'] = $orderstateid;
 
         return $this;
@@ -1324,11 +1272,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPaymentstateid($paymentstateid)
     {
-
         if (is_null($paymentstateid)) {
             throw new \InvalidArgumentException('non-nullable paymentstateid cannot be null');
         }
-
         $this->container['paymentstateid'] = $paymentstateid;
 
         return $this;
@@ -1353,11 +1299,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setOrdertypeid($ordertypeid)
     {
-
         if (is_null($ordertypeid)) {
             throw new \InvalidArgumentException('non-nullable ordertypeid cannot be null');
         }
-
         $this->container['ordertypeid'] = $ordertypeid;
 
         return $this;
@@ -1382,11 +1326,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setWarehouseid($warehouseid)
     {
-
         if (is_null($warehouseid)) {
             throw new \InvalidArgumentException('non-nullable warehouseid cannot be null');
         }
-
         $this->container['warehouseid'] = $warehouseid;
 
         return $this;
@@ -1411,11 +1353,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDatereserved($datereserved)
     {
-
         if (is_null($datereserved)) {
             throw new \InvalidArgumentException('non-nullable datereserved cannot be null');
         }
-
         $this->container['datereserved'] = $datereserved;
 
         return $this;
@@ -1440,11 +1380,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCurrencycode($currencycode)
     {
-
         if (is_null($currencycode)) {
             throw new \InvalidArgumentException('non-nullable currencycode cannot be null');
         }
-
         $this->container['currencycode'] = $currencycode;
 
         return $this;
@@ -1469,11 +1407,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAdditionaldata($additionaldata)
     {
-
         if (is_null($additionaldata)) {
             throw new \InvalidArgumentException('non-nullable additionaldata cannot be null');
         }
-
         $this->container['additionaldata'] = $additionaldata;
 
         return $this;
@@ -1498,11 +1434,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setOrderitems($orderitems)
     {
-
         if (is_null($orderitems)) {
             throw new \InvalidArgumentException('non-nullable orderitems cannot be null');
         }
-
         $this->container['orderitems'] = $orderitems;
 
         return $this;
@@ -1527,11 +1461,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPayments($payments)
     {
-
         if (is_null($payments)) {
             throw new \InvalidArgumentException('non-nullable payments cannot be null');
         }
-
         $this->container['payments'] = $payments;
 
         return $this;
@@ -1556,11 +1488,9 @@ class OrderWrite implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReservedpayments($reservedpayments)
     {
-
         if (is_null($reservedpayments)) {
             throw new \InvalidArgumentException('non-nullable reservedpayments cannot be null');
         }
-
         $this->container['reservedpayments'] = $reservedpayments;
 
         return $this;

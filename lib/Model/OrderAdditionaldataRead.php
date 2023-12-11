@@ -532,11 +532,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setCrmCustomerid($crmCustomerid)
     {
-
         if (is_null($crmCustomerid)) {
             throw new \InvalidArgumentException('non-nullable crmCustomerid cannot be null');
         }
-
         $this->container['crmCustomerid'] = $crmCustomerid;
 
         return $this;
@@ -561,11 +559,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setCrmMembernumber($crmMembernumber)
     {
-
         if (is_null($crmMembernumber)) {
             throw new \InvalidArgumentException('non-nullable crmMembernumber cannot be null');
         }
-
         $this->container['crmMembernumber'] = $crmMembernumber;
 
         return $this;
@@ -590,11 +586,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setCustomcrmContactid($customcrmContactid)
     {
-
         if (is_null($customcrmContactid)) {
             throw new \InvalidArgumentException('non-nullable customcrmContactid cannot be null');
         }
-
         $this->container['customcrmContactid'] = $customcrmContactid;
 
         return $this;
@@ -619,11 +613,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setCustomcrmMembernumber($customcrmMembernumber)
     {
-
         if (is_null($customcrmMembernumber)) {
             throw new \InvalidArgumentException('non-nullable customcrmMembernumber cannot be null');
         }
-
         $this->container['customcrmMembernumber'] = $customcrmMembernumber;
 
         return $this;
@@ -648,11 +640,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setDeliveryIgnoreStock($deliveryIgnoreStock)
     {
-
         if (is_null($deliveryIgnoreStock)) {
             throw new \InvalidArgumentException('non-nullable deliveryIgnoreStock cannot be null');
         }
-
         $this->container['deliveryIgnoreStock'] = $deliveryIgnoreStock;
 
         return $this;
@@ -677,11 +667,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setDeliveryPickupExternalid($deliveryPickupExternalid)
     {
-
         if (is_null($deliveryPickupExternalid)) {
             throw new \InvalidArgumentException('non-nullable deliveryPickupExternalid cannot be null');
         }
-
         $this->container['deliveryPickupExternalid'] = $deliveryPickupExternalid;
 
         return $this;
@@ -706,11 +694,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setDeliveryPickupWarehouseid($deliveryPickupWarehouseid)
     {
-
         if (is_null($deliveryPickupWarehouseid)) {
             throw new \InvalidArgumentException('non-nullable deliveryPickupWarehouseid cannot be null');
         }
-
         $this->container['deliveryPickupWarehouseid'] = $deliveryPickupWarehouseid;
 
         return $this;
@@ -735,11 +721,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setInfluencerInfluencercode($influencerInfluencercode)
     {
-
         if (is_null($influencerInfluencercode)) {
             throw new \InvalidArgumentException('non-nullable influencerInfluencercode cannot be null');
         }
-
         $this->container['influencerInfluencercode'] = $influencerInfluencercode;
 
         return $this;
@@ -764,11 +748,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setInfluencerInfluencername($influencerInfluencername)
     {
-
         if (is_null($influencerInfluencername)) {
             throw new \InvalidArgumentException('non-nullable influencerInfluencername cannot be null');
         }
-
         $this->container['influencerInfluencername'] = $influencerInfluencername;
 
         return $this;
@@ -793,11 +775,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPosOriginalsalesOrderid($posOriginalsalesOrderid)
     {
-
         if (is_null($posOriginalsalesOrderid)) {
             throw new \InvalidArgumentException('non-nullable posOriginalsalesOrderid cannot be null');
         }
-
         $this->container['posOriginalsalesOrderid'] = $posOriginalsalesOrderid;
 
         return $this;
@@ -822,11 +802,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPosReceiptid($posReceiptid)
     {
-
         if (is_null($posReceiptid)) {
             throw new \InvalidArgumentException('non-nullable posReceiptid cannot be null');
         }
-
         $this->container['posReceiptid'] = $posReceiptid;
 
         return $this;
@@ -851,11 +829,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPosRefundsalesOrderid($posRefundsalesOrderid)
     {
-
         if (is_null($posRefundsalesOrderid)) {
             throw new \InvalidArgumentException('non-nullable posRefundsalesOrderid cannot be null');
         }
-
         $this->container['posRefundsalesOrderid'] = $posRefundsalesOrderid;
 
         return $this;
@@ -880,11 +856,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPosRefundOrderid($posRefundOrderid)
     {
-
         if (is_null($posRefundOrderid)) {
             throw new \InvalidArgumentException('non-nullable posRefundOrderid cannot be null');
         }
-
         $this->container['posRefundOrderid'] = $posRefundOrderid;
 
         return $this;
@@ -909,11 +883,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPosRefundReceiptid($posRefundReceiptid)
     {
-
         if (is_null($posRefundReceiptid)) {
             throw new \InvalidArgumentException('non-nullable posRefundReceiptid cannot be null');
         }
-
         $this->container['posRefundReceiptid'] = $posRefundReceiptid;
 
         return $this;
@@ -938,11 +910,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPosSourceorderid($posSourceorderid)
     {
-
         if (is_null($posSourceorderid)) {
             throw new \InvalidArgumentException('non-nullable posSourceorderid cannot be null');
         }
-
         $this->container['posSourceorderid'] = $posSourceorderid;
 
         return $this;
@@ -967,11 +937,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPosStaffUserid($posStaffUserid)
     {
-
         if (is_null($posStaffUserid)) {
             throw new \InvalidArgumentException('non-nullable posStaffUserid cannot be null');
         }
-
         $this->container['posStaffUserid'] = $posStaffUserid;
 
         return $this;
@@ -996,11 +964,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPosStaffExternalid($posStaffExternalid)
     {
-
         if (is_null($posStaffExternalid)) {
             throw new \InvalidArgumentException('non-nullable posStaffExternalid cannot be null');
         }
-
         $this->container['posStaffExternalid'] = $posStaffExternalid;
 
         return $this;
@@ -1025,11 +991,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPosStaff2Externalid($posStaff2Externalid)
     {
-
         if (is_null($posStaff2Externalid)) {
             throw new \InvalidArgumentException('non-nullable posStaff2Externalid cannot be null');
         }
-
         $this->container['posStaff2Externalid'] = $posStaff2Externalid;
 
         return $this;
@@ -1054,11 +1018,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPosStaffsalesUserid($posStaffsalesUserid)
     {
-
         if (is_null($posStaffsalesUserid)) {
             throw new \InvalidArgumentException('non-nullable posStaffsalesUserid cannot be null');
         }
-
         $this->container['posStaffsalesUserid'] = $posStaffsalesUserid;
 
         return $this;
@@ -1083,11 +1045,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPosStaffsalesExternalid($posStaffsalesExternalid)
     {
-
         if (is_null($posStaffsalesExternalid)) {
             throw new \InvalidArgumentException('non-nullable posStaffsalesExternalid cannot be null');
         }
-
         $this->container['posStaffsalesExternalid'] = $posStaffsalesExternalid;
 
         return $this;
@@ -1112,11 +1072,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPosStaffsalesName($posStaffsalesName)
     {
-
         if (is_null($posStaffsalesName)) {
             throw new \InvalidArgumentException('non-nullable posStaffsalesName cannot be null');
         }
-
         $this->container['posStaffsalesName'] = $posStaffsalesName;
 
         return $this;
@@ -1141,11 +1099,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPosTimezone($posTimezone)
     {
-
         if (is_null($posTimezone)) {
             throw new \InvalidArgumentException('non-nullable posTimezone cannot be null');
         }
-
         $this->container['posTimezone'] = $posTimezone;
 
         return $this;
@@ -1170,11 +1126,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setRefundreasoncodeComment($refundreasoncodeComment)
     {
-
         if (is_null($refundreasoncodeComment)) {
             throw new \InvalidArgumentException('non-nullable refundreasoncodeComment cannot be null');
         }
-
         $this->container['refundreasoncodeComment'] = $refundreasoncodeComment;
 
         return $this;
@@ -1199,11 +1153,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setRefundreasoncodeReasoncode($refundreasoncodeReasoncode)
     {
-
         if (is_null($refundreasoncodeReasoncode)) {
             throw new \InvalidArgumentException('non-nullable refundreasoncodeReasoncode cannot be null');
         }
-
         $this->container['refundreasoncodeReasoncode'] = $refundreasoncodeReasoncode;
 
         return $this;
@@ -1228,11 +1180,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setServiceorderId($serviceorderId)
     {
-
         if (is_null($serviceorderId)) {
             throw new \InvalidArgumentException('non-nullable serviceorderId cannot be null');
         }
-
         $this->container['serviceorderId'] = $serviceorderId;
 
         return $this;
@@ -1257,11 +1207,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setStoreExternalid($storeExternalid)
     {
-
         if (is_null($storeExternalid)) {
             throw new \InvalidArgumentException('non-nullable storeExternalid cannot be null');
         }
-
         $this->container['storeExternalid'] = $storeExternalid;
 
         return $this;
@@ -1286,11 +1234,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setStoreExternalgroupid($storeExternalgroupid)
     {
-
         if (is_null($storeExternalgroupid)) {
             throw new \InvalidArgumentException('non-nullable storeExternalgroupid cannot be null');
         }
-
         $this->container['storeExternalgroupid'] = $storeExternalgroupid;
 
         return $this;
@@ -1315,11 +1261,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setStoreName($storeName)
     {
-
         if (is_null($storeName)) {
             throw new \InvalidArgumentException('non-nullable storeName cannot be null');
         }
-
         $this->container['storeName'] = $storeName;
 
         return $this;
@@ -1344,11 +1288,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setVoyadoContactid($voyadoContactid)
     {
-
         if (is_null($voyadoContactid)) {
             throw new \InvalidArgumentException('non-nullable voyadoContactid cannot be null');
         }
-
         $this->container['voyadoContactid'] = $voyadoContactid;
 
         return $this;
@@ -1373,11 +1315,9 @@ class OrderAdditionaldataRead implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setVoyadoMembernumber($voyadoMembernumber)
     {
-
         if (is_null($voyadoMembernumber)) {
             throw new \InvalidArgumentException('non-nullable voyadoMembernumber cannot be null');
         }
-
         $this->container['voyadoMembernumber'] = $voyadoMembernumber;
 
         return $this;

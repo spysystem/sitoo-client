@@ -826,11 +826,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setZreportid($zreportid)
     {
-
         if (is_null($zreportid)) {
             throw new \InvalidArgumentException('non-nullable zreportid cannot be null');
         }
-
         $this->container['zreportid'] = $zreportid;
 
         return $this;
@@ -855,11 +853,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setRegisterid($registerid)
     {
-
         if (is_null($registerid)) {
             throw new \InvalidArgumentException('non-nullable registerid cannot be null');
         }
-
         $this->container['registerid'] = $registerid;
 
         return $this;
@@ -884,11 +880,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setManufacturerid($manufacturerid)
     {
-
         if (is_null($manufacturerid)) {
             throw new \InvalidArgumentException('non-nullable manufacturerid cannot be null');
         }
-
         $this->container['manufacturerid'] = $manufacturerid;
 
         return $this;
@@ -913,11 +907,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setRegisterkey($registerkey)
     {
-
         if (is_null($registerkey)) {
             throw new \InvalidArgumentException('non-nullable registerkey cannot be null');
         }
-
         $this->container['registerkey'] = $registerkey;
 
         return $this;
@@ -942,11 +934,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setRegisternumber($registernumber)
     {
-
         if (is_null($registernumber)) {
             throw new \InvalidArgumentException('non-nullable registernumber cannot be null');
         }
-
         $this->container['registernumber'] = $registernumber;
 
         return $this;
@@ -971,11 +961,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDatecreated($datecreated)
     {
-
         if (is_null($datecreated)) {
             throw new \InvalidArgumentException('non-nullable datecreated cannot be null');
         }
-
         $this->container['datecreated'] = $datecreated;
 
         return $this;
@@ -1000,11 +988,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDateopened($dateopened)
     {
-
         if (is_null($dateopened)) {
             throw new \InvalidArgumentException('non-nullable dateopened cannot be null');
         }
-
         $this->container['dateopened'] = $dateopened;
 
         return $this;
@@ -1029,11 +1015,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setEshopid($eshopid)
     {
-
         if (is_null($eshopid)) {
             throw new \InvalidArgumentException('non-nullable eshopid cannot be null');
         }
-
         $this->container['eshopid'] = $eshopid;
 
         return $this;
@@ -1058,11 +1042,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setStoreId($storeId)
     {
-
         if (is_null($storeId)) {
             throw new \InvalidArgumentException('non-nullable storeId cannot be null');
         }
-
         $this->container['storeId'] = $storeId;
 
         return $this;
@@ -1087,11 +1069,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setStoreName($storeName)
     {
-
         if (is_null($storeName)) {
             throw new \InvalidArgumentException('non-nullable storeName cannot be null');
         }
-
         $this->container['storeName'] = $storeName;
 
         return $this;
@@ -1116,11 +1096,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCompany($company)
     {
-
         if (is_null($company)) {
             throw new \InvalidArgumentException('non-nullable company cannot be null');
         }
-
         $this->container['company'] = $company;
 
         return $this;
@@ -1145,11 +1123,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCompanyid($companyid)
     {
-
         if (is_null($companyid)) {
             throw new \InvalidArgumentException('non-nullable companyid cannot be null');
         }
-
         $this->container['companyid'] = $companyid;
 
         return $this;
@@ -1174,11 +1150,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddress($address)
     {
-
         if (is_null($address)) {
             throw new \InvalidArgumentException('non-nullable address cannot be null');
         }
-
         $this->container['address'] = $address;
 
         return $this;
@@ -1203,11 +1177,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddress2($address2)
     {
-
         if (is_null($address2)) {
             throw new \InvalidArgumentException('non-nullable address2 cannot be null');
         }
-
         $this->container['address2'] = $address2;
 
         return $this;
@@ -1232,11 +1204,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddress3($address3)
     {
-
         if (is_null($address3)) {
             throw new \InvalidArgumentException('non-nullable address3 cannot be null');
         }
-
         $this->container['address3'] = $address3;
 
         return $this;
@@ -1261,11 +1231,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCurrencycode($currencycode)
     {
-
         if (is_null($currencycode)) {
             throw new \InvalidArgumentException('non-nullable currencycode cannot be null');
         }
-
         $this->container['currencycode'] = $currencycode;
 
         return $this;
@@ -1290,11 +1258,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setStaff($staff)
     {
-
         if (is_null($staff)) {
             throw new \InvalidArgumentException('non-nullable staff cannot be null');
         }
-
         $this->container['staff'] = $staff;
 
         return $this;
@@ -1319,11 +1285,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setStaffuserid($staffuserid)
     {
-
         if (is_null($staffuserid)) {
             throw new \InvalidArgumentException('non-nullable staffuserid cannot be null');
         }
-
         $this->container['staffuserid'] = $staffuserid;
 
         return $this;
@@ -1348,11 +1312,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setComment($comment)
     {
-
         if (is_null($comment)) {
             throw new \InvalidArgumentException('non-nullable comment cannot be null');
         }
-
         $this->container['comment'] = $comment;
 
         return $this;
@@ -1377,11 +1339,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneysalestotal($moneysalestotal)
     {
-
         if (is_null($moneysalestotal)) {
             throw new \InvalidArgumentException('non-nullable moneysalestotal cannot be null');
         }
-
         $this->container['moneysalestotal'] = $moneysalestotal;
 
         return $this;
@@ -1406,11 +1366,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneysalestotalnet($moneysalestotalnet)
     {
-
         if (is_null($moneysalestotalnet)) {
             throw new \InvalidArgumentException('non-nullable moneysalestotalnet cannot be null');
         }
-
         $this->container['moneysalestotalnet'] = $moneysalestotalnet;
 
         return $this;
@@ -1435,11 +1393,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNumsales($numsales)
     {
-
         if (is_null($numsales)) {
             throw new \InvalidArgumentException('non-nullable numsales cannot be null');
         }
-
         $this->container['numsales'] = $numsales;
 
         return $this;
@@ -1464,11 +1420,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNumsalesitems($numsalesitems)
     {
-
         if (is_null($numsalesitems)) {
             throw new \InvalidArgumentException('non-nullable numsalesitems cannot be null');
         }
-
         $this->container['numsalesitems'] = $numsalesitems;
 
         return $this;
@@ -1493,11 +1447,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVatgroupssales($vatgroupssales)
     {
-
         if (is_null($vatgroupssales)) {
             throw new \InvalidArgumentException('non-nullable vatgroupssales cannot be null');
         }
-
         $this->container['vatgroupssales'] = $vatgroupssales;
 
         return $this;
@@ -1522,11 +1474,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setProductgroupssales($productgroupssales)
     {
-
         if (is_null($productgroupssales)) {
             throw new \InvalidArgumentException('non-nullable productgroupssales cannot be null');
         }
-
         $this->container['productgroupssales'] = $productgroupssales;
 
         return $this;
@@ -1551,11 +1501,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneysalesnotdeliveredtotal($moneysalesnotdeliveredtotal)
     {
-
         if (is_null($moneysalesnotdeliveredtotal)) {
             throw new \InvalidArgumentException('non-nullable moneysalesnotdeliveredtotal cannot be null');
         }
-
         $this->container['moneysalesnotdeliveredtotal'] = $moneysalesnotdeliveredtotal;
 
         return $this;
@@ -1580,11 +1528,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneysalesnotdeliveredtotalnet($moneysalesnotdeliveredtotalnet)
     {
-
         if (is_null($moneysalesnotdeliveredtotalnet)) {
             throw new \InvalidArgumentException('non-nullable moneysalesnotdeliveredtotalnet cannot be null');
         }
-
         $this->container['moneysalesnotdeliveredtotalnet'] = $moneysalesnotdeliveredtotalnet;
 
         return $this;
@@ -1609,11 +1555,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNumsalesnotdelivered($numsalesnotdelivered)
     {
-
         if (is_null($numsalesnotdelivered)) {
             throw new \InvalidArgumentException('non-nullable numsalesnotdelivered cannot be null');
         }
-
         $this->container['numsalesnotdelivered'] = $numsalesnotdelivered;
 
         return $this;
@@ -1638,11 +1582,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNumsalesnotdelivereditems($numsalesnotdelivereditems)
     {
-
         if (is_null($numsalesnotdelivereditems)) {
             throw new \InvalidArgumentException('non-nullable numsalesnotdelivereditems cannot be null');
         }
-
         $this->container['numsalesnotdelivereditems'] = $numsalesnotdelivereditems;
 
         return $this;
@@ -1667,11 +1609,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVatgroupssalesnotdelivered($vatgroupssalesnotdelivered)
     {
-
         if (is_null($vatgroupssalesnotdelivered)) {
             throw new \InvalidArgumentException('non-nullable vatgroupssalesnotdelivered cannot be null');
         }
-
         $this->container['vatgroupssalesnotdelivered'] = $vatgroupssalesnotdelivered;
 
         return $this;
@@ -1696,11 +1636,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setProductgroupssalesnotdelivered($productgroupssalesnotdelivered)
     {
-
         if (is_null($productgroupssalesnotdelivered)) {
             throw new \InvalidArgumentException('non-nullable productgroupssalesnotdelivered cannot be null');
         }
-
         $this->container['productgroupssalesnotdelivered'] = $productgroupssalesnotdelivered;
 
         return $this;
@@ -1725,11 +1663,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneyrefundtotal($moneyrefundtotal)
     {
-
         if (is_null($moneyrefundtotal)) {
             throw new \InvalidArgumentException('non-nullable moneyrefundtotal cannot be null');
         }
-
         $this->container['moneyrefundtotal'] = $moneyrefundtotal;
 
         return $this;
@@ -1754,11 +1690,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneyrefundtotalnet($moneyrefundtotalnet)
     {
-
         if (is_null($moneyrefundtotalnet)) {
             throw new \InvalidArgumentException('non-nullable moneyrefundtotalnet cannot be null');
         }
-
         $this->container['moneyrefundtotalnet'] = $moneyrefundtotalnet;
 
         return $this;
@@ -1783,11 +1717,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNumrefund($numrefund)
     {
-
         if (is_null($numrefund)) {
             throw new \InvalidArgumentException('non-nullable numrefund cannot be null');
         }
-
         $this->container['numrefund'] = $numrefund;
 
         return $this;
@@ -1812,11 +1744,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNumrefunditems($numrefunditems)
     {
-
         if (is_null($numrefunditems)) {
             throw new \InvalidArgumentException('non-nullable numrefunditems cannot be null');
         }
-
         $this->container['numrefunditems'] = $numrefunditems;
 
         return $this;
@@ -1841,11 +1771,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVatgroupsrefund($vatgroupsrefund)
     {
-
         if (is_null($vatgroupsrefund)) {
             throw new \InvalidArgumentException('non-nullable vatgroupsrefund cannot be null');
         }
-
         $this->container['vatgroupsrefund'] = $vatgroupsrefund;
 
         return $this;
@@ -1870,11 +1798,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setProductgroupsrefund($productgroupsrefund)
     {
-
         if (is_null($productgroupsrefund)) {
             throw new \InvalidArgumentException('non-nullable productgroupsrefund cannot be null');
         }
-
         $this->container['productgroupsrefund'] = $productgroupsrefund;
 
         return $this;
@@ -1899,11 +1825,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneyroundoff($moneyroundoff)
     {
-
         if (is_null($moneyroundoff)) {
             throw new \InvalidArgumentException('non-nullable moneyroundoff cannot be null');
         }
-
         $this->container['moneyroundoff'] = $moneyroundoff;
 
         return $this;
@@ -1928,11 +1852,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSalestaxessales($salestaxessales)
     {
-
         if (is_null($salestaxessales)) {
             throw new \InvalidArgumentException('non-nullable salestaxessales cannot be null');
         }
-
         $this->container['salestaxessales'] = $salestaxessales;
 
         return $this;
@@ -1957,11 +1879,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSalestaxesrefund($salestaxesrefund)
     {
-
         if (is_null($salestaxesrefund)) {
             throw new \InvalidArgumentException('non-nullable salestaxesrefund cannot be null');
         }
-
         $this->container['salestaxesrefund'] = $salestaxesrefund;
 
         return $this;
@@ -1986,11 +1906,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneysalestaxinadvance($moneysalestaxinadvance)
     {
-
         if (is_null($moneysalestaxinadvance)) {
             throw new \InvalidArgumentException('non-nullable moneysalestaxinadvance cannot be null');
         }
-
         $this->container['moneysalestaxinadvance'] = $moneysalestaxinadvance;
 
         return $this;
@@ -2015,11 +1933,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneysummarysales($moneysummarysales)
     {
-
         if (is_null($moneysummarysales)) {
             throw new \InvalidArgumentException('non-nullable moneysummarysales cannot be null');
         }
-
         $this->container['moneysummarysales'] = $moneysummarysales;
 
         return $this;
@@ -2044,11 +1960,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneysummaryrefund($moneysummaryrefund)
     {
-
         if (is_null($moneysummaryrefund)) {
             throw new \InvalidArgumentException('non-nullable moneysummaryrefund cannot be null');
         }
-
         $this->container['moneysummaryrefund'] = $moneysummaryrefund;
 
         return $this;
@@ -2073,11 +1987,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneysummarysubtotal($moneysummarysubtotal)
     {
-
         if (is_null($moneysummarysubtotal)) {
             throw new \InvalidArgumentException('non-nullable moneysummarysubtotal cannot be null');
         }
-
         $this->container['moneysummarysubtotal'] = $moneysummarysubtotal;
 
         return $this;
@@ -2102,11 +2014,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneysummarysalestax($moneysummarysalestax)
     {
-
         if (is_null($moneysummarysalestax)) {
             throw new \InvalidArgumentException('non-nullable moneysummarysalestax cannot be null');
         }
-
         $this->container['moneysummarysalestax'] = $moneysummarysalestax;
 
         return $this;
@@ -2131,11 +2041,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneysummaryroundoff($moneysummaryroundoff)
     {
-
         if (is_null($moneysummaryroundoff)) {
             throw new \InvalidArgumentException('non-nullable moneysummaryroundoff cannot be null');
         }
-
         $this->container['moneysummaryroundoff'] = $moneysummaryroundoff;
 
         return $this;
@@ -2160,11 +2068,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneysummarytotal($moneysummarytotal)
     {
-
         if (is_null($moneysummarytotal)) {
             throw new \InvalidArgumentException('non-nullable moneysummarytotal cannot be null');
         }
-
         $this->container['moneysummarytotal'] = $moneysummarytotal;
 
         return $this;
@@ -2189,11 +2095,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPaymentssales($paymentssales)
     {
-
         if (is_null($paymentssales)) {
             throw new \InvalidArgumentException('non-nullable paymentssales cannot be null');
         }
-
         $this->container['paymentssales'] = $paymentssales;
 
         return $this;
@@ -2218,11 +2122,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPaymentsrefund($paymentsrefund)
     {
-
         if (is_null($paymentsrefund)) {
             throw new \InvalidArgumentException('non-nullable paymentsrefund cannot be null');
         }
-
         $this->container['paymentsrefund'] = $paymentsrefund;
 
         return $this;
@@ -2247,11 +2149,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDiscountssales($discountssales)
     {
-
         if (is_null($discountssales)) {
             throw new \InvalidArgumentException('non-nullable discountssales cannot be null');
         }
-
         $this->container['discountssales'] = $discountssales;
 
         return $this;
@@ -2276,11 +2176,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDiscountssalesnotdelivered($discountssalesnotdelivered)
     {
-
         if (is_null($discountssalesnotdelivered)) {
             throw new \InvalidArgumentException('non-nullable discountssalesnotdelivered cannot be null');
         }
-
         $this->container['discountssalesnotdelivered'] = $discountssalesnotdelivered;
 
         return $this;
@@ -2305,11 +2203,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDiscountsrefund($discountsrefund)
     {
-
         if (is_null($discountsrefund)) {
             throw new \InvalidArgumentException('non-nullable discountsrefund cannot be null');
         }
-
         $this->container['discountsrefund'] = $discountsrefund;
 
         return $this;
@@ -2334,11 +2230,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneycashIn($moneycashIn)
     {
-
         if (is_null($moneycashIn)) {
             throw new \InvalidArgumentException('non-nullable moneycashIn cannot be null');
         }
-
         $this->container['moneycashIn'] = $moneycashIn;
 
         return $this;
@@ -2363,11 +2257,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneycashSalesrefunds($moneycashSalesrefunds)
     {
-
         if (is_null($moneycashSalesrefunds)) {
             throw new \InvalidArgumentException('non-nullable moneycashSalesrefunds cannot be null');
         }
-
         $this->container['moneycashSalesrefunds'] = $moneycashSalesrefunds;
 
         return $this;
@@ -2392,11 +2284,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneycashPetty($moneycashPetty)
     {
-
         if (is_null($moneycashPetty)) {
             throw new \InvalidArgumentException('non-nullable moneycashPetty cannot be null');
         }
-
         $this->container['moneycashPetty'] = $moneycashPetty;
 
         return $this;
@@ -2421,11 +2311,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneycashBank($moneycashBank)
     {
-
         if (is_null($moneycashBank)) {
             throw new \InvalidArgumentException('non-nullable moneycashBank cannot be null');
         }
-
         $this->container['moneycashBank'] = $moneycashBank;
 
         return $this;
@@ -2450,11 +2338,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneycashExpected($moneycashExpected)
     {
-
         if (is_null($moneycashExpected)) {
             throw new \InvalidArgumentException('non-nullable moneycashExpected cannot be null');
         }
-
         $this->container['moneycashExpected'] = $moneycashExpected;
 
         return $this;
@@ -2479,11 +2365,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneycashCounted($moneycashCounted)
     {
-
         if (is_null($moneycashCounted)) {
             throw new \InvalidArgumentException('non-nullable moneycashCounted cannot be null');
         }
-
         $this->container['moneycashCounted'] = $moneycashCounted;
 
         return $this;
@@ -2508,11 +2392,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneycashDiff($moneycashDiff)
     {
-
         if (is_null($moneycashDiff)) {
             throw new \InvalidArgumentException('non-nullable moneycashDiff cannot be null');
         }
-
         $this->container['moneycashDiff'] = $moneycashDiff;
 
         return $this;
@@ -2537,11 +2419,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneycashBankfinal($moneycashBankfinal)
     {
-
         if (is_null($moneycashBankfinal)) {
             throw new \InvalidArgumentException('non-nullable moneycashBankfinal cannot be null');
         }
-
         $this->container['moneycashBankfinal'] = $moneycashBankfinal;
 
         return $this;
@@ -2566,11 +2446,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneycashOut($moneycashOut)
     {
-
         if (is_null($moneycashOut)) {
             throw new \InvalidArgumentException('non-nullable moneycashOut cannot be null');
         }
-
         $this->container['moneycashOut'] = $moneycashOut;
 
         return $this;
@@ -2595,11 +2473,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneydiscount($moneydiscount)
     {
-
         if (is_null($moneydiscount)) {
             throw new \InvalidArgumentException('non-nullable moneydiscount cannot be null');
         }
-
         $this->container['moneydiscount'] = $moneydiscount;
 
         return $this;
@@ -2624,11 +2500,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNumsalestypeproduct($numsalestypeproduct)
     {
-
         if (is_null($numsalestypeproduct)) {
             throw new \InvalidArgumentException('non-nullable numsalestypeproduct cannot be null');
         }
-
         $this->container['numsalestypeproduct'] = $numsalestypeproduct;
 
         return $this;
@@ -2653,11 +2527,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNumsalestypeservice($numsalestypeservice)
     {
-
         if (is_null($numsalestypeservice)) {
             throw new \InvalidArgumentException('non-nullable numsalestypeservice cannot be null');
         }
-
         $this->container['numsalestypeservice'] = $numsalestypeservice;
 
         return $this;
@@ -2682,11 +2554,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNumsalestypegiftcard($numsalestypegiftcard)
     {
-
         if (is_null($numsalestypegiftcard)) {
             throw new \InvalidArgumentException('non-nullable numsalestypegiftcard cannot be null');
         }
-
         $this->container['numsalestypegiftcard'] = $numsalestypegiftcard;
 
         return $this;
@@ -2711,11 +2581,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNumreceipts($numreceipts)
     {
-
         if (is_null($numreceipts)) {
             throw new \InvalidArgumentException('non-nullable numreceipts cannot be null');
         }
-
         $this->container['numreceipts'] = $numreceipts;
 
         return $this;
@@ -2740,11 +2608,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNumopendrawer($numopendrawer)
     {
-
         if (is_null($numopendrawer)) {
             throw new \InvalidArgumentException('non-nullable numopendrawer cannot be null');
         }
-
         $this->container['numopendrawer'] = $numopendrawer;
 
         return $this;
@@ -2769,11 +2635,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNumpractice($numpractice)
     {
-
         if (is_null($numpractice)) {
             throw new \InvalidArgumentException('non-nullable numpractice cannot be null');
         }
-
         $this->container['numpractice'] = $numpractice;
 
         return $this;
@@ -2798,11 +2662,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneypractice($moneypractice)
     {
-
         if (is_null($moneypractice)) {
             throw new \InvalidArgumentException('non-nullable moneypractice cannot be null');
         }
-
         $this->container['moneypractice'] = $moneypractice;
 
         return $this;
@@ -2827,11 +2689,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneygrandtotalsales($moneygrandtotalsales)
     {
-
         if (is_null($moneygrandtotalsales)) {
             throw new \InvalidArgumentException('non-nullable moneygrandtotalsales cannot be null');
         }
-
         $this->container['moneygrandtotalsales'] = $moneygrandtotalsales;
 
         return $this;
@@ -2856,11 +2716,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneygrandtotalrefund($moneygrandtotalrefund)
     {
-
         if (is_null($moneygrandtotalrefund)) {
             throw new \InvalidArgumentException('non-nullable moneygrandtotalrefund cannot be null');
         }
-
         $this->container['moneygrandtotalrefund'] = $moneygrandtotalrefund;
 
         return $this;
@@ -2885,11 +2743,9 @@ class PoszreportRead implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMoneygrandtotalnet($moneygrandtotalnet)
     {
-
         if (is_null($moneygrandtotalnet)) {
             throw new \InvalidArgumentException('non-nullable moneygrandtotalnet cannot be null');
         }
-
         $this->container['moneygrandtotalnet'] = $moneygrandtotalnet;
 
         return $this;

@@ -383,11 +383,9 @@ class OrderitemsalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -412,11 +410,9 @@ class OrderitemsalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setCode($code)
     {
-
         if (is_null($code)) {
             throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
-
         $this->container['code'] = $code;
 
         return $this;
@@ -441,11 +437,9 @@ class OrderitemsalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setExternalid($externalid)
     {
-
         if (is_null($externalid)) {
             throw new \InvalidArgumentException('non-nullable externalid cannot be null');
         }
-
         $this->container['externalid'] = $externalid;
 
         return $this;
@@ -470,11 +464,9 @@ class OrderitemsalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setGroupregion($groupregion)
     {
-
         if (is_null($groupregion)) {
             throw new \InvalidArgumentException('non-nullable groupregion cannot be null');
         }
-
         $this->container['groupregion'] = $groupregion;
 
         return $this;
@@ -499,11 +491,9 @@ class OrderitemsalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setMoneytotal($moneytotal)
     {
-
         if (is_null($moneytotal)) {
             throw new \InvalidArgumentException('non-nullable moneytotal cannot be null');
         }
-
         $this->container['moneytotal'] = $moneytotal;
 
         return $this;
@@ -528,11 +518,9 @@ class OrderitemsalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setMoneytax($moneytax)
     {
-
         if (is_null($moneytax)) {
             throw new \InvalidArgumentException('non-nullable moneytax cannot be null');
         }
-
         $this->container['moneytax'] = $moneytax;
 
         return $this;
@@ -557,11 +545,9 @@ class OrderitemsalestaxWrite implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setDecimaltaxvalue($decimaltaxvalue)
     {
-
         if (is_null($decimaltaxvalue)) {
             throw new \InvalidArgumentException('non-nullable decimaltaxvalue cannot be null');
         }
-
         $this->container['decimaltaxvalue'] = $decimaltaxvalue;
 
         return $this;

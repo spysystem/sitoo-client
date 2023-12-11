@@ -336,11 +336,9 @@ class VolumepricelevelWrite implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setLevelstart($levelstart)
     {
-
         if (is_null($levelstart)) {
             throw new \InvalidArgumentException('non-nullable levelstart cannot be null');
         }
-
         $this->container['levelstart'] = $levelstart;
 
         return $this;
@@ -365,11 +363,9 @@ class VolumepricelevelWrite implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function setMoneyprice($moneyprice)
     {
-
         if (is_null($moneyprice)) {
             throw new \InvalidArgumentException('non-nullable moneyprice cannot be null');
         }
-
         $this->container['moneyprice'] = $moneyprice;
 
         return $this;

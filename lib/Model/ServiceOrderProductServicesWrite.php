@@ -364,11 +364,9 @@ class ServiceOrderProductServicesWrite implements ModelInterface, ArrayAccess, \
      */
     public function setSku($sku)
     {
-
         if (is_null($sku)) {
             throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
-
         $this->container['sku'] = $sku;
 
         return $this;
@@ -393,11 +391,9 @@ class ServiceOrderProductServicesWrite implements ModelInterface, ArrayAccess, \
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -422,11 +418,9 @@ class ServiceOrderProductServicesWrite implements ModelInterface, ArrayAccess, \
      */
     public function setQuantity($quantity)
     {
-
         if (is_null($quantity)) {
             throw new \InvalidArgumentException('non-nullable quantity cannot be null');
         }
-
         $this->container['quantity'] = $quantity;
 
         return $this;
@@ -451,11 +445,9 @@ class ServiceOrderProductServicesWrite implements ModelInterface, ArrayAccess, \
      */
     public function setUnitPrice($unitPrice)
     {
-
         if (is_null($unitPrice)) {
             throw new \InvalidArgumentException('non-nullable unitPrice cannot be null');
         }
-
         $this->container['unitPrice'] = $unitPrice;
 
         return $this;
@@ -480,11 +472,9 @@ class ServiceOrderProductServicesWrite implements ModelInterface, ArrayAccess, \
      */
     public function setCostShare($costShare)
     {
-
         if (is_null($costShare)) {
             throw new \InvalidArgumentException('non-nullable costShare cannot be null');
         }
-
         $this->container['costShare'] = $costShare;
 
         return $this;
@@ -509,11 +499,9 @@ class ServiceOrderProductServicesWrite implements ModelInterface, ArrayAccess, \
      */
     public function setNote($note)
     {
-
         if (is_null($note)) {
             throw new \InvalidArgumentException('non-nullable note cannot be null');
         }
-
         $this->container['note'] = $note;
 
         return $this;

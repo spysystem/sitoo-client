@@ -402,11 +402,9 @@ class ManufacturerWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -431,11 +429,9 @@ class ManufacturerWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setDescription($description)
     {
-
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-
         $this->container['description'] = $description;
 
         return $this;
@@ -460,11 +456,9 @@ class ManufacturerWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setAddress($address)
     {
-
         if (is_null($address)) {
             throw new \InvalidArgumentException('non-nullable address cannot be null');
         }
-
         $this->container['address'] = $address;
 
         return $this;
@@ -489,11 +483,9 @@ class ManufacturerWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setZip($zip)
     {
-
         if (is_null($zip)) {
             throw new \InvalidArgumentException('non-nullable zip cannot be null');
         }
-
         $this->container['zip'] = $zip;
 
         return $this;
@@ -518,11 +510,9 @@ class ManufacturerWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setCity($city)
     {
-
         if (is_null($city)) {
             throw new \InvalidArgumentException('non-nullable city cannot be null');
         }
-
         $this->container['city'] = $city;
 
         return $this;
@@ -547,11 +537,9 @@ class ManufacturerWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setState($state)
     {
-
         if (is_null($state)) {
             throw new \InvalidArgumentException('non-nullable state cannot be null');
         }
-
         $this->container['state'] = $state;
 
         return $this;
@@ -576,11 +564,9 @@ class ManufacturerWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setCountryid($countryid)
     {
-
         if (is_null($countryid)) {
             throw new \InvalidArgumentException('non-nullable countryid cannot be null');
         }
-
         $this->container['countryid'] = $countryid;
 
         return $this;
@@ -605,11 +591,9 @@ class ManufacturerWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setPhone($phone)
     {
-
         if (is_null($phone)) {
             throw new \InvalidArgumentException('non-nullable phone cannot be null');
         }
-
         $this->container['phone'] = $phone;
 
         return $this;
@@ -634,11 +618,9 @@ class ManufacturerWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setEmail($email)
     {
-
         if (is_null($email)) {
             throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
-
         $this->container['email'] = $email;
 
         return $this;
@@ -663,11 +645,9 @@ class ManufacturerWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setUrl1($url1)
     {
-
         if (is_null($url1)) {
             throw new \InvalidArgumentException('non-nullable url1 cannot be null');
         }
-
         $this->container['url1'] = $url1;
 
         return $this;
@@ -692,11 +672,9 @@ class ManufacturerWrite implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setUrl2($url2)
     {
-
         if (is_null($url2)) {
             throw new \InvalidArgumentException('non-nullable url2 cannot be null');
         }
-
         $this->container['url2'] = $url2;
 
         return $this;
