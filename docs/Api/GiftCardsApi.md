@@ -5,9 +5,9 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addGiftCard()**](GiftCardsApi.md#addGiftCard) | **POST** /sites/{siteid}/giftcards.json |  |
-[**addGiftCardTransaction()**](GiftCardsApi.md#addGiftCardTransaction) | **POST** /sites/{siteid}/giftcards/{cardnumber}/transactions.json |  |
-[**deleteGiftCardTransactions()**](GiftCardsApi.md#deleteGiftCardTransactions) | **DELETE** /sites/{siteid}/giftcards/{cardnumber}/transactions.json |  |
-[**getGiftCard()**](GiftCardsApi.md#getGiftCard) | **GET** /sites/{siteid}/giftcards/{cardnumber}.json |  |
+| [**addGiftCardTransaction()**](GiftCardsApi.md#addGiftCardTransaction) | **POST** /sites/{siteid}/giftcards/{cardnumber}/transactions.json |  |
+| [**deleteGiftCardTransactions()**](GiftCardsApi.md#deleteGiftCardTransactions) | **DELETE** /sites/{siteid}/giftcards/{cardnumber}/transactions.json |  |
+| [**getGiftCard()**](GiftCardsApi.md#getGiftCard) | **GET** /sites/{siteid}/giftcards/{cardnumber}.json |  |
 
 
 ## `addGiftCard()`
@@ -56,16 +56,16 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **giftcardWrite** | [**\Spy\SitooClient\Model\GiftcardWrite**](../Model/GiftcardWrite.md)|  |
- **deliverytype** | **string**|  | [optional]
- **deliverytext** | **string**|  | [optional]
- **email** | **string**|  | [optional]
- **mobile** | **string**|  | [optional]
- **productReference** | **string**|  | [optional]
- **pin** | **string**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **giftcardWrite** | [**\Spy\SitooClient\Model\GiftcardWrite**](../Model/GiftcardWrite.md)|  | |
+| **deliverytype** | **string**|  | [optional] |
+| **deliverytext** | **string**|  | [optional] |
+| **email** | **string**|  | [optional] |
+| **mobile** | **string**|  | [optional] |
+| **productReference** | **string**|  | [optional] |
+| **pin** | **string**|  | [optional] |
 
 ### Return type
 
@@ -126,12 +126,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **cardnumber** | **int**|  |
- **giftcardtransactionWrite** | [**\Spy\SitooClient\Model\GiftcardtransactionWrite**](../Model/GiftcardtransactionWrite.md)|  |
- **pin** | **string**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **cardnumber** | **int**|  | |
+| **giftcardtransactionWrite** | [**\Spy\SitooClient\Model\GiftcardtransactionWrite**](../Model/GiftcardtransactionWrite.md)|  | |
+| **pin** | **string**|  | [optional] |
 
 ### Return type
 
@@ -193,11 +193,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **cardnumber** | **int**|  |
- **giftcardresponseWrite** | [**\Spy\SitooClient\Model\GiftcardresponseWrite**](../Model/GiftcardresponseWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **cardnumber** | **int**|  | |
+| **giftcardresponseWrite** | [**\Spy\SitooClient\Model\GiftcardresponseWrite**](../Model/GiftcardresponseWrite.md)|  | |
 
 ### Return type
 
@@ -257,11 +257,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **cardnumber** | **int**|  |
- **pin** | **string**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **cardnumber** | **int**|  | |
+| **pin** | **string**|  | [optional] |
 
 ### Return type
 

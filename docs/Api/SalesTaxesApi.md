@@ -5,15 +5,15 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addSalesTax()**](SalesTaxesApi.md#addSalesTax) | **POST** /sites/{siteid}/salestaxes.json |  |
-[**addSalesTaxGroup()**](SalesTaxesApi.md#addSalesTaxGroup) | **POST** /sites/{siteid}/salestaxgroups.json |  |
-[**deleteSalesTax()**](SalesTaxesApi.md#deleteSalesTax) | **DELETE** /sites/{siteid}/salestaxes/{salestaxid}.json |  |
-[**deleteSalesTaxGroup()**](SalesTaxesApi.md#deleteSalesTaxGroup) | **DELETE** /sites/{siteid}/salestaxgroups/{salestaxgroupid}.json |  |
-[**getSalesTax()**](SalesTaxesApi.md#getSalesTax) | **GET** /sites/{siteid}/salestaxes/{salestaxid}.json |  |
-[**getSalesTaxGroup()**](SalesTaxesApi.md#getSalesTaxGroup) | **GET** /sites/{siteid}/salestaxgroups/{salestaxgroupid}.json |  |
-[**getSalesTaxGroups()**](SalesTaxesApi.md#getSalesTaxGroups) | **GET** /sites/{siteid}/salestaxgroups.json |  |
-[**getSalesTaxes()**](SalesTaxesApi.md#getSalesTaxes) | **GET** /sites/{siteid}/salestaxes.json |  |
-[**updateSalesTax()**](SalesTaxesApi.md#updateSalesTax) | **PUT** /sites/{siteid}/salestaxes/{salestaxid}.json |  |
-[**updateSalesTaxGroup()**](SalesTaxesApi.md#updateSalesTaxGroup) | **PUT** /sites/{siteid}/salestaxgroups/{salestaxgroupid}.json |  |
+| [**addSalesTaxGroup()**](SalesTaxesApi.md#addSalesTaxGroup) | **POST** /sites/{siteid}/salestaxgroups.json |  |
+| [**deleteSalesTax()**](SalesTaxesApi.md#deleteSalesTax) | **DELETE** /sites/{siteid}/salestaxes/{salestaxid}.json |  |
+| [**deleteSalesTaxGroup()**](SalesTaxesApi.md#deleteSalesTaxGroup) | **DELETE** /sites/{siteid}/salestaxgroups/{salestaxgroupid}.json |  |
+| [**getSalesTax()**](SalesTaxesApi.md#getSalesTax) | **GET** /sites/{siteid}/salestaxes/{salestaxid}.json |  |
+| [**getSalesTaxGroup()**](SalesTaxesApi.md#getSalesTaxGroup) | **GET** /sites/{siteid}/salestaxgroups/{salestaxgroupid}.json |  |
+| [**getSalesTaxGroups()**](SalesTaxesApi.md#getSalesTaxGroups) | **GET** /sites/{siteid}/salestaxgroups.json |  |
+| [**getSalesTaxes()**](SalesTaxesApi.md#getSalesTaxes) | **GET** /sites/{siteid}/salestaxes.json |  |
+| [**updateSalesTax()**](SalesTaxesApi.md#updateSalesTax) | **PUT** /sites/{siteid}/salestaxes/{salestaxid}.json |  |
+| [**updateSalesTaxGroup()**](SalesTaxesApi.md#updateSalesTaxGroup) | **PUT** /sites/{siteid}/salestaxgroups/{salestaxgroupid}.json |  |
 
 
 ## `addSalesTax()`
@@ -55,10 +55,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **salestaxWrite** | [**\Spy\SitooClient\Model\SalestaxWrite**](../Model/SalestaxWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **salestaxWrite** | [**\Spy\SitooClient\Model\SalestaxWrite**](../Model/SalestaxWrite.md)|  | |
 
 ### Return type
 
@@ -116,10 +116,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **salestaxgroupWrite** | [**\Spy\SitooClient\Model\SalestaxgroupWrite**](../Model/SalestaxgroupWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **salestaxgroupWrite** | [**\Spy\SitooClient\Model\SalestaxgroupWrite**](../Model/SalestaxgroupWrite.md)|  | |
 
 ### Return type
 
@@ -178,10 +178,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **salestaxid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **salestaxid** | **int**|  | |
 
 ### Return type
 
@@ -240,10 +240,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **salestaxgroupid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **salestaxgroupid** | **int**|  | |
 
 ### Return type
 
@@ -302,10 +302,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **salestaxid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **salestaxid** | **int**|  | |
 
 ### Return type
 
@@ -364,10 +364,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **salestaxgroupid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **salestaxgroupid** | **int**|  | |
 
 ### Return type
 
@@ -428,12 +428,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -494,12 +494,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -559,11 +559,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **salestaxid** | **int**|  |
- **salestaxWrite** | [**\Spy\SitooClient\Model\SalestaxWrite**](../Model/SalestaxWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **salestaxid** | **int**|  | |
+| **salestaxWrite** | [**\Spy\SitooClient\Model\SalestaxWrite**](../Model/SalestaxWrite.md)|  | |
 
 ### Return type
 
@@ -623,11 +623,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **salestaxgroupid** | **int**|  |
- **salestaxgroupWrite** | [**\Spy\SitooClient\Model\SalestaxgroupWrite**](../Model/SalestaxgroupWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **salestaxgroupid** | **int**|  | |
+| **salestaxgroupWrite** | [**\Spy\SitooClient\Model\SalestaxgroupWrite**](../Model/SalestaxgroupWrite.md)|  | |
 
 ### Return type
 

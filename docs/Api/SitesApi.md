@@ -5,7 +5,7 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**getSite()**](SitesApi.md#getSite) | **GET** /sites/{siteid}.json |  |
-[**getSites()**](SitesApi.md#getSites) | **GET** /sites.json |  |
+| [**getSites()**](SitesApi.md#getSites) | **GET** /sites.json |  |
 
 
 ## `getSite()`
@@ -47,9 +47,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
 
 ### Return type
 

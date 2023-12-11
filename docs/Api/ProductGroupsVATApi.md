@@ -5,10 +5,10 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addProductGroup()**](ProductGroupsVATApi.md#addProductGroup) | **POST** /sites/{siteid}/productgroups.json |  |
-[**deleteProductGroup()**](ProductGroupsVATApi.md#deleteProductGroup) | **DELETE** /sites/{siteid}/productgroups/{vatid}.json |  |
-[**getProductGroup()**](ProductGroupsVATApi.md#getProductGroup) | **GET** /sites/{siteid}/productgroups/{vatid}.json |  |
-[**getProductGroups()**](ProductGroupsVATApi.md#getProductGroups) | **GET** /sites/{siteid}/productgroups.json |  |
-[**updateProductGroup()**](ProductGroupsVATApi.md#updateProductGroup) | **PUT** /sites/{siteid}/productgroups/{vatid}.json |  |
+| [**deleteProductGroup()**](ProductGroupsVATApi.md#deleteProductGroup) | **DELETE** /sites/{siteid}/productgroups/{vatid}.json |  |
+| [**getProductGroup()**](ProductGroupsVATApi.md#getProductGroup) | **GET** /sites/{siteid}/productgroups/{vatid}.json |  |
+| [**getProductGroups()**](ProductGroupsVATApi.md#getProductGroups) | **GET** /sites/{siteid}/productgroups.json |  |
+| [**updateProductGroup()**](ProductGroupsVATApi.md#updateProductGroup) | **PUT** /sites/{siteid}/productgroups/{vatid}.json |  |
 
 
 ## `addProductGroup()`
@@ -50,10 +50,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **productgroupWrite** | [**\Spy\SitooClient\Model\ProductgroupWrite**](../Model/ProductgroupWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **productgroupWrite** | [**\Spy\SitooClient\Model\ProductgroupWrite**](../Model/ProductgroupWrite.md)|  | |
 
 ### Return type
 
@@ -112,10 +112,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **vatid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **vatid** | **int**|  | |
 
 ### Return type
 
@@ -174,10 +174,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **vatid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **vatid** | **int**|  | |
 
 ### Return type
 
@@ -238,12 +238,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -303,11 +303,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **vatid** | **int**|  |
- **productgroupWrite** | [**\Spy\SitooClient\Model\ProductgroupWrite**](../Model/ProductgroupWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **vatid** | **int**|  | |
+| **productgroupWrite** | [**\Spy\SitooClient\Model\ProductgroupWrite**](../Model/ProductgroupWrite.md)|  | |
 
 ### Return type
 

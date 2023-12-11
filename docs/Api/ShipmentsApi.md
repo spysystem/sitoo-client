@@ -5,9 +5,9 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addShipment()**](ShipmentsApi.md#addShipment) | **POST** /shipments.json |  |
-[**getShipment()**](ShipmentsApi.md#getShipment) | **GET** /shipments/{shipmentid}.json |  |
-[**getShipments()**](ShipmentsApi.md#getShipments) | **GET** /shipments.json |  |
-[**updateShipment()**](ShipmentsApi.md#updateShipment) | **PUT** /shipments/{shipmentid}.json |  |
+| [**getShipment()**](ShipmentsApi.md#getShipment) | **GET** /shipments/{shipmentid}.json |  |
+| [**getShipments()**](ShipmentsApi.md#getShipments) | **GET** /shipments.json |  |
+| [**updateShipment()**](ShipmentsApi.md#updateShipment) | **PUT** /shipments/{shipmentid}.json |  |
 
 
 ## `addShipment()`
@@ -49,9 +49,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **shipmentWrite** | [**\Spy\SitooClient\Model\ShipmentWrite**](../Model/ShipmentWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **shipmentWrite** | [**\Spy\SitooClient\Model\ShipmentWrite**](../Model/ShipmentWrite.md)|  | |
 
 ### Return type
 
@@ -109,9 +109,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **shipmentid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **shipmentid** | **int**|  | |
 
 ### Return type
 
@@ -175,15 +175,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **shipmentid** | [**int[]**](../Model/int.md)|  | [optional]
- **senderWarehouseid** | **int**|  | [optional]
- **receiverWarehouseid** | **int**|  | [optional]
- **archived** | **int**|  | [optional]
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **shipmentid** | [**int[]**](../Model/int.md)|  | [optional] |
+| **senderWarehouseid** | **int**|  | [optional] |
+| **receiverWarehouseid** | **int**|  | [optional] |
+| **archived** | **int**|  | [optional] |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -242,10 +242,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **shipmentid** | **int**|  |
- **shipmentWrite** | [**\Spy\SitooClient\Model\ShipmentWrite**](../Model/ShipmentWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **shipmentid** | **int**|  | |
+| **shipmentWrite** | [**\Spy\SitooClient\Model\ShipmentWrite**](../Model/ShipmentWrite.md)|  | |
 
 ### Return type
 

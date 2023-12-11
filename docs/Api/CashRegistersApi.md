@@ -5,9 +5,9 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**getCashRegister()**](CashRegistersApi.md#getCashRegister) | **GET** /sites/{siteid}/cashregisters/{registerid}.json |  |
-[**getCashRegisters()**](CashRegistersApi.md#getCashRegisters) | **GET** /sites/{siteid}/cashregisters.json |  |
-[**getZReport()**](CashRegistersApi.md#getZReport) | **GET** /sites/{siteid}/cashregisters/{registerid}/zreports/{zreportid}.json |  |
-[**getZReports()**](CashRegistersApi.md#getZReports) | **GET** /sites/{siteid}/cashregisters/{registerid}/zreports.json |  |
+| [**getCashRegisters()**](CashRegistersApi.md#getCashRegisters) | **GET** /sites/{siteid}/cashregisters.json |  |
+| [**getZReport()**](CashRegistersApi.md#getZReport) | **GET** /sites/{siteid}/cashregisters/{registerid}/zreports/{zreportid}.json |  |
+| [**getZReports()**](CashRegistersApi.md#getZReports) | **GET** /sites/{siteid}/cashregisters/{registerid}/zreports.json |  |
 
 
 ## `getCashRegister()`
@@ -50,10 +50,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **registerid** | **string**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **registerid** | **string**|  | |
 
 ### Return type
 
@@ -113,11 +113,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
 
 ### Return type
 
@@ -177,11 +177,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **registerid** | **string**|  |
- **zreportid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **registerid** | **string**|  | |
+| **zreportid** | **int**|  | |
 
 ### Return type
 
@@ -244,14 +244,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **registerid** | **string**|  |
- **datecreatedfrom** | **int**|  | [optional]
- **datecreatedto** | **int**|  | [optional]
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **registerid** | **string**|  | |
+| **datecreatedfrom** | **int**|  | [optional] |
+| **datecreatedto** | **int**|  | [optional] |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
 
 ### Return type
 

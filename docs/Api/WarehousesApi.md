@@ -5,12 +5,12 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addWarehouse()**](WarehousesApi.md#addWarehouse) | **POST** /sites/{siteid}/warehouses.json |  |
-[**batchSetWarehouseItems()**](WarehousesApi.md#batchSetWarehouseItems) | **PUT** /sites/{siteid}/warehouses/{warehouseid}/warehouseitems.json |  |
-[**deleteWarehouse()**](WarehousesApi.md#deleteWarehouse) | **DELETE** /sites/{siteid}/warehouses/{warehouseid}.json |  |
-[**getWarehouse()**](WarehousesApi.md#getWarehouse) | **GET** /sites/{siteid}/warehouses/{warehouseid}.json |  |
-[**getWarehouseItems()**](WarehousesApi.md#getWarehouseItems) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehouseitems.json |  |
-[**getWarehouses()**](WarehousesApi.md#getWarehouses) | **GET** /sites/{siteid}/warehouses.json |  |
-[**updateWarehouse()**](WarehousesApi.md#updateWarehouse) | **PUT** /sites/{siteid}/warehouses/{warehouseid}.json |  |
+| [**batchSetWarehouseItems()**](WarehousesApi.md#batchSetWarehouseItems) | **PUT** /sites/{siteid}/warehouses/{warehouseid}/warehouseitems.json |  |
+| [**deleteWarehouse()**](WarehousesApi.md#deleteWarehouse) | **DELETE** /sites/{siteid}/warehouses/{warehouseid}.json |  |
+| [**getWarehouse()**](WarehousesApi.md#getWarehouse) | **GET** /sites/{siteid}/warehouses/{warehouseid}.json |  |
+| [**getWarehouseItems()**](WarehousesApi.md#getWarehouseItems) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehouseitems.json |  |
+| [**getWarehouses()**](WarehousesApi.md#getWarehouses) | **GET** /sites/{siteid}/warehouses.json |  |
+| [**updateWarehouse()**](WarehousesApi.md#updateWarehouse) | **PUT** /sites/{siteid}/warehouses/{warehouseid}.json |  |
 
 
 ## `addWarehouse()`
@@ -52,10 +52,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseWrite** | [**\Spy\SitooClient\Model\WarehouseWrite**](../Model/WarehouseWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseWrite** | [**\Spy\SitooClient\Model\WarehouseWrite**](../Model/WarehouseWrite.md)|  | |
 
 ### Return type
 
@@ -114,11 +114,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
- **warehouseitemWrite** | [**\Spy\SitooClient\Model\WarehouseitemWrite[]**](../Model/WarehouseitemWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
+| **warehouseitemWrite** | [**\Spy\SitooClient\Model\WarehouseitemWrite[]**](../Model/WarehouseitemWrite.md)|  | |
 
 ### Return type
 
@@ -177,10 +177,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
 
 ### Return type
 
@@ -239,10 +239,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
 
 ### Return type
 
@@ -307,16 +307,16 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **datelastmodifiedfrom** | **int**|  | [optional]
- **datelastmodifiedto** | **int**|  | [optional]
- **sku** | [**string[]**](../Model/string.md)|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **datelastmodifiedfrom** | **int**|  | [optional] |
+| **datelastmodifiedto** | **int**|  | [optional] |
+| **sku** | [**string[]**](../Model/string.md)|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -377,12 +377,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -442,11 +442,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
- **warehouseWrite** | [**\Spy\SitooClient\Model\WarehouseWrite**](../Model/WarehouseWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
+| **warehouseWrite** | [**\Spy\SitooClient\Model\WarehouseWrite**](../Model/WarehouseWrite.md)|  | |
 
 ### Return type
 

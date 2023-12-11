@@ -5,12 +5,12 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**batchAddManufacturers()**](ManufacturersApi.md#batchAddManufacturers) | **POST** /sites/{siteid}/manufacturers.json |  |
-[**batchDeleteManufacturers()**](ManufacturersApi.md#batchDeleteManufacturers) | **DELETE** /sites/{siteid}/manufacturers.json |  |
-[**batchUpdateManufacturers()**](ManufacturersApi.md#batchUpdateManufacturers) | **PUT** /sites/{siteid}/manufacturers.json |  |
-[**deleteManufacturer()**](ManufacturersApi.md#deleteManufacturer) | **DELETE** /sites/{siteid}/manufacturers/{externalcompanyid}.json |  |
-[**getManufacturer()**](ManufacturersApi.md#getManufacturer) | **GET** /sites/{siteid}/manufacturers/{externalcompanyid}.json |  |
-[**getManufacturers()**](ManufacturersApi.md#getManufacturers) | **GET** /sites/{siteid}/manufacturers.json |  |
-[**updateManufacturer()**](ManufacturersApi.md#updateManufacturer) | **PUT** /sites/{siteid}/manufacturers/{externalcompanyid}.json |  |
+| [**batchDeleteManufacturers()**](ManufacturersApi.md#batchDeleteManufacturers) | **DELETE** /sites/{siteid}/manufacturers.json |  |
+| [**batchUpdateManufacturers()**](ManufacturersApi.md#batchUpdateManufacturers) | **PUT** /sites/{siteid}/manufacturers.json |  |
+| [**deleteManufacturer()**](ManufacturersApi.md#deleteManufacturer) | **DELETE** /sites/{siteid}/manufacturers/{externalcompanyid}.json |  |
+| [**getManufacturer()**](ManufacturersApi.md#getManufacturer) | **GET** /sites/{siteid}/manufacturers/{externalcompanyid}.json |  |
+| [**getManufacturers()**](ManufacturersApi.md#getManufacturers) | **GET** /sites/{siteid}/manufacturers.json |  |
+| [**updateManufacturer()**](ManufacturersApi.md#updateManufacturer) | **PUT** /sites/{siteid}/manufacturers/{externalcompanyid}.json |  |
 
 
 ## `batchAddManufacturers()`
@@ -53,10 +53,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **manufacturerWrite** | [**\Spy\SitooClient\Model\ManufacturerWrite[]**](../Model/ManufacturerWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **manufacturerWrite** | [**\Spy\SitooClient\Model\ManufacturerWrite[]**](../Model/ManufacturerWrite.md)|  | |
 
 ### Return type
 
@@ -114,10 +114,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **requestBody** | [**object[]**](../Model/object.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **requestBody** | [**object[]**](../Model/object.md)|  | |
 
 ### Return type
 
@@ -178,10 +178,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **manufacturerWrite** | [**\Spy\SitooClient\Model\ManufacturerWrite[]**](../Model/ManufacturerWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **manufacturerWrite** | [**\Spy\SitooClient\Model\ManufacturerWrite[]**](../Model/ManufacturerWrite.md)|  | |
 
 ### Return type
 
@@ -242,10 +242,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **externalcompanyid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **externalcompanyid** | **int**|  | |
 
 ### Return type
 
@@ -306,10 +306,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **externalcompanyid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **externalcompanyid** | **int**|  | |
 
 ### Return type
 
@@ -370,12 +370,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -437,11 +437,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **externalcompanyid** | **int**|  |
- **manufacturerWrite** | [**\Spy\SitooClient\Model\ManufacturerWrite**](../Model/ManufacturerWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **externalcompanyid** | **int**|  | |
+| **manufacturerWrite** | [**\Spy\SitooClient\Model\ManufacturerWrite**](../Model/ManufacturerWrite.md)|  | |
 
 ### Return type
 

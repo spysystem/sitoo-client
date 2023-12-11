@@ -5,11 +5,11 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addCustomMetric()**](CustomMetricsAPIApi.md#addCustomMetric) | **POST** /custom_metrics.json |  |
-[**deleteCustomMetric()**](CustomMetricsAPIApi.md#deleteCustomMetric) | **DELETE** /custom_metrics/{key}.json |  |
-[**deleteCustomMetricValues()**](CustomMetricsAPIApi.md#deleteCustomMetricValues) | **DELETE** /custom_metric_values/{key}.json |  |
-[**getCustomMetricValues()**](CustomMetricsAPIApi.md#getCustomMetricValues) | **GET** /custom_metric_values.json |  |
-[**getCustomMetrics()**](CustomMetricsAPIApi.md#getCustomMetrics) | **GET** /custom_metrics.json |  |
-[**updateCustomMetricValues()**](CustomMetricsAPIApi.md#updateCustomMetricValues) | **PUT** /custom_metric_values.json |  |
+| [**deleteCustomMetric()**](CustomMetricsAPIApi.md#deleteCustomMetric) | **DELETE** /custom_metrics/{key}.json |  |
+| [**deleteCustomMetricValues()**](CustomMetricsAPIApi.md#deleteCustomMetricValues) | **DELETE** /custom_metric_values/{key}.json |  |
+| [**getCustomMetricValues()**](CustomMetricsAPIApi.md#getCustomMetricValues) | **GET** /custom_metric_values.json |  |
+| [**getCustomMetrics()**](CustomMetricsAPIApi.md#getCustomMetrics) | **GET** /custom_metrics.json |  |
+| [**updateCustomMetricValues()**](CustomMetricsAPIApi.md#updateCustomMetricValues) | **PUT** /custom_metric_values.json |  |
 
 
 ## `addCustomMetric()`
@@ -53,9 +53,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customMetricWrite** | [**\Spy\SitooClient\Model\CustomMetricWrite**](../Model/CustomMetricWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **customMetricWrite** | [**\Spy\SitooClient\Model\CustomMetricWrite**](../Model/CustomMetricWrite.md)|  | |
 
 ### Return type
 
@@ -114,9 +114,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **string**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **key** | **string**|  | |
 
 ### Return type
 
@@ -178,12 +178,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **string**|  |
- **date** | **string**|  | [optional]
- **numDays** | **string**|  | [optional]
- **storeId** | **string**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **key** | **string**|  | |
+| **date** | **string**|  | [optional] |
+| **numDays** | **string**|  | [optional] |
+| **storeId** | **string**|  | [optional] |
 
 ### Return type
 
@@ -246,12 +246,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **keys** | **string**|  | [optional]
- **date** | **string**|  | [optional]
- **numDays** | **int**|  | [optional]
- **storeId** | **string**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **keys** | **string**|  | [optional] |
+| **date** | **string**|  | [optional] |
+| **numDays** | **int**|  | [optional] |
+| **storeId** | **string**|  | [optional] |
 
 ### Return type
 
@@ -311,9 +311,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **keys** | **string**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **keys** | **string**|  | [optional] |
 
 ### Return type
 
@@ -377,13 +377,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customMetricValueWrite** | [**\Spy\SitooClient\Model\CustomMetricValueWrite[]**](../Model/CustomMetricValueWrite.md)|  |
- **keys** | **string**|  | [optional]
- **date** | **string**|  | [optional]
- **numDays** | **int**|  | [optional]
- **storeId** | **string**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **customMetricValueWrite** | [**\Spy\SitooClient\Model\CustomMetricValueWrite[]**](../Model/CustomMetricValueWrite.md)|  | |
+| **keys** | **string**|  | [optional] |
+| **date** | **string**|  | [optional] |
+| **numDays** | **int**|  | [optional] |
+| **storeId** | **string**|  | [optional] |
 
 ### Return type
 

@@ -5,9 +5,9 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**batchAddWarehouseTransactions()**](WarehouseTransactionsApi.md#batchAddWarehouseTransactions) | **POST** /sites/{siteid}/warehousetransactions.json |  |
-[**getAllWarehouseTransactions()**](WarehouseTransactionsApi.md#getAllWarehouseTransactions) | **GET** /sites/{siteid}/warehousetransactions.json |  |
-[**getWarehouseTransaction()**](WarehouseTransactionsApi.md#getWarehouseTransaction) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousetransactions/{warehousetransactionid}.json |  |
-[**getWarehouseTransactions()**](WarehouseTransactionsApi.md#getWarehouseTransactions) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousetransactions.json |  |
+| [**getAllWarehouseTransactions()**](WarehouseTransactionsApi.md#getAllWarehouseTransactions) | **GET** /sites/{siteid}/warehousetransactions.json |  |
+| [**getWarehouseTransaction()**](WarehouseTransactionsApi.md#getWarehouseTransaction) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousetransactions/{warehousetransactionid}.json |  |
+| [**getWarehouseTransactions()**](WarehouseTransactionsApi.md#getWarehouseTransactions) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousetransactions.json |  |
 
 
 ## `batchAddWarehouseTransactions()`
@@ -51,10 +51,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehousetransactionWrite** | [**\Spy\SitooClient\Model\WarehousetransactionWrite[]**](../Model/WarehousetransactionWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehousetransactionWrite** | [**\Spy\SitooClient\Model\WarehousetransactionWrite[]**](../Model/WarehousetransactionWrite.md)|  | |
 
 ### Return type
 
@@ -123,20 +123,20 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehousetransactionid** | [**int[]**](../Model/int.md)|  | [optional]
- **warehousetransactionidfrom** | **int**|  | [optional]
- **warehousetransactionidto** | **int**|  | [optional]
- **datecreatedfrom** | **int**|  | [optional]
- **datecreatedto** | **int**|  | [optional]
- **warehouseid** | **int**|  | [optional]
- **transactiontype** | **int**|  | [optional]
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **sort** | **string**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehousetransactionid** | [**int[]**](../Model/int.md)|  | [optional] |
+| **warehousetransactionidfrom** | **int**|  | [optional] |
+| **warehousetransactionidto** | **int**|  | [optional] |
+| **datecreatedfrom** | **int**|  | [optional] |
+| **datecreatedto** | **int**|  | [optional] |
+| **warehouseid** | **int**|  | [optional] |
+| **transactiontype** | **int**|  | [optional] |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **sort** | **string**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -196,11 +196,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
- **warehousetransactionid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
+| **warehousetransactionid** | **int**|  | |
 
 ### Return type
 
@@ -269,20 +269,20 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
- **warehousetransactionid** | [**int[]**](../Model/int.md)|  | [optional]
- **warehousetransactionidfrom** | **int**|  | [optional]
- **warehousetransactionidto** | **int**|  | [optional]
- **datecreatedfrom** | **int**|  | [optional]
- **datecreatedto** | **int**|  | [optional]
- **transactiontype** | **int**|  | [optional]
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **sort** | **string**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
+| **warehousetransactionid** | [**int[]**](../Model/int.md)|  | [optional] |
+| **warehousetransactionidfrom** | **int**|  | [optional] |
+| **warehousetransactionidto** | **int**|  | [optional] |
+| **datecreatedfrom** | **int**|  | [optional] |
+| **datecreatedto** | **int**|  | [optional] |
+| **transactiontype** | **int**|  | [optional] |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **sort** | **string**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 

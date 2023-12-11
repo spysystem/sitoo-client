@@ -5,12 +5,12 @@ All URIs are relative to https://api.mysitoo.com/v2/accounts/1500, except if the
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addWarehouseBatch()**](WarehouseBatchesApi.md#addWarehouseBatch) | **POST** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches.json |  |
-[**batchDeleteWarehouseBatchItems()**](WarehouseBatchesApi.md#batchDeleteWarehouseBatchItems) | **DELETE** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json |  |
-[**batchSetWarehouseBatchItems()**](WarehouseBatchesApi.md#batchSetWarehouseBatchItems) | **PUT** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json |  |
-[**getWarehouseBatch()**](WarehouseBatchesApi.md#getWarehouseBatch) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}.json |  |
-[**getWarehouseBatchItems()**](WarehouseBatchesApi.md#getWarehouseBatchItems) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json |  |
-[**getWarehouseBatches()**](WarehouseBatchesApi.md#getWarehouseBatches) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches.json |  |
-[**updateWarehouseBatch()**](WarehouseBatchesApi.md#updateWarehouseBatch) | **PUT** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}.json |  |
+| [**batchDeleteWarehouseBatchItems()**](WarehouseBatchesApi.md#batchDeleteWarehouseBatchItems) | **DELETE** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json |  |
+| [**batchSetWarehouseBatchItems()**](WarehouseBatchesApi.md#batchSetWarehouseBatchItems) | **PUT** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json |  |
+| [**getWarehouseBatch()**](WarehouseBatchesApi.md#getWarehouseBatch) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}.json |  |
+| [**getWarehouseBatchItems()**](WarehouseBatchesApi.md#getWarehouseBatchItems) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}/warehousebatchitems.json |  |
+| [**getWarehouseBatches()**](WarehouseBatchesApi.md#getWarehouseBatches) | **GET** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches.json |  |
+| [**updateWarehouseBatch()**](WarehouseBatchesApi.md#updateWarehouseBatch) | **PUT** /sites/{siteid}/warehouses/{warehouseid}/warehousebatches/{warehousebatchid}.json |  |
 
 
 ## `addWarehouseBatch()`
@@ -53,11 +53,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
- **warehousebatchWrite** | [**\Spy\SitooClient\Model\WarehousebatchWrite**](../Model/WarehousebatchWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
+| **warehousebatchWrite** | [**\Spy\SitooClient\Model\WarehousebatchWrite**](../Model/WarehousebatchWrite.md)|  | |
 
 ### Return type
 
@@ -117,12 +117,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
- **warehousebatchid** | **int**|  |
- **requestBody** | [**object[]**](../Model/object.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
+| **warehousebatchid** | **int**|  | |
+| **requestBody** | [**object[]**](../Model/object.md)|  | |
 
 ### Return type
 
@@ -182,12 +182,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
- **warehousebatchid** | **int**|  |
- **warehousebatchitemWrite** | [**\Spy\SitooClient\Model\WarehousebatchitemWrite[]**](../Model/WarehousebatchitemWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
+| **warehousebatchid** | **int**|  | |
+| **warehousebatchitemWrite** | [**\Spy\SitooClient\Model\WarehousebatchitemWrite[]**](../Model/WarehousebatchitemWrite.md)|  | |
 
 ### Return type
 
@@ -247,11 +247,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
- **warehousebatchid** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
+| **warehousebatchid** | **int**|  | |
 
 ### Return type
 
@@ -314,14 +314,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
- **warehousebatchid** | **int**|  |
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
+| **warehousebatchid** | **int**|  | |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -385,15 +385,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
- **transactiontype** | **int**|  | [optional]
- **warehousebatchstate** | **int**|  | [optional]
- **start** | **int**|  | [optional]
- **num** | **int**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
+| **transactiontype** | **int**|  | [optional] |
+| **warehousebatchstate** | **int**|  | [optional] |
+| **start** | **int**|  | [optional] |
+| **num** | **int**|  | [optional] |
+| **fields** | [**string[]**](../Model/string.md)| list of fields, comma-separated | [optional] |
 
 ### Return type
 
@@ -456,12 +456,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **siteid** | **int**|  |
- **warehouseid** | **int**|  |
- **warehousebatchid** | **int**|  |
- **warehousebatchWrite** | [**\Spy\SitooClient\Model\WarehousebatchWrite**](../Model/WarehousebatchWrite.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **siteid** | **int**|  | |
+| **warehouseid** | **int**|  | |
+| **warehousebatchid** | **int**|  | |
+| **warehousebatchWrite** | [**\Spy\SitooClient\Model\WarehousebatchWrite**](../Model/WarehousebatchWrite.md)|  | |
 
 ### Return type
 
